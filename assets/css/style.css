@@ -1,0 +1,98 @@
+html,body {
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    word-spacing: 1px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.primary-bck{
+    background: #FB2247;
+}
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.44);
+    transition: 2s ease-in;
+}
+header{
+    position: relative;
+    display: grid;
+    grid-template-columns: 60px auto 140px;
+    background: #220052;
+    align-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+    padding: 0 64px;
+    z-index: 30000;
+}
+.wr-logo{
+    width: 50px;
+    text-align: center;
+    background: white;
+    border-radius: 10px 20px;
+
+}
+.btn{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    word-spacing: 1px;
+    cursor: pointer;
+    transition: .6s ease-in;
+}
+.donate{
+    justify-self: end;
+}
+.donate:hover{
+    background: yellowgreen;
+    color: #e6e6e6;
+}
+.app-links{
+    justify-self: end;
+}
+.container{
+    position: relative;
+    display: grid;
+    grid-template-rows: 50px auto auto;
+}
+
+@media (max-width: 767px) {
+    header{
+        grid-template-columns: 60px auto;
+        padding: 0 16px;
+    }
+    .app-links{
+        display: none;
+    }
+    .toggle-icon{
+        color: #fefefe;
+        justify-self: end;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 768px) {
+    .toggle-icon{
+        display: none;
+    }
+}

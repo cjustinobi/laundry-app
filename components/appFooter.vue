@@ -24,6 +24,7 @@
 <style scoped>
     footer{
         display: grid;
+        position: relative;
         grid-template-columns: auto 150px;
         justify-content: space-between;
         align-items: center;

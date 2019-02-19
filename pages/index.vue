@@ -2,12 +2,13 @@
     <div class="page">
         <div class="intro">
             <div class="intro-inner">
-                <h1 class="relief">Water Relief Africa</h1>
-                <p class="mission">We are here to serve the water needs of the African Continent
-                </p>
+                <h1 class="relief">We Deliver Anywhere. Stain Free Service</h1>
+                <!-- <p class="mission">We are here to serve the water needs of the African Continent
+                </p> -->
             </div>
         </div>
-        <video class="video" src="~/assets/video/dw.mp4" autoplay muted loop></video>
+        <!-- <video class="video" src="~/assets/video/dw.mp4" autoplay muted loop></video> -->
+        <img src="~assets/images/wash-machine.jpg" class="img-show" alt="Washing Machine">
 
 
         <div class="feat">
@@ -85,18 +86,26 @@
         height: 100%;
         padding: 0;
     }
+    .img-show
+    {
+        background-size: cover;
+        background-position: center top;
+        height: 600px;
+        width: 100%;
+        position: relative;
+    }
     .intro {
         position: absolute;
         display: block;
-        left: 0;
-        top:160px;
+        left: 340px;
+        top: 400px;
         border-radius: 10px;
         line-height: 1.5;
         z-index: 1000;
-        width: 350px;
+        width: 700px;
         height: 200px;
-        margin-left: 40px;
-        background-color: rgba(84, 53, 117, 0.42);
+        /* margin-left: 40px; */
+        /* background-color: rgba(84, 53, 117, 0.42); */
     }
     .intro-inner{
         display: grid;

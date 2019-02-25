@@ -33,7 +33,7 @@
             padding-top: 32px;
         }
         .nav-item{
-            margin-top: 16px;
+            margin-top: 28px;
             margin-bottom: 16px;
         }
     }

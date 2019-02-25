@@ -30,6 +30,18 @@ html,body {
     background: rgba(51, 51, 51, 0.44);
     transition: 2s ease-in;
 }
+.show-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 25px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+.hide-form{
+    display: none;
+}
 header{
     position: fixed; 
     left: 0;
@@ -38,7 +50,7 @@ header{
     margin: 0;   
     display: grid;
     grid-template-columns: 90px auto;
-    background: #782be4;
+    background: #580231;
     align-content: center;
     align-items: center;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,0.4);

@@ -10,6 +10,13 @@
         <!-- <video class="video" src="~/assets/video/dw.mp4" autoplay muted loop></video> -->
         <img src="~assets/images/wash-machine.jpg" class="img-show" alt="Washing Machine">
 
+        <div class="pricing">
+              <p>Pricing Packages</p>
+        </div>
+
+        <div>
+            <packages-list/>
+        </div>
 
         <div class="feat">
             <div class="water w1">
@@ -23,6 +30,8 @@
                     </p>
                 </div>
             </div>
+
+            
             <div class="water w2">
                 <img src="~/assets/images/clean.png" alt="water relief">
                 <div>
@@ -64,10 +73,12 @@
 <script>
 
     import Donate from '~/components/donate'
+    import PackagesList from '~/components/packages/packagesList'
 
     export default {
         components: {
-            Donate
+            Donate,
+            PackagesList
         }
     }
 </script>
@@ -158,6 +169,13 @@
     .water-sub{
         color: #777;
         margin-bottom: 24px;
+    }
+    .pricing {
+        text-align: center;
+        font-family: Courier;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 70px 0 20px 0;
     }
     .catchy{
         display: grid;

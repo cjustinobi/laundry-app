@@ -1,11 +1,10 @@
 <template>
     <ul class='nav-list'>
         <li class="nav-item"><nuxt-link to='/about' class='logo'>About</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Get involved</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/projects' class='logo'>Projects</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/team' class='logo'>Our Team</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/contact-us' class='logo'>Contact us</nuxt-link></li>
-
+        <li class="nav-item"><nuxt-link to='/contact' class='logo'>How It Works</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/projects' class='logo'>Contact us</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/team' class='logo'>Login</nuxt-link></li>
     </ul>
 </template>
 
@@ -34,7 +33,7 @@
             padding-top: 32px;
         }
         .nav-item{
-            margin-top: 16px;
+            margin-top: 28px;
             margin-bottom: 16px;
         }
     }

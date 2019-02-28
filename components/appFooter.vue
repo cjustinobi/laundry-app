@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <div>
+        <div class="water-relief">
             <h5>Water Relief Africa</h5>
             <small><a href="#" target="_blank">Developed @africInnovate</a></small>
         </div>
@@ -24,10 +24,11 @@
 <style scoped>
     footer{
         display: grid;
+        position: relative;
         grid-template-columns: auto 150px;
         justify-content: space-between;
         align-items: center;
-        background: #190043;
+        background: #312a3d;
         color: #898989;
         padding: 10px 48px;
     }
@@ -41,13 +42,19 @@
     }
     .socials{
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(3, auto);
         justify-content: space-between;
     }
     @media(max-width: 480px) {
         footer{
             padding: 10px 16px;
             grid-template-columns: 1fr;
+            justify-items: center;
+        }
+        .water-relief
+        {
+            display: grid;
+            justify-items: center;
         }
         .socials{
             width: 150px;

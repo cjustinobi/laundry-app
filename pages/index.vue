@@ -2,13 +2,21 @@
     <div class="page">
         <div class="intro">
             <div class="intro-inner">
-                <h1 class="relief">Water Relief Africa</h1>
-                <p class="mission">We are here to serve the water needs of the African Continent
-                </p>
+                <h1 class="relief">We Deliver Anywhere. Stain Free Service</h1>
+                <!-- <p class="mission">We are here to serve the water needs of the African Continent
+                </p> -->
             </div>
         </div>
-        <video class="video" src="~/assets/video/dw.mp4" autoplay muted loop></video>
+        <!-- <video class="video" src="~/assets/video/dw.mp4" autoplay muted loop></video> -->
+        <img src="~assets/images/wash-machine.jpg" class="img-show" alt="Washing Machine">
 
+        <div class="pricing">
+              <p>Pricing Packages</p>
+        </div>
+
+        <div>
+            <packages-list/>
+        </div>
 
         <div class="feat">
             <div class="water w1">
@@ -22,6 +30,8 @@
                     </p>
                 </div>
             </div>
+
+            
             <div class="water w2">
                 <img src="~/assets/images/clean.png" alt="water relief">
                 <div>
@@ -63,10 +73,12 @@
 <script>
 
     import Donate from '~/components/donate'
+    import PackagesList from '~/components/packages/packagesList'
 
     export default {
         components: {
-            Donate
+            Donate,
+            PackagesList
         }
     }
 </script>
@@ -85,18 +97,26 @@
         height: 100%;
         padding: 0;
     }
+    .img-show
+    {
+        background-size: cover;
+        background-position: center top;
+        height: 600px;
+        width: 100%;
+        position: relative;
+    }
     .intro {
         position: absolute;
         display: block;
-        left: 0;
-        top:160px;
+        left: 340px;
+        top: 400px;
         border-radius: 10px;
         line-height: 1.5;
         z-index: 1000;
-        width: 350px;
+        width: 700px;
         height: 200px;
-        margin-left: 40px;
-        background-color: rgba(84, 53, 117, 0.42);
+        /* margin-left: 40px; */
+        /* background-color: rgba(84, 53, 117, 0.42); */
     }
     .intro-inner{
         display: grid;
@@ -149,6 +169,13 @@
     .water-sub{
         color: #777;
         margin-bottom: 24px;
+    }
+    .pricing {
+        text-align: center;
+        font-family: Courier;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 70px 0 20px 0;
     }
     .catchy{
         display: grid;

@@ -3,8 +3,10 @@
             <h4 class="sign-in">Sign In</h4>
             <input type="text" v-model="email" placeholder="Email" required><br>
             <input type="password" v-model="password" placeholder="Password"><br>
-            <button v-on:click="signIn" class="login-button">{{LoginText}}</button>
-            <p class="no-account">You don't have an account? You can <router-link to="/register" class="register">create one</router-link></p>  
+            <button v-on:click="signIn" class="login-button ">{{LoginText}}</button>
+            <small class="no-account" @click.prevent="$emit('toggleLogin')">
+                You don't have an account? You can 
+            </small>  
         </div>
     
 </template>
@@ -22,6 +24,7 @@ export default {
             LoginText: 'Login'
         }
     },
+
     methods: {
       
         signIn() {
@@ -47,9 +50,9 @@ body{
 }
 .login{
     display: grid;
-    grid-template: repeat(4, auto) / auto; 
+    grid-template-rows: repeat(5, auto); 
     justify-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
     grid-gap: 20px;
 }
 .login input{
@@ -61,7 +64,7 @@ body{
     font-size: 25px;
 }
 .login-button{
-    width: 20%;
+    width: 30%;
     height: 70px;
     border-radius: 10px;
     padding: 10px;
@@ -70,17 +73,10 @@ body{
 }
 .sign-in{
     font-size: 60px;
-}
-.register{
-    text-decoration: underline;
-    font-size: 20px;
+    margin-bottom: 30px;
 }
 .no-account {
     font-size: 17px;
-}
-.no-account a{
-    font-size: 30px;
-    color: black;
 }
 
 @media (max-width: 767px) {
@@ -100,12 +96,7 @@ body{
             font-size: 18px;
         }
         .login-button{
-            width: 20%;
-            height: 70px;
-            border-radius: 10px;
-            padding: 10px;
-            border: 5px solid rgb(247, 124, 175);
-            font-size: 18px;
+            font-size: 16px;
         }
         .sign-in{
             text-align: center;

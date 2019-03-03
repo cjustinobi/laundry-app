@@ -1,7 +1,7 @@
 <template>
     <div>
-        <login></login>
-        <register></register>
+        <login v-if="loginState" @toggleLogin="toggleLogin"></login>
+        <register v-if="!loginState" @toggleLogin="toggleLogin"></register>
     </div>
 </template>
 
@@ -13,9 +13,30 @@
     export default {
 
         components: {
-            Login, Register
+            'login': Login, 
+            'register': Register
+        },
+        
+        data() {
+            return {
+                loginState: true,
+        
+            }
+        },
+        methods: {
+            toggleLogin() {
+                this.loginState ? this.loginState = false : this.loginState = true
+                
+            }
         }
+      
 
     }
 
 </script>
+
+<style scoped>
+    .loginReg{
+        display: none;
+    }
+</style>

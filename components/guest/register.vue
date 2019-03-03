@@ -1,11 +1,12 @@
 <template>
-        <div class="sign-up">
-            <h2 class="create">Create a new account</h2>
-            <input type="text" v-model="email" placeholder="Email" required><br>
-            <input type="password" v-model="password" placeholder="Password"><br>
-            <button v-on:click="signUp" class="sign-up-button">Sign Up</button><br>
-            <span class="account">Already have an account? <router-link to="/login" class="login-reg">Login</router-link></span>
-        </div>
+    <div class="sign-up">
+        <h2 class="create">Create a new account</h2>
+        <input type="text" v-model="fullname" placeholder="fullname" required><br>
+        <input type="text" v-model="email" placeholder="Email" required><br>
+        <input type="password" v-model="password" placeholder="Password"><br>
+        <button v-on:click="signUp" class="sign-up-button">Sign Up</button><br>
+        <small class="account" @click.prevent="$emit('toggleLogin')">Already have an account? Login</small>
+    </div>
     
 </template>
 
@@ -45,12 +46,14 @@ export default {
     }
     .create{
         font-size: 50px;
+        margin-bottom: 40px;
     }
     .sign-up{
         display: grid;
-        grid-template: repeat(4, auto) / auto; 
+        grid-template-rows: repeat(6, auto); 
         justify-items: center;
-        grid-gap: 20px;
+        grid-gap: 10px;
+        margin-top: 60px;
     }
     .sign-up input{
         width: 30%;
@@ -61,15 +64,15 @@ export default {
         font-size: 25px;
     }
     .sign-up-button{
-        width: 20%;
+        width: 30%;
         height: 70px;
         border-radius: 10px;
         padding: 10px;
         border: 6px solid rgb(247, 124, 175);
         font-size: 18px;
     }
-    .account a{
-        font-size: 30px;
+    .account{
+        margin-top: 0;
     }
 
     @media (max-width: 767px) {
@@ -89,12 +92,8 @@ export default {
             font-size: 18px;
         }
         .sign-up-button{
-            width: 20%;
-            height: 70px;
-            border-radius: 10px;
-            padding: 10px;
             border: 5px solid rgb(247, 124, 175);
-            font-size: 18px;
+            font-size: 16px;
         }
         .create{
             text-align: center;

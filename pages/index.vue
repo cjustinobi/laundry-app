@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-        <div class="intro">
+        <!-- <div class="intro"> -->
             <div class="intro-inner">
                 <h1 class="relief">We Deliver Anywhere. Stain Free Service</h1>
                 <!-- <p class="mission">We are here to serve the water needs of the African Continent
                 </p> -->
             </div>
-        </div>
+        <!-- </div> -->
         <!-- <video class="video" src="~/assets/video/dw.mp4" autoplay muted loop></video> -->
         <img src="~assets/images/wash-machine.jpg" class="img-show" alt="Washing Machine">
 
@@ -119,12 +119,16 @@
         /* background-color: rgba(84, 53, 117, 0.42); */
     }
     .intro-inner{
+        position: absolute;
+        left: 320px;
+        top: 400px;
+        z-index: 1000;
         display: grid;
         height: 200px;
         align-content: center;
-        justify-items: left;
+        /* justify-items: left; */
         color: #fefefe;
-        padding: 0 28px;
+        /* padding: 0 28px; */
         font-weight: 700;
     }
     .feat{
@@ -216,6 +220,7 @@
             height: auto;
             margin: 24px 0;
             grid-template: auto / 90%;
+            grid-gap: 20px;
         }
 
     }
@@ -228,6 +233,12 @@
             max-width: 200px;
         }
         .intro{
+            display: none;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .intro-inner{
             display: none;
         }
     }

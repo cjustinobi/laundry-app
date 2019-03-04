@@ -4,7 +4,7 @@
         <li class="nav-item"><nuxt-link to='/contact' class='logo'>How It Works</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/projects' class='logo'>Contact us</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/team' class='logo'>Login</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/login' class='logo'>Login</nuxt-link></li>
     </ul>
 </template>
 

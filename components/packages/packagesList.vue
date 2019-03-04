@@ -58,8 +58,6 @@
                 </div>
                   
 
-                      
-                   
             <!-- </div> -->
         </div>
 
@@ -104,38 +102,27 @@ export default {
 </script>
 
 <style scoped>
+.packages{
+            position: relative;
+            display: grid;
+            grid-template: 1fr / 1fr 1fr 1fr;
+            justify-content: center;
+            justify-items: center;
+            grid-gap: 20px;
+            background-color: #f9f9f9;
+            margin-bottom: 40px;
+            }
 
 
-@media (max-width: 767px) {
-    .packages{
-        position: relative;
-        display: grid;
-        grid-template-rows: 1fr;
-        justify-content: center;
-        justify-items: center;
-        grid-gap: 20px;
-        background-color: #f9f9f9;
-        margin-bottom: 40px;
+    @media (max-width: 767px) {
+        .packages{
+            grid-template-columns: 1fr;        
+            }
         }
-    .package{
-        position: relative;
-        }
-    }
-@media (min-width: 768px) {
-    .packages{
-        position: relative;
-        display: grid;
-        grid-template: 1fr / repeat(3, 1fr);
-        justify-content: center;
-        justify-items: center;
-        grid-gap: 20px;
-        background-color: #f9f9f9;
-    }
-    .package{
-        position: relative;
-    }
-}
 
+    /* .package{
+        position: relative;
+    } */
     .wash-menu{
         display: grid;
         grid-template: repeat(5, 1fr) / 30px 1fr;
@@ -152,7 +139,7 @@ export default {
     .pack-item{
         border: 1px solid grey;
         border-radius: 10px;
-        border-top: 10px solid rgb(119, 128, 98);
+        border-top: 10px solid indianred;
         display: grid;
         margin: 30px 0 30px 0;
         justify-content: center;
@@ -163,7 +150,15 @@ export default {
     }
     .pack-item:hover
     {
-        border-top: 10px solid #fb9e36
+        border-top: 10px solid #fb9e36;
+    }
+    .packages .pack-item:nth-child(even)
+    {
+        border-top: 10px solid rgb(184, 76, 175);
+    }
+    .packages .pack-item:nth-child(even):hover
+    {
+        border-top: 10px solid rgb(214, 78, 45);
     }
     .name{
         font-family: Courier;

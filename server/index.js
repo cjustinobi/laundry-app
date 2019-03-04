@@ -1,5 +1,7 @@
+
 const express = require('express')
 const consola = require('consola')
+const bodyParser = require('body-parser')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
@@ -34,3 +36,8 @@ async function start() {
     })
 }
 start()
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+
+require('./routes')(app)

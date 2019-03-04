@@ -1,38 +1,53 @@
 <template>
-        <div class="sign-up">
-            <h2 class="create">Create a new account</h2>
-            <input type="text" v-model="email" placeholder="Email" required><br>
-            <input type="password" v-model="password" placeholder="Password"><br>
-            <button v-on:click="signUp" class="sign-up-button">Sign Up</button><br>
-            <span class="account">Already have an account? <router-link to="/login" class="login-reg">Login</router-link></span>
-        </div>
-    
+    <div class="sign-up">
+        <small v-if="errors">{{ errors }}</small>
+        <h2 class="create">Create a new account</h2>
+        <input v-model="details.fullname" placeholder="John Doe" required>
+        <input v-model="details.email" type="email" placeholder="johndoe@example.com" required>
+        <input v-model="details.phone" placeholder="johndoe@example.com" required>
+        <input type="password" v-model="details.password" placeholder="secret things">
+        <button @click.prevent="signUp" class="sign-up-button">Sign Up</button>
+        <span class="account">
+            Already have an account? <nuxt-link to="/login" class="login-reg">Login</nuxt-link>
+        </span>
+    </div>
+
 </template>
 
 <script>
 
 
-export default {
-    name: 'signUp',
-    data: function() {
-        return {
-            email: '',
-            password: '',
-        }
-    },
-    methods: {
-        signUp: function() {
+    export default {
+        name: 'signUp',
+        data: function() {
+            return {
+                details: {
+                    fullname: '',
+                    email: '',
+                    phone: '',
+                    password: '',
+                },
+                errors: ''
+            }
+        },
+        methods: {
+            async signUp() {
+                try {
+                    let res = await this.$axios.$post('/api/register', this.details)
+                    console.log(res)
+                } catch (e) {
+                    this.errors = e.response.data.error
+                }
+            }
+        },
+        mounted() {
+            document.body.style.background = "#d0e0da";
+        },
 
+        destroyed() {
+            document.body.style.background = "none";
         }
-    },
-    mounted() {
-        document.body.style.background = "#d0e0da";
-    },
-
-    destroyed() {
-        document.body.style.background = "none";
     }
-}
 </script>
 
 <style scoped>
@@ -48,7 +63,7 @@ export default {
     }
     .sign-up{
         display: grid;
-        grid-template: repeat(4, auto) / auto; 
+        grid-template: repeat(4, auto) / auto;
         justify-items: center;
         grid-gap: 20px;
     }
@@ -75,7 +90,7 @@ export default {
     @media (max-width: 767px) {
         .sign-up{
             display: grid;
-            grid-template: repeat(4, auto) / auto; 
+            grid-template: repeat(4, auto) / auto;
             justify-items: center;
             grid-gap: 10px;
         }

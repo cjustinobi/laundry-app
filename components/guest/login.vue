@@ -1,5 +1,6 @@
 <template>
         <div class="login">
+            <small v-if="errors">{{ errors }}</small>
             <h4 class="sign-in">Sign In</h4>
             <input type="text" v-model="email" placeholder="Email" required><br>
             <input type="password" v-model="password" placeholder="Password"><br>
@@ -19,15 +20,18 @@ export default {
             email: '',
             password: '',
             user: '',
-            LoginText: 'Login'
+            LoginText: 'Login',
+            errors: null
         }
     },
     methods: {
       
-        signIn() {
-            this.LoginText = 'loading ...'
-            let self = this
-
+        async signIn() {
+            try {
+                this.LoginText = 'loading ...'
+                let self = await this.$axios.$post('/api/login', { email: this.email, password: this.password })
+                console.log(self)
+            } catch (e) { this.errors = e.response.data.error}
         }
     },
     mounted() {

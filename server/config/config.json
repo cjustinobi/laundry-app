@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "justin",
-    "password": "Cejowisz1!",
+    "username": "postgres",
+    "password": "postgres",
     "database": "laundry",
     "host": "127.0.0.1",
     "dialect": "postgres"

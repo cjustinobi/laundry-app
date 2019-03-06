@@ -52,7 +52,7 @@
 </script>
 
 <style scoped>
-    body{
+    /* body{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
     .login-reg{
@@ -114,7 +114,7 @@
         .create{
             text-align: center;
         }
-    }
+    } */
 </style>
 
 

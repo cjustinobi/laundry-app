@@ -12,6 +12,7 @@
         <a class='toggle-icon' @click.prevent="$emit('toggleSidebar')">
             <i class='fa fa-bars'></i>
         </a>
+        
 
     </header>
 </template>
@@ -37,6 +38,7 @@
     {
         text-decoration: none;
     }
+    
 
     @media(max-width: 767px) {
         .hide-donate{

@@ -104,6 +104,7 @@
         height: 600px;
         width: 100%;
         position: relative;
+        margin-top: -20px;
     }
     .intro {
         position: absolute;

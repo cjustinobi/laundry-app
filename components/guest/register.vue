@@ -1,12 +1,4 @@
 <template>
-    <div class="sign-up">
-        <h2 class="create">Create a new account</h2>
-        <input type="text" v-model="fullname" placeholder="fullname" required><br>
-        <input type="text" v-model="email" placeholder="Email" required><br>
-        <input type="password" v-model="password" placeholder="Password"><br>
-        <button v-on:click="signUp" class="sign-up-button">Sign Up</button><br>
-        <small class="account" @click.prevent="$emit('toggleLogin')">Already have an account? Login</small>
-    </div>
     
     <div class="sign-up">
         <small v-if="errors">{{ errors }}</small>

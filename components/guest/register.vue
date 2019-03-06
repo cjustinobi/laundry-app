@@ -1,5 +1,6 @@
 <template>
-    <div class="sign-up">
+    <div>
+        <div class="sign-up">
         <h2 class="create">Create a new account</h2>
         <input type="text" v-model="fullname" placeholder="fullname" required><br>
         <input type="text" v-model="email" placeholder="Email" required><br>
@@ -19,6 +20,7 @@
         <span class="account">
             Already have an account? <nuxt-link to="/login" class="login-reg">Login</nuxt-link>
         </span>
+    </div>
     </div>
 
 </template>
@@ -60,7 +62,7 @@
 </script>
 
 <style scoped>
-    body{
+    /* body{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
     .login-reg{
@@ -122,7 +124,7 @@
         .create{
             text-align: center;
         }
-    }
+    } */
 </style>
 
 

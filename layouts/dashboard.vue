@@ -1,25 +1,25 @@
 <template>
     <div class="dashboard">
-        <div class="dash-header">
-            <dashHeader></dashHeader>
+        <div class="sidebar">
+            <sidebar></sidebar>
         </div>
 
         <div class="content">
-            <sidebar></sidebar>
-            <div><nuxt/></div>
+            <dash-header></dash-header>
+            <div class="nuxt-rend"><nuxt/></div>
         </div>
         
     </div>
 </template>
 
 <script>
-    import DashHeader from '~/components/guest/dashboard/dashHeader'
     import Sidebar from '~/components/guest/dashboard/sidebar'
+    import DashHeader from '~/components/guest/dashboard/dashHeader'
     
 
     export default {
 
-        components: {DashHeader, Sidebar},
+        components: {Sidebar, DashHeader},
         middleware: ['check-auth']
 
     }
@@ -29,13 +29,21 @@
 <style scoped>
     .dashboard{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .dash-header{
-
+        grid-template-columns: 200px 1fr;
+        background-color: rgb(225, 238, 238);
     }
     .content{
         display: grid;
-        grid-template: 100% / 200px 1fr;
+        grid-template-rows: 60px 1fr;
     }
+    .sidebar{
+        min-height: 100vh;
+        background: #fff;
+    }
+
+@media (max-width: 767px) {
+    .dashboard{
+        grid-template-columns: 170px 1fr;
+    }
+}
 </style>

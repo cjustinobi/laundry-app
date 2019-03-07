@@ -1,21 +1,12 @@
 <template>
     <div class="main-head">
-        <div class="gpat">
-            <nuxt-link to='/' class="brand-name">
-                <h1 class='wr-logo'>GPAT</h1>
-            </nuxt-link>
-            <a class='toggle-icon' @click.prevent="$emit('toggleSidebar')">
-                <i class='fa fa-bars'></i>
-            </a>
-        </div>
-
         <div class="user-h3">
             <h3>User Dashboard</h3>
         </div>
 
         <div class="user-view">
             <img src="~assets/images/chuks.jpg" class="chuks" alt="">
-            <div>
+            <div class="names">
                 <p>Obi Chuks</p>
                 <p>First User</p>
             </div>
@@ -34,16 +25,11 @@ export default {
 <style scoped>
     .main-head{
         display: grid;
-        grid-template-columns: 200px 1fr 200px;
+        grid-template-columns: 1fr 200px;
         align-items: center;
-        padding: 0 20px;
-        background-color: rgb(231, 238, 238);
+        background: #fff;
         height: 60px;
-    }
-    .gpat a{
-        display: grid;
-        grid-template-columns: auto 40px;
-        color: black;
+        color: rgb(104, 98, 98);
     }
     .chuks{
         width: 30px;
@@ -61,6 +47,19 @@ export default {
     .user-h3{
         text-align: center;
     }
+
+@media (max-width: 767px) {
+    .main-head{
+        grid-template-columns: auto 130px;
+       
+    }
+    .user-h3{
+        font-size: 15px
+    }
+    .names{
+        font-size: 14px
+    }
+}
 </style>
 
 

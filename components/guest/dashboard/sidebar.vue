@@ -1,6 +1,6 @@
 <template>
     <div class="main-div">
-        <div class="gpat">
+        <div class="sidebar-head">
             <nuxt-link to='/' class="brand-name">
                 <h1 class='wr-logo'>GPAT</h1>
             </nuxt-link>
@@ -61,6 +61,7 @@ export default {
     }
     .setting-li{
         background: #fff;
+        margin-top: 100px
     }
     .setting-li a{
         text-decoration: none;
@@ -70,7 +71,7 @@ export default {
     .setting-link{
         margin-left: 20px
     }
-    .gpat{
+    .sidebar-head{
         display: grid;
         grid-template-columns: auto 60px;
         align-items: center;
@@ -79,12 +80,12 @@ export default {
         border-right: 1px solid rgb(230, 224, 224);
         border-bottom: 1px solid rgb(230, 224, 224);
     }
-    .gpat a{
+    .sidebar-head a{
         color: rgb(104, 98, 98);
     }
 
 @media (max-width: 767px){
-    .gpat{
+    .sidebar-head{
         grid-template-columns: auto 40px;
         
     }

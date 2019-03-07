@@ -1,6 +1,6 @@
 <template>
     <div class="user-home">
-        <div>
+        <div class="overview">
             <div><h3>Overview</h3></div>
             <div>
                 <div>
@@ -39,7 +39,6 @@
 </template>
 
 <script>
-import Sidebar from '~/components/guest/dashboard/sidebar'
 
 
 
@@ -52,6 +51,10 @@ export default {
     .user-home{
         display: grid;
         margin: 0 auto;
+    }
+    .overview{
+        /* background-color: #fff; */
+
     }
 </style>
 

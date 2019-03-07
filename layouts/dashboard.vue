@@ -30,7 +30,7 @@
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
-        background-color: rgb(225, 238, 238);
+        background: rgb(225, 238, 238);
     }
     .content{
         display: grid;

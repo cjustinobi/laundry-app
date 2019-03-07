@@ -4,7 +4,7 @@
             <h4 class="sign-in">Sign In</h4>
             <input type="text" v-model="email" placeholder="Email" required><br>
             <input type="password" v-model="password" placeholder="Password"><br>
-            <button v-on:click="signIn" class="login-button ">{{LoginText}}</button>
+            <button @click="signIn" class="login-button ">{{LoginText}}</button>
             <small class="no-account" @click.prevent="$emit('toggleLogin')">
                 You don't have an account? You can 
             </small>  
@@ -29,13 +29,11 @@ export default {
 
     methods: {
       
-        async signIn() {
-            try {
-                this.LoginText = 'loading ...'
-                let self = await this.$axios.$post('/api/login', { email: this.email, password: this.password })
-                console.log(self)
-            } catch (e) { this.errors = e.response.data.error}
+        signIn() {
+            this.LoginText = 'loading ...'
+            this.$store.dispatch('auth/signIn', { email: this.email, password: this.password })
         }
+
     },
     mounted() {
         document.body.style.background = "#94cfd1";

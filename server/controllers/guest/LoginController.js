@@ -24,7 +24,9 @@ module.exports = {
             }
             user = user.toJSON()
             bcrypt.compare(req.body.password, user.password, function(err, result) {
-                result ? res.status(200).send(user) : res.status(401).send({ error: 'incorrect login details'})
+                if (err) res.status(500).send({ error: 'server error' })
+                result ? res.status(200).send({ user, token: jwtSignUser(user) }) :
+                    res.status(401).send({ error: 'incorrect login details'})
             })
 
         } catch (e) {

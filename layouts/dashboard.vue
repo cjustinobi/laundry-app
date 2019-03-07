@@ -44,6 +44,7 @@
 
     export default {
 
+        middleware: ['check-auth']
 
     }
 

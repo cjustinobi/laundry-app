@@ -19,7 +19,8 @@
 
     export default {
 
-        components: {DashHeader, Sidebar}
+        components: {DashHeader, Sidebar},
+        middleware: ['check-auth']
 
     }
 

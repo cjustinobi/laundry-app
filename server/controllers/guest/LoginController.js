@@ -23,14 +23,14 @@ module.exports = {
                 return res.status(403).send({error: 'user not found'})
             }
             user = user.toJSON()
-            // const isPasswordValid = await user.comparePassword(req.body.password)
-            bcrypt.compare(req.body.password, user.password, function (err, result){
-                return console.log(result)
-                    // return res.send({ user, token: jwtSignUser(user)})
+            bcrypt.compare(req.body.password, user.password, function(err, result) {
+                if (err) res.status(500).send({ error: 'server error' })
+                result ? res.status(200).send({ user, token: jwtSignUser(user) }) :
+                    res.status(401).send({ error: 'incorrect login details'})
             })
 
         } catch (e) {
-            console.log(e)
+            res.status(401).send({ error: 'incorrect login details'})
         }
 
     }

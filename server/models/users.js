@@ -8,13 +8,8 @@ function hashPassword(user, options) {
 
     if (!user.changed('password')) { return }
 
-
     return bcrypt.hash(user.password, saltRounds)
-        .then(hash => {
-            user.setDataValue('password', hash)
-        })
-
-
+        .then(hash => user.setDataValue('password', hash))
 }
 
 // 'use strict';
@@ -28,8 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         hooks: {
             beforeCreate: hashPassword,
-            beforeUpdate: hashPassword,
-            beforeSave: hashPassword
+            beforeUpdate: hashPassword
         }
     })
 

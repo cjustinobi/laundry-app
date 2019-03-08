@@ -10,11 +10,11 @@
         </div>
 
         <ul class='sidebar-nav'>
-            <li class="nav-item"><nuxt-link to='/about' class='logo'>About</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/contact' class='logo'>How It Works</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/projects' class='logo'>Contact us</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/login' class='logo'>Login</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to='/about' class='logo'>Transaction History</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to='/contact' class='logo'>Notifications</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to='/login' class='logo'>Logout</nuxt-link></li>
             
         </ul>
 
@@ -67,6 +67,10 @@ export default {
         text-decoration: none;
         color: #000;
         transition: .7s ease-out;
+    }
+    .setting-li a:hover,
+    .setting-li a:active{
+        color: #b4b4b4;
     }
     .setting-link{
         margin-left: 20px

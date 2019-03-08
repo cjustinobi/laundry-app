@@ -9,20 +9,20 @@
             </a>
         </div>
 
-        <ul class='sidebar-nav'>
-            <li class="nav-item"><nuxt-link to='/about' class='logo'>Transaction History</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/contact' class='logo'>Notifications</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/login' class='logo'>Logout</nuxt-link></li>
+        <div class='sidebar-nav'>
+             <nuxt-link to='/about' class='logo'>Transaction History</nuxt-link>
+             <nuxt-link to='/contact' class='logo'>Notifications</nuxt-link>
+             <nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link>
+             <nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link>
+             <nuxt-link to='/login' class='logo'>Logout</nuxt-link>
             
-        </ul>
-
-        <div class="setting-li">
             <nuxt-link to='/login' class='setting-link'>
                 <span class="setting"><i class="fa fa-cog"></i></span>Settings
             </nuxt-link>
+        
         </div>
+
+        
     </div>
 </template>
 
@@ -35,17 +35,23 @@ export default {
 <style scoped>
     .main-div{
         display: grid;
-        grid-template-rows: 60px auto 60px;
+        min-height: 100vh;
+        grid-template-rows: 60px 1fr;
         
     }
     .sidebar-nav {
-        list-style: none;
+        position: relative;
+        display: grid;
+        grid-template-rows: 50px;
+        grid-auto-rows: 50px;
+        /* list-style: none;
         padding: 0;
-        margin: 0;
-        background: #fff;
+        margin: 0; */
+        background: red;
     }
     .nav-item {
-        margin: 30px 40px;
+        /* margin: 30px 40px; */
+        height: 50px;
     }
     .nav-item a {
         text-decoration: none;
@@ -59,9 +65,10 @@ export default {
     .setting{
         padding-right: 10px;
     }
-    .setting-li{
-        background: #fff;
-        margin-top: 100px
+    .setting-link{
+        /* display: grid; */
+        align-self: end !important;
+        /* background: #fff; */
     }
     .setting-li a{
         text-decoration: none;

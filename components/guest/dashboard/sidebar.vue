@@ -10,12 +10,11 @@
         </div>
 
         <ul class='sidebar-nav'>
-            <li class="nav-item"><nuxt-link to='/about' class='logo'>Transaction History</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to='/about' class='logo'>All users</nuxt-link></li>
             <li class="nav-item"><nuxt-link to='/contact' class='logo'>Notifications</nuxt-link></li>
             <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link></li>
             <li class="nav-item"><nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link></li>
             <li class="nav-item"><nuxt-link to='/login' class='logo'>Logout</nuxt-link></li>
-            
         </ul>
 
         <div class="setting-li">
@@ -28,7 +27,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 

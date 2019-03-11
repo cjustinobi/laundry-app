@@ -4,11 +4,7 @@
                 <div class="close-package"><a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a></div>
                 <input class="package-input" type="text" placeholder="name" v-model="details.name">
                 <input class="package-input" type="text" placeholder="price" v-model="details.price">
-                <select name="" id="" class="package-input">
-                    <option value="">Economy</option>
-                    <option value="">Basic</option>
-                    <option value="">Premium</option>
-                </select>
+
                 <div class="btn-package">
                     <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
                     <button class="btn-submit" @click.prevent="submitPackage">Submit</button>
@@ -21,7 +17,7 @@
 </template>
 
 <script>
-// import {db} from '../config/firebase'
+
 
 export default {
 
@@ -38,32 +34,13 @@ export default {
             },
         }
     },
-    // firebase: {
-    //     packages: db.ref('packages')
-    // },
+
 
     methods: {
         async submitPackage() {
-            // this.$firebaseRefs.packages.push(this.details)
-            if (this.details['.key']) {
-
-                try {
-                    await db.ref(`/packages`)
-                        .child(this.details['.key'])
-                        .update({name: this.details.name, price: this.details.price})
-                }
-
-                catch(e) {
-                    console.log(e)
-                }
-
-
-            } else {
-                this.$firebaseRefs.packages.push(this.details)
-
-            } 
-      
-
+            try {
+                let res = this.$store.dispatch('packages', this.details)
+            } catch (e) { console.log(e)}
         },
     },
 

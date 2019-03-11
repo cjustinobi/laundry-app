@@ -1,4 +1,5 @@
 const User = require('../../models').user
+const Plan  = require('../../models').plan
 const jwt = require('jsonwebtoken')
 const jwtConfig = require('../../config/jwt')
 const bcrypt = require('bcrypt')
@@ -16,7 +17,10 @@ module.exports = {
             let user = await User.findOne({
                 where: {
                     email: req.body.email
-                }
+                },
+                include: [{
+                    model: Plan
+                }]
             })
 
             if (!user) {
@@ -30,7 +34,7 @@ module.exports = {
             })
 
         } catch (e) {
-            res.status(401).send({ error: 'incorrect login details'})
+            res.status(401).send({ error: e})
         }
 
     }

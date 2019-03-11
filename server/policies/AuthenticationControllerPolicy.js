@@ -6,6 +6,7 @@ module.exports = {
             fullname: Joi.string().min(3).required(),
             email: Joi.string().email(),
             phone: Joi.string(),
+            plan_id: Joi.string(),
             password: Joi.string().min(6).max(16).required()
         }
 
@@ -20,6 +21,9 @@ module.exports = {
                     break
                 case 'phone':
                     res.status(400).send({error: 'invalid phone number'})
+                    break
+                case 'plan_id':
+                    res.status(400).send({error: 'invalid package selected'})
                     break
                 case 'password':
                     res.status(400).send({error: 'password should a valid and minimum of 6 characters'})

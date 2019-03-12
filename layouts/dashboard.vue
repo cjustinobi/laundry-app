@@ -27,6 +27,9 @@
 </script>
 
 <style scoped>
+    a{
+        /* text-decoration: none; */
+    }
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;

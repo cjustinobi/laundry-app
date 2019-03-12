@@ -67,16 +67,11 @@
     .content{
         display: grid;
         grid-template-rows: 60px 1fr;
-        /* position: absolute;  */
-        /* top: 0;
-        right: 0; */
     }
     .sidebar{
         position: relative;
         top: 0;
         left: 0;
-        /* width: 200px; */
-        /* z-index: 40000; */
         min-height: 100vh;
         background: #fffcfc;
     }

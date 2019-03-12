@@ -59,7 +59,6 @@ export default {
 @media (max-width: 767px) {
     .main-head{
         grid-template-columns: 1fr 130px;
-        /* position: fixed; */
        
     }
     .user-h3{

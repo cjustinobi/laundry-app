@@ -21,7 +21,7 @@
                 </nuxt-link>
              </div>
 
-             <div class='sidebar-nav' v-if="!showMenu" >
+             <div class='sidebar-nav sidebar-icons' v-if="!showMenu" >
                 <nuxt-link to='/about' class='logo'>
                     <span class="setting"><i class="fa fa-cog"></i></span>
                 </nuxt-link>
@@ -87,24 +87,18 @@ export default {
         /* display: grid;
         grid-template-rows: 1fr 1fr; */
     }
+    .sidebar-icons{
+        padding-left: -60px;
+    }
     .sidebar-nav {
-        /* position: fixed; */
         display: grid;
         grid-template-rows: 50px;
         grid-auto-rows: 50px;
         align-items: center;
         justify-content: center;
-        /* top:  60px;
-        left: 0; */
-        /* width: 200px; */
-        /* list-style: none;
-        padding: 0;
-        margin: 0; */
-        /* background: red; */
         height: 100vh;
     }
     .nav-item {
-        /* margin: 30px 40px; */
         height: 50px;
     }
     .nav-item a {
@@ -116,13 +110,9 @@ export default {
     .nav-item a:active{
         color: #b4b4b4;
     }
-    .setting{
-        padding-right: 10px;
-    }
     .setting-link{
-        /* display: grid; */
-        align-self: end !important;
-        /* background: #fff; */
+        align-self: end;
+        
     }
     .setting-li a{
         text-decoration: none;
@@ -133,14 +123,8 @@ export default {
     .setting-li a:active{
         color: #b4b4b4;
     }
-    .setting-link{
-        margin-left: 20px
-    }
     .sidebar-head{
         display: grid;
-        /* position: relative; */
-        /* top: 0;
-        left: 0; */
         grid-template-columns: auto 60px;
         align-items: center;
         padding-left: 13px;

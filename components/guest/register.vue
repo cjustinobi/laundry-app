@@ -5,12 +5,12 @@
         <h2 class="create">Create a new account</h2>
         <input v-model="details.fullname" placeholder="John Doe" required>
         <input v-model="details.email" type="email" placeholder="johndoe@example.com" required>
-        <input v-model="details.phone" placeholder="johndoe@example.com" required>
-        <input type="password" v-model="details.password" placeholder="secret things">
+        <input v-model="details.phone" placeholder="Phone Number" required>
+        <input type="password" v-model="details.password" placeholder="Password">
         <button @click.prevent="signUp" class="sign-up-button">Sign Up</button>
-        <span class="account">
-            Already have an account? <nuxt-link to="/login" class="login-reg">Login</nuxt-link>
-        </span>
+        <samll class="account" @click.prevent="$emit('toggleLogin')">
+            Already have an account?
+        </samll>
     </div>
 
 </template>
@@ -52,6 +52,10 @@
 </script>
 
 <style scoped>
+    .account{
+        margin-top: 0;
+        cursor: pointer;
+    }
     /* body{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }

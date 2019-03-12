@@ -1,24 +1,47 @@
 <template>
     <div class="main-div">
-        <div class="sidebar-head">
+        <div id="sidebar-head" class="sidebar-head">
             <nuxt-link to='/' class="brand-name">
                 <h1 class='wr-logo'>GPAT</h1>
             </nuxt-link>
-            <a class='toggle-bar' @click.prevent="$emit('toggleSidebar')">
+            <a class='toggle-bar' @click.prevent="toggleMenu" title="Menu Icons">
                 <i class='fa fa-bars'></i>
             </a>
         </div>
 
-        <div class='sidebar-nav'>
-             <nuxt-link to='/about' class='logo'>Transaction History</nuxt-link>
-             <nuxt-link to='/contact' class='logo'>Notifications</nuxt-link>
-             <nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link>
-             <nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link>
-             <nuxt-link to='/login' class='logo'>Logout</nuxt-link>
+        <div  class="toggle-sidebar-nav">
+             <div class='sidebar-nav' v-show="showMenu">
+                <nuxt-link to='/about' class='logo'>Transaction History</nuxt-link>
+                <nuxt-link to='/contact' class='logo'>Notifications</nuxt-link>
+                <nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link>
+                <nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link>
+                <nuxt-link to='/login' class='logo'>Logout</nuxt-link>
             
-            <nuxt-link to='/login' class='setting-link'>
-                <span class="setting"><i class="fa fa-cog"></i></span>Settings
-            </nuxt-link>
+                <nuxt-link to='/login' class='setting-link'>Settings
+                </nuxt-link>
+             </div>
+
+             <div class='sidebar-nav' v-if="!showMenu" >
+                <nuxt-link to='/about' class='logo'>
+                    <span class="setting"><i class="fa fa-cog"></i></span>
+                </nuxt-link>
+                <nuxt-link to='/contact' class='logo'>
+                    <span class="setting"><i class="fa fa-cog"></i></span>
+                </nuxt-link>
+                <nuxt-link to='/volunteer' class='logo'>
+                    <span class="setting"><i class="fa fa-cog"></i></span>
+                </nuxt-link>
+                <nuxt-link to='/projects' class='logo'>
+                    <span class="setting"><i class="fa fa-cog"></i></span>
+                </nuxt-link>
+                <nuxt-link to='/login' class='logo'>
+                    <span class="setting"><i class="fa fa-cog"></i></span>
+                </nuxt-link>
+            
+                <nuxt-link to='/login' class='setting-link'>
+                    <span class="setting"><i class="fa fa-cog"></i></span>
+                </nuxt-link>
+             </div>
         
         </div>
 
@@ -29,7 +52,28 @@
 <script>
 export default {
     
+    data() {
+        return{
+            showMenu: true,
+        }
+    },
+    
+    methods: {
+        toggleMenu() {
+            this.showMenu = !this.showMenu
+        }
+    },
+
+     watch: {
+        '$route': function(e) {
+            if (e && window.innerWidth < 768) {
+                this.backdrop = false
+                document.getElementById("sidebar-head").style.display = "none"
+            }
+        }
+    }
 }
+
 </script>
 
 <style scoped>
@@ -39,15 +83,25 @@ export default {
         grid-template-rows: 60px 1fr;
         
     }
+    .toggle-sidebar-nav{
+        /* display: grid;
+        grid-template-rows: 1fr 1fr; */
+    }
     .sidebar-nav {
-        position: relative;
+        /* position: fixed; */
         display: grid;
         grid-template-rows: 50px;
         grid-auto-rows: 50px;
+        align-items: center;
+        justify-content: center;
+        /* top:  60px;
+        left: 0; */
+        /* width: 200px; */
         /* list-style: none;
         padding: 0;
         margin: 0; */
-        background: red;
+        /* background: red; */
+        height: 100vh;
     }
     .nav-item {
         /* margin: 30px 40px; */
@@ -84,21 +138,42 @@ export default {
     }
     .sidebar-head{
         display: grid;
+        /* position: relative; */
+        /* top: 0;
+        left: 0; */
         grid-template-columns: auto 60px;
         align-items: center;
         padding-left: 13px;
-        background: #fff;
+        background: #fffcfc;
         border-right: 1px solid rgb(230, 224, 224);
         border-bottom: 1px solid rgb(230, 224, 224);
     }
     .sidebar-head a{
         color: rgb(104, 98, 98);
     }
+    .toggle-bar{
+        cursor: pointer;
+    }
 
 @media (max-width: 767px){
     .sidebar-head{
-        grid-template-columns: auto 40px;
+        /* display: none;   */
+    }
+    .toggle-sidebar-nav{
+        /* width: 200px; */
+    }
+    .sidebar-head{
+        grid-template-columns: 145px 40px;
         
+    }
+    .sidebar-nav{
+        /* display: none; */
+    }
+}
+
+@media (min-width: 768px) {
+    .toggle-bar{
+        /* display: none; */
     }
 }
 </style>

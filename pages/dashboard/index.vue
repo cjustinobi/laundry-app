@@ -77,7 +77,9 @@ export default {
 <style scoped>
     .user-home{
         display: grid;
+        /* grid-template-rows: 1fr 1fr; */
         background-color: rgb(233, 233, 233);
+        /* position: relative */
     }
     .main-overview{
         display: grid;
@@ -141,6 +143,7 @@ export default {
         justify-items: end;
         padding-right: 20px;
         color: rgb(119, 119, 119);
+        cursor: pointer;
     }
 
 @media (max-width: 480px) {

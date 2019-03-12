@@ -79,6 +79,7 @@ body{
 }
 .no-account {
     font-size: 17px;
+    cursor: pointer;
 }
 
 @media (max-width: 767px) {

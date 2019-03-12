@@ -2,36 +2,62 @@
     <div class="main-div">
         <div class="sidebar-head">
             <nuxt-link to='/' class="brand-name">
-                <h1 class='wr-logo'>GPAT</h1>
+                <!--<h1 class='wr-logo'>GPAT</h1>-->
             </nuxt-link>
-            <a class='toggle-bar' @click.prevent="$emit('toggleSidebar')">
+            <a class='toggle-bar' @click.prevent="toggleMenu" title="Menu Icons">
                 <i class='fa fa-bars'></i>
             </a>
         </div>
 
-        <ul class='sidebar-nav'>
-            <li class="nav-item"><nuxt-link to='/about' class='logo'>All users</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/contact' class='logo'>Notifications</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pick-up Form</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/projects' class='logo'>Refer a Friend</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to='/login' class='logo'>Logout</nuxt-link></li>
-        </ul>
 
-        <div class="setting-li">
-            <nuxt-link to='/login' class='setting-link'>
-                <span class="setting"><i class="fa fa-cog"></i></span>Settings
-            </nuxt-link>
-
-        </div>
-
+            <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+                <nuxt-link to='/about' class='logo'>
+                    <i class="fa fa-cog"></i>
+                    <span v-if="wideMenu">Transaction History</span>
+                </nuxt-link>
+                <nuxt-link to='/contact' class='logo'>
+                    <i class="fa fa-cog"></i>
+                    <span v-if="wideMenu">Notifications</span>
+                </nuxt-link>
+                <nuxt-link to='/volunteer' class='logo'>
+                    <i class="fa fa-cog"></i>
+                    <span v-if="wideMenu">Pick-up Form</span>
+                </nuxt-link>
+                <nuxt-link to='/projects' class='logo'>
+                    <i class="fa fa-cog"></i>
+                    <span v-if="wideMenu">Refer a Friend</span>
+                </nuxt-link>
+            </div>
 
     </div>
 </template>
 
 <script>
-export default {
-    
-}
+    export default {
+
+        data() {
+            return{
+                wideMenu: true,
+            }
+        },
+
+        methods: {
+            toggleMenu() {
+                this.wideMenu = !this.wideMenu
+                this.$emit('toggleMenu', this.wideMenu)
+            }
+        },
+
+        /*watch: {
+            '$route': function(e) {
+                if (e && window.innerWidth < 768) {
+                    this.backdrop = false
+                    document.getElementById("sidebar-head").style.display = "none"
+                }
+            }
+        }*/
+    }
+
 </script>
 
 <style scoped>
@@ -39,17 +65,18 @@ export default {
         display: grid;
         min-height: 100vh;
         grid-template-rows: 60px 1fr;
-        
+
+    }
+    .sidebar-nav a{
+        display: block;
+        text-decoration: none;
     }
     .sidebar-nav {
-        position: relative;
         display: grid;
-        grid-template-rows: 50px;
         grid-auto-rows: 50px;
-        /* list-style: none;
-        padding: 0;
-        margin: 0; */
-        background: red;
+    }
+    .center-nav{
+        justify-items: center;
     }
     .nav-item {
         /* margin: 30px 40px; */
@@ -64,12 +91,9 @@ export default {
     .nav-item a:active{
         color: #b4b4b4;
     }
-    .setting{
-        padding-right: 10px;
-    }
     .setting-link{
         /* display: grid; */
-        align-self: end !important;
+        align-self: end;
         /* background: #fff; */
     }
     .setting-li a{
@@ -81,28 +105,44 @@ export default {
     .setting-li a:active{
         color: #b4b4b4;
     }
-    .setting-link{
-        margin-left: 20px
-    }
     .sidebar-head{
         display: grid;
+        /* position: relative; */
+        /* top: 0;
+        left: 0; */
         grid-template-columns: auto 60px;
         align-items: center;
         padding-left: 13px;
-        background: #fff;
+        background: #fffcfc;
         border-right: 1px solid rgb(230, 224, 224);
         border-bottom: 1px solid rgb(230, 224, 224);
     }
     .sidebar-head a{
         color: rgb(104, 98, 98);
     }
-
-@media (max-width: 767px){
-    .sidebar-head{
-        grid-template-columns: auto 40px;
-        
+    .toggle-bar{
+        cursor: pointer;
     }
-}
+
+    @media (max-width: 767px){
+        .sidebar-head{
+            /* display: none;   */
+        }
+        .toggle-sidebar-nav{
+            /* width: 200px; */
+        }
+        .sidebar-head{
+            grid-template-columns: 145px 40px;
+
+        }
+        .sidebar-nav{
+            /* display: none; */
+        }
+    }
+
+    @media (min-width: 768px) {
+        .toggle-bar{
+            /* display: none; */
+        }
+    }
 </style>
-
-

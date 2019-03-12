@@ -21,7 +21,7 @@
         <div class="plans">
             <div class="all-plans">
                 <h4>Periodic Plans</h4>
-                
+
                 <div class="interest">
                     <h1>10<span style="font-size: 16px; color: rgb(120, 120, 243)">%</span></h1>
                     <div>
@@ -35,7 +35,7 @@
 
             <div class="all-plans">
                 <h4>Periodic Plans</h4>
-                
+
                 <div class="interest">
                     <h1>10<span style="font-size: 16px; color: rgb(120, 120, 243)">%</span></h1>
                     <div>
@@ -49,7 +49,7 @@
 
             <div class="all-plans">
                 <h4>Periodic Plans</h4>
-                
+
                 <div class="interest">
                     <h1>10<span style="font-size: 16px; color: rgb(120, 120, 243)">%</span></h1>
                     <div>
@@ -77,7 +77,9 @@ export default {
 <style scoped>
     .user-home{
         display: grid;
+        /* grid-template-rows: 1fr 1fr; */
         background-color: rgb(233, 233, 233);
+        /* position: relative */
     }
     .main-overview{
         display: grid;
@@ -141,6 +143,7 @@ export default {
         justify-items: end;
         padding-right: 20px;
         color: rgb(119, 119, 119);
+        cursor: pointer;
     }
 
 @media (max-width: 480px) {

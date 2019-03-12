@@ -1,5 +1,5 @@
 <template>
-    <div class="main-div">
+    <div class="sidebar-container">
         <div class="sidebar-head">
             <nuxt-link to='/' class="brand-name">
                 <!--<h1 class='wr-logo'>GPAT</h1>-->
@@ -9,25 +9,24 @@
             </a>
         </div>
 
-
-            <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
-                <nuxt-link to='/about' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Transaction History</span>
-                </nuxt-link>
-                <nuxt-link to='/contact' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Notifications</span>
-                </nuxt-link>
-                <nuxt-link to='/volunteer' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Pick-up Form</span>
-                </nuxt-link>
-                <nuxt-link to='/projects' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Refer a Friend</span>
-                </nuxt-link>
-            </div>
+        <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+            <nuxt-link to='/about' class='logo'>
+                <i class="fa fa-cog"></i>
+                <span v-if="wideMenu">Transaction History</span>
+            </nuxt-link>
+            <nuxt-link to='/contact' class='logo'>
+                <i class="fa fa-cog"></i>
+                <span v-if="wideMenu">Notifications</span>
+            </nuxt-link>
+            <nuxt-link to='/volunteer' class='logo'>
+                <i class="fa fa-cog"></i>
+                <span v-if="wideMenu">Pick-up Form</span>
+            </nuxt-link>
+            <nuxt-link to='/projects' class='logo'>
+                <i class="fa fa-cog"></i>
+                <span v-if="wideMenu">Refer a Friend</span>
+            </nuxt-link>
+        </div>
 
     </div>
 </template>
@@ -61,7 +60,7 @@
 </script>
 
 <style scoped>
-    .main-div{
+    .sidebar-container{
         display: grid;
         min-height: 100vh;
         grid-template-rows: 60px 1fr;
@@ -107,9 +106,6 @@
     }
     .sidebar-head{
         display: grid;
-        /* position: relative; */
-        /* top: 0;
-        left: 0; */
         grid-template-columns: auto 60px;
         align-items: center;
         padding-left: 13px;
@@ -126,17 +122,7 @@
 
     @media (max-width: 767px){
         .sidebar-head{
-            /* display: none;   */
-        }
-        .toggle-sidebar-nav{
-            /* width: 200px; */
-        }
-        .sidebar-head{
             grid-template-columns: 145px 40px;
-
-        }
-        .sidebar-nav{
-            /* display: none; */
         }
     }
 

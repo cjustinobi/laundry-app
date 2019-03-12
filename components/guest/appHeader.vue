@@ -7,8 +7,6 @@
 
         <div class="app-links"><app-links></app-links></div>
 
-        <!-- <donate></donate> -->
-
         <a class='toggle-icon' @click.prevent="$emit('toggleSidebar')">
             <i class='fa fa-bars'></i>
         </a>
@@ -19,13 +17,11 @@
 
 <script>
 
-    import Donate from '~/components/donate'
-    import AppLinks from '~/components/appLinks'
+    import AppLinks from '~/components/guest/appLinks'
 
     export default {
 
         components: {
-            Donate,
             AppLinks
         }
 

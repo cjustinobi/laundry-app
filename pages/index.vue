@@ -52,7 +52,6 @@
                     threatened by a lack of clean, fresh water or the inability to find enough
                     water to sustain normal life.
                 </p>
-                <donate></donate>
             </div>
         </div>
 
@@ -72,12 +71,10 @@
 
 <script>
 
-    import Donate from '~/components/donate'
     import PackagesList from '~/components/packages/packagesList'
 
     export default {
         components: {
-            Donate,
             PackagesList
         }
     }

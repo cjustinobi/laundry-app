@@ -1,7 +1,7 @@
 <template>
     <div class="main-head">
         <div class="user-h3">
-             <a class='toggle-bar' @click.prevent="$emit('toggleSidebar')" title="Expand">
+             <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
             <h3>User Dashboard</h3>

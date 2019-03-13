@@ -16,9 +16,9 @@
 
 <script>
 
-    import AppHeader from '~/components/appHeader'
-    import Sidebar from '~/components/sidebar'
-    import AppFooter from '~/components/appFooter'
+    import AppHeader from '~/components/guest/appHeader'
+    import Sidebar from '~/components/guest/sidebar'
+    import AppFooter from '~/components/guest/appFooter'
 
     export default {
 

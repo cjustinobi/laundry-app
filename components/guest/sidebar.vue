@@ -6,7 +6,7 @@
 
 <script>
 
-    import AppLink from '~/components/appLinks'
+    import AppLink from '~/components/guest/appLinks'
 
     export default {
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-div">
+    <div class="sidebar-container">
         <div class="sidebar-head">
             <nuxt-link to='/' class="brand-name">
                 <!--<h1 class='wr-logo'>GPAT</h1>-->
@@ -9,25 +9,24 @@
             </a>
         </div>
 
-
-            <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
-                <nuxt-link to='/about' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Transaction History</span>
-                </nuxt-link>
-                <nuxt-link to='/contact' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Notifications</span>
-                </nuxt-link>
-                <nuxt-link to='/volunteer' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Pick-up Form</span>
-                </nuxt-link>
-                <nuxt-link to='/projects' class='logo'>
-                    <i class="fa fa-cog"></i>
-                    <span v-if="wideMenu">Refer a Friend</span>
-                </nuxt-link>
-            </div>
+        <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+            <nuxt-link to='/about' class='logo'>
+                <i class="fa fa-window-maximize" title="Transaction History"></i>
+                <span v-if="wideMenu">Transaction History</span>
+            </nuxt-link>
+            <nuxt-link to='/contact' class='logo'>
+                <i class="fa fa-bell" title="Notifications"></i>
+                <span v-if="wideMenu">Notifications</span>
+            </nuxt-link>
+            <nuxt-link to='/volunteer' class='logo'>
+                <i class="fa fa-address-card" title="Pick-up Form"></i>
+                <span v-if="wideMenu">Pick-up Form</span>
+            </nuxt-link>
+            <nuxt-link to='/projects' class='logo'>
+                <i class="fa fa-user-plus" title="Refer a Friend"></i>
+                <span v-if="wideMenu">Refer a Friend</span>
+            </nuxt-link>
+        </div>
 
     </div>
 </template>
@@ -61,15 +60,11 @@
 </script>
 
 <style scoped>
-    .main-div{
+    .sidebar-container{
         display: grid;
         min-height: 100vh;
         grid-template-rows: 60px 1fr;
 
-    }
-    .sidebar-nav a{
-        display: block;
-        text-decoration: none;
     }
     .sidebar-icons{
         padding-left: -60px;
@@ -77,34 +72,24 @@
     .sidebar-nav {
         display: grid;
         grid-auto-rows: 50px;
+        margin-top: 50px;
+        align-items: center;
+        font-size: 17px;
     }
-    .center-nav{
-        justify-items: center;
-    }
-    .nav-item {
-        height: 50px;
-    }
-    .nav-item a {
+    .sidebar-nav a{
         text-decoration: none;
         color: #000;
-        transition: .7s ease-out;
+        padding: 12px 10px;
+        transition: .7s ease-out
     }
-    .nav-item a:hover,
-    .nav-item a:active{
-        color: #b4b4b4;
+    .center-nav a{
+        padding-left: 30px;
     }
-    .setting-link{
-        /* display: grid; */
-        align-self: end;
-        /* background: #fff; */
+    .sidebar-nav a:hover,
+    .sidebar-nav a:active{
+        background-color: rgb(207, 202, 240);
     }
-    .setting-li a{
-        text-decoration: none;
-        color: #000;
-        transition: .7s ease-out;
-    }
-    .setting-li a:hover,
-    .setting-li a:active{
+    .sidebar-nav a:active{
         color: #b4b4b4;
     }
     .sidebar-head{
@@ -125,17 +110,7 @@
 
     @media (max-width: 767px){
         .sidebar-head{
-            /* display: none;   */
-        }
-        .toggle-sidebar-nav{
-            /* width: 200px; */
-        }
-        .sidebar-head{
             grid-template-columns: 145px 40px;
-
-        }
-        .sidebar-nav{
-            /* display: none; */
         }
     }
 

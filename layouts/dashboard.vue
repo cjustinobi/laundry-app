@@ -1,60 +1,71 @@
 <template>
-    <div>
-        <div :class="[{'dashboard': !adjustDashboardSidebar},{'adjust-dashboard-sidebar': adjustDashboardSidebar}]">
-            <div id="sidebar" :class="[{'sidebar': sidebar}]" >
-                <sidebar class="sidebar-backdrop" @toggleMenu="adjustMenu"></sidebar>
-            </div>
-
-            <div class="content" >
-                <dash-header @toggleSidebar=""></dash-header>
-                <div class="nuxt-rend"><nuxt/></div>
-            </div>
-
+    <div
+            :class="[{'dashboard': !minimized},{'minimized': minimized}]">
+        <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+            <sidebar @toggleMenu="adjustMenu"></sidebar>
+        </aside>
+        <div class="content">
+            <dash-header @showDrawer="hideDrawer = false"></dash-header>
+            <div class="nuxt-rend"><nuxt/></div>
+        </div>
+        <div :class="[{'hide-drawer': hideDrawer}]">
+            <drawer @hideDrawer="hideDrawer = true"></drawer>
         </div>
     </div>
 </template>
 
 <script>
-    import Sidebar from '~/components/guest/dashboard/sidebar'
-    import DashHeader from '~/components/guest/dashboard/dashHeader'
-    
+    import Sidebar from '~/components/dashboard/sidebar'
+    import DashHeader from '~/components/dashboard/dashHeader'
+    import Drawer from '~/components/dashboard/drawer'
 
     export default {
 
-        components: {Sidebar, DashHeader},
+        components: { Sidebar, DashHeader, Drawer },
         middleware: ['check-auth'],
 
         data() {
             return {
                 sidebar: true,
                 backdrop: false,
-                adjustDashboardSidebar: false
+                minimized: false,
+                hideDrawer: true,
+                windowWidth: ''
             }
         },
 
         methods: {
             adjustMenu(e) {
-                e ? this.adjustDashboardSidebar = false : this.adjustDashboardSidebar = true
+                if (window.innerWidth > 767) {
+                    // Toggles the grid class on wider device.
+                    e ? this.minimized = false : this.minimized = true
+                } else {
+                    // Show the drawer.
+                    this.hideDrawer = false
+                }
             },
             toggleSidebar(e) {
-                console.log(e)
-                /*let x = document.getElementById("sidebar")
+                let x = document.getElementById("sidebar")
                 if (x.style.display === 'block') {
                     this.backdrop = false
                     x.style.display = "none"
                 } else {
                     this.backdrop = true
                     x.style.display = 'block'
-                }*/
-            },
-           /* watch: {
-            '$route': function(e) {
-                if (e && window.innerWidth < 768) {
-                    this.backdrop = false
-                    document.getElementById("sidebar").style.display = "none"
                 }
-             }
-           }*/
+            }
+        },
+        mounted() {
+            window.onresize = () => {
+                this.windowWidth = window.innerWidth
+            }
+            this.windowWidth = window.innerWidth
+        },
+        watch: {
+            windowWidth(e) {
+                // Hides wider device sidebar.
+                e < 768 ? this.sidebar = false : this.sidebar = true
+            }
         }
 
     }
@@ -66,12 +77,10 @@
         display: grid;
         grid-template-columns: 200px 1fr;
         background: #fefefe;
-        
     }
-    .adjust-dashboard-sidebar{
+    .minimized{
         display: grid;
-        grid-template-columns: 70px 1fr;
-        justify-items: center;
+        grid-template-columns: 80px 1fr;
     }
     .content{
         display: grid;
@@ -79,9 +88,14 @@
     }
     .sidebar{
         position: relative;
-        top: 0;
-        left: 0;
-        background: green;
+        background: #fffcfc;
+        
+    }
+    .hide-sidebar{
+        display: none;
+    }
+    .hide-drawer{
+        display: none;
     }
     .backdrop{
         position: fixed;
@@ -96,9 +110,6 @@
 @media (max-width: 767px) {
     .dashboard{
         grid-template-columns: 1fr;
-    }
-    .sidebar{
-        display: none;
     }
 
 }

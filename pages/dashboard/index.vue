@@ -77,9 +77,8 @@ export default {
 <style scoped>
     .user-home{
         display: grid;
-        /* grid-template-rows: 1fr 1fr; */
         background-color: rgb(233, 233, 233);
-        /* position: relative */
+        height: 100%;
     }
     .main-overview{
         display: grid;
@@ -95,7 +94,7 @@ export default {
     }
     .plans{
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         grid-gap: 20px;
         margin: 30px 80px;
         

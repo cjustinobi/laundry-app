@@ -36,7 +36,8 @@ module.exports = {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        '~/plugins/axios'
+        { src: '~/plugins/axios' },
+        { src: '~/plugins/localStorage', ssr: false }
     ],
 
     /*

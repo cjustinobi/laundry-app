@@ -20,6 +20,11 @@ module.exports = {
             phone: {
                 type: Sequelize.INTEGER
             },
+            user_type: {
+                allowNull: false,
+                defaultValue: 1, // 1 = normal, 2 = admin, 3 = super admin
+                type: Sequelize.INTEGER
+            },
             plan_id: {
                 type: Sequelize.INTEGER
             },

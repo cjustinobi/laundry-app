@@ -5,8 +5,9 @@
         <h2 class="create">Create a new account</h2>
         <input v-model="details.fullname" placeholder="John Doe" required>
         <input v-model="details.email" type="email" placeholder="johndoe@example.com" required>
-        <input v-model="details.phone" placeholder="Phone Number" required>
-        <input type="password" v-model="details.password" placeholder="Password">
+        <input v-model="details.phone" placeholder="08047643432" required>
+        <input v-model="details.plan_id" placeholder="package" required>
+        <input type="password" v-model="details.password" placeholder="secret things">
         <button @click.prevent="signUp" class="sign-up-button">Sign Up</button>
         <samll class="account" @click.prevent="$emit('toggleLogin')">
             Already have an account?
@@ -27,6 +28,7 @@
                     email: '',
                     phone: '',
                     password: '',
+                    plan_id: '',
                 },
                 errors: ''
             }

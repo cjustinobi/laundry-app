@@ -17,7 +17,7 @@ module.exports = {
                 email: req.body.email,
                 phone: req.body.phone,
                 password: req.body.password,
-                package_id: req.body.package
+                plan_id: req.body.plan_id
             })
             .then(user => res.status(201).send(user))
             .catch(error => res.status(400).send(error));

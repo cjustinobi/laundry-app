@@ -1,14 +1,16 @@
 <template>
-    <div class="dashboard" >
-        <div id="sidebar" :class="[{'sidebar': sidebar}]" >
-            <sidebar class="sidebar-backdrop" :class="{backdrop}"></sidebar>
-        </div>
+    <div>
+        <div :class="[{'dashboard': !adjustDashboardSidebar},{'adjust-dashboard-sidebar': adjustDashboardSidebar}]">
+            <div id="sidebar" :class="[{'sidebar': sidebar}]" >
+                <sidebar class="sidebar-backdrop" @toggleMenu="adjustMenu"></sidebar>
+            </div>
 
-        <div class="content" >
-            <dash-header @toggleSidebar="toggleSidebar"></dash-header>
-            <div class="nuxt-rend"><nuxt/></div>
+            <div class="content" >
+                <dash-header @toggleSidebar=""></dash-header>
+                <div class="nuxt-rend"><nuxt/></div>
+            </div>
+
         </div>
-        
     </div>
 </template>
 
@@ -25,32 +27,34 @@
         data() {
             return {
                 sidebar: true,
-                backdrop: false
+                backdrop: false,
+                adjustDashboardSidebar: false
             }
         },
 
         methods: {
-            // toggleSidebar() {
-            //     console.log(this)
-            // },
-            toggleSidebar() {
-                let x = document.getElementById("sidebar")
+            adjustMenu(e) {
+                e ? this.adjustDashboardSidebar = false : this.adjustDashboardSidebar = true
+            },
+            toggleSidebar(e) {
+                console.log(e)
+                /*let x = document.getElementById("sidebar")
                 if (x.style.display === 'block') {
                     this.backdrop = false
                     x.style.display = "none"
                 } else {
                     this.backdrop = true
                     x.style.display = 'block'
-                }
+                }*/
             },
-            watch: {
+           /* watch: {
             '$route': function(e) {
                 if (e && window.innerWidth < 768) {
                     this.backdrop = false
                     document.getElementById("sidebar").style.display = "none"
                 }
              }
-           }
+           }*/
         }
 
     }
@@ -61,8 +65,13 @@
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
-        background-color: rgb(233, 233, 233);
+        background: #fefefe;
         
+    }
+    .adjust-dashboard-sidebar{
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        justify-items: center;
     }
     .content{
         display: grid;
@@ -72,8 +81,7 @@
         position: relative;
         top: 0;
         left: 0;
-        min-height: 100vh;
-        background: #fffcfc;
+        background: green;
     }
     .backdrop{
         position: fixed;
@@ -91,10 +99,7 @@
     }
     .sidebar{
         display: none;
-        /* width: 200px; */
     }
-    .sidebar-backdrop{
-        /* width: 200px; */
-    }
+
 }
 </style>

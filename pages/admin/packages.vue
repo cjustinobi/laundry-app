@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="packages-container">
-            <Banner/>
+            <!--<Banner/>-->
             <div class="btn-group">
                 <button class="create-btn" v-if="!showForm" @click.prevent="showForm = true">ADD PACKAGE</button>
                 <button class="create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">CREATE BENEFITS</button>
@@ -15,18 +15,18 @@
 
             <div :class="{'backdrop': showBenefitForm}">
                 <div :class="[{'show-form': showBenefitForm, 'hide-form': !showBenefitForm}]">
-                    <benefits-form @cancelForm="showBenefitForm = false" />
+                    <!--<benefits-form @cancelForm="showBenefitForm = false" />-->
                 </div>
             </div>
 
         </div>
 
         <div class="all-packages">
-            <all-packages/>
+            <!--<all-packages/>-->
         </div>
 
         <div>
-            <all-benefits/>
+            <!--<all-benefits/>-->
         </div>
     </div>
     
@@ -34,9 +34,9 @@
 
 <script>
 // import Banner from '../../components/Banner'
-import packagesForm from '~/components/packages/packagesForm'
+import PackagesForm from '~/components/packages/packagesForm'
 import Form from '~/components/benefits/form'
-import packagesList from '~/components/packages/packagesList'
+import PackagesList from '~/components/packages/packagesList'
 import List from '~/components/benefits/list'
 
 

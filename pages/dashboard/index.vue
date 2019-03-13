@@ -21,7 +21,7 @@
         <div class="plans">
             <div class="all-plans">
                 <h4>Periodic Plans</h4>
-                
+
                 <div class="interest">
                     <h1>10<span style="font-size: 16px; color: rgb(120, 120, 243)">%</span></h1>
                     <div>
@@ -35,7 +35,7 @@
 
             <div class="all-plans">
                 <h4>Periodic Plans</h4>
-                
+
                 <div class="interest">
                     <h1>10<span style="font-size: 16px; color: rgb(120, 120, 243)">%</span></h1>
                     <div>
@@ -49,7 +49,7 @@
 
             <div class="all-plans">
                 <h4>Periodic Plans</h4>
-                
+
                 <div class="interest">
                     <h1>10<span style="font-size: 16px; color: rgb(120, 120, 243)">%</span></h1>
                     <div>

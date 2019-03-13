@@ -7,7 +7,7 @@ const saltRounds = 10
 function hashPassword(user, options) {
 
     if (!user.changed('password')) { return }
-
+    console.log('about hashing the password')
     return bcrypt.hash(user.password, saltRounds)
         .then(hash => user.setDataValue('password', hash))
 }
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         fullname: DataTypes.STRING,
         email: DataTypes.STRING,
         phone: DataTypes.INTEGER,
-        package_id: DataTypes.INTEGER,
+        plan_id: DataTypes.INTEGER,
         password: DataTypes.STRING
     }, {
         hooks: {
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     }*/
 
     user.associate = function(models) {
-        // associations can be defined here
+        user.belongsTo(models.plan)
     }
 
     return user

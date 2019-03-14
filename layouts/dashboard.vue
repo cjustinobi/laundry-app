@@ -1,6 +1,5 @@
 <template>
-    <div
-            :class="[{'dashboard': !minimized},{'minimized': minimized}]">
+    <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
         <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
             <sidebar @toggleMenu="adjustMenu"></sidebar>
         </aside>
@@ -111,6 +110,8 @@
     .dashboard{
         grid-template-columns: 1fr;
     }
-
+    .minimized{
+        grid-template-columns: 1fr;
+    }
 }
 </style>

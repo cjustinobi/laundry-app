@@ -2,7 +2,8 @@
     <header>
 
         <nuxt-link to='/' class="brand-name">
-            <h1 class='wr-logo'>GPAT</h1>
+            <!-- <h1 class='wr-logo'>GPAT</h1> -->
+            <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture">
         </nuxt-link>
 
         <div class="app-links"><app-links></app-links></div>
@@ -33,6 +34,13 @@
     .header a
     {
         text-decoration: none;
+    }
+    .elegant-image{
+        width: 80px;
+        padding-top: 6px;
+    }
+    .brand-name{
+        
     }
     
 

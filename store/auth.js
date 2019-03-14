@@ -22,6 +22,7 @@ export const actions = {
             let { user, token } = await this.$axios.$post('/api/login', payload)
             commit('SET_TOKEN', token)
             commit('SET_USER', user)
+            localStorage.setItem('user', JSON.stringify(user))
             cookies.set('x-access-token', token, {expires: 7})
             return this.$router.push('/dashboard')
 
@@ -33,6 +34,7 @@ export const actions = {
             commit('SET_TOKEN', null)
             commit('SET_USER', null)
             cookies.remove('x-access-token')
+            localStorage.clear()
             return this.$router.push('/login')
 
         } catch (e) { console.log(e) }

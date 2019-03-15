@@ -8,7 +8,7 @@
         </div>
 
         <div class="user-view">
-            <img src="~assets/images/chuks.jpg" class="chuks" alt="">
+            <img src="~assets/images/chuks.jpg" class="user-img" alt="">
             <div class="names">
                 <p>Obi Chuks</p>
                 <p>First User</p>
@@ -34,7 +34,7 @@ export default {
         height: 60px;
         color: rgb(104, 98, 98);
     }
-    .chuks{
+    .user-img{
         width: 30px;
         border-radius: 50%;
     }
@@ -54,6 +54,9 @@ export default {
     }
     .pull-down{
         cursor: pointer;
+    }
+    .toggle-bar{
+        padding: 3px;
     }
 
 @media (max-width: 767px) {

@@ -3,8 +3,15 @@
         <div class="packages">
             <!-- <div class="package"> -->
                 <div class="pack-item">
-                    <button class="edit-button" @click.prevent="editPackage()">Edit</button>
-                    <h1 class="name">Economy</h1>
+                    <button 
+                        :class="[{'edit-button': showEditButton}, {'hide-edit-button': !showEditButton}]" 
+                        @click.prevent="editPackage()">
+                        Edit
+                    </button>
+                    <div class="name">
+                        <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture"> 
+                        <h1 class="">Economy</h1>
+                    </div>
                     <div  class="price">
                         <h1><sup>#</sup>5000<span class="month">per month</span> </h1>
                     </div>
@@ -15,14 +22,21 @@
                        <i class="fa fa-check"></i><li>Duvets</li>
                        <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
                     </div>
-                    <form method="get" id="sub-button">
+                    <form method="get" id="sub-btn">
                         <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
                     </form>
                     
                 </div>
                 <div class="pack-item">
-                    <button class="edit-button" @click.prevent="editPackage()">Edit</button>
-                    <h1 class="name">Basic</h1>
+                    <button 
+                        :class="[{'edit-button': showEditButton}, {'hide-edit-button': !showEditButton}]" 
+                        @click.prevent="editPackage()">
+                        Edit
+                    </button>
+                    <div class="name">
+                        <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture"> 
+                        <h1 class="">Basic</h1>
+                    </div>
                     <div  class="price">
                         <h1><sup>#</sup>10000<span class="month">per month</span> </h1>
                     </div>
@@ -33,14 +47,21 @@
                        <i class="fa fa-check"></i><li>Duvets</li>
                        <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
                     </div>
-                    <form method="get" id="sub-button">
+                    <form method="get" id="sub-btn">
                         <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
                     </form>
                     
                 </div>
                 <div class="pack-item">
-                    <button class="edit-button" @click.prevent="editPackage()">Edit</button>
-                    <h1 class="name">Premium</h1>
+                    <button 
+                        :class="[{'edit-button': showEditButton}, {'hide-edit-button': !showEditButton}]" 
+                        @click.prevent="editPackage()">
+                        Edit
+                    </button>
+                    <div class="name">
+                        <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture"> 
+                        <h1 class="">Premium</h1>
+                    </div>
                     <div  class="price">
                         <h1><sup>#</sup>20000<span class="month">per month</span> </h1>
                     </div>
@@ -51,7 +72,8 @@
                        <i class="fa fa-check"></i><li>Duvets</li>
                        <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
                     </div>
-                    <form method="get" id="sub-button">
+
+                    <form method="get" id="sub-btn">
                         <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
                     </form>
                     
@@ -80,7 +102,8 @@ export default {
     data() {
         return {
             showForm: false,
-            editDetail: ''
+            editDetail: '',
+            editButton: false
         }
     },
 
@@ -91,7 +114,7 @@ export default {
         // },
         subscribe() {
             this.$root.$emit("package", 2000);
-            this.$router.push({ path: "/subscribe" });
+            this.$router.push({ path: "/volunteer" });
         }
   
     },
@@ -102,27 +125,17 @@ export default {
 </script>
 
 <style scoped>
-.packages{
-            position: relative;
-            display: grid;
-            grid-template: 1fr / 1fr 1fr 1fr;
-            justify-content: center;
-            justify-items: center;
-            grid-gap: 20px;
-            background-color: #f9f9f9;
-            margin-bottom: 40px;
-            }
-
-
-    @media (max-width: 767px) {
-        .packages{
-            grid-template-columns: 1fr;        
-            }
-        }
-
-    /* .package{
+    .packages{
         position: relative;
-    } */
+        display: grid;
+        grid-template: 1fr / 1fr 1fr 1fr;
+        justify-content: center;
+        justify-items: center;
+        grid-gap: 20px;
+        background-color: #f9f9f9;
+        margin-bottom: 40px;
+    }
+
     .wash-menu{
         display: grid;
         grid-template: repeat(5, 1fr) / 30px 1fr;
@@ -139,45 +152,60 @@ export default {
     .pack-item{
         border: 1px solid grey;
         border-radius: 10px;
-        border-top: 10px solid indianred;
+        border-top: 7px solid indianred;
         display: grid;
         margin: 30px 0 30px 0;
-        justify-content: center;
-        justify-items: center;
+        /* justify-content: center; */
+        /* justify-items: center; */
         width: 300px;
         height: 500px;
         background-color: #fefefe;
     }
     .pack-item:hover
     {
-        border-top: 10px solid #fb9e36;
+        border-top: 7px solid #fb9e36;
     }
     .packages .pack-item:nth-child(even)
     {
-        border-top: 10px solid rgb(184, 76, 175);
+        border-top: 7px solid rgb(184, 76, 175);
     }
     .packages .pack-item:nth-child(even):hover
     {
-        border-top: 10px solid rgb(214, 78, 45);
+        border-top: 7px solid rgb(214, 78, 45);
+    }
+    .elegant-image{
+        width: 40px;
+        padding-top: 6px;
     }
     .name{
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        align-items: center;
+        justify-items: center;
         font-family: Courier;
-        font-size: 40px;
-        margin-top: 20px;
-        color: rgb(75, 73, 73);
+        /* font-size: 40px; */
+        /* margin-top: 20px; */
+        color: #728691;
     }
     .price{
         margin-bottom: 0px;
         color: rgb(255, 255, 255);
-        background-color: rgb(41, 0, 59);
+        background-color: #2f5163;
         height: 60px;
         width: 100%;
         display: grid;
         justify-content: center;
-        align-content: center
+        align-content: center;
     }
     .month{
-        font-size: 14px
+        font-size: 14px;
+        color: #b0b9c5;
+    }
+    #sub-btn{
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-self: center;
     }
     .subscribe{
         width: 190px;
@@ -186,6 +214,7 @@ export default {
         border: 1px solid #fff;
         background-color: rgb(139, 139, 248);
         color: #fff;
+        outline: none;
     }
     .subscribe:hover{
         background-color: #3d5afe;
@@ -212,6 +241,14 @@ export default {
         background-color: rgb(250, 182, 165);
         color: #fff;
     }
+    .hide-edit-button{
+        display: none;
+    }
 
+    @media (max-width: 767px) {
+    .packages{
+        grid-template-columns: 1fr;        
+        }
+    }
 
 </style>

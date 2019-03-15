@@ -1,9 +1,10 @@
 <template>
     <div class="sidebar-container">
-        <div class="sidebar-head">
+        <div :class="[{'sidebar-head': side}, {'minimized-sidebar': !side}]">
             <nuxt-link to='/' class="brand-name">
-                <i v-if="!wideMenu" style="padding-left: 10px" class="fa fa-home" title="Home"></i>
-                <h1 v-if="wideMenu" class='wr-logo'>GPAT</h1>
+                <i v-if="!wideMenu" class="fa fa-home" title="Home"></i>
+                <img v-if="wideMenu" src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture">
+                <!-- <h1 v-if="wideMenu" class='wr-logo'>GPAT</h1> -->
             </nuxt-link>
             <a class='toggle-bar' @click.prevent="toggleMenu" title="Menu">
                 <i class='fa fa-bars'></i>
@@ -38,6 +39,7 @@
         data() {
             return{
                 wideMenu: true,
+                side: true,
             }
         },
 
@@ -67,9 +69,6 @@
         grid-template-rows: 60px 1fr;
 
     }
-    .sidebar-icons{
-        padding-left: -60px;
-    }
     .sidebar-nav {
         display: grid;
         grid-auto-rows: 50px;
@@ -86,6 +85,10 @@
     .center-nav a{
         padding-left: 30px;
     }
+    .elegant-image{
+        width: 40px;
+        padding-top: 6px;
+    }
     .brand-name{
         display: grid;
         grid-template-columns: 10px 10px;
@@ -99,20 +102,18 @@
     }
     .sidebar-head{
         display: grid;
-        grid-template-columns: auto 40px;
+        grid-template-columns: auto 30px;
         align-items: center;
-        /* padding-left: 13px; */
+        padding-left: 13px;
         background: #fffcfc;
         border-right: 1px solid rgb(230, 224, 224);
         border-bottom: 1px solid rgb(230, 224, 224);
     }
     .sidebar-head a{
         color: rgb(104, 98, 98);
-        /* padding-left: 10px; */
     }
     .toggle-bar{
         cursor: pointer;
-        /* padding-left: 10px; */
     }
 
     @media (max-width: 767px){

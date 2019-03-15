@@ -58,7 +58,7 @@
         margin-top: 0;
         cursor: pointer;
     }
-    /* body{
+    body{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
     .login-reg{
@@ -120,7 +120,7 @@
         .create{
             text-align: center;
         }
-    } */
+    }
 </style>
 
 

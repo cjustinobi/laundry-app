@@ -13,7 +13,8 @@
         <img src="~assets/images/wash-machine.jpg" class="img-show" alt="Washing Machine">
 
         <div class="pricing">
-              <p>Pricing Packages</p>
+              <p>Our Packages</p>
+              <div class="price-header"></div>
         </div>
 
         <div>
@@ -86,6 +87,7 @@
 
     .page{
         position: relative;
+        margin-top: 35px;
     }
     .relief{
         /* margin-bottom: 24px; */
@@ -134,7 +136,7 @@
     }
     .intro-request{
         position: absolute;
-        left: 700px;
+        left: 680px;
         top: 500px;
         z-index: 1000;
         display: grid;
@@ -203,11 +205,20 @@
         margin-bottom: 24px;
     }
     .pricing {
-        text-align: center;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
         font-family: Courier;
         font-size: 40px;
         font-weight: bold;
         margin: 70px 0 20px 0;
+        color: #728691;
+    }
+    .price-header{
+        width: 120px;
+        background-color: #f9a825;
+        height: 4px;
+        margin-top: 20px;
     }
     .catchy{
         display: grid;
@@ -263,6 +274,9 @@
         .intro{
             display: none;
         }
+        .img-show{
+        height: 400px;
+    }
     }
 
     @media (max-width: 1100px) {

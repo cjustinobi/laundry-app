@@ -77,8 +77,9 @@ export default {
 <style scoped>
     .user-home{
         display: grid;
+        grid-template-columns: 1fr;
         background-color: rgb(233, 233, 233);
-        height: 100%;
+        min-height: 100vh;
     }
     .main-overview{
         display: grid;

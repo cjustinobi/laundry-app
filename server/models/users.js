@@ -14,7 +14,7 @@ function hashPassword(user, options) {
 
 // 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const user = sequelize.define('user', {
+    const User = sequelize.define('User', {
         fullname: DataTypes.STRING,
         email: DataTypes.STRING,
         phone: DataTypes.INTEGER,
@@ -32,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
         return await bcrypt.compare(password, this.password)
     }*/
 
-    user.associate = function(models) {
-        user.belongsTo(models.plan)
+    User.associate = function(models) {
+        User.belongsTo(models.Plan)
     }
 
-    return user
+    return User
 }

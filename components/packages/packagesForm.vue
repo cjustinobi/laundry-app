@@ -1,61 +1,79 @@
 <template>
-        <div class="editor">
-            <form class="form">
-                <div class="close-package"><a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a></div>
-                <input class="package-input" type="text" placeholder="name" v-model="details.name">
-                <input class="package-input" type="text" placeholder="price" v-model="details.price">
+    <div class="editor">
+        <form class="form">
+            <div class="close-package">
+                <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
+            </div>
+            <input class="package-input" type="text" placeholder="name" v-model="details.name">
+            <input class="package-input" type="text" placeholder="price" v-model="details.price">
 
-                <div class="btn-package">
-                    <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
-                    <button class="btn-submit" @click.prevent="submitPackage">Submit</button>
-                </div>
+            <div class="btn-package">
+                <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
+                <button class="btn-submit" @click.prevent="submitPackage">
+                    <img v-if="isLoading" src="~/assets/images/loading.gif" alt="Elegant image">
+                    <span v-else>{{ sendBtnTxt }}</span>
+                </button>
+            </div>
 
-                
-            </form>
-        </div>
-    
+
+        </form>
+    </div>
+
 </template>
 
 <script>
 
+    import  FormElements  from '~/mixins/formElements'
 
-export default {
+    export default {
 
-    props:[
-        'editDetail',
-        'showForm'
-    ],
+        props:[
+            'editDetail',
+            'showForm'
+        ],
 
-    data() {
-        return {
-            details: {
-                name: '',
-                price: ''
-            },
-        }
-    },
+        mixins: [FormElements],
 
-
-    methods: {
-        async submitPackage() {
-            try {
-                let res = this.$store.dispatch('packages', this.details)
-            } catch (e) { console.log(e)}
+        data() {
+            return {
+                details: {
+                    name: '',
+                    price: ''
+                },
+            }
         },
-    },
-
-    mounted(){
-        
-    },
 
 
-    watch: {
-        editDetail: function(e){
-            e ? this.details = e : ''
+        methods: {
+            async submitPackage() {
+                this.isLoading = true
+                try {
+                    let res = await this.$store.dispatch('plans/store', this.details)
+                    if (res) {
+//                        this.isLoading = false
+                        this.clearFields(this.details)
+                        this.$emit('cancelForm')
+                    }
+                } catch (e) {
+                    console.log(e)
+                    this.isLoading = false
+                }
+            },
+
+        },
+
+        mounted(){
+
+        },
+
+
+        watch: {
+            editDetail: function(e){
+                e ? this.details = e : ''
+            }
         }
+
     }
-    
-}
 </script>
 
 <style scoped>
@@ -70,7 +88,9 @@ export default {
         width: 500px;
         height: 300px;
     }
-    
+    img{
+        width: 40px;
+    }
     .btn-cancel{
         width: 180px;
         border-radius: 5px;
@@ -114,7 +134,7 @@ export default {
             align-items: end;
             grid-gap: 16px;
         }
-        
+
     }
 
     @media (min-width: 768px) {

@@ -37,6 +37,7 @@ module.exports = {
     */
     plugins: [
         { src: '~/plugins/axios' },
+        { src: '~/plugins/isAdmin', ssr: false },
         { src: '~/plugins/localStorage', ssr: false }
     ],
 

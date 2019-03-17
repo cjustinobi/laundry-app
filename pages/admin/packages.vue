@@ -22,7 +22,7 @@
         </div>
 
         <div class="all-packages">
-            <!--<all-packages/>-->
+            <all-packages/>
         </div>
 
         <div>
@@ -33,10 +33,10 @@
 </template>
 
 <script>
-// import Banner from '../../components/Banner'
+
 import PackagesForm from '~/components/packages/packagesForm'
 import Form from '~/components/benefits/form'
-import PackagesList from '~/components/packages/packagesList'
+import AllPackages from '~/components/packages/packagesList'
 import List from '~/components/benefits/list'
 
 
@@ -46,7 +46,7 @@ export default {
         // Banner,
         PackagesForm,
         Form,
-        PackagesList,
+        AllPackages,
         List
         
     },
@@ -63,13 +63,7 @@ export default {
 </script>
 
 <style scoped>
-    .banner {
-        /* background: url("../../assets/show-room-edited.png"); */
-        background-size: cover;
-        background-position: center top;
-        height: 500px;
-        margin-top: -30px;
-    }
+
     .packages-container{
         position: relative;
         display: grid;

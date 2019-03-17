@@ -1,64 +1,23 @@
 <template>
     <div>
         <div class="packages">
-            <!-- <div class="package"> -->
-                <div class="pack-item">
-                    <button class="edit-button" @click.prevent="editPackage()">Edit</button>
-                    <h1 class="name">Economy</h1>
-                    <div  class="price">
-                        <h1><sup>#</sup>5000<span class="month">per month</span> </h1>
-                    </div>
-                    <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                       <i class="fa fa-check"></i><li>Beddings</li>
-                       <i class="fa fa-check"></i><li>Curtains</li>
-                       <i class="fa fa-check"></i><li>Duvets</li>
-                       <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
-                    </div>
-                    <form method="get" id="sub-button">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
-                    </form>
-                    
+            <div class="pack-item" v-for="(plan, i) in plans" :key="i">
+                <button v-if="isAdmin" class="edit-button" @click.prevent="editPackage()">Edit</button>
+                <h1 class="name">{{ plan.name }}</h1>
+                <div  class="price">
+                    <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
-                <div class="pack-item">
-                    <button class="edit-button" @click.prevent="editPackage()">Edit</button>
-                    <h1 class="name">Basic</h1>
-                    <div  class="price">
-                        <h1><sup>#</sup>10000<span class="month">per month</span> </h1>
-                    </div>
-                    <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                       <i class="fa fa-check"></i><li>Beddings</li>
-                       <i class="fa fa-check"></i><li>Curtains</li>
-                       <i class="fa fa-check"></i><li>Duvets</li>
-                       <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
-                    </div>
-                    <form method="get" id="sub-button">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
-                    </form>
-                    
+                <div class="wash-menu">
+                   <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
+                   <i class="fa fa-check"></i><li>Beddings</li>
+                   <i class="fa fa-check"></i><li>Curtains</li>
+                   <i class="fa fa-check"></i><li>Duvets</li>
+                   <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
                 </div>
-                <div class="pack-item">
-                    <button class="edit-button" @click.prevent="editPackage()">Edit</button>
-                    <h1 class="name">Premium</h1>
-                    <div  class="price">
-                        <h1><sup>#</sup>20000<span class="month">per month</span> </h1>
-                    </div>
-                    <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                       <i class="fa fa-check"></i><li>Beddings</li>
-                       <i class="fa fa-check"></i><li>Curtains</li>
-                       <i class="fa fa-check"></i><li>Duvets</li>
-                       <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
-                    </div>
-                    <form method="get" id="sub-button">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
-                    </form>
-                    
-                </div>
-                  
-
-            <!-- </div> -->
+                <form method="get" id="sub-button">
+                    <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
         </div>
 
         <div :class="{'backdrop' : showForm}">
@@ -70,7 +29,7 @@
 </template>
 
 <script>
-// import {db} from '../config/firebase'
+
 import PackagesForm from '~/components/packages/packagesForm'
 
 export default {
@@ -93,11 +52,18 @@ export default {
             this.$root.$emit("package", 2000);
             this.$router.push({ path: "/subscribe" });
         }
-  
     },
-    // firebase: {
-    //     packages: db.ref('packages')
-    // }
+
+    mounted() {
+        this.$store.dispatch('plans/getPlans')
+    },
+
+    computed: {
+        plans() {
+            return this.$store.getters['plans/allPlans']
+        }
+    }
+
 }
 </script>
 

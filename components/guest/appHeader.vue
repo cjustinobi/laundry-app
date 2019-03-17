@@ -40,8 +40,7 @@
         text-decoration: none;
     }
     .elegant-image{
-        width: 80px;
-        padding-top: 6px;
+        width: 60px;
     }
     .intro-request{
         display: grid;

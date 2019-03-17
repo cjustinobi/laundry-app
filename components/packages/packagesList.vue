@@ -13,17 +13,17 @@
                         <h1 class="">Economy</h1>
                     </div>
                     <div  class="price">
-                        <h1><sup>#</sup>5000<span class="month">per month</span> </h1>
+                        <h1><sup>#</sup>10,000 <span class="month">per month</span> </h1>
                     </div>
                     <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                       <i class="fa fa-check"></i><li>Beddings</li>
-                       <i class="fa fa-check"></i><li>Curtains</li>
-                       <i class="fa fa-check"></i><li>Duvets</li>
-                       <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
+                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 15 clothes</li>
+                       <i class="fa fa-check"></i><li>1 pick-up per month</li>
+                       <i class="fa fa-check"></i><li>Priority pick-up #1000/pick-up</li>
+                       <i class="fa fa-check"></i><li>Dry cleaning charge per item</li>
+                       <i class="fa fa-check"></i><li>1 suit or any fabric you wish to be dry cleaned</li>
                     </div>
                     <form method="get" id="sub-btn">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
+                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE NOW</button>
                     </form>
                     
                 </div>
@@ -38,17 +38,17 @@
                         <h1 class="">Basic</h1>
                     </div>
                     <div  class="price">
-                        <h1><sup>#</sup>10000<span class="month">per month</span> </h1>
+                        <h1><sup>#</sup>20,000 <span class="month">per month</span> </h1>
                     </div>
                     <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                       <i class="fa fa-check"></i><li>Beddings</li>
-                       <i class="fa fa-check"></i><li>Curtains</li>
-                       <i class="fa fa-check"></i><li>Duvets</li>
-                       <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
+                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 25 clothes</li>
+                       <i class="fa fa-check"></i><li>2 pick-up per month</li>
+                       <i class="fa fa-check"></i><li>Priority pick-up #1000/pick-up</li>
+                       <i class="fa fa-check"></i><li>5% discount on dry cleaning items</li>
+                       <i class="fa fa-check"></i><li>3 suits or any fabric you wish to be dry cleaned</li>
                     </div>
                     <form method="get" id="sub-btn">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
+                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE NOW</button>
                     </form>
                     
                 </div>
@@ -63,18 +63,18 @@
                         <h1 class="">Premium</h1>
                     </div>
                     <div  class="price">
-                        <h1><sup>#</sup>20000<span class="month">per month</span> </h1>
+                        <h1><sup>#</sup>35,000 <span class="month">per month</span> </h1>
                     </div>
                     <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                       <i class="fa fa-check"></i><li>Beddings</li>
-                       <i class="fa fa-check"></i><li>Curtains</li>
-                       <i class="fa fa-check"></i><li>Duvets</li>
-                       <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
+                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 40 clothes</li>
+                       <i class="fa fa-check"></i><li>4 pick-up per month</li>
+                       <i class="fa fa-check"></i><li>Priority pick-ups</li>
+                       <i class="fa fa-check"></i><li>10% discount on dry cleaning items</li>
+                       <i class="fa fa-check"></i><li>5 suits or any fabric you wish to be dry cleaned</li>
                     </div>
 
                     <form method="get" id="sub-btn">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
+                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE NOW</button>
                     </form>
                     
                 </div>
@@ -128,7 +128,7 @@ export default {
     .packages{
         position: relative;
         display: grid;
-        grid-template: 1fr / 1fr 1fr 1fr;
+        grid-template: 1fr / repeat(auto-fit, minmax(300px, 1fr));
         justify-content: center;
         justify-items: center;
         grid-gap: 20px;
@@ -138,27 +138,23 @@ export default {
 
     .wash-menu{
         display: grid;
-        grid-template: repeat(5, 1fr) / 30px 1fr;
-        color: rgb(87, 72, 72);
+        grid-template: repeat(5, 1fr) / 20px 1fr;
+        color: #728691;
         font-size: 16px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding: 0 15px 0 15px;
-        margin: 20px 0 30px 0;
+        padding: 0 15px;
     }
     .wash-menu li{
         list-style-type: none;
         height: 30px
     }
     .pack-item{
-        border: 1px solid grey;
+        border: 1px solid #b2d2e4;
         border-radius: 10px;
         border-top: 7px solid indianred;
         display: grid;
-        margin: 30px 0 30px 0;
-        /* justify-content: center; */
-        /* justify-items: center; */
-        width: 300px;
-        height: 500px;
+        margin: 30px 0;
+        min-height: 500px;
         background-color: #fefefe;
     }
     .pack-item:hover
@@ -179,12 +175,11 @@ export default {
     }
     .name{
         display: grid;
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 60px 250px;
         align-items: center;
         justify-items: center;
         font-family: Courier;
-        /* font-size: 40px; */
-        /* margin-top: 20px; */
+        font-size: 22px;
         color: #728691;
     }
     .price{
@@ -208,18 +203,22 @@ export default {
         justify-self: center;
     }
     .subscribe{
-        width: 190px;
-        height: 40px;
+        width: 300px;
+        height: 60px;
         border-radius: 10px;
         border: 1px solid #fff;
-        background-color: rgb(139, 139, 248);
+        background-color: #e7b83f;
         color: #fff;
         outline: none;
+        font-weight: bold;
+        font-size: 20px;
     }
-    .subscribe:hover{
-        background-color: #3d5afe;
+    .subscribe:hover,
+    .subscribe:active{
         color: #fff;
-        font-weight: bold
+        font-weight: bold;
+        background-color: #f58b13;
+        transition: .7s ease-out;
     }
 
 
@@ -228,10 +227,6 @@ export default {
         color: #fff;
     }
     .edit-button{
-        /* position: absolute;
-        top: 50px;
-        right: 72px;
-        margin-bottom: 30px; */
         width: 50px;
         height: 30px;
         border-radius: 5px;

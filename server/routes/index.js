@@ -3,7 +3,7 @@ const AuthenticationControllerPolicy = require('../policies/AuthenticationContro
 const LoginController = require('../controllers').login
 const RegisterController = require('../controllers').register
 const PackageController = require('../controllers').plan
-const UsersController = require('../controllers').index
+const UsersController = require('../controllers').users
 
 
 module.exports = (app) => {

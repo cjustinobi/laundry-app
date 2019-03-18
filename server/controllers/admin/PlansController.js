@@ -1,5 +1,5 @@
 
-const { Plan } = require('../../models')
+const Plan = require('../../models').plan
 
 module.exports = {
     async index(req, res) {

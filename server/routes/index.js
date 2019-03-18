@@ -1,9 +1,12 @@
 
 const AuthenticationControllerPolicy = require('../policies/AuthenticationControllerPolicy')
+const IsAdmin = require('../middleware')
+
 const LoginController = require('../controllers').login
 const RegisterController = require('../controllers').register
-const PlansController = require('../controllers').plan
-const UsersController = require('../controllers').index
+
+const PlansController = require('../controllers').plans
+const UsersController = require('../controllers').users
 
 
 module.exports = (app) => {

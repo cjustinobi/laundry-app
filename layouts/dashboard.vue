@@ -1,6 +1,5 @@
 <template>
-    <div
-            :class="[{'dashboard': !minimized},{'minimized': minimized}]">
+    <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
         <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
             <sidebar @toggleMenu="adjustMenu"></sidebar>
         </aside>
@@ -8,9 +7,14 @@
             <dash-header @showDrawer="hideDrawer = false"></dash-header>
             <div class="nuxt-rend"><nuxt/></div>
         </div>
+
+        <!-- <transition name="hide"> -->
         <div :class="[{'hide-drawer': hideDrawer}]">
-            <drawer @hideDrawer="hideDrawer = true"></drawer>
+            <transition name="hide">  
+                <drawer @hideDrawer="hideDrawer = true"></drawer>
+            </transition>
         </div>
+        <!-- </transition> -->
     </div>
 </template>
 
@@ -96,7 +100,41 @@
     }
     .hide-drawer{
         display: none;
+        position: absolute;
+        top: 0;
+        /* left: 0; */
+        height: 100%;
+        /* transition: height 0.7s ease-in;
+        transition-timing-function: ease; */
+        /* animation-name: hide; */
+        /* animation-duration: 4s; */
     }
+    .hide-enter{
+        opacity: 0;
+    }
+    .hide-enter-active{
+        transition: opacity 1s;
+        animation: hide-in 1s ease-out forwards;
+        /* height: 100%; */
+    }
+    .hide-leave{
+        /* opacity: 1; */
+    }
+    .hide-leave-active{
+        animation: hide-out 1s ease-out forwards;
+        transition: opacity 1s;
+        opacity: 0;
+    }
+
+    @keyframes hide-in {
+        from {transform: translateY(100%)}
+        to {transform: translateY(0)}
+    }
+     @keyframes hide-out {
+        from {transform: translateY(0)}
+        to {transform: translateY(100%)}
+     }
+
     .backdrop{
         position: fixed;
         top: 0;
@@ -111,6 +149,8 @@
     .dashboard{
         grid-template-columns: 1fr;
     }
-
+    .minimized{
+        grid-template-columns: 1fr;
+    }
 }
 </style>

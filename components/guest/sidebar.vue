@@ -33,11 +33,12 @@
         position: fixed;
         top: 0;
         right: 0;
-        width: 200px;
+        width: 300px;
         height: 100%;
         color: #fefefe;
         background: #580231;
         z-index: 40000;
+        font-size: 22px;
     }
 
     #sidebar{

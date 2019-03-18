@@ -14,7 +14,7 @@ function hashPassword(user, options) {
 
 // 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('User', {
+    const User = sequelize.define('user', {
         fullname: DataTypes.STRING,
         email: DataTypes.STRING,
         phone: DataTypes.INTEGER,
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     }*/
 
     User.associate = function(models) {
-        User.belongsTo(models.Plan)
+        User.belongsTo(models.plan)
     }
 
     return User

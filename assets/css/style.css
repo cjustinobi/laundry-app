@@ -53,15 +53,13 @@ header{
     top: 0;
     margin: 0;   
     display: grid;
-    grid-template-columns: 90px auto;
+    grid-template-columns: 80px auto;
     background: #580231;
-    align-content: center;
-    align-items: center;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
-    padding: 0 64px;
+    padding: 3px 60px;
     z-index: 30000;
-    height: 60px;
+    height: 68px;
 }
 .wr-logo{
     width: 90px;
@@ -99,8 +97,9 @@ header{
 
 @media (max-width: 767px) {
     header{
-        grid-template-columns: 90px auto;
-        padding: 0 16px;
+        grid-template-columns: 110px auto 60px;
+        padding: 2px 24px;
+        align-items: center;
     }
     .app-links{
         display: none;
@@ -108,6 +107,17 @@ header{
     .toggle-icon{
         color: #fefefe;
         justify-self: end;
+        cursor: pointer;
+    }
+}
+
+@media(max-width: 360px) {
+    header{
+        grid-template-columns: auto 60px;
+        padding: 0 24px;
+    }
+    .toggle-icon{
+        color: #fefefe;
         cursor: pointer;
     }
 }

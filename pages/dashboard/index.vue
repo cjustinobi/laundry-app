@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <h4>Captain</h4>
-                <span class="chevron"><i class="fa fa-chevron-right"></i></span>
+                <span class="chevron-right"><i class="fa fa-chevron-right"></i></span>
             </div>
 
             <div class="all-plans">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <h4>Captain</h4>
-                <span class="chevron"><i class="fa fa-chevron-right"></i></span>
+                <span class="chevron-right"><i class="fa fa-chevron-right"></i></span>
             </div>
 
             <div class="all-plans">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <h4>Captain</h4>
-                <span class="chevron"><i class="fa fa-chevron-right"></i></span>
+                <span class="chevron-right"><i class="fa fa-chevron-right"></i></span>
             </div>
         </div>
 
@@ -95,7 +95,7 @@ export default {
     }
     .plans{
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-template: 1fr / repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 20px;
         margin: 30px 80px;
         
@@ -138,7 +138,7 @@ export default {
         align-items: center;
         justify-content: center;
     }
-    .chevron{
+    .chevron-right{
         display: grid;
         justify-items: end;
         padding-right: 20px;

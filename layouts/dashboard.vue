@@ -51,20 +51,27 @@
             toggleSidebar(e) {
                 let x = document.getElementById("sidebar")
                 if (x.style.display === 'block') {
-                    this.backdrop = false
+                    this.   backdrop = false
                     x.style.display = "none"
                 } else {
                     this.backdrop = true
                     x.style.display = 'block'
                 }
+            },
+            minimzeWindow(){
+                window.onresize = () => {
+                    this.windowWidth = window.innerWidth
+                }
+                    this.windowWidth = window.innerWidth
             }
+        
         },
         mounted() {
-            window.onresize = () => {
-                this.windowWidth = window.innerWidth
-            }
-            this.windowWidth = window.innerWidth
-        },
+            this.minimzeWindow()
+            
+            },
+            
+            
         watch: {
             windowWidth(e) {
                 // Hides wider device sidebar.
@@ -148,6 +155,7 @@
 @media (max-width: 767px) {
     .dashboard{
         grid-template-columns: 1fr;
+        width: 100%
     }
     .minimized{
         grid-template-columns: 1fr;

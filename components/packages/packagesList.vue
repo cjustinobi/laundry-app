@@ -103,11 +103,14 @@ export default {
         return {
             showForm: false,
             editDetail: '',
-            editButton: false
+            showEditButton: false
         }
     },
 
     methods: {
+        hideButton(){
+            this.showEditButton = false
+        },
         // editPackage(i) {
         //     this.showForm = true;
         //     this.editDetail = this.packages.find((item, index) => index == i)
@@ -117,6 +120,9 @@ export default {
             this.$router.push({ path: "/volunteer" });
         }
   
+    },
+    mounted() {
+        this.hideButton()
     },
     // firebase: {
     //     packages: db.ref('packages')
@@ -128,10 +134,10 @@ export default {
     .packages{
         position: relative;
         display: grid;
-        grid-template: 1fr / repeat(auto-fit, minmax(300px, 1fr));
+        grid-template: 1fr / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
         justify-items: center;
-        grid-gap: 20px;
+        grid-gap: 70px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
     }
@@ -242,8 +248,28 @@ export default {
 
     @media (max-width: 767px) {
     .packages{
-        grid-template-columns: 1fr;        
-        }
+        /* grid-template-columns: 1fr; */
+        grid-template: 1fr / repeat(auto-fit, minmax(200px, 270px));        
     }
+    .wash-menu{
+        font-size: 14px;
+    }
+    .pack-item{
+    }
+    .elegant-image{
+        width: 30px;
+    }
+    .name{
+        font-size: 18px;
+    }
+    .price{
+        font-size: 16px;
+    }
+    .subscribe{
+        width: 200px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
 
 </style>

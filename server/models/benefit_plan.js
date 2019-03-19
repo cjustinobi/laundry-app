@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const BenefitPlan = sequelize.define('benefit_plan', {
+  const BenefitPlan = sequelize.define('benefit_plans', {
     benefit_id: DataTypes.INTEGER,
     plan_id: DataTypes.INTEGER,
   }, {});

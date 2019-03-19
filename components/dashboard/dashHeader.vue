@@ -8,7 +8,7 @@
         </div>
 
         <div class="user-view">
-            <img src="~assets/images/chuks.jpg" class="user-img" alt="">
+            <img src="~assets/images/profile_pic.jpg" class="user-img" alt="">
             <div class="names">
                 <p>Obi Chuks</p>
                 <p>First User</p>
@@ -35,7 +35,9 @@ export default {
         color: rgb(104, 98, 98);
     }
     .user-img{
-        width: 30px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
         border-radius: 50%;
     }
     user{

@@ -1,22 +1,12 @@
 <template>
     <footer class="footer">
-        <div class="water-relief">
-            <h5>Water Relief Africa</h5>
-            <small><a href="#" target="_blank">Developed @africInnovate</a></small>
+        <div class="elegant-laundry">
+            <h5><a href="#" target="_blank">Elegant Laundry 2019 All Rights Reserved</a></h5>
         </div>
-        <!--<div class="footer-menu">
-            <nuxt-link class="footer-link" to="/">Home</nuxt-link>
-            <nuxt-link class="footer-link" to="/about">About </nuxt-link>
-            <nuxt-link class="footer-link" to="/volunteer">Get Involved</nuxt-link>
-            <nuxt-link class="footer-link" to="/projects">Projects</nuxt-link>
-            <nuxt-link class="footer-link" to="/team">Our Team</nuxt-link>
-            <nuxt-link class="footer-link" to="/contact">Contact us</nuxt-link>
-        </div>-->
-        <!--<p class="copy">All rights reserved &copy; 2018</p>-->
         <div class="socials">
-            <a href="https://www.facebook.com/Waterreliefafrica"> <i class="fa fa-facebook fa-lg social-icons"></i></a>
-            <a href="https://www.twitter.com/Waterreliefafrica"> <i class="fa fa-twitter fa-lg social-icons"></i></a>
-            <a href="tel:2347051120971"> <i class="fa fa-whatsapp fa-lg social-icons"></i></a>
+            <nuxt-link to="/projects">Terms and Conditions</nuxt-link> 
+            <div class="separator">|</div>
+            <nuxt-link to="/projects">Privacy Policy</nuxt-link>
         </div>
     </footer>
 </template>
@@ -25,15 +15,16 @@
     footer{
         display: grid;
         position: relative;
-        grid-template-columns: auto 150px;
+        grid-template-columns: auto auto;
         justify-content: space-between;
         align-items: center;
         background: #312a3d;
-        color: #898989;
+        /* height: 100px; */
+        color: #acaaaa;
         padding: 10px 48px;
     }
     a{
-        color: #898989;
+        color: #b4b4b4;
         transition: 1s ease-in;
         text-decoration: none;
     }
@@ -43,22 +34,40 @@
     .socials{
         display: grid;
         grid-template-columns: repeat(3, auto);
-        justify-content: space-between;
+        grid-gap: 10px;
+        /* justify-content: space-between; */
     }
-    @media(max-width: 480px) {
+
+    @media(max-width: 767px) {
         footer{
+            grid-template: auto auto / 1fr;
             padding: 10px 16px;
-            grid-template-columns: 1fr;
+            grid-gap: 15px;
+            align-items: center;
             justify-items: center;
+            font-size: 14px;
         }
-        .water-relief
+        a{
+            /* font-size: 14px; */
+        }
+        /* .elegant-laundry
         {
             display: grid;
             justify-items: center;
-        }
+        } */
         .socials{
-            width: 150px;
-            margin: 16px 0;
+            grid-template: repeat(2, auto) / 1fr;
+            align-items: center;
+            align-content: center;
+            align-self: center;
+            justify-self: center;
+            justify-content: center;
+            justify-items: center;
+            /* width: 150px;
+            margin: 16px 0; */
+        }
+        .separator{
+            display: none;
         }
     }
 </style>

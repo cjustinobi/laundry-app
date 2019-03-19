@@ -11,6 +11,8 @@
 
 <style scoped>
     .nav-list {
+        display: grid;
+        align-items: center;
         list-style: none;
         padding: 0;
         margin-top: 15px;
@@ -22,7 +24,7 @@
         text-decoration: none;
         color: #fefefe;
         transition: .7s ease-out;
-        font-size: 16px;
+        font-size: 15px;
     }
     .nav-item a:hover,
     .nav-item a:active{
@@ -30,11 +32,13 @@
     }
     .login-list{
         display: grid; 
+        align-items: center;
+        justify-content: center;
         border: 1px solid rgb(196, 191, 191);
         width: 140px;
         height: 30px;
         border-radius: 5px;
-        text-align: center;
+        /* text-align: center; */
         background-color: #e7b83f;
         font-weight: bold;
     }
@@ -56,6 +60,9 @@
             margin-top: 28px;
             margin-bottom: 16px;
         }
+        .nav-item a {
+        font-size: 17px;
+    }
     }
     @media (min-width: 768px) {
         .nav-list {

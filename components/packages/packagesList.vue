@@ -157,23 +157,29 @@ export default {
     .pack-item{
         border: 1px solid #b2d2e4;
         border-radius: 10px;
-        border-top: 7px solid indianred;
         display: grid;
         margin: 30px 0;
         min-height: 500px;
         background-color: #fefefe;
+        transition: 0.7s ease-in;
     }
-    .pack-item:hover
-    {
-        border-top: 7px solid #fb9e36;
+    .packages .pack-item:nth-child(1){
+        border-top: 7px solid rgb(247, 174, 241);
     }
-    .packages .pack-item:nth-child(even)
-    {
+    .packages .pack-item:nth-child(1):hover{
         border-top: 7px solid rgb(184, 76, 175);
     }
-    .packages .pack-item:nth-child(even):hover
-    {
-        border-top: 7px solid rgb(214, 78, 45);
+    .packages .pack-item:nth-child(2){
+        border-top: 7px solid rgb(195, 217, 247);
+    }
+    .packages .pack-item:nth-child(2):hover{
+        border-top: 7px solid rgb(147, 183, 229);
+    }
+    .packages .pack-item:nth-child(3){
+        border-top: 7px solid rgb(176, 233, 179);
+    }
+    .packages .pack-item:nth-child(3):hover{
+        border-top: 7px solid rgb(17, 145, 23);
     }
     .elegant-image{
         width: 40px;
@@ -248,8 +254,7 @@ export default {
 
     @media (max-width: 767px) {
     .packages{
-        /* grid-template-columns: 1fr; */
-        grid-template: 1fr / repeat(auto-fit, minmax(200px, 270px));        
+        grid-template: auto / 1fr;        
     }
     .wash-menu{
         font-size: 14px;

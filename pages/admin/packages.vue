@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="packages-container">
-            <!--<Banner/>-->
             <div class="btn-group">
                 <button class="create-btn" v-if="!showForm" @click.prevent="showForm = true">ADD PACKAGE</button>
                 <button class="create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">CREATE BENEFITS</button>

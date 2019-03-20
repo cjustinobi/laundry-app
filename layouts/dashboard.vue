@@ -8,13 +8,9 @@
             <div class="nuxt-rend"><nuxt/></div>
         </div>
 
-        <!-- <transition name="hide"> -->
         <div :class="[{'hide-drawer': hideDrawer}]">
-            <transition name="hide">  
-                <drawer @hideDrawer="hideDrawer = true"></drawer>
-            </transition>
+                <drawer class="draw-up" id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
         </div>
-        <!-- </transition> -->
     </div>
 </template>
 
@@ -51,7 +47,7 @@
             toggleSidebar(e) {
                 let x = document.getElementById("sidebar")
                 if (x.style.display === 'block') {
-                    this.   backdrop = false
+                    this.backdrop = false
                     x.style.display = "none"
                 } else {
                     this.backdrop = true
@@ -63,6 +59,12 @@
                     this.windowWidth = window.innerWidth
                 }
                     this.windowWidth = window.innerWidth
+            },
+            hideDrawee() {
+                let hideDraw = document.getElementById('draw-down')
+                if (hideDrawer = true) {
+                    this.hideDraw.className = 'draw-up'
+                }
             }
         
         },
@@ -102,46 +104,59 @@
         background: #fffcfc;
         
     }
+    #draw-down{
+        -webkit-animation-name: show;
+        -webkit-animation-duration: 1s;
+        animation-name: show;
+        animation-duration: 1s;
+    }
+    .draw-up{
+        animation-name: hide;
+        animation-duration: 2s;
+    }
+
+    @-webkit-keyframes show {
+        0% {
+            height: 0%;
+            opacity: 0.5;
+        }
+        100% {
+            height: 100%;
+            opacity: 1;
+        }
+    }
+    @keyframes show {
+        0% {
+            height: 0%;
+            opacity: 0.5;
+        }
+        100% {
+            height: 100%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes hide {
+        0% {
+            height: 100%;
+            opacity: 1;
+        }
+        100% {
+            height: 0%;
+            opacity: 0.5;
+        }
+    }
+
+
     .hide-sidebar{
         display: none;
     }
     .hide-drawer{
         display: none;
-        position: absolute;
+        position: relative;
         top: 0;
-        /* left: 0; */
         height: 100%;
-        /* transition: height 0.7s ease-in;
-        transition-timing-function: ease; */
-        /* animation-name: hide; */
-        /* animation-duration: 4s; */
     }
-    .hide-enter{
-        opacity: 0;
-    }
-    .hide-enter-active{
-        transition: opacity 1s;
-        animation: hide-in 1s ease-out forwards;
-        /* height: 100%; */
-    }
-    .hide-leave{
-        /* opacity: 1; */
-    }
-    .hide-leave-active{
-        animation: hide-out 1s ease-out forwards;
-        transition: opacity 1s;
-        opacity: 0;
-    }
-
-    @keyframes hide-in {
-        from {transform: translateY(100%)}
-        to {transform: translateY(0)}
-    }
-     @keyframes hide-out {
-        from {transform: translateY(0)}
-        to {transform: translateY(100%)}
-     }
-
     .backdrop{
         position: fixed;
         top: 0;
@@ -152,13 +167,13 @@
         transition: 2s ease-in;
 }
 
-@media (max-width: 767px) {
-    .dashboard{
-        grid-template-columns: 1fr;
-        width: 100%
+    @media (max-width: 767px) {
+        .dashboard{
+            grid-template-columns: 1fr;
+            width: 100%
+        }
+        .minimized{
+            grid-template-columns: 1fr;
+        }
     }
-    .minimized{
-        grid-template-columns: 1fr;
-    }
-}
 </style>

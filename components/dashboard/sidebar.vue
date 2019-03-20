@@ -96,9 +96,11 @@
     .sidebar-nav a:hover,
     .sidebar-nav a:active{
         background-color: rgb(207, 202, 240);
+        border-right: 2px solid;
     }
     .sidebar-nav a:active{
         color: #b4b4b4;
+        
     }
     .sidebar-head{
         display: grid;

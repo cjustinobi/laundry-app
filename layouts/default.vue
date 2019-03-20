@@ -8,7 +8,7 @@
         <div id="footer"><app-footer></app-footer></div>
 
         <div :class="{backdrop}">
-            <div class="sidebar"><sidebar></sidebar></div>
+            <div id="sidebar-link" class="sidebar"><sidebar></sidebar></div>
         </div>
 
     </div>
@@ -59,6 +59,30 @@
 </script>
 
 <style>
-    @import '../assets/css/style.css'
+    @import '../assets/css/style.css';
+
+     #sidebar-link{
+        animation: alpha 4s;
+    }
+    @keyframes alpha{
+        0%{
+            width: 0%;
+            background-color: blue;
+        }
+        100%{
+            width: 100%;
+            background-color: chartreuse;
+        }
+    }
+
+
+     @media(max-width: 767px) {
+        .sidebar{
+            /* display: none; */
+            position: relative;
+            right: 0;
+            width: 100%;
+        }
+    }
 </style>
 

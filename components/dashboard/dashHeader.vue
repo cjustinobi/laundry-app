@@ -1,6 +1,8 @@
 <template>
     <div class="main-head">
         <div class="user-h3">
+            <nuxt-link to='/' class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
+
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
@@ -13,7 +15,7 @@
                 <p>Obi Chuks</p>
                 <p>First User</p>
             </div>
-            <a class="pull-down"><i class=" fa fa-chevron-down"></i></a>
+            <a class="pull-down"><i class=" fa fa-angle-down fa-2x"></i></a>
         </div>
 
     </div>
@@ -33,6 +35,10 @@ export default {
         background: #fffcfc;
         height: 60px;
         color: rgb(104, 98, 98);
+        transition: 0.3s ease-in;
+    }
+    a{
+        color: rgb(104, 98, 98);
     }
     .user-img{
         width: 40px;
@@ -48,10 +54,11 @@ export default {
         display: grid;
         grid-template-columns: repeat(3, auto);
         align-items: center;
+        grid-gap: 10px;
     }
     .user-h3{
         display: grid;
-        grid-template-columns: 50px 1fr;
+        grid-template-columns: 50px 50px 1fr;
         text-align: center;
     }
     .pull-down{
@@ -63,7 +70,7 @@ export default {
 
 @media (max-width: 767px) {
     .main-head{
-        grid-template-columns: 1fr 130px;
+        grid-template-columns: 1fr 160px;
        
     }
     .user-h3{
@@ -79,6 +86,9 @@ export default {
         grid-template-columns: 1fr;
     }
     .toggle-bar{
+        display: none;
+    }
+    .user-home-btn{
         display: none;
     }
 }

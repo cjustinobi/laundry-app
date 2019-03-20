@@ -10,7 +10,7 @@
         <input type="password" v-model="details.password" placeholder="secret things">
         <button @click.prevent="signUp" class="sign-up-button">Sign Up</button>
         <samll class="account" @click.prevent="$emit('toggleLogin')">
-            Already have an account?
+            Already have an account? Click to login
         </samll>
     </div>
 

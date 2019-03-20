@@ -19,7 +19,6 @@
         justify-content: space-between;
         align-items: center;
         background: #312a3d;
-        /* height: 100px; */
         color: #acaaaa;
         padding: 10px 48px;
     }
@@ -35,7 +34,6 @@
         display: grid;
         grid-template-columns: repeat(3, auto);
         grid-gap: 10px;
-        /* justify-content: space-between; */
     }
 
     @media(max-width: 767px) {
@@ -47,14 +45,6 @@
             justify-items: center;
             font-size: 14px;
         }
-        a{
-            /* font-size: 14px; */
-        }
-        /* .elegant-laundry
-        {
-            display: grid;
-            justify-items: center;
-        } */
         .socials{
             grid-template: repeat(2, auto) / 1fr;
             align-items: center;
@@ -63,8 +53,6 @@
             justify-self: center;
             justify-content: center;
             justify-items: center;
-            /* width: 150px;
-            margin: 16px 0; */
         }
         .separator{
             display: none;

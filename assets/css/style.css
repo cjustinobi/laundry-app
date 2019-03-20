@@ -10,6 +10,7 @@ html,body {
     box-sizing: border-box;
     margin: 0;
     height: 100%;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -39,7 +40,7 @@ html,body {
     top: 50%;
     left: 50%;
     width: 400px;
-    padding: 25px;
+    /* padding: 25px; */
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
@@ -54,8 +55,6 @@ header{
     margin: 0;   
     display: grid;
     grid-template-columns: 80px auto;
-    /* justify-items: center; */
-    /* justify-content: center; */
     background: #580231;
     box-shadow: 0 4px 12px 0 rgba(0,0,0,0.4);
     transition: 0.3s;

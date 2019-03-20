@@ -30,10 +30,11 @@
             <p><a href="https://www.gmail.com/elegantlaundry">info@elegantlaundry.com</a></p>
         </div>
 
-        
-        <div :class="[{'chevron-up': chevronUp}, {'hide-chevron-up': !chevronUp}]">
-            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        <a href="#intro">
+        <div :class="[{'angle-up': angleUp}, {'hide-angle-up': !angleUp}]">
+            <i class="fa fa-angle-up fa-2x" style="color: #fefefe"></i>
         </div>
+        </a>
         
     </div>    
 </template>
@@ -43,7 +44,7 @@ export default {
     
     data() {
         return {
-            chevronUp: true,
+            angleUp: true,
             windowWidth: ''
         }
     },
@@ -61,7 +62,7 @@ export default {
     watch: {
          windowWidth(e) {
             // Hides wider device sidebar.
-            e < 768 ? this.chevronUp = false : this.chevronUp = true
+            e < 768 ? this.angleUp = false : this.angleUp = true
         }
     }
 }
@@ -105,15 +106,12 @@ export default {
     .socials{
         display: grid;
         grid-template-rows: 40px auto;
-        /* text-align: center; */
     }
     .socials-links{
         display: grid;
         grid-template-columns: repeat(3, 30px);
-        
-        /* justify-content: space-between; */
     }
-    .chevron-up{
+    .angle-up{
         display: grid;
         justify-items: center;
         align-items: center;
@@ -123,10 +121,10 @@ export default {
         border-radius: 50%;
         background-color: #e7b83f;
     }
-    .chevron-up a{
+    .angle-up a{
         color: #fefefe;
     }
-    .chevron-up:hover{
+    .angle-up:hover{
         background-color: #f58b13;
         transition: .7s ease-out;
     }
@@ -141,7 +139,6 @@ export default {
             grid-gap: 20px;
             justify-items: start;
             padding-left: 40px;
-            /* width: 100% */
         }
         .quick-links{
             position: relative;
@@ -149,12 +146,7 @@ export default {
             left: 0;
             right: 0;
         }
-        /* .chevron-up{
-            position: absolute;
-            top: 0;
-            right: 20px;
-        } */
-        .hide-chevron-up{
+        .hide-angle-up{
             position: absolute;
             top: 350px;
             right: 30px;
@@ -167,10 +159,10 @@ export default {
             border-radius: 50%;
             background-color: #e7b83f;
         }
-        .hide-chevron-up a{
+        .hide-angle-up a{
             color: #fefefe;
         }
-        .hide-chevron-up:hover{
+        .hide-angle-up:hover{
             background-color: #f58b13;
             transition: .7s ease-out;
         }

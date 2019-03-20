@@ -46,8 +46,6 @@
         background: #83044a;
         display: grid;
         grid-template-rows: auto 1fr;
-        /* opacity: 0.89; */
-        /* transition: height 0.7s ease-in; */
     }
     .hide-drawer{
         display: grid;
@@ -62,11 +60,12 @@
     }
     .sidebar-nav {
         display: grid;
-        grid-auto-rows: 100px;
+        grid-template: 100px / 1fr;
+        /* width: 100%; */
         margin-top: 50px;
-        align-items: center;
+        /* align-items: center; */
         font-size: 25px;
-        justify-content: center;
+        /* justify-content: center; */
     }
     .sidebar-nav a{
         text-decoration: none;
@@ -75,5 +74,9 @@
         transition: .7s ease-out;
     }
 
-
+    .sidebar-nav a:hover,
+    .sidebar-nav a:active{
+        background-color: rgb(207, 202, 240);
+        /* border-right: 2px solid; */
+    }
 </style>

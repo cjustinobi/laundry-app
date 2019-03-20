@@ -1,6 +1,6 @@
 <template>
-    <div id="sidebar" :class="[{'sidebar': sidebar}]">
-        <app-link></app-link>
+    <div id="sidebar"  :class="[{'sidebar': sidebar}]">
+        <app-link ></app-link>
     </div>
 </template>
 
@@ -31,7 +31,7 @@
 <style scoped>
     .sidebar{
         position: fixed;
-        top: 0;
+        /* top: 0; */
         right: 0;
         width: 300px;
         height: 100%;
@@ -39,8 +39,9 @@
         background: #580231;
         z-index: 40000;
         font-size: 22px;
+        transition: 0.6s ease-in;
     }
-
+   
     #sidebar{
         display: none;
     }

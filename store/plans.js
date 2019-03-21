@@ -14,6 +14,7 @@ export const mutations = {
 
 export const actions = {
     async store({ commit }, payload) {
+
         try {
             let res = await this.$axios.$post('/api/plans', payload)
             commit('ADD_PLAN', res)

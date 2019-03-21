@@ -17,6 +17,7 @@ module.exports = {
                 name: req.body.name,
                 price: req.body.price
             })
+            plan.setBenefits(req.body.benefits)
             return res.status(201).send(plan)
         } catch (e) {
             return res.status(400).send({ error: 'error occurred creating plan'})

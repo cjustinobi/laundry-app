@@ -12,22 +12,18 @@
 
             <div :class="{'backdrop': showForm}">
                 <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                    <packages-form @cancelForm="showForm = false" />
+                    <plan-editor @cancelForm="showForm = false" />
                 </div>
             </div>
 
             <div :class="{'backdrop': showBenefitForm}">
                 <div :class="[{'show-form': showBenefitForm, 'hide-form': !showBenefitForm}]">
-                    <!--<benefits-form @cancelForm="showBenefitForm = false" />-->
+                    <benefit-editor @cancelForm="showBenefitForm = false" />
                 </div>
             </div>
 
-            
-
-            <div>
-                <!--<all-benefits/>-->
-            </div>
-
+        <div>
+            <all-benefits/>
         </div>
     </div>
     
@@ -35,21 +31,21 @@
 
 <script>
 
-    import PackagesList from '~/components/packages/packagesList'
-    import PackagesForm from '~/components/packages/packagesForm'
-    // import Form from '~/components/benefits/form'
-
-    // import List from '~/components/benefits/list'
+import PlanEditor from '~/components/packages/editor'
+import BenefitEditor from '~/components/benefits/editor'
+import AllPackages from '~/components/packages/packagesList'
+import AllBenefits from '~/components/benefits/list'
 
 
 export default {
 
+    layout: 'dashboard',
+
     components: {
-        // Banner,
-        PackagesList,
-        PackagesForm,
-        // Form,
-        // List
+        PlanEditor,
+        BenefitEditor,
+        AllPackages,
+        AllBenefits
         
     },
 

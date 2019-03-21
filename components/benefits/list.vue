@@ -3,7 +3,7 @@
         <div class="benefits">
             <div class="benefit" v-for="(item, i) in benefits" :key="i">
                 <div class="benefit-container">
-                    <li class="item-title">{{ item.title }}</li>
+                    <li class="item-title">{{ item.name }}</li>
 
                     <div class="edit-button">
                         <button class="edit-package" @click.prevent="editBenefit(i)">Edit</button>
@@ -16,7 +16,7 @@
 
         <div :class="{backdrop : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <benefits-form :editDetail="editDetail" @cancelForm="showForm = false"/>
+                <editor :editDetail="editDetail" @cancelForm="showForm = false"/>
             </div>
         </div>
 
@@ -24,12 +24,12 @@
 </template>
 
 <script>
-    // import {db} from '../config/firebase'
-    import Form from '~/components/benefits/form'
+
+    import Editor from '~/components/benefits/editor'
 
     export default {
         components:{
-            Form
+            Editor
         },
         data() {
             return {
@@ -44,12 +44,19 @@
                 this.editDetail = this.benefits.find((item, index) => index == i)
             },
             deleteForm(i){
-            db.ref('benefits').child(this.benefits[i]['.key']).remove()
-        }
+
+            }
         },
-        // firebase: {
-        //     benefits: db.ref('benefits')
-        // },
+
+        mounted() {
+            this.$store.dispatch('benefits/getBenefits')
+        },
+
+        computed: {
+            benefits() {
+                return this.$store.getters['benefits/allBenefits']
+            }
+        }
         
     }
 </script>

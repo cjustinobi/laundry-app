@@ -7,6 +7,19 @@
             <input class="package-input" type="text" placeholder="name" v-model="details.name">
             <input class="package-input" type="text" placeholder="price" v-model="details.price">
 
+            <multiselect v-if="benefits"
+                         class="add-product-cat"
+                         v-model="details.benefits"
+                         :options="benefits"
+                         :multiple="true"
+                         :close-on-select="true"
+                         :clear-on-select="false"
+                         :hide-selected="true"
+                         label="name"
+                         track-by="name"
+                         :preserve-search="false">
+            </multiselect>
+
             <div class="btn-package">
                 <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
                 <button class="btn-submit" @click.prevent="submitPackage">
@@ -21,6 +34,7 @@
 
 <script>
 
+    import Multiselect from 'vue-multiselect'
     import  FormElements  from '~/mixins/formElements'
 
     export default {
@@ -32,12 +46,14 @@
 
         mixins: [FormElements],
 
+        components: { Multiselect },
+
         data() {
             return {
                 details: {
                     name: '',
                     price: ''
-                },
+                }
             }
         },
 
@@ -45,10 +61,11 @@
         methods: {
             async submitPackage() {
                 this.isLoading = true
+                this.details.benefits.map(item => item.id)
                 try {
                     let res = await this.$store.dispatch('plans/store', this.details)
                     if (res) {
-//                        this.isLoading = false
+                        this.isLoading = false
                         this.clearFields(this.details)
                         this.$emit('cancelForm')
                     }
@@ -60,8 +77,14 @@
 
         },
 
-        mounted(){
+        computed: {
+            benefits() {
+                return this.$store.getters['benefits/allBenefits']
+            }
+        },
 
+        mounted(){
+            this.$store.dispatch('benefits/getBenefits')
         },
 
 
@@ -165,6 +188,9 @@
     @media (min-width: 768px) {
         
     }
+</style>
+<style>
+    @import '~/node_modules/vue-multiselect/dist/vue-multiselect.min.css';
 </style>
 
 

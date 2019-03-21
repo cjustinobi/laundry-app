@@ -21,7 +21,7 @@ export default {
         return {
             email: '',
             password: '',
-            user: '',
+//            user: '',
             LoginText: 'Login',
             errors: null
         }

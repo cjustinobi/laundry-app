@@ -3,11 +3,18 @@
     <div class="editor">
         <form class="form">
             <div class="close-benefit"><a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a></div>
-            <input type="text" class="input-benefit" placeholder="benefit" v-model="details.title">
+            <div v-for="(item, i) in items">
+                <input class="input-benefit" v-model="item.name" placeholder="benefit">
+                <i class="fa fa-remove" @click="removeItem(i)"></i>
+            </div>
+            <button @click.prevent="addItem">Add fields</button>
 
             <div class="btn-benefits">
                 <button class="btn-cancel-benefits" @click.prevent="$emit('cancelForm')">Cancel</button>
-                <button class="btn-submit-benefits" @click.prevent="submitBenefit">Submit</button>
+                <button class="btn-submit-benefits" @click.prevent="submitBenefit">
+                    <img v-if="isLoading" src="~/assets/images/loading.gif" alt="Elegant image">
+                    <span v-else>{{ sendBtnTxt }}</span>
+                </button>
             </div>
         </form>
     </div>
@@ -15,8 +22,7 @@
 </template>
 
 <script>
-    // import {db} from '../config/firebase'
-
+    import  FormElements  from '~/mixins/formElements'
     export default {
 
         props: [
@@ -24,36 +30,38 @@
             'editDetail'
         ],
 
+        mixins: [FormElements],
+
         data() {
             return {
-            
-                details: {
-                    title: ''
-                }
+                items: [{ name: '' }]
             }
         },
 
         methods: {
             async submitBenefit() {
-                if (this.details['.key']){
-                    try{
-                        await db.ref('/benefits').child(this.details['.key']).update({title: this.details.title})
-                    }
-                    catch(e) {
-                    console.log(e)
-                    }
-                    
-                 }  else {
-                        this.$firebaseRefs.benefits.push( {title: this.details.title} )
-                    }
-                     
-                }    
+                this.isLoading = true
+                try {
+                    let res = await this.$store.dispatch('benefits/store', this.items)
+                    this.isLoading = false
+                    this.items = [{ name: '' }] // Clears the form.
+                    this.$emit('cancelForm')
+                } catch (err) {
+                    console.log(err)
+                    this.isLoading = false
+                }
             },
+            addItem() {
+                this.items.push({ name: ''})
+            },
+            removeItem(i) {
+                this.items.splice(i, 1)
+            },
+            async submitForm() {
 
-        // firebase:{
-        //     benefits: db.ref('benefits')
-        // },
+            }
 
+        },
 
         watch: {
             editDetail: function(e){

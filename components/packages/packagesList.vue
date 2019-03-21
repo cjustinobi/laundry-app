@@ -22,7 +22,7 @@
 
         <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <packages-form :editDetail="editDetail" @cancelForm="showForm = false"/>
+                <editor :editDetail="editDetail" @cancelForm="showForm = false"/>
             </div>
         </div>
     </div>
@@ -30,11 +30,11 @@
 
 <script>
 
-import PackagesForm from '~/components/packages/packagesForm'
+import Editor from '~/components/packages/editor'
 
 export default {
     components:{
-        PackagesForm
+        Editor
     },
     data() {
         return {

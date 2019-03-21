@@ -30,8 +30,7 @@ module.exports = {
             bcrypt.compare(req.body.password, user.password, function(err, result) {
                 if (err) res.status(500).send({ error: 'server error' })
                 if (result) {
-                    req.session.user_type = user.user_type
-                    console.log('just setting session ' + req.session.user_type)
+                    console.log(req.headers.user_type)
                     res.status(200).send({ user, token: jwtSignUser(user) })
                 } else {
                     res.status(401).send({error: 'incorrect login details'})

@@ -106,7 +106,7 @@
         display: grid;
         grid-template-columns: auto 30px;
         align-items: center;
-        padding-left: 13px;
+        padding-left: 12px;
         background: #fffcfc;
         border-right: 1px solid rgb(230, 224, 224);
         border-bottom: 1px solid rgb(230, 224, 224);

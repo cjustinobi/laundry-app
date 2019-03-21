@@ -1,73 +1,87 @@
 <template>
-        <div class="editor">
-            <form class="form">
-                <div class="close-package">
-                    <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close fa-2x"></i></a>
-                </div>
-                <input class="package-input" type="text" placeholder="name" v-model="details.name">
-                <input class="package-input" type="text" placeholder="price" v-model="details.price">
+    <div class="editor">
+        <form class="form">
+            <div class="close-package">
+                <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
+            </div>
+            <input class="package-input" type="text" placeholder="name" v-model="details.name">
+            <input class="package-input" type="text" placeholder="price" v-model="details.price">
 
-                <div class="package-desktop">
-                    <button class="btn-btn btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
-                    <button class="btn-btn btn-submit" @click.prevent="submitPackage">Submit</button>
-                </div>
-                <div class="package-mobile">
-                    <button class="btn-btn btn-submit" @click.prevent="submitPackage">Submit</button>
-                    <button class="btn-btn btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
-                </div>
+            <div class="btn-package">
+                <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
+                <button class="btn-submit" @click.prevent="submitPackage">
+                    <img v-if="isLoading" src="~/assets/images/loading.gif" alt="Elegant image">
+                    <span v-else>{{ sendBtnTxt }}</span>
+                </button>
+            </div>
+        </form>
+    </div>
 
-                
-            </form>
-        </div>
-    
 </template>
 
 <script>
 
+    import  FormElements  from '~/mixins/formElements'
 
-export default {
+    export default {
 
-    props:[
-        'editDetail',
-        'showForm'
-    ],
+        props:[
+            'editDetail',
+            'showForm'
+        ],
 
-    data() {
-        return {
-            details: {
-                name: '',
-                price: ''
-            },
-        }
-    },
+        mixins: [FormElements],
 
-
-    methods: {
-        async submitPackage() {
-            try {
-                let res = this.$store.dispatch('packages', this.details)
-            } catch (e) { console.log(e)}
+        data() {
+            return {
+                details: {
+                    name: '',
+                    price: ''
+                },
+            }
         },
-    },
-
-    mounted(){
-        
-    },
 
 
-    watch: {
-        editDetail: function(e){
-            e ? this.details = e : ''
+        methods: {
+            async submitPackage() {
+                this.isLoading = true
+                try {
+                    let res = await this.$store.dispatch('plans/store', this.details)
+                    if (res) {
+//                        this.isLoading = false
+                        this.clearFields(this.details)
+                        this.$emit('cancelForm')
+                    }
+                } catch (e) {
+                    console.log(e)
+                    this.isLoading = false
+                }
+            },
+
+        },
+
+        mounted(){
+
+        },
+
+
+        watch: {
+            editDetail: function(e){
+                e ? this.details = e : ''
+            }
         }
+
     }
-    
-}
 </script>
 
 <style scoped>
     .editor{
         display: grid;
         justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 10000;
+        /* top: 50%; */
     }
     .form{
         display: grid;
@@ -80,16 +94,10 @@ export default {
         width: 500px;
         height: 300px;
     }
-    .package-desktop{
-        display: grid;
-        grid-template-columns: 180px 180px;
-        justify-content: space-between;
-        align-items: center;
+    img{
+        width: 40px;
     }
-    .package-mobile{
-        display: none;
-    }
-    .btn-btn{
+    .btn-cancel{
         width: 180px;
         border-radius: 5px;
         border: 1px solid grey;
@@ -97,10 +105,7 @@ export default {
         color: #fefefe;
         font-size: 16px;
         transition: 0.3s ease-in;
-    }
-    .btn-cancel{
         background-color: rgb(245, 100, 100);
-        
     }
     .btn-cancel:hover{
         background-color: rgb(240, 59, 59);
@@ -127,14 +132,14 @@ export default {
         border: 1px solid grey;
         padding: 10px;
     }
+    .btn-package{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
     
     
 
     @media (max-width: 767px) {
-        .editor{
-            display: grid;
-            justify-content: center;
-        }
         .form{
             grid-gap: 10px;
             width: 380px;

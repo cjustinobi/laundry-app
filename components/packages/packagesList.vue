@@ -1,98 +1,39 @@
 <template>
     <div>
         <div class="packages">
-            <!-- <div class="package"> -->
-                <div class="pack-item">
-                    <button 
-                        :class="[{'edit-button': showEditButton}, {'hide-edit-button': !showEditButton}]" 
-                        @click.prevent="editPackage()">
-                        Edit
-                    </button>
-                    <div class="name">
-                        <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture"> 
-                        <h1 class="">Economy</h1>
-                    </div>
-                    <div  class="price">
-                        <h1><sup>#</sup>10,000 <span class="month">per month</span> </h1>
-                    </div>
-                    <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 15 clothes</li>
-                       <i class="fa fa-check"></i><li>1 pick-up per month</li>
-                       <i class="fa fa-check"></i><li>Priority pick-up #1000/pick-up</li>
-                       <i class="fa fa-check"></i><li>Dry cleaning charge per item</li>
-                       <i class="fa fa-check"></i><li>1 suit or any fabric you wish to be dry cleaned</li>
-                    </div>
-                    <form method="get" id="sub-btn">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE NOW</button>
-                    </form>
-                    
+            <div class="pack-item" v-for="(plan, i) in plans" :key="i">
+                <button class="edit-button" @click.prevent="editPackage()">Edit</button>
+                <div class="name">
+                    <img class="elegant-image" src="~assets/images/EL_logo_2.png" alt="Elegant Laundry">
+                    <h1>{{ plan.name }}</h1>
                 </div>
-                <div class="pack-item">
-                    <button 
-                        :class="[{'edit-button': showEditButton}, {'hide-edit-button': !showEditButton}]" 
-                        @click.prevent="editPackage()">
-                        Edit
-                    </button>
-                    <div class="name">
-                        <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture"> 
-                        <h1 class="">Basic</h1>
-                    </div>
-                    <div  class="price">
-                        <h1><sup>#</sup>20,000 <span class="month">per month</span> </h1>
-                    </div>
-                    <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 25 clothes</li>
-                       <i class="fa fa-check"></i><li>2 pick-up per month</li>
-                       <i class="fa fa-check"></i><li>Priority pick-up #1000/pick-up</li>
-                       <i class="fa fa-check"></i><li>5% discount on dry cleaning items</li>
-                       <i class="fa fa-check"></i><li>3 suits or any fabric you wish to be dry cleaned</li>
-                    </div>
-                    <form method="get" id="sub-btn">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE NOW</button>
-                    </form>
-                    
+                <div  class="price">
+                    <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
-                <div class="pack-item">
-                    <button 
-                        :class="[{'edit-button': showEditButton}, {'hide-edit-button': !showEditButton}]" 
-                        @click.prevent="editPackage()">
-                        Edit
-                    </button>
-                    <div class="name">
-                        <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture"> 
-                        <h1 class="">Premium</h1>
-                    </div>
-                    <div  class="price">
-                        <h1><sup>#</sup>35,000 <span class="month">per month</span> </h1>
-                    </div>
-                    <div class="wash-menu">
-                       <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 40 clothes</li>
-                       <i class="fa fa-check"></i><li>4 pick-up per month</li>
-                       <i class="fa fa-check"></i><li>Priority pick-ups</li>
-                       <i class="fa fa-check"></i><li>10% discount on dry cleaning items</li>
-                       <i class="fa fa-check"></i><li>5 suits or any fabric you wish to be dry cleaned</li>
-                    </div>
-
-                    <form method="get" id="sub-btn">
-                        <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE NOW</button>
-                    </form>
-                    
+                <div class="wash-menu">
+                   <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
+                   <i class="fa fa-check"></i><li>Beddings</li>
+                   <i class="fa fa-check"></i><li>Curtains</li>
+                   <i class="fa fa-check"></i><li>Duvets</li>
+                   <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
                 </div>
-                  
+                <form method="get" id="sub-btn">
+                    <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
 
-            <!-- </div> -->
-        </div>
-
-        <div :class="{'backdrop' : showForm}">
+        
+    </div>
+    <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
                 <packages-form :editDetail="editDetail" @cancelForm="showForm = false"/>
             </div>
-        </div>
     </div>
+</div>
 </template>
 
 <script>
-// import {db} from '../config/firebase'
+
 import PackagesForm from '~/components/packages/packagesForm'
 
 export default {
@@ -119,20 +60,27 @@ export default {
             this.$root.$emit("package", 2000);
             this.$router.push({ path: "/volunteer" });
         }
-  
     },
+
+
     mounted() {
+        this.$store.dispatch('plans/getPlans')
         this.hideButton()
     },
-    // firebase: {
-    //     packages: db.ref('packages')
-    // }
+
+    computed: {
+        plans() {
+            return this.$store.getters['plans/allPlans']
+        }
+    }
 }
 </script>
 
 <style scoped>
     .packages{
         position: relative;
+        top: 0;
+        /* left: 0; */
         display: grid;
         grid-template: 1fr / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
@@ -193,6 +141,7 @@ export default {
         font-family: Courier;
         font-size: 22px;
         color: #728691;
+        margin-top: -20px;
     }
     .price{
         margin-bottom: 0px;
@@ -210,7 +159,7 @@ export default {
     }
     #sub-btn{
         display: grid;
-        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr; */
         align-items: center;
         justify-self: center;
     }

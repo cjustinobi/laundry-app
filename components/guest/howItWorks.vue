@@ -59,11 +59,19 @@ export default {
         font-weight: bold;
     }
 
+    @media (max-width: 1048px) {
+        .how-it-works{
+            grid-template: auto / 1fr 1fr;
+            grid-gap: 20px;
+        }
+    }
     @media (max-width: 767px) {
         .how-it-works{
             grid-template: auto / 1fr;
             grid-gap: 20px;
         }
     }
+
+     
     
 </style>

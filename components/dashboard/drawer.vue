@@ -60,23 +60,17 @@
     }
     .sidebar-nav {
         display: grid;
-        grid-template: 100px / 1fr;
-        /* width: 100%; */
-        margin-top: 50px;
-        /* align-items: center; */
+        grid-auto-rows: 1fr;
+        width: 100%;
+        margin-top: 20px;
+        align-items: center;
         font-size: 25px;
-        /* justify-content: center; */
+        justify-content: center;
     }
     .sidebar-nav a{
         text-decoration: none;
         color: #fefefe;
         padding: 14px 10px;
         transition: .7s ease-out;
-    }
-
-    .sidebar-nav a:hover,
-    .sidebar-nav a:active{
-        background-color: rgb(207, 202, 240);
-        /* border-right: 2px solid; */
     }
 </style>

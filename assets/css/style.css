@@ -36,13 +36,15 @@ html,body {
     transition: 2s ease-in;
 }
 .show-form{
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 400px;
+    align-items: center;
+    justify-content: center;
     /* padding: 25px; */
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 10000;
 }
 .hide-form{
     display: none;

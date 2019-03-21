@@ -1,7 +1,10 @@
 
 const express = require('express')
+require('dotenv').config()
 const consola = require('consola')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
@@ -39,5 +42,11 @@ start()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(cookieParser())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 require('./routes')(app)

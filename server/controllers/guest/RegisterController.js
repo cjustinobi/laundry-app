@@ -1,4 +1,4 @@
-const user = require('../../models').user;
+const User = require('../../models').user;
 const jwt = require('jsonwebtoken')
 const config = require('../../config/config')
 
@@ -10,16 +10,18 @@ function jwtSignUser(user) {
 }
 
 module.exports = {
-    register(req, res) {
-        return user
-            .create({
+    async register(req, res) {
+        try {
+            let user = await User.create({
                 fullname: req.body.fullname,
                 email: req.body.email,
                 phone: req.body.phone,
                 password: req.body.password,
                 plan_id: req.body.plan_id
             })
-            .then(user => res.status(201).send(user))
-            .catch(error => res.status(400).send(error));
-    },
-};
+            res.status(201).send(user)
+        } catch(err) {
+            res.status(400).send(err)
+        }
+    }
+}

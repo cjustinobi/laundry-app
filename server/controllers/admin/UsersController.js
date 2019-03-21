@@ -4,8 +4,10 @@ const Plan = require('../../models').plan
 module.exports = {
     async index(req, res) {
         try {
-            let result = await User.findAll({include: [{model: Plan}]})
-            return res.status(200).send(result)
-        } catch (e) {console.log(e)}
+            let users = await User.findAll({include: [{model: Plan}]})
+            return res.status(200).send(users)
+        } catch (err) {
+            return res.status(500).send(err)
+        }
     }
 }

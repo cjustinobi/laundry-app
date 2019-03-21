@@ -26,8 +26,8 @@
         <div class="customer-care" >
             <h4>Contacts</h4>
             <p style="color: #b4b4b4">+2348037303414</p>
-            <h4>Customer care</h4>
-            <p><a href="https://www.gmail.com/elegantlaundry">info@elegantlaundry.com</a></p>
+            <!-- <h4>Customer care</h4> -->
+            <p style=""><a href="https://www.gmail.com/elegantlaundry">info@elegantlaundry.com</a></p>
         </div>
 
         <a href="#intro">
@@ -130,6 +130,7 @@ export default {
     }
     .customer-care{
         display: grid;
+        grid-template-rows: 40px 25px 25px;
         font-size: 14px;
     }
 
@@ -139,8 +140,6 @@ export default {
             grid-gap: 20px;
             justify-items: start;
             padding-left: 40px;
-        }
-        .quick-links{
             position: relative;
             top: 0;
             left: 0;

@@ -28,7 +28,6 @@ module.exports = {
     ** Global CSS
     */
     css: [
-        // '~/assets/css/style.css',
         '~/assets/font-awesome/css/font-awesome.min.css'
     ],
 
@@ -37,6 +36,7 @@ module.exports = {
     */
     plugins: [
         { src: '~/plugins/axios' },
+        { src: '~/plugins/user', ssr: false },
         { src: '~/plugins/localStorage', ssr: false }
     ],
 
@@ -46,7 +46,8 @@ module.exports = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@nuxtjs/pwa'
+        '@nuxtjs/pwa',
+        '@nuxtjs/style-resources',
     ],
     /*
     ** Axios module configuration
@@ -63,6 +64,11 @@ module.exports = {
         ** You can extend webpack config here
         */
         extractCSS: true,
+        styleResources: {
+            scss: [
+                './assets/scss/*.scss'
+            ]
+        },
         extend(config, ctx) {
 
         }

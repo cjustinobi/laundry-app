@@ -2,7 +2,6 @@
     <div class="main-head">
         <div class="user-h3">
             <nuxt-link to='/' class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
-
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
@@ -58,7 +57,7 @@ export default {
     }
     .user-h3{
         display: grid;
-        grid-template-columns: 50px 50px 1fr;
+        grid-template-columns: 1fr;
         text-align: center;
     }
     .pull-down{
@@ -74,6 +73,7 @@ export default {
        
     }
     .user-h3{
+        grid-template-columns: 50px 50px 1fr;
         font-size: 15px
     }
     .names{
@@ -82,9 +82,6 @@ export default {
 }
 
 @media (min-width: 768px) {
-    .user-h3{
-        grid-template-columns: 1fr;
-    }
     .toggle-bar{
         display: none;
     }

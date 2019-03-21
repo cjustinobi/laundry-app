@@ -9,7 +9,7 @@
         </div>
 
         <div :class="[{'hide-drawer': hideDrawer}]">
-                <drawer class="draw-up" id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
+            <drawer class="draw-up" id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
         </div>
     </div>
 </template>

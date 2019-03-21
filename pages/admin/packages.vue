@@ -6,6 +6,10 @@
                 <button class="create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">CREATE BENEFITS</button>
             </div>
 
+            <div class="all-packages">
+                <PackagesList/>
+            </div>
+
             <div :class="{'backdrop': showForm}">
                 <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
                     <packages-form @cancelForm="showForm = false" />
@@ -18,35 +22,34 @@
                 </div>
             </div>
 
-        </div>
+            
 
-        <div class="all-packages">
-            <!--<all-packages/>-->
-        </div>
+            <div>
+                <!--<all-benefits/>-->
+            </div>
 
-        <div>
-            <!--<all-benefits/>-->
         </div>
     </div>
     
 </template>
 
 <script>
-// import Banner from '../../components/Banner'
-import PackagesForm from '~/components/packages/packagesForm'
-import Form from '~/components/benefits/form'
-import PackagesList from '~/components/packages/packagesList'
-import List from '~/components/benefits/list'
+
+    import PackagesList from '~/components/packages/packagesList'
+    import PackagesForm from '~/components/packages/packagesForm'
+    // import Form from '~/components/benefits/form'
+
+    // import List from '~/components/benefits/list'
 
 
 export default {
 
     components: {
         // Banner,
-        PackagesForm,
-        Form,
         PackagesList,
-        List
+        PackagesForm,
+        // Form,
+        // List
         
     },
 
@@ -62,53 +65,12 @@ export default {
 </script>
 
 <style scoped>
-    .banner {
-        /* background: url("../../assets/show-room-edited.png"); */
-        background-size: cover;
-        background-position: center top;
-        height: 500px;
-        margin-top: -30px;
-    }
     .packages-container{
         position: relative;
         display: grid;
         grid-template-columns: 1fr;
     }
-    .create-btn:hover{
-        transition: 2s;
-        background-color: rgb(86, 189, 189);
-    }
-    
-    
-    @media (max-width: 767px) {
-        .btn-group{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-gap: 20px;
-        width: 40%;
-        margin: 20px 0;
-        /* justify-content: center; */
-    }
-    .create-btn{
-        width: 100px;
-        height: 40px;
-        border: 3px solid rgb(209, 159, 67);    
-        border-radius: 15px;
-        justify-self: center;
-        align-items: center;
-        font-weight: bold;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background-color: darkcyan;
-        color: #fff;
-        
-    }
-    .banner{
-        margin-top: -30px;
-    }
-}
-
-    @media (min-width: 768px) {
-    .create-btn{
+     .create-btn{
         width: 180px;
         height: 60px;
         border: 3px solid rgb(209, 159, 67);    
@@ -120,13 +82,36 @@ export default {
         background-color: darkcyan;
         color: #fff;
     }
+    .create-btn:hover{
+        transition: 2s;
+        background-color: rgb(86, 189, 189);
+    }
     .btn-group{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         width: 40%;
     }
-}
+    
+    
+    @media (max-width: 767px) {
+        .btn-group{
+            grid-template-rows: 1fr 1fr;
+            margin: 20px 0;
+        }
+        .create-btn{
+            width: 100px;
+            height: 40px;
+            align-items: center;
+        }
+        .banner{
+            margin-top: -30px;
+        }
+    }
+
+    @media (min-width: 768px) {
+    
+    }
 
 </style>
 

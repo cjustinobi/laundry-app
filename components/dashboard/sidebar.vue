@@ -12,21 +12,29 @@
         </div>
 
         <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
-            <nuxt-link to='/about' class='logo'>
+            <nuxt-link to='/transaction' class='logo'>
                 <i class="fa fa-window-maximize" title="Transaction History"></i> 
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
-            <nuxt-link to='/contact' class='logo'>
+            <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/volunteer' class='logo'>
+            <nuxt-link to='/pickupform' class='logo'>
                 <i class="fa fa-address-card" title="Pick-up Form"></i>
                 <span v-if="wideMenu">Pick-up Form</span>
             </nuxt-link>
-            <nuxt-link to='/projects' class='logo'>
+            <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
+            </nuxt-link>
+            <nuxt-link to='/addpackage' class='logo'>
+                <i class="fa fa-plus-circle" title="Add Package"></i>
+                <span v-if="wideMenu">Add Package</span>
+            </nuxt-link>
+            <nuxt-link to='/createbenefits' class='logo'>
+                <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
+                <span v-if="wideMenu">Create Benefits</span>
             </nuxt-link>
         </div>
 

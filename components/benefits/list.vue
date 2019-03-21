@@ -70,86 +70,60 @@
         
     }
      .benefit-container{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            padding: 15px;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 15px;
+    }
+    .benefits{
+        display: grid;
+        grid-template-columns: 40% 40%; 
+        grid-gap: 20px;
+        padding: 15px 0 15px 0;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .benefit{
+        background-color: #f3efef;
+        display: grid;
+        border: 1px solid #f3efef;
+        border-radius: 4px;
+        font-size: 18px;
+    }
+    .edit-button{
+        display: grid;
+        grid-template-columns: 50px 50px;
+        grid-gap: 5px;
+        justify-content: flex-end;
+        
+    }
+    .delete-package{
+        background-color: rgb(235, 69, 69);
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        color: #e9e1e1;
+        padding: 5px;
+        outline: none;
+    }
+    .edit-package{
+        background-color: rgb(87, 87, 231);
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        color: #ddcdcd;
+        outline: none;
+    }
     
     @media (max-width: 767px) {
         .benefits{
-            display: grid;
             grid-template-columns: 1fr;
-            grid-gap: 20px;
             padding-bottom: 20px;
-            margin: 0 auto;
-            justify-self: center
-        
         }
         .benefit{
-            background-color: #f3efef;
-            display: grid;
-            border: 1px solid #f3efef;
-            border-radius: 4px;
             font-size: 17px;
         }
-        .edit-button{
-            display: grid;
-            grid-template-columns: 50px 50px;
-            grid-gap: 5px;
-            justify-content: flex-end;
-        }
-        .delete-package{
-            background-color: rgb(235, 69, 69);
-            border: 1px solid #fefefe;
-            border-radius: 4px;
-            color: #e9e1e1;
-            padding: 5px;
-        }
-        .edit-package{
-            background-color: rgb(87, 87, 231);
-            border: 1px solid #fefefe;
-            border-radius: 4px;
-            color: #ddcdcd;
-        }
-}
+    }
 
     @media (min-width: 768px) {
-        .benefits{
-            display: grid;
-            grid-template-columns: 40% 40%; 
-            grid-gap: 20px;
-            padding: 15px 0 15px 0;
-            margin: 0 auto;
-            justify-content: center;
         
-        }
-       
-        .benefit{
-            background-color: #f3efef;
-            display: grid;
-            border: 1px solid #f3efef;
-            border-radius: 4px;
-            font-size: 18px;
-        }
-        .edit-button{
-            display: grid;
-            grid-template-columns: 50px 50px;
-            grid-gap: 5px;
-            justify-content: flex-end;
-        }
-        .delete-package{
-            background-color: rgb(235, 69, 69);
-            border: 1px solid #fefefe;
-            border-radius: 4px;
-            color: #e9e1e1;
-            padding: 5px;
-        }
-        .edit-package{
-            background-color: rgb(87, 87, 231);
-            border: 1px solid #fefefe;
-            border-radius: 4px;
-            color: #ddcdcd;
-        }
     }
 </style>

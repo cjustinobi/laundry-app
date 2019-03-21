@@ -4,21 +4,29 @@
             <a href="#" @click.prevent="$emit('hideDrawer')"><i class="fa fa-times-circle"></i></a>
         </div>
         <div class='sidebar-nav' >
-            <nuxt-link to='/about' class='logo'>
+            <nuxt-link to='/transaction' class='logo'>
                 <i class="fa fa-window-maximize" title="Transaction History"></i> 
-                <span >Transaction History</span>
+                <span>Transaction History</span>
             </nuxt-link>
-            <nuxt-link to='/contact' class='logo'>
+            <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
-                <span >Notifications</span>
+                <span>Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/volunteer' class='logo'>
+            <nuxt-link to='/pickupform' class='logo'>
                 <i class="fa fa-address-card" title="Pick-up Form"></i>
-                <span >Pick-up Form</span>
+                <span>Pick-up Form</span>
             </nuxt-link>
-            <nuxt-link to='/projects' class='logo'>
+            <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span>Refer a Friend</span>
+            </nuxt-link>
+            <nuxt-link to='/addpackage' class='logo'>
+                <i class="fa fa-plus-circle" title="Add Package"></i>
+                <span>Add Package</span>
+            </nuxt-link>
+            <nuxt-link to='/createbenefits' class='logo'>
+                <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
+                <span>Create Benefits</span>
             </nuxt-link>
         </div>
     </div>
@@ -36,7 +44,7 @@
 
 <style scoped>
     .drawer-container{
-        height: 100%;
+        height: 100vh;
         position: fixed;
         top: 0;
         /* left: 0;

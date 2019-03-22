@@ -30,6 +30,7 @@ export default {
     .main-head{
         display: grid;
         grid-template-columns: 1fr 200px;
+        position: relative;
         align-items: center;
         background: #fffcfc;
         height: 60px;

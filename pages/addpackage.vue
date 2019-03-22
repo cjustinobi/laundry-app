@@ -4,15 +4,17 @@
             <button v-if="!showForm" class="create-btn" @click.prevent="showForm = true">ADD PACKAGE</button>
         </div>
 
+        <div class="all-packages">
+            <all-packages/>
+        </div>
+        
         <div :class="{'backdrop': showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
                 <plan-editor @cancelForm="showForm = false" />
             </div>
         </div>
 
-    <div class="all-packages">
-        <all-packages/>
-    </div>
+    
 
 
     </div>

@@ -7,7 +7,7 @@
             <dash-header @showDrawer="hideDrawer = false"></dash-header>
             <div class="nuxt-rend"><nuxt/></div>
         </div>
-
+        
         <div :class="[{'hide-drawer': hideDrawer}]">
             <drawer id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
         </div>
@@ -50,7 +50,7 @@
             //         this.backdrop = false
             //         x.style.display = "none"
             //     } else {
-            //         this.backdrop = true
+            //         this.backdrop = true 
             //         x.style.display = 'block'
             //     }
             // },
@@ -75,8 +75,8 @@
             },
                 // Hides the drawer on the Dashboard
             '$route': function(e) {
-                let slideDraw = document.getElementById('draw-down')
-                slideDraw.style.animationName = "hide"
+                // let slideDrawUp = document.getElementById('draw-down')
+                // slideDrawUp.style.animationName = "hide"
                 this.hideDrawer = true
             }
         }
@@ -90,6 +90,7 @@
         display: grid;
         grid-template-columns: 200px 1fr;
         background: #fefefe;
+        position: relative;
     }
     .minimized{
         display: grid;
@@ -105,10 +106,10 @@
         
     }
     #draw-down{
-        -webkit-animation-name: show, hide;
-        -webkit-animation-duration: 1s, 2s;
-        animation-name: show, hide;
-        animation-duration: 1s, 2s;
+        -webkit-animation-name: show;
+        -webkit-animation-duration: 1s;
+        animation-name: show;
+        animation-duration: 1s;
     }
 
     @-webkit-keyframes show {
@@ -132,7 +133,7 @@
         }
     }
 
-    @keyframes hide {
+    /* @keyframes hide {
         0% {
             height: 100%;
             opacity: 1;
@@ -144,8 +145,7 @@
             height: 0%;
             opacity: 0;
         }
-    }
-
+    } */
 
     .hide-sidebar{
         display: none;
@@ -156,15 +156,6 @@
         top: 0;
         height: 100%;
     }
-    .backdrop{
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: rgba(51, 51, 51, 0.44);
-        transition: 2s ease-in;
-}
 
     @media (max-width: 767px) {
         .dashboard{

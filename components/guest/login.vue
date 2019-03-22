@@ -36,7 +36,7 @@ export default {
 
     },
     mounted() {
-        document.body.style.background = "#94cfd1";
+        document.body.style.background = "#fefefe";
     },
 
     destroyed() {
@@ -54,8 +54,10 @@ export default {
         display: grid;
         grid-template-rows: repeat(5, auto); 
         justify-items: center;
-        margin-top: 40px;
+        margin: 40px 20px 20px 20px;
         grid-gap: 20px;
+        border: 1px solid #e2e2e2;
+        box-shadow: 0 5px 5px 5px #a5a5a5;
     }
     .login input{
         width: 30%;

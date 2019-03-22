@@ -102,8 +102,8 @@
         display: grid;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        z-index: 10000;
+        /* position: absolute; */
+        /* z-index: 10000; */
         /* top: 50%; */
     }
     .form{
@@ -114,14 +114,13 @@
         background-color: rgb(147, 191, 202);
         border-radius: 5px;
         border: 1px solid grey;
-        width: 500px;
+        width: 400px;
         height: 300px;
     }
     img{
         width: 40px;
     }
     .btn-cancel{
-        width: 180px;
         border-radius: 5px;
         border: 1px solid grey;
         height: 40px;
@@ -134,6 +133,12 @@
         background-color: rgb(240, 59, 59);
     }
     .btn-submit{
+        border-radius: 5px;
+        border: 1px solid grey;
+        height: 40px;
+        color: #fefefe;
+        font-size: 16px;
+        transition: 0.3s ease-in;
         background-color: #e7b83f;
     }
     .btn-submit:hover{
@@ -157,7 +162,9 @@
     }
     .btn-package{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 150px 150px;
+        grid-gap: 10px;
+        justify-content: space-between;
     }
     
     

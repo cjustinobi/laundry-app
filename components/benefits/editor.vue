@@ -9,7 +9,6 @@
                 <input class="input-benefit" v-model="item.name" placeholder="benefit">
                 <i class="fa fa-remove" @click="removeItem(i)"></i>
             </div>
-            
 
             <div class="btn-benefits">
                 <button class="btn-cancel-benefits" @click.prevent="$emit('cancelForm')">Cancel</button>
@@ -77,16 +76,20 @@
 <style scoped>
     .editor{
         display: grid;
-        /* grid-template-columns: 1fr; */
-        min-width: 300px;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        /* min-width: 300px; */
+        /* position: absolute; */
         }
     .form{
         display: grid;
         grid-template-rows: 1fr;
         grid-gap: 20px;
         padding: 20px;
+        /* width: 300px;
+        height: 200px; */
         background-color: rgb(111, 185, 185);
-        /* height: 1fr; */
         border-radius: 5px;
         border: 1px solid grey;
     }
@@ -164,7 +167,7 @@
     @media (max-width: 767px) {
         .form{
             padding: 15px;
-            width: 300px;
+            /* width: 300px; */
         }
         .btn-benefits{
             /* grid-template-columns: 120px 120px; */

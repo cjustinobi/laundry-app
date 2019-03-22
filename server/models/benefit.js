@@ -7,9 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       Benefit.belongsToMany(models.plan, {
           through: 'benefit_plans',
           as: 'plans',
-          foreignKey: {
-              field: 'benefit_id'
-          }
+          foreignKey:  'benefit_id'
       })
   };
   return Benefit;

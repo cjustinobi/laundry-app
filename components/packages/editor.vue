@@ -52,7 +52,8 @@
             return {
                 details: {
                     name: '',
-                    price: ''
+                    price: '',
+                    benefits: []
                 }
             }
         },
@@ -61,7 +62,9 @@
         methods: {
             async submitPackage() {
                 this.isLoading = true
-                this.details.benefits.map(item => item.id)
+                // Filter only the benefit IDs.
+                this.details.benefits = this.details.benefits.map(item => item.id)
+
                 try {
                     let res = await this.$store.dispatch('plans/store', this.details)
                     if (res) {

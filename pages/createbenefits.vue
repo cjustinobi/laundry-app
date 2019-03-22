@@ -69,4 +69,11 @@ export default {
     .create-btn:hover{
         background-color: darkcyan;
     }
+
+    @media (max-width: 767px) {
+        .create-btn{
+            width: 300px;
+            font-weight: 200;
+        }
+    }
 </style>

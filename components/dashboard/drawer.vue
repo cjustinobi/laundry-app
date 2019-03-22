@@ -3,8 +3,8 @@
         <div class="hide-drawer">
             <a href="#" @click.prevent="$emit('hideDrawer')"><i class="fa fa-times-circle"></i></a>
         </div>
-        <div class='sidebar-nav' >
-            <nuxt-link to='/transaction' class='logo'>
+        <div :class="[{'sidebar-nav': sidebarNav}]" >
+            <nuxt-link  to='/transaction' class='logo'>
                 <i class="fa fa-window-maximize" title="Transaction History"></i> 
                 <span>Transaction History</span>
             </nuxt-link>
@@ -34,12 +34,26 @@
 
 <script>
     export default {
-        methods: {
-            hideDrawer() {
 
+        data() {
+            return {
+                sidebarNav: true
+            }
+        },
+        methods: {
+            hideDrawDown(e) {
+                let x = document.getElementById("sidebar-nav")
+                if (x.style.display === 'block') {
+                    this.sidebarNav = false
+                    x.style.display = "none"
+                } else {
+                    this.sidebarNav = true
+                    x.style.display = 'block'
+                    }
+                },
             }
         }
-    }
+    
 </script>
 
 <style scoped>

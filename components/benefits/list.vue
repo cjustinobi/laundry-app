@@ -117,9 +117,11 @@
         .benefits{
             grid-template-columns: 1fr;
             padding-bottom: 20px;
+            /* margin: 20px; */
         }
         .benefit{
             font-size: 17px;
+            margin: 20px;
         }
     }
 

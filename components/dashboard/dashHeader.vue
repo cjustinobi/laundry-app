@@ -1,7 +1,7 @@
 <template>
     <div class="main-head">
         <div class="user-h3">
-            <nuxt-link to='/' class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
+            <nuxt-link to='/'  class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>

@@ -1,4 +1,7 @@
 'use strict'
+
+const BenefitPlan = require('../models').benefit_plan
+
 module.exports = (sequelize, DataTypes) => {
     const Plan = sequelize.define('plan', {
         name: DataTypes.STRING,

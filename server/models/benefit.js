@@ -1,4 +1,7 @@
 'use strict';
+
+const BenefitPlan = require('../models').benefit_plan
+
 module.exports = (sequelize, DataTypes) => {
   const Benefit = sequelize.define('benefit', {
     name: DataTypes.STRING
@@ -7,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
       Benefit.belongsToMany(models.plan, {
           through: 'benefit_plans',
           as: 'plans',
-          foreignKey:  'benefit_id'
+          foreignKey: {
+              field: 'benefit_id'
+          }
       })
   };
   return Benefit;

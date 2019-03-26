@@ -1,14 +1,14 @@
 <template>
     
     <div class="sign-up">
-        <small v-if="errors">{{ errors }}</small>
+        <notification :error="error" :success="success" :message="message"></notification>
         <h2 class="create">Create a new account</h2>
         <input v-model="details.fullname" placeholder="John Doe" required>
         <input v-model="details.email" type="email" placeholder="johndoe@example.com" required>
         <input v-model="details.phone" placeholder="08047643432" required>
         <input v-model="details.plan_id" placeholder="package" required>
         <input type="password" v-model="details.password" placeholder="secret things">
-        <button @click.prevent="signUp" class="sign-up-button">Sign Up</button>
+        <button @click.prevent="signUp" class="sign-up-button">{{ signUpTxt }}</button>
         <samll class="account" @click.prevent="$emit('toggleLogin')">
             Already have an account? Click to login
         </samll>
@@ -18,10 +18,15 @@
 
 <script>
 
+    import  Notifications  from '~/mixins/notifications'
+    import  Notification  from '~/components/shared/notification'
 
     export default {
         name: 'signUp',
-        data: function() {
+        mixins: [Notifications],
+
+        components: { Notification },
+        data() {
             return {
                 details: {
                     fullname: '',
@@ -30,16 +35,18 @@
                     password: '',
                     plan_id: '',
                 },
-                errors: ''
+                signUpTxt: 'Sign Up'
             }
         },
         methods: {
             async signUp() {
+                this.signUpTxt = 'signing up ...'
                 try {
                     let res = await this.$axios.$post('/api/register', this.details)
-                    console.log(res)
                 } catch (e) {
-                    this.errors = e.response.data.error
+                    this.signUpTxt = 'Sign up'
+                    this.message = e.response.data.error
+                    return this.error = true
                 }
             }
         },
@@ -70,6 +77,7 @@
         margin-bottom: 40px;
     }
     .sign-up{
+        position: relative;
         display: grid;
         grid-template-rows: repeat(6, auto);
         grid-template: repeat(4, auto) / auto;

@@ -158,14 +158,8 @@
         height: 100%;
     }
     .backdrop{
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: rgba(51, 51, 51, 0.44);
-        transition: 2s ease-in;
-}
+        @include backdrop;
+    }
 
     @media (max-width: 767px) {
         .dashboard{

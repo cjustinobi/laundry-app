@@ -1,6 +1,7 @@
 <template>
         <div class="login">
-            <small v-if="errors">{{ errors }}</small>
+            <notification :error="error" :success="success" :message="message"></notification>
+
             <h4 class="sign-in">Sign In</h4>
             <input type="text" v-model="email" placeholder="Email" required><br>
             <input type="password" v-model="password" placeholder="Password"><br>
@@ -13,27 +14,36 @@
 </template>
 
 <script>
-
+    import  Notifications  from '~/mixins/notifications'
+    import  Notification  from '~/components/shared/notification'
 
 export default {
     name: 'login',
+    mixins: [Notifications],
+
+    components: { Notification },
     data() {
         return {
             email: '',
             password: '',
-//            user: '',
             LoginText: 'Login',
-            errors: null
         }
     },
 
     methods: {
       
-        signIn() {
+        async signIn() {
             this.LoginText = 'loading ...'
-            this.$store.dispatch('auth/signIn', { email: this.email, password: this.password })
-        }
 
+            let res = await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
+            if (res === 'success') {
+                return this.$router.push('/dashboard')
+            }
+
+            this.LoginText = 'Login'
+            this.message = res.response.data.error
+            this.error = true
+        }
     },
     mounted() {
         document.body.style.background = "#94cfd1";
@@ -47,10 +57,9 @@ export default {
 
 
 <style scoped>  
-    body{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    }
+
     .login{
+        position: relative;
         display: grid;
         grid-template-rows: repeat(5, auto); 
         justify-items: center;

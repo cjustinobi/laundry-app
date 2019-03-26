@@ -55,7 +55,7 @@ export default {
         /* grid-template-rows: repeat(4, 1fr); */
     }
     .description p{
-        color: #0382c7;
+        color: #114e9e;
         font-weight: bold;
     }
 

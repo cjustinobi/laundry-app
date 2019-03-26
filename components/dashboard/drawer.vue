@@ -4,6 +4,10 @@
             <a href="#" @click.prevent="$emit('hideDrawer')"><i class="fa fa-times-circle fa-2x"></i></a>
         </div>
         <div id="sidebar-nav" :class="[{'sidebar-nav': sidebarNav}]" >
+            <nuxt-link to='/dashboard' class='logo'>
+                <i class="fa fa-dashcube" title="Transaction History"></i> 
+                <span>Dashboard</span>
+            </nuxt-link>
             <nuxt-link  to='/transaction' class='logo'>
                 <i class="fa fa-window-maximize" title="Transaction History"></i> 
                 <span>Transaction History</span>

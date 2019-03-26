@@ -12,6 +12,10 @@
         </div>
 
         <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+            <nuxt-link to='/dashboard' class='logo'>
+                <i class="fa fa-dashcube" title="Transaction History"></i> 
+                <span v-if="wideMenu">Dashboard</span>
+            </nuxt-link>
             <nuxt-link to='/transaction' class='logo'>
                 <i class="fa fa-window-maximize" title="Transaction History"></i> 
                 <span v-if="wideMenu">Transaction History</span>
@@ -81,7 +85,7 @@
     .sidebar-nav {
         display: grid;
         grid-auto-rows: 50px;
-        margin-top: 50px;
+        margin-top: 40px;
         align-items: center;
         font-size: 17px;
     }
@@ -89,10 +93,11 @@
         text-decoration: none;
         color: #000;
         padding: 14px 10px;
-        transition: .7s ease-out;
+        transition: .8s ease-out;
     }
     .center-nav{
         display: grid;
+        grid-auto-rows: 45px;
         /* align-items: center; */
     }
     .center-nav a{
@@ -109,7 +114,7 @@
     .sidebar-nav a:hover,
     .sidebar-nav a:active{
         background-color: rgb(207, 202, 240);
-        border-right: 2px solid;
+        border-right: 1px solid;
     }
     .sidebar-nav a:active{
         color: #b4b4b4;
@@ -129,7 +134,7 @@
     }
     .logo{
         display: grid;
-        grid-template-columns: 40px 1fr;
+        grid-template-columns: 30px 1fr;
     }
     .toggle-bar{
         cursor: pointer;

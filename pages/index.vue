@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-            <div id="intro" class="intro">
-                <h1 class="relief">Save Time and Energy </h1>
-                <h1>Looking good and clean always</h1>
-                <div class="intro-request">
-                    <nuxt-link to="/pick-up-form"><button class="request-btn">Request a Pick-up</button></nuxt-link>
-                </div>
+        <div id="intro" class="intro">
+            <h1 class="relief">Save Time and Energy </h1>
+            <h1>Looking good and clean always</h1>
+            <div class="intro-request">
+                <nuxt-link to="/pick-up-form"><button class="request-btn">Request a Pick-up</button></nuxt-link>
             </div>
+        </div>
 
         <div class="the-how">
               <p>How it works</p>
@@ -24,10 +24,6 @@
             <packages-list/>
         </div>
 
-        <div>
-            <quick-links/>
-        </div>
-
     </div>
 </template>
 
@@ -35,14 +31,12 @@
 
     import HowItWorks from '~/components/guest/howItWorks'
     import PackagesList from '~/components/packages/packagesList'
-    import QuickLinks from '~/components/guest/quickLinks'
+    
 
     export default {
         components: {
             HowItWorks,
-            PackagesList,
-            QuickLinks
-        }
+            PackagesList        }
     }
 </script>
 

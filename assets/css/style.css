@@ -104,6 +104,7 @@ header{
         grid-template-columns: 110px auto 60px;
         padding: 2px 24px;
         align-items: center;
+        align-content: center;
     }
     .app-links{
         display: none;

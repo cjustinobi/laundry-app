@@ -5,6 +5,8 @@
 
         <div class="nuxt-render"><nuxt /></div>
 
+        <div><quick-links/></div>
+
         <div id="footer"><app-footer></app-footer></div>
 
         <div :class="{backdrop}">
@@ -18,11 +20,12 @@
 
     import AppHeader from '~/components/guest/appHeader'
     import Sidebar from '~/components/guest/sidebar'
+    import QuickLinks from '~/components/guest/quickLinks'
     import AppFooter from '~/components/guest/appFooter'
 
     export default {
 
-        components: { AppHeader, AppFooter, Sidebar },
+        components: { AppHeader, Sidebar, QuickLinks, AppFooter  },
 
         data() {
             return {

@@ -14,7 +14,7 @@
                 <p>New order</p>
             </div>
 
-            <div><i class="fa fa-bell"></i></div>
+            <div class="bell"><i class="fa fa-bell"></i></div>
             
             <div class="names">
                 <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
@@ -74,13 +74,13 @@ export default {
         grid-template-columns: 1fr 450px;
         position: relative;
         align-items: center;
-        background: #fffcfc;
+        background-color: #01355f;
         height: 60px;
-        color: rgb(104, 98, 98);
+        color: #fefefe;
         transition: 0.3s ease-in;
     }
     a{
-        color: rgb(104, 98, 98);
+        color: #fefefe;
     }
     .user-img{
         width: 30px;
@@ -97,10 +97,18 @@ export default {
     .new-order{
         display: grid;
         grid-template-columns: 25px auto;
+        cursor: pointer;
+    }
+    .bell{
+        cursor: pointer;
+    }
+    .fa-user{
+        cursor: pointer;
     }
     .names{
         display: grid;
         grid-template-columns: 25px auto;
+        
     }
     .user-h3{
         display: grid;

@@ -101,7 +101,7 @@ export default {
         width: 380px;
         padding: 10px;
         border: none;
-        border-bottom: 1px solid rgb(133, 126, 126);
+        border-bottom: 1px solid rgb(207, 207, 207);
         height: 50px;
         font-size: 25px;
         outline-style: none;  

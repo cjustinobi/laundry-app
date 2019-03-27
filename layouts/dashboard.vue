@@ -89,8 +89,9 @@
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
-        background: #fefefe;
+        background-color: #fefefe;
         position: relative;
+        min-height: 100vh;
     }
     .minimized{
         display: grid;
@@ -102,7 +103,7 @@
     }
     .sidebar{
         position: relative;
-        background: #fffcfc;
+        background-color: #01355f;
         
     }
     #draw-down{

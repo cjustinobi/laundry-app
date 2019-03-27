@@ -7,7 +7,7 @@
                 <!-- <h1 v-if="wideMenu" class='wr-logo'>GPAT</h1> -->
             </nuxt-link>
             <a class='toggle-bar' @click.prevent="toggleMenu" title="Menu">
-                <i class='fa fa-bars'></i>
+                <i class='fa fa-bars' style="color: #fefefe"></i>
             </a>
         </div>
 
@@ -79,6 +79,7 @@
         display: grid;
         min-height: 100vh;
         grid-template-rows: 60px 1fr;
+        transition: .8s ease-out;
         /* position: relative; */
 
     }
@@ -88,12 +89,13 @@
         margin-top: 40px;
         align-items: center;
         font-size: 17px;
+        transition: .8s ease-out;
     }
     .sidebar-nav a{
         text-decoration: none;
-        color: #000;
+        color: #fefefe;
         padding: 14px 10px;
-        transition: .8s ease-out;
+        /* transition: .8s ease-out; */
     }
     .center-nav{
         display: grid;
@@ -110,10 +112,14 @@
     .brand-name{
         display: grid;
         grid-template-columns: 10px 10px;
+        
+    }
+    .fa-home{
+        color: #fefefe;
     }
     .sidebar-nav a:hover,
     .sidebar-nav a:active{
-        background-color: rgb(207, 202, 240);
+        background-color: rgb(112, 109, 134);
         border-right: 1px solid;
     }
     .sidebar-nav a:active{
@@ -125,12 +131,12 @@
         grid-template-columns: auto 30px;
         align-items: center;
         padding-left: 12px;
-        background: #fffcfc;
+        background-color: #01355f;
         border-right: 1px solid rgb(230, 224, 224);
         border-bottom: 1px solid rgb(230, 224, 224);
     }
     .sidebar-head a{
-        color: rgb(104, 98, 98);
+        color: #fefefe;
     }
     .logo{
         display: grid;

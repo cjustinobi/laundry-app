@@ -66,11 +66,8 @@
         height: 100vh;
         position: fixed;
         top: 0;
-        /* left: 0;
-        bottom: 0;
-        right: 0; */
         width: 100%;
-        background: #83044a;
+        background-color: #01355f;
         display: grid;
         grid-template-rows: auto 1fr;
     }

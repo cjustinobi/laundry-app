@@ -73,6 +73,7 @@ export default {
         background-color: #fefefe;
         margin: 40px;
         padding: 0 50px;
+        box-shadow: 5px 5px 15px grey;
     }
     .edit-list{
         display: grid;

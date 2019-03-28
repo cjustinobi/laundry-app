@@ -23,8 +23,9 @@
         </label>
         <div class="password-wrapper">
             <label for="">Password <br>
-                <input type="password" v-model="details.password">
-                <i class="fa fa-eye pw-icon"></i>
+                <input type="password" v-model="details.password" id="password">
+                <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash(false)"></i>
+                <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash(true)"></i>
             </label>
         </div>
         <p class="terms">
@@ -56,7 +57,8 @@
                     password: '',
                     plan_id: '',
                 },
-                errors: ''
+                errors: '',
+                eyeSlash: false,
             }
         },
         methods: {
@@ -67,8 +69,19 @@
                 } catch (e) {
                     alert(this.errors = e.response.data.error)
                 }
-            }
-        },
+            },
+            toggleEyeSlash() {
+                let el = document.getElementById("password")
+                if(el.type === 'password'){
+                    el.type = 'text'
+                    this.eyeSlash = true
+                }else {
+                    el.type === 'text'
+                    el.type = 'password'
+                    this.eyeSlash = false
+                    } 
+                }
+            },
         mounted() {
             document.body.style.background = "#fefefe";
         },
@@ -86,7 +99,7 @@
     .sign-up{
         display: grid;
         width: 600px;
-        margin: 40px auto;
+        margin: 50px auto;
         padding: 30px;
         grid-gap: 20px;
         border: 1px solid #e2e2e2;

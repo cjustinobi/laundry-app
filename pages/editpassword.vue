@@ -10,16 +10,19 @@
             <div class="update-form">
                 <div class="password-wrapper">
                     <label for="" class="pw-input">Old Password <br>
-                        <input type="password">
-                        <i class="fa fa-eye pw-icon1"></i>
+                        <input type="password" id="password">
+                        <i class="fa fa-eye-slash pw-icon1" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                        <i class="fa fa-eye pw-icon1" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
                     </label>
                     <label for="" class="pw-input">New Password <br>
-                        <input type="password">
-                        <i class="fa fa-eye pw-icon2"></i>
+                        <input type="password" id="password">
+                        <i class="fa fa-eye-slash pw-icon2" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                        <i class="fa fa-eye pw-icon2" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
                     </label>
                     <label for="" class="pw-input"> Confirm Password <br>
-                        <input type="password">
-                        <i class="fa fa-eye pw-icon3"></i>
+                        <input type="password" id="password">
+                        <i class="fa fa-eye-slash pw-icon3" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                        <i class="fa fa-eye pw-icon3" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
                     </label>
                 </div>
                 <div class="update-sect">
@@ -41,7 +44,21 @@ export default {
         return {
             myStyle: {
                 backgroundColor: "#f0faff"
-            }
+            },
+            eyeSlash: false
+        }
+    },
+    methods: {
+        toggleEyeSlash() {
+            let el = document.getElementById("password")
+            if(el.type === 'password'){
+                el.type = 'text'
+                this.eyeSlash = true
+            }else {
+                el.type === 'text'
+                el.type = 'password'
+                this.eyeSlash = false
+            } 
         }
     },
     mounted() {
@@ -75,6 +92,7 @@ export default {
         background-color: #fefefe;
         margin: 40px;
         padding: 0 50px;
+        box-shadow: 5px 5px 15px grey;
     }
     .edit-list{
         display: grid;
@@ -128,13 +146,13 @@ export default {
     .pw-icon2{
         position: absolute;
         right: 5px;
-        bottom: 67px;
+        bottom: 88px;
         cursor: pointer;
     }
     .pw-icon3{
         position: absolute;
         right: 5px;
-        bottom: 128px;
+        bottom: 170px;
         cursor: pointer;
     }
     .update-sect{

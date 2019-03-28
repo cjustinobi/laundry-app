@@ -13,7 +13,7 @@
 
         <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
             <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="Transaction History"></i> 
+                <i class="fa fa-dashcube" title="Dashboard"></i> 
                 <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
             <nuxt-link to='/transaction' class='logo'>
@@ -23,6 +23,10 @@
             <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span v-if="wideMenu">Notifications</span>
+            </nuxt-link>
+            <nuxt-link to='/mysubscription' class='logo'>
+                <i class="fa fa-shopping-bag" title="Subscription"></i>
+                <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
             <nuxt-link to='/pickupform' class='logo'>
                 <i class="fa fa-address-card" title="Pick-up Form"></i>

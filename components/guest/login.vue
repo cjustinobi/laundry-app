@@ -10,8 +10,9 @@
         </label>
         <div class="password-wrapper">
             <label for="" class="pw-input">Password <br>
-                <input type="password" v-model="password">
-                <i class="fa fa-eye pw-icon"></i>
+                <input type="password" v-model="password" id="password">
+                <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
             </label>
         </div>
 
@@ -35,6 +36,7 @@
 
 export default {
     components: {
+        
     },
     name: 'login',
     data() {
@@ -43,7 +45,8 @@ export default {
             password: '',
 //            user: '',
             LoginText: 'Login',
-            errors: null
+            errors: null,
+            eyeSlash: false
         }
     },
 
@@ -51,6 +54,17 @@ export default {
         signIn() {
             this.LoginText = 'loading ...'
             this.$store.dispatch('auth/signIn', { email: this.email, password: this.password })
+        },
+        toggleEyeSlash() {
+            let el = document.getElementById("password")
+            if(el.type === 'password'){
+                el.type = 'text'
+                this.eyeSlash = true
+            }else {
+                el.type === 'text'
+                el.type = 'password'
+                this.eyeSlash = false
+            } 
         }
 
     },
@@ -72,7 +86,7 @@ export default {
     .login{
         display: grid;
         width: 450px;
-        margin: 20px auto 0 auto;
+        margin: 50px auto 0 auto;
         align-items: center;
         padding: 30px;
         grid-gap: 20px;

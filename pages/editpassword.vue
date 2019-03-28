@@ -10,19 +10,12 @@
             <div class="update-form">
                 <div class="password-wrapper">
                     <label for="" class="pw-input">Old Password <br>
-                        <input type="password" id="password">
-                        <i class="fa fa-eye-slash pw-icon1" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
-                        <i class="fa fa-eye pw-icon1" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                        <input type="password">
                     </label>
                     <label for="" class="pw-input">New Password <br>
                         <input type="password" id="password">
-                        <i class="fa fa-eye-slash pw-icon2" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
-                        <i class="fa fa-eye pw-icon2" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
-                    </label>
-                    <label for="" class="pw-input"> Confirm Password <br>
-                        <input type="password" id="password">
-                        <i class="fa fa-eye-slash pw-icon3" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
-                        <i class="fa fa-eye pw-icon3" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                        <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                        <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
                     </label>
                 </div>
                 <div class="update-sect">
@@ -137,22 +130,10 @@ export default {
         grid-gap: 20px;
         position: relative;
     }
-    .pw-icon1{
+    .pw-icon{
         position: absolute;
-        right: 5px;
-        bottom: 4px;
-        cursor: pointer;
-    }
-    .pw-icon2{
-        position: absolute;
-        right: 5px;
-        bottom: 88px;
-        cursor: pointer;
-    }
-    .pw-icon3{
-        position: absolute;
-        right: 5px;
-        bottom: 170px;
+        right: 3px;
+        bottom: 6px;
         cursor: pointer;
     }
     .update-sect{

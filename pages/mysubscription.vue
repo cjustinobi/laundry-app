@@ -6,32 +6,38 @@
             <div class="update-sect">
                 <h4>You currently do not have a subscription</h4>
                 <nuxt-link to="/subscriptionpage" class="update-button">
-                    <i class="fa fa-shopping-bag"></i>Subscribe Now
+                    <i class="fa fa-shopping-bag"></i> Subscribe Now
                 </nuxt-link>
             </div>
         </div>
+
+        
     </div>
 </template>
 
 <script>
-export default {
     
-    layout: 'dashboard',
 
-    data() {
-        return {
-            myStyle: {
-                backgroundColor: "#f0faff"
+    export default {
+        
+        layout: 'dashboard',
+
+        
+
+        data() {
+            return {
+                myStyle: {
+                    backgroundColor: "#f0faff"
+                }
             }
+        },
+        mounted() {
+            // document.body.style.background = "#e1f5fe";
+        },
+        destroyed() {
+            document.body.style.background = "none";
         }
-    },
-    mounted() {
-        // document.body.style.background = "#e1f5fe";
-    },
-    destroyed() {
-        document.body.style.background = "none";
     }
-}
 </script>
 
 <style scoped>
@@ -75,12 +81,12 @@ export default {
         /* padding: 0 50px; */
     }
     .update-button{
-        display: grid;
-        grid-template: 80px / 20px 130px;
+        /* display: grid; */
+        /* grid-template: 40px / 20px 130px;
         justify-items: center; 
-        align-content: center;
-        height: 60px;
-        width: 250px;
+        align-items: center; */
+        height: 50px;
+        width: 250px;  
         padding: 10px;
         background-color: #01355f;
         color: #fefefe;
@@ -89,6 +95,7 @@ export default {
         border: none;
         cursor: pointer;
         transition: 0.6s ease-in;
+        text-align: center;
     }
     .update-button:hover{
         background-color: #00122b;
@@ -100,6 +107,7 @@ export default {
         }
         .update-button{
             width: 200px;
+            height: 40px;
             font-size: 14px;
         }
     }

@@ -10,28 +10,36 @@
                 </button>
             </div>
         </div>
+
+        <div><package-list></package-list></div>
     </div>
 </template>
 
 <script>
-export default {
-    
-    layout: 'dashboard',
+    import PackageList from '~/components/packages/packagesList'
 
-    data() {
-        return {
-            myStyle: {
-                backgroundColor: "#f0faff"
+    export default {
+        
+        layout: 'dashboard',
+
+        components: {
+            PackageList
+        },
+
+        data() {
+            return {
+                myStyle: {
+                    backgroundColor: "#f0faff"
+                }
             }
+        },
+        mounted() {
+            // document.body.style.background = "#e1f5fe";
+        },
+        destroyed() {
+            document.body.style.background = "none";
         }
-    },
-    mounted() {
-        // document.body.style.background = "#e1f5fe";
-    },
-    destroyed() {
-        document.body.style.background = "none";
     }
-}
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <!-- <login v-if="loginState" @toggleLogin="toggleLogin"></login>
-        <register v-if="!loginState" @toggleLogin="toggleLogin"></register> -->
+        <login v-if="loginState" @toggleLogin="toggleLogin"></login>
+        <register v-if="!loginState" @toggleLogin="toggleLogin"></register>
     </div>
 </template>
 
@@ -19,13 +19,13 @@
         
         data() {
             return {
-                // loginState: true,
+                loginState: true,
         
             }
         },
         methods: {
             toggleLogin() {
-                // this.loginState ? this.loginState = false : this.loginState = true
+                this.loginState ? this.loginState = false : this.loginState = true
                 
             }
         }
@@ -37,6 +37,6 @@
 
 <style scoped>
     .loginReg{
-        /* display: none; */
+        display: none;
     }
 </style>

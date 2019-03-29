@@ -8,22 +8,24 @@
                 <i class="fa fa-dashcube" title="Dashboard"></i> 
                 <span>Dashboard</span>
             </nuxt-link>
+            <nuxt-link to='/pickupform' class='logo'>
+                <i class="fa fa-suitcase" title="My Orders"></i>
+                <span>My Orders</span>
+            </nuxt-link>
+            <nuxt-link to='/mysubscription' class='logo'>
+                <i class="fa fa-hashtag" title="Subscription"></i>
+                <span>My subscription</span>
+            </nuxt-link>
             <nuxt-link  to='/transaction' class='logo'>
-                <i class="fa fa-window-maximize" title="Transaction History"></i> 
+                <i class="fa fa-history" title="Transaction History"></i> 
                 <span>Transaction History</span>
             </nuxt-link>
             <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span>Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/mysubscription' class='logo'>
-                <i class="fa fa-shopping-bag" title="Subscription"></i>
-                <span>My subscription</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-address-card" title="Pick-up Form"></i>
-                <span>Pick-up Form</span>
-            </nuxt-link>
+            
+            
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i> 
                 <span>Refer a Friend</span>

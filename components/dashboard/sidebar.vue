@@ -16,22 +16,24 @@
                 <i class="fa fa-dashcube" title="Dashboard"></i> 
                 <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
+            <nuxt-link to='/pickupform' class='logo'>
+                <i class="fa fa-suitcase" title="My Orders"></i>
+                <span v-if="wideMenu">My Orders</span>
+            </nuxt-link>
+            <nuxt-link to='/mysubscription' class='logo'>
+                <i class="fa fa-hashtag" title="Subscription"></i>
+                <span v-if="wideMenu">My subscription</span>
+            </nuxt-link>
             <nuxt-link to='/transaction' class='logo'>
-                <i class="fa fa-window-maximize" title="Transaction History"></i> 
+                <i class="fa fa-history" title="Transaction History"></i> 
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
             <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/mysubscription' class='logo'>
-                <i class="fa fa-shopping-bag" title="Subscription"></i>
-                <span v-if="wideMenu">My subscription</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-address-card" title="Pick-up Form"></i>
-                <span v-if="wideMenu">Pick-up Form</span>
-            </nuxt-link>
+            
+            
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>

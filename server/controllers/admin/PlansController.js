@@ -8,10 +8,7 @@ module.exports = {
             // let plans = await Plan.findAll()
             let plans = await Plan.findAll({
                 include: [{
-                    model: Benefit,
-                    as: 'benefits',
-                    attributes: ['name'],
-                    through: { attributes: [] }
+                    model: Benefit
                 }]
             })
             return res.status(200).send(plans)

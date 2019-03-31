@@ -4,7 +4,7 @@
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
                 <button class="edit-button" @click.prevent="editPackage()">Edit</button>
                 <div class="name">
-                    <img class="elegant-image" src="~assets/images/EL_logo_2.png" alt="Elegant Laundry">
+                    <img class="elegant-image" src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
                     <h1>{{ plan.name }}</h1>
                 </div>
                 <div  class="price">

@@ -4,15 +4,17 @@
             <button v-if="!showForm" class="create-btn" @click.prevent="showForm = true">ADD PACKAGE</button>
         </div>
 
+        <div class="all-packages">
+            <all-packages/>
+        </div>
+        
         <div :class="{'backdrop': showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
                 <plan-editor @cancelForm="showForm = false" />
             </div>
         </div>
 
-    <div class="all-packages">
-        <all-packages/>
-    </div>
+    
 
 
     </div>
@@ -69,5 +71,12 @@ export default {
     }
     .create-btn:hover{
         background-color: darkcyan;
+    }
+
+    @media (max-width: 767px) {
+        .create-btn{
+            width: 300px;
+            font-weight: 200;
+        }
     }
 </style>

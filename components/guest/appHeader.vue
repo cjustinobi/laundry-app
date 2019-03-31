@@ -42,10 +42,18 @@
     .elegant-image{
         width: 60px;
     }
+    .brand-name{
+        display: grid;
+        align-items: center;
+    }
     .intro-request{
         display: grid;
         height: 50px;
         align-content: center;
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* justify-self: center; */
+        justify-items: center;
         color: #fefefe;
         font-weight: 700;
         justify-self: end;
@@ -69,6 +77,10 @@
         .hide-donate{
             display: none;
         }
+        .brand-name{
+            padding-top: 6px;
+        }
+        
     }
 
     @media(max-width: 360px) {

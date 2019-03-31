@@ -1,10 +1,14 @@
 <template>
     <div class="drawer-container">
         <div class="hide-drawer">
-            <a href="#" @click.prevent="$emit('hideDrawer')"><i class="fa fa-times-circle"></i></a>
+            <a href="#" @click.prevent="$emit('hideDrawer')"><i class="fa fa-times-circle fa-2x"></i></a>
         </div>
-        <div class='sidebar-nav' >
-            <nuxt-link to='/transaction' class='logo'>
+        <div id="sidebar-nav" :class="[{'sidebar-nav': sidebarNav}]" >
+            <nuxt-link to='/dashboard' class='logo'>
+                <i class="fa fa-dashcube" title="Transaction History"></i> 
+                <span>Dashboard</span>
+            </nuxt-link>
+            <nuxt-link  to='/transaction' class='logo'>
                 <i class="fa fa-window-maximize" title="Transaction History"></i> 
                 <span>Transaction History</span>
             </nuxt-link>
@@ -17,7 +21,7 @@
                 <span>Pick-up Form</span>
             </nuxt-link>
             <nuxt-link to='/referafriend' class='logo'>
-                <i class="fa fa-user-plus" title="Refer a Friend"></i>
+                <i class="fa fa-user-plus" title="Refer a Friend"></i> 
                 <span>Refer a Friend</span>
             </nuxt-link>
             <nuxt-link to='/addpackage' class='logo'>
@@ -34,12 +38,27 @@
 
 <script>
     export default {
-        methods: {
-            hideDrawer() {
 
+        data() {
+            return {
+                sidebarNav: true
+            }
+        },
+        methods: {
+            hideDrawDown(e) {
+                let x = document.getElementById("sidebar-nav")
+                if (x.style.display === 'block') {
+                    this.sidebarNav = false
+                    x.style.display = "none"
+                } else {
+                    this.sidebarNav = true
+                    x.style.display = 'block'
+
+                    }
+                },
             }
         }
-    }
+    
 </script>
 
 <style scoped>
@@ -63,7 +82,7 @@
     .hide-drawer a{
         text-decoration: none;
         color: #fefefe;
-        font-size: 40px;
+        /* font-size: 40px; */
         padding-right: 15px;
     }
     .sidebar-nav {
@@ -72,13 +91,18 @@
         width: 100%;
         margin-top: 20px;
         align-items: center;
-        font-size: 25px;
         justify-content: center;
     }
     .sidebar-nav a{
         text-decoration: none;
         color: #fefefe;
         padding: 14px 10px;
+        font-size: 25px;
         transition: .7s ease-out;
     }
+    .logo{
+        display: grid;
+        grid-template-columns: 50px 1fr;
+    }
+
 </style>

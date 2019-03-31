@@ -25,7 +25,7 @@
 
         <div class="customer-care" >
             <h4>Contacts</h4>
-            <p style="color: #b4b4b4">+2348037303414</p>
+            <p style="color: #b4b4b4">+2347032313948</p>
             <!-- <h4>Customer care</h4> -->
             <p style=""><a href="https://www.gmail.com/elegantlaundry">info@elegantlaundry.com</a></p>
         </div>

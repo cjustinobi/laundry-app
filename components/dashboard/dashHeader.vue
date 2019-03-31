@@ -1,20 +1,34 @@
 <template>
     <div class="main-head">
         <div class="user-h3">
-            <nuxt-link to='/' class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
+            <nuxt-link to='/'  class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
-            <h3>User Dashboard</h3>
+            <!-- <h3>User Dashboard</h3> -->
         </div>
 
         <div class="user-view">
-            <img src="~assets/images/profile_pic.jpg" class="user-img" alt="">
-            <div class="names">
-                <p>Obi Chuks</p>
-                <p>First User</p>
+            <div class="new-order">
+                <i class="fa fa-cart-plus"></i>
+                <p>New order</p>
             </div>
-            <a class="pull-down"><i class=" fa fa-angle-down fa-2x"></i></a>
+
+            <div><i class="fa fa-bell"></i></div>
+            
+            <div class="names">
+                <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
+                <i class="fa fa-user"></i>
+                <p>Glory Agatevure</p>
+            </div>
+
+            <div class="dropdown">
+                    <a class="pull-down" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
+                    <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
+                        <nuxt-link class="show my-profile" to="/profile"><i class="fa fa-user"></i> My Profile</nuxt-link>
+                        <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
+                    </div>
+            </div>
         </div>
 
     </div>
@@ -22,14 +36,43 @@
 
 <script>
 export default {
-    
+
+    data() {
+        return {
+            dropdownContent: true
+        }
+    },
+    methods: {
+        pullDown() {
+            let x = document.getElementById("dropdown-content")
+            if(x.className.indexOf("show") == -1) {
+                this.dropdownContent = true
+                x.className += " show"
+                x.style.display = "block"
+            } else {
+                this.dropdownContent = false
+                x.style.display = "none"
+                x.className = x.className.replace(" show", "")
+            }
+        }
+    },
+    watch: {
+        'route': function(e) {
+            if(e && window.innerWidth > 767){
+                this.pullDown = true
+            }else{
+                this.pullDown = false
+            }
+        }
+    }
 }
 </script>
 
 <style scoped>
     .main-head{
         display: grid;
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: 1fr 450px;
+        position: relative;
         align-items: center;
         background: #fffcfc;
         height: 60px;
@@ -40,20 +83,24 @@ export default {
         color: rgb(104, 98, 98);
     }
     .user-img{
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         padding: 0;
         border-radius: 50%;
     }
-    user{
-        display: grid;
-        grid-template-columns: 1fr 80px;
-    }
     .user-view{
         display: grid;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: 140px 60px 170px 50px;
         align-items: center;
         grid-gap: 10px;
+    }
+    .new-order{
+        display: grid;
+        grid-template-columns: 25px auto;
+    }
+    .names{
+        display: grid;
+        grid-template-columns: 25px auto;
     }
     .user-h3{
         display: grid;
@@ -62,22 +109,70 @@ export default {
     }
     .pull-down{
         cursor: pointer;
+        
+    }
+    .dropdown a{
+        font-weight: 700;
     }
     .toggle-bar{
         padding: 3px;
     }
+    .dropdown{
+        display: grid;
+        position: relative;
+    }
+    .dropdown-content{
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        display: none;
+        z-index: 1;
+        min-width: 140px;
+        height: 70px;
+        padding: 15px;
+        border: 1px solid #fefefe;
+        border-radius: 5px;
+        /* grid-gap: 15px; */
+        background-color: #c7c7c7;
+        transition: 0.6s ease-in;
+    }
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+    .dropdown-content a{
+        /* padding: 15px; */
+        /* color: #c7c7c7; */
+        text-decoration: none;
+    }
+    .dropdown-content a:hover,
+    .dropdown-content a:active{
+        /* color: rgb(207, 202, 240); */
+    }
+    
 
 @media (max-width: 767px) {
     .main-head{
-        grid-template-columns: 1fr 160px;
-       
+        grid-template-columns: 300px 1fr;
     }
     .user-h3{
-        grid-template-columns: 50px 50px 1fr;
+        grid-template-columns: 50px 50px;
         font-size: 15px
     }
+    .user-view{
+        grid-template-columns: 140px 50px 180px 40px;
+    }
+    img{
+        width: 20px;
+        height: 20px;
+    }
+    .new-order{
+        display: grid;
+        grid-template-columns: 25px 100px;
+    }
     .names{
-        font-size: 14px
+        display: grid;
+        grid-template-columns: 25px 110px;
+        font-size: 14px;
     }
 }
 

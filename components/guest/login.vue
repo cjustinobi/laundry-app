@@ -1,16 +1,36 @@
 <template>
-        <div class="login">
-            <notification :error="error" :success="success" :message="message"></notification>
 
-            <h4 class="sign-in">Sign In</h4>
-            <input type="text" v-model="email" placeholder="Email" required><br>
-            <input type="password" v-model="password" placeholder="Password"><br>
-            <button @click="signIn" class="login-button ">{{LoginText}}</button>
-            <small class="no-account" @click.prevent="$emit('toggleLogin')">
-                You don't have an account? Click to create one
-            </small>  
+    <div class="login">
+        <notification :error="error" :success="success" :message="message"></notification>
+
+        <div class="elegant-image">
+            <img src="~/assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
-    
+
+        <label for="">Email <br>
+            <input type="text" v-model="email" required><br>
+        </label>
+        <div class="password-wrapper">
+            <label for="" class="pw-input">Password <br>
+                <input type="password" v-model="password">
+                <i class="fa fa-eye pw-icon"></i>
+            </label>
+        </div>
+
+        <div class="login-sect">
+            <button @click="signIn" class="login-button ">
+                <i class="fa fa-sign-in"></i> 
+                {{LoginText}}
+            </button>
+            <span class="pw">Forgot your password?</span>
+        </div>
+
+        <div class="create-account">
+            <small class="no-account">Not yet a customer?</small>  
+            <small class="create" @click.prevent="$emit('toggleLogin')">Create account</small>
+        </div> 
+    </div>
+
 </template>
 
 <script>
@@ -33,6 +53,7 @@ export default {
     methods: {
       
         async signIn() {
+
             this.LoginText = 'loading ...'
 
             let res = await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
@@ -46,7 +67,7 @@ export default {
         }
     },
     mounted() {
-        document.body.style.background = "#94cfd1";
+        document.body.style.background = "#fefefe";
     },
 
     destroyed() {
@@ -61,58 +82,134 @@ export default {
     .login{
         position: relative;
         display: grid;
-        grid-template-rows: repeat(5, auto); 
-        justify-items: center;
-        margin-top: 40px;
+        width: 450px;
+        margin: 20px auto 0 auto;
+        align-items: center;
+        padding: 30px;
         grid-gap: 20px;
+        border: 1px solid #e2e2e2;
+        box-shadow: 0 5px 5px 5px #a5a5a5;
     }
-    .login input{
-        width: 30%;
+    .elegant-image{
+        display: grid;
+        justify-content: center;
+    }
+    img{
+        width: 80px;
+    }
+    .password-wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        position: relative;
+    }
+    .pw-icon{
+        position: absolute;
+        right: 20px;
+        bottom: 4px;
+        cursor: pointer;
+    }
+    input{
+        width: 380px;
         padding: 10px;
-        border: 1px solid rgb(233, 226, 226);
-        border-radius: 10px;
+        border: none;
+        border-bottom: 1px solid rgb(133, 126, 126);
         height: 50px;
         font-size: 25px;
+        outline-style: none;  
+    }
+    label{
+        color: #114e9e;
+    }
+    .login-sect{
+        display: grid;
+        grid-template-columns: 190px 190px;
+        grid-gap: 20px;
+        align-items: center;
     }
     .login-button{
-        width: 30%;
-        height: 70px;
-        border-radius: 10px;
+        height: 50px;
         padding: 10px;
-        border: 5px solid rgb(247, 124, 175);
+        background-color: #114e9e;
+        color: #fefefe;
         font-size: 18px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
     }
-    .sign-in{
-        font-size: 60px;
-        margin-bottom: 30px;
+    .login-button:hover{
+        background-color: #052b5e;
+    }
+    .pw{
+        color: #e7b83f;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+    }
+    .pw:hover{
+        color: #966e0a;
+    }
+    .create-account{
+        display: grid;
+        grid-template-columns: 150px 140px;
+        grid-gap: 20px;
+        align-items: center;
     }
     .no-account {
-        font-size: 17px;
+        font-size: 16px;
+        /* margin-bottom: 20px; */
+        color: gray;
+    }
+    .create{
+        color: #114e9e;
+        font-size: 16px;
+        font-weight: 700;
         cursor: pointer;
+        transition: 0.6s ease-in;
+    }
+    .create:hover{
+        color: #042552;
     }
 
     @media (max-width: 767px) {
-            .login{
-                display: grid;
-                grid-template: repeat(4, auto) / auto; 
-                justify-items: center;
-                grid-gap: 10px;
-            }
-            .login input{
-                width: 40%;
-                margin: 10px 0;
-                padding: 10px;
-                border: 1px solid rgb(233, 226, 226);
-                border-radius: 5px;
-                height: 30px;
-                font-size: 18px;
-            }
-            .login-button{
-                font-size: 16px;
-            }
-            .sign-in{
-                text-align: center;
-            }
+        .login{
+            padding: 30px;
+            grid-gap: 10px;
+        }
+        .login-button{
+            font-size: 16px;
+        }
+        .login{
+        width: 350px;
+        padding: 20px;
+        grid-gap: 20px;
+       }
+       input{
+        width: 300px;
+        height: 40px;
+        font-size: 20px; 
+       }
+       .pw{
+           font-size: 15px;
+       }
+       .pw-icon{
+        right: 30px;
+        }
+       .login-sect{
+        grid-template-columns: 150px 150px;
+        grid-gap: 30px;
+       }
+       .login-button{
+        height: 50px;
+        padding: 10px;
+        font-size: 16px;
+       }
+       .no-account {
+        font-size: 14px;
+       }
+       .create{
+        font-size: 14px;
+       }
     }
 </style>
 

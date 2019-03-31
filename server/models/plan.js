@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         })
         Plan.belongsToMany(models.benefit, {
-            through: 'benefit_plans',
+            through: models.benefit_plan,
             as: 'benefits',
             foreignKey: 'plan_id'
         })

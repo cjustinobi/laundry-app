@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Benefit.associate = function(models) {
       Benefit.belongsToMany(models.plan, {
-          through: 'benefit_plans',
+          through: { model: models.benefit_plan },
           as: 'plans',
           foreignKey:  'benefit_id'
       })

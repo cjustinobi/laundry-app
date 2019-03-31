@@ -1,13 +1,16 @@
 
 const Plan = require('../../models').plan
-const Benefit = require('../../models').Benefit
+const Benefit = require('../../models').benefit
+const PlanBenefit = require('../../models').benefit_plan
 
 module.exports = {
     async index(req, res) {
         try {
-            let plans = await Plan.findAll({include: [
-                { model: Benefit, through: { attributes: [] }, }
-            ]})
+            let plans = await Plan.findAll({
+                include: [
+                    { model: Benefit, through: PlanBenefit, attributes: ['name'] }
+                ]
+            })
             return res.status(200).send(plans)
         } catch (err) {
             return res.status(500).send(err)

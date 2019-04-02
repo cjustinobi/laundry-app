@@ -32,8 +32,6 @@
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            
-            
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
@@ -45,6 +43,10 @@
             <nuxt-link to='/createbenefits' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span v-if="wideMenu">Create Benefits</span>
+            </nuxt-link>
+            <nuxt-link to='/settings' class='logo setting-icon'>
+                <i class="fa fa-cog" title="Settings"></i>
+                <span v-if="wideMenu">Settings</span>
             </nuxt-link>
         </div>
 
@@ -91,7 +93,7 @@
     }
     .sidebar-nav {
         display: grid;
-        grid-auto-rows: 50px;
+        grid-template-rows: 50px;
         margin-top: 40px;
         align-items: center;
         font-size: 17px;
@@ -99,9 +101,18 @@
     }
     .sidebar-nav a{
         text-decoration: none;
-        color: #fefefe;
+        color: #114e9e;
         padding: 14px 10px;
         /* transition: .8s ease-out; */
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a:active{
+        background-color: #fad370;
+        border-right: 1px solid #8f6600;
+    }
+    .sidebar-nav a:active{
+        color: #b4b4b4;
+        
     }
     .center-nav{
         display: grid;
@@ -123,15 +134,6 @@
     .fa-home{
         color: #fefefe;
     }
-    .sidebar-nav a:hover,
-    .sidebar-nav a:active{
-        background-color: rgb(112, 109, 134);
-        border-right: 1px solid;
-    }
-    .sidebar-nav a:active{
-        color: #b4b4b4;
-        
-    }
     .sidebar-head{
         display: grid;
         grid-template-columns: auto 30px;
@@ -151,10 +153,14 @@
     .toggle-bar{
         cursor: pointer;
     }
+    .setting-icon{
+        margin-top: 40px;
+    }
 
     @media (max-width: 767px){
         .sidebar-head{
             grid-template-columns: 145px 40px;
+            /* display: none; */
         }
         
     }

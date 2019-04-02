@@ -1,5 +1,5 @@
 <template>
-    <div class="edit-profile" :style="myStyle">
+    <div class="edit-password" :style="myStyle">
         <div class="title"><h2>My Account</h2></div>
         <div class="edit-wrapper">
             <ul class="edit-list">
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-    .edit-profile{
+    .edit-password{
         display: grid;
         min-height: 100vh;
     }
@@ -103,8 +103,8 @@ export default {
         color: #114e9e;
         transition: 0.6s ease-in;
     }
-    .edit-list a:hover,
-    .edit-list a:active{
+    .edit-links a:hover,
+    .edit-links a:active{
         color: #a0a0a0;
         
     }
@@ -133,7 +133,7 @@ export default {
     .pw-icon{
         position: absolute;
         right: 3px;
-        bottom: 6px;
+        top: 140px;
         cursor: pointer;
     }
     .update-sect{

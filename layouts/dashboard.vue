@@ -103,7 +103,7 @@
     }
     .sidebar{
         position: relative;
-        background-color: #01355f;
+        background-color: #fefefe;
         
     }
     #draw-down{
@@ -165,6 +165,8 @@
         }
         .minimized{
             grid-template-columns: 1fr;
+            position: absolute;
+            top: 0;
         }
     }
 </style>

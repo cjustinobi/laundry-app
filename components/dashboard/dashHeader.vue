@@ -129,8 +129,9 @@ export default {
         text-align: center;
     }
     .pull-down{
+        display: grid;
+        align-items: center;
         cursor: pointer;
-        
     }
     .dropdown a{
         font-weight: 700;
@@ -161,8 +162,6 @@ export default {
         display: block;
     }
     .dropdown-content a{
-        /* padding: 15px; */
-        /* color: #c7c7c7; */
         text-decoration: none;
     }
     .dropdown-content a:hover,
@@ -173,14 +172,14 @@ export default {
 
 @media (max-width: 767px) {
     .main-head{
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     .user-h3{
         grid-template-columns: 50px 50px;
         font-size: 15px
     }
     .user-view{
-        grid-template-columns: 140px 50px 180px 40px;
+        grid-template-columns: 130px 50px 160px 40px;
     }
     img{
         width: 20px;

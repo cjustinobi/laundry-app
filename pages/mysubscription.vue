@@ -1,5 +1,5 @@
 <template>
-    <div class="edit-profile" :style="myStyle">
+    <div class="edit-subscription" :style="myStyle">
         <div class="title"><h2>My Subscriptions</h2></div>
         <div class="edit-wrapper">
             <div class="sub-heading"><h4>Current Subscription</h4></div>
@@ -41,7 +41,7 @@
 </script>
 
 <style scoped>
-    .edit-profile{
+    .edit-subscription{
         display: grid;
         min-height: 100vh;
     }
@@ -77,14 +77,8 @@
         align-items: center;
         justify-items: center;
         margin: 20px 0 40px 0;
-        
-        /* padding: 0 50px; */
     }
     .update-button{
-        /* display: grid; */
-        /* grid-template: 40px / 20px 130px;
-        justify-items: center; 
-        align-items: center; */
         height: 50px;
         width: 250px;  
         padding: 10px;

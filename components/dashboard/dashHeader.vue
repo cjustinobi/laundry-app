@@ -14,7 +14,10 @@
                 <p>New order</p>
             </div>
 
-            <div class="bell"><i class="fa fa-bell"></i></div>
+            <div class="bell">
+                <i class="fa fa-bell"></i>
+                <div class="count">0</div>
+            </div>
             
             <div class="names">
                 <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
@@ -114,6 +117,23 @@ export default {
     }
     .bell{
         cursor: pointer;
+    }
+    .fa-bell{
+        position: relative;
+    }
+    .count{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        /* right: 10px; */
+        background-color: red;
+        color: #fefefe;
+        height: 13px;
+        width: 13px;
+        border-radius: 50%;
+        font-size: 10px;
     }
     .fa-user{
         cursor: pointer;

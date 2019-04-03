@@ -196,7 +196,7 @@
         height: 60px;
         width: 250px;
         padding: 10px;
-        background-color: #e7b83f;;
+        background-color: #e7b83f;
         color: #fefefe;
         font-size: 20px;
         outline: none;

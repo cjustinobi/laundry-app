@@ -13,15 +13,11 @@
 
         <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
             <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="Dashboard"></i> 
-                <span v-if="wideMenu">Dashboard</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-suitcase" title="My Orders"></i>
+                <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">My Orders</span>
             </nuxt-link>
             <nuxt-link to='/mysubscription' class='logo'>
-                <i class="fa fa-hashtag" title="Subscription"></i>
+                <i class="fa fa-suitcase" title="Subscription"></i>
                 <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
             <nuxt-link to='/transaction' class='logo'>
@@ -30,6 +26,8 @@
             </nuxt-link>
             <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
+                <div :class="{'count': wideMenu}">0</div>
+                <div :class="[{'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
             <nuxt-link to='/referafriend' class='logo'>
@@ -89,7 +87,6 @@
         grid-template-rows: 60px 1fr;
         transition: .8s ease-out;
         /* position: relative; */
-
     }
     .sidebar-nav {
         display: grid;
@@ -116,8 +113,7 @@
     }
     .center-nav{
         display: grid;
-        grid-auto-rows: 45px;
-        /* align-items: center; */
+        grid-template-rows: 45px;
     }
     .center-nav a{
         padding-left: 30px;
@@ -149,6 +145,37 @@
     .logo{
         display: grid;
         grid-template-columns: 30px 1fr;
+    }
+    .fa-bell{
+        position: relative;
+    }
+    .count{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        position: absolute;
+        /* top: 20px; */
+        left: 20px;
+        background-color: red;
+        color: #fefefe;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        font-size: 9px;
+    }
+    .small-count{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        position: absolute;
+        /* top: 20px; */
+        left: 40px;
+        background-color: red;
+        color: #fefefe;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        font-size: 9px;
     }
     .toggle-bar{
         cursor: pointer;

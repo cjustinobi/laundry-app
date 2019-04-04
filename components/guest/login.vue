@@ -12,8 +12,9 @@
         </label>
         <div class="password-wrapper">
             <label for="" class="pw-input">Password <br>
-                <input type="password" v-model="password">
-                <i class="fa fa-eye pw-icon"></i>
+                <input type="password" v-model="password" id="password">
+                <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
             </label>
         </div>
 
@@ -38,6 +39,7 @@
     import  Notification  from '~/components/shared/notification'
 
 export default {
+
     name: 'login',
     mixins: [Notifications],
 
@@ -47,25 +49,40 @@ export default {
             email: '',
             password: '',
             LoginText: 'Login',
+            errors: null,
+            eyeSlash: false
         }
     },
 
     methods: {
+
+        toggleEyeSlash() {
+            let el = document.getElementById("password")
+            if(el.type === 'password'){
+                el.type = 'text'
+                this.eyeSlash = true
+            }else {
+                if (el.type === 'text') {
+                    el.type = 'password'
+                    this.eyeSlash = false
+                }
+            }
+        },
       
         async signIn() {
-
             this.LoginText = 'loading ...'
 
-            let res = await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
-            if (res === 'success') {
+            try {
+                await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
                 return this.$router.push('/dashboard')
+            } catch (err) {
+                this.LoginText = 'Login'
+                this.message = res.response.data.error
+                this.error = true
             }
-
-            this.LoginText = 'Login'
-            this.message = res.response.data.error
-            this.error = true
         }
     },
+
     mounted() {
         document.body.style.background = "#fefefe";
     },
@@ -83,7 +100,7 @@ export default {
         position: relative;
         display: grid;
         width: 450px;
-        margin: 20px auto 0 auto;
+        margin: 50px auto 0 auto;
         align-items: center;
         padding: 30px;
         grid-gap: 20px;
@@ -112,7 +129,7 @@ export default {
         width: 380px;
         padding: 10px;
         border: none;
-        border-bottom: 1px solid rgb(133, 126, 126);
+        border-bottom: 1px solid rgb(207, 207, 207);
         height: 50px;
         font-size: 25px;
         outline-style: none;  

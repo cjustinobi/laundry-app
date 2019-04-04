@@ -1,7 +1,7 @@
 <template>
     <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
         <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-            <sidebar @toggleMenu="adjustMenu"></sidebar>
+            <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
         </aside>
         <div class="content">
             <dash-header @showDrawer="hideDrawer = false"></dash-header>
@@ -15,13 +15,14 @@
 </template>
 
 <script>
-    import Sidebar from '~/components/dashboard/sidebar'
+    import UserSidebar from '~/components/dashboard/user/sidebar'
+    import AdminSidebar from '~/components/dashboard/admin/sidebar'
     import DashHeader from '~/components/dashboard/dashHeader'
     import Drawer from '~/components/dashboard/drawer'
 
     export default {
 
-        components: { Sidebar, DashHeader, Drawer },
+        components: { UserSidebar, AdminSidebar, DashHeader, Drawer },
         middleware: ['check-auth'],
 
         data() {
@@ -89,8 +90,9 @@
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
-        background: #fefefe;
+        background-color: #fefefe;
         position: relative;
+        min-height: 100vh;
     }
     .minimized{
         display: grid;
@@ -102,7 +104,7 @@
     }
     .sidebar{
         position: relative;
-        background: #fffcfc;
+        background-color: #01355f;
         
     }
     #draw-down{

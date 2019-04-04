@@ -14,7 +14,7 @@
                 <p>New order</p>
             </div>
 
-            <div><i class="fa fa-bell"></i></div>
+            <div class="bell"><i class="fa fa-bell"></i></div>
             
             <div class="names">
                 <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
@@ -22,7 +22,7 @@
                 <p>Glory Agatevure</p>
             </div>
 
-            <div class="dropdown">
+            <div id="dropdown" :class="[{'dropdown': dropdown}]">
                     <a class="pull-down" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
                     <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
                         <nuxt-link class="show my-profile" to="/profile"><i class="fa fa-user"></i> My Profile</nuxt-link>
@@ -39,7 +39,8 @@ export default {
 
     data() {
         return {
-            dropdownContent: true
+            dropdownContent: true,
+            dropdown: true
         }
     },
     methods: {
@@ -54,14 +55,26 @@ export default {
                 x.style.display = "none"
                 x.className = x.className.replace(" show", "")
             }
-        }
+        },
+        // hideLinks(e) {
+        //     let el = document.getElementById("dropdown")
+        //     if(el.style.display = 'block') {
+        //         this.dropdown = true
+        //         // el.style.display = 'block'
+        //     }else {
+        //         this.dropdown = false
+        //         el.style.display = 'none'
+        //     }
+        // }
     },
     watch: {
         'route': function(e) {
             if(e && window.innerWidth > 767){
                 this.pullDown = true
+                this.dropdownContent = true
             }else{
                 this.pullDown = false
+                this.dropdownContent = false
             }
         }
     }
@@ -74,13 +87,13 @@ export default {
         grid-template-columns: 1fr 450px;
         position: relative;
         align-items: center;
-        background: #fffcfc;
+        background-color: #01355f;
         height: 60px;
-        color: rgb(104, 98, 98);
+        color: #fefefe;
         transition: 0.3s ease-in;
     }
     a{
-        color: rgb(104, 98, 98);
+        color: #fefefe;
     }
     .user-img{
         width: 30px;
@@ -97,10 +110,18 @@ export default {
     .new-order{
         display: grid;
         grid-template-columns: 25px auto;
+        cursor: pointer;
+    }
+    .bell{
+        cursor: pointer;
+    }
+    .fa-user{
+        cursor: pointer;
     }
     .names{
         display: grid;
         grid-template-columns: 25px auto;
+        
     }
     .user-h3{
         display: grid;

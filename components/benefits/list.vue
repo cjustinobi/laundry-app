@@ -9,7 +9,6 @@
                         <button class="edit-package" @click.prevent="editBenefit(i)">Edit</button>
                         <button class="delete-package" @click.prevent="deleteForm(i)">Delete</button>
                     </div>
-                    
                 </div>
             </div>
         </div>

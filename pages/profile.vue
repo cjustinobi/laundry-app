@@ -2,7 +2,7 @@
     <div class="profile-page">
         <h4>User Profile</h4>
         <div class="edit-profile">
-            <nuxt-link to="/edit">Edit</nuxt-link>
+            <nuxt-link to="/editprofile">Edit</nuxt-link>
         </div>
     </div>
 </template>

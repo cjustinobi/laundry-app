@@ -2,11 +2,11 @@
     <div class="editor">
         <form class="form">
             <div class="create-close">
-                <button class="add-fields" @click.prevent="addItem">Add fields</button>
+                <!-- <button class="add-fields" @click.prevent="addItem">Add fields</button> -->
                 <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
             </div>
-            <div v-for="(item, i) in items">
-                <input class="input-benefit" v-model="item.name" placeholder="benefit">
+            <div v-for="(item, i) in items" :key="i">
+                <input class="input-benefit" @focus="addItem" v-model="item.name" placeholder="benefit">
                 <i class="fa fa-remove" @click="removeItem(i)"></i>
             </div>
 
@@ -60,7 +60,7 @@
             },
             async submitForm() {
 
-            }
+            },
 
         },
 
@@ -95,8 +95,7 @@
     }
     .create-close{
         display: grid;
-        grid-template-columns: 1fr auto;
-        grid-gap: 20px;
+        justify-self: flex-end;
     }
     .create-close a{
         color: rgb(245, 100, 100);

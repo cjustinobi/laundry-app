@@ -84,35 +84,14 @@ export default {
     .main-overview{
         display: grid;
         grid-auto-rows: 50px 1fr;
-        background-color: #fff;
-        margin: 30px 80px;
+        background-color: #fefefe;
+        margin: 70px 80px;
         border-radius: 5px;
     }
     .overview{
         border-bottom: 1px solid rgb(230, 224, 224);
         padding: 10px 0 0 100px;
         color: rgb(100, 100, 100);
-    }
-    .plans{
-        display: grid;
-        grid-template: 1fr / repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 20px;
-        margin: 30px 80px;
-        
-    }
-    .all-plans{
-        background-color: #fff;
-        border-radius: 5px;
-        height: 150px;
-        
-    }
-    .all-plans h4{
-        color: rgb(100, 100, 100);
-        padding: 5px 0 0 80px;
-    }
-    .all-plans h1{
-        color: #2979ff;
-        font-size: 50px;
     }
     .balance{
         display: grid;
@@ -131,6 +110,27 @@ export default {
         /* border-right: 1px solid rgb(230, 224, 224); */
         /* padding-right: 10px; */
         
+    }
+    .plans{
+        display: grid;
+        grid-template: 1fr / repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+        margin: 70px 80px;
+        
+    }
+    .all-plans{
+        background-color: #fefefe;
+        border-radius: 5px;
+        height: 150px;
+        
+    }
+    .all-plans h4{
+        color: rgb(100, 100, 100);
+        padding: 5px 0 0 80px;
+    }
+    .all-plans h1{
+        color: #2979ff;
+        font-size: 50px;
     }
     .interest{
         display: grid;

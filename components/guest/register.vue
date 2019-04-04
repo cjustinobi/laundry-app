@@ -25,8 +25,9 @@
         </label>
         <div class="password-wrapper">
             <label for="">Password <br>
-                <input type="password" v-model="details.password">
-                <i class="fa fa-eye pw-icon"></i>
+                <input type="password" v-model="details.password" id="password">
+                <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash(false)"></i>
+                <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash(true)"></i>
             </label>
         </div>
         <p class="terms">
@@ -35,7 +36,7 @@
         </p>
         <div class="sign-up-sect">
             <button @click.prevent="signUp" class="sign-up-button">
-                <i class="fa fa-user"></i> Create account
+                <i class="fa fa-user"></i> {{ signUpTxt }}
             </button>
             <small class="account" @click.prevent="$emit('toggleLogin')">
                 Already have an account?
@@ -65,7 +66,9 @@
                     password: '',
                     plan_id: '',
                 },
-                signUpTxt: 'Sign Up'
+                signUpTxt: 'Sign Up',
+                errors: '',
+                eyeSlash: false,
             }
         },
         methods: {
@@ -79,6 +82,18 @@
                     this.message = e.response.data.error
                     return this.error = true
 
+                }
+            },
+            toggleEyeSlash() {
+                let el = document.getElementById("password")
+                if(el.type === 'password'){
+                    el.type = 'text'
+                    this.eyeSlash = true
+                } else {
+                    if (el.type === 'text') {
+                        el.type = 'password'
+                        this.eyeSlash = false
+                    }
                 }
             }
         },
@@ -99,7 +114,7 @@
     .sign-up{
         display: grid;
         width: 600px;
-        margin: 40px auto;
+        margin: 50px auto;
         padding: 30px;
         grid-gap: 20px;
         border: 1px solid #e2e2e2;
@@ -128,7 +143,7 @@
         width: 530px;
         padding: 10px;
         border: none;
-        border-bottom: 1px solid rgb(133, 126, 126);
+        border-bottom: 1px solid rgb(207, 207, 207);
         height: 50px;
         font-size: 25px;
         outline-style: none;

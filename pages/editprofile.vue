@@ -88,8 +88,8 @@ export default {
         color: #114e9e;
         transition: 0.6s ease-in;
     }
-    .edit-list a:hover,
-    .edit-list a:active{
+    .edit-links a:hover,
+    .edit-links a:active{
         color: #a0a0a0;
         
     }

@@ -5,15 +5,11 @@
         </div>
         <div id="sidebar-nav" :class="[{'sidebar-nav': sidebarNav}]" >
             <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="Dashboard"></i> 
-                <span>Dashboard</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-suitcase" title="My Orders"></i>
+                <i class="fa fa-dashcube" title="My Orders"></i>
                 <span>My Orders</span>
             </nuxt-link>
             <nuxt-link to='/mysubscription' class='logo'>
-                <i class="fa fa-hashtag" title="Subscription"></i>
+                <i class="fa fa-suitcase" title="Subscription"></i>
                 <span>My subscription</span>
             </nuxt-link>
             <nuxt-link  to='/transaction' class='logo'>
@@ -24,8 +20,10 @@
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span>Notifications</span>
             </nuxt-link>
-            
-            
+            <nuxt-link to='/contactsupport' class='logo'>
+                <i class="fa fa-user" title="Contact/Support"></i>
+                <span>Contact support</span>
+            </nuxt-link>
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i> 
                 <span>Refer a Friend</span>

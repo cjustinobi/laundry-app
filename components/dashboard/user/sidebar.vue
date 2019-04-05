@@ -13,15 +13,11 @@
 
         <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
             <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="Dashboard"></i> 
-                <span v-if="wideMenu">Dashboard</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-suitcase" title="My Orders"></i>
+                <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">My Orders</span>
             </nuxt-link>
             <nuxt-link to='/mysubscription' class='logo'>
-                <i class="fa fa-hashtag" title="Subscription"></i>
+                <i class="fa fa-suitcase" title="Subscription"></i>
                 <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
             <nuxt-link to='/transaction' class='logo'>
@@ -30,10 +26,13 @@
             </nuxt-link>
             <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
+                <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            
-            
+            <nuxt-link to='/contactsupport' class='logo'>
+                <i class="fa fa-user" title="Contact/Support"></i>
+                <span v-if="wideMenu">Contact support</span>
+            </nuxt-link>
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
@@ -45,6 +44,10 @@
             <nuxt-link to='/createbenefits' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span v-if="wideMenu">Create Benefits</span>
+            </nuxt-link>
+            <nuxt-link to='/settings' class='logo setting-icon'>
+                <i class="fa fa-cog" title="Settings"></i>
+                <span v-if="wideMenu">Settings</span>
             </nuxt-link>
         </div>
 
@@ -87,11 +90,10 @@
         grid-template-rows: 60px 1fr;
         transition: .8s ease-out;
         /* position: relative; */
-
     }
     .sidebar-nav {
         display: grid;
-        grid-auto-rows: 50px;
+        grid-template-rows: 50px;
         margin-top: 40px;
         align-items: center;
         font-size: 17px;
@@ -99,14 +101,22 @@
     }
     .sidebar-nav a{
         text-decoration: none;
-        color: #fefefe;
+        color: #114e9e;
         padding: 14px 10px;
         /* transition: .8s ease-out; */
     }
+    .sidebar-nav a:hover,
+    .sidebar-nav a:active{
+        background-color: #fad370;
+        border-right: 1px solid #8f6600;
+    }
+    .sidebar-nav a:active{
+        color: #b4b4b4;
+        
+    }
     .center-nav{
         display: grid;
-        grid-auto-rows: 45px;
-        /* align-items: center; */
+        grid-template-rows: 45px;
     }
     .center-nav a{
         padding-left: 30px;
@@ -122,15 +132,6 @@
     }
     .fa-home{
         color: #fefefe;
-    }
-    .sidebar-nav a:hover,
-    .sidebar-nav a:active{
-        background-color: rgb(112, 109, 134);
-        border-right: 1px solid;
-    }
-    .sidebar-nav a:active{
-        color: #b4b4b4;
-        
     }
     .sidebar-head{
         display: grid;
@@ -148,13 +149,48 @@
         display: grid;
         grid-template-columns: 30px 1fr;
     }
+    .fa-bell{
+        position: relative;
+    }
+    .count{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        position: absolute;
+        /* top: 20px; */
+        left: 20px;
+        background-color: red;
+        color: #fefefe;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        font-size: 9px;
+    }
+    .small-count{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        position: absolute;
+        /* top: 20px; */
+        left: 40px;
+        background-color: red;
+        color: #fefefe;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        font-size: 9px;
+    }
     .toggle-bar{
         cursor: pointer;
+    }
+    .setting-icon{
+        margin-top: 40px;
     }
 
     @media (max-width: 767px){
         .sidebar-head{
             grid-template-columns: 145px 40px;
+            /* display: none; */
         }
         
     }

@@ -4,7 +4,7 @@
             <h1 class="relief">Save Time and Energy </h1>
             <h1>Looking good and clean always</h1>
             <div class="intro-request">
-                <nuxt-link to="/pick-up-form"><button class="request-btn">Request a Pick-up</button></nuxt-link>
+                <nuxt-link to="/usernotification"><button class="request-btn">Request a Pick-up</button></nuxt-link>
             </div>
         </div>
 
@@ -76,6 +76,7 @@
         font-size: 20px;
         color: #0622be;
         font-weight: bold;
+        outline: none;
     }
     .request-btn:hover,
     .request-btn:active{

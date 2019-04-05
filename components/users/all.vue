@@ -2,22 +2,28 @@
     <div>
         <h1>All users</h1>
         <div class="users">
-            <div v-for="(user, i) in users" :key="i">
+            <div class="user" v-for="(user, i) in users" :key="i">
                 <h1>{{ user.fullname }}</h1>
+                <actions :itemId="user.id" :deleteEndPoint="deleteEndPoint"></actions>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import Actions from '~/components/shared/actions'
 export default {
-    data(){
 
+        components: { Actions },
+    data(){
+        return {
+            deleteEndPoint: ''
+        }
     },
 
     computed: {
         users(){
-            return this.$store.getter['users/users']
+            return this.$store.getters['users/users']
         }
     },
 
@@ -26,4 +32,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .user{
+        position: relative;
+    }
+</style>
 

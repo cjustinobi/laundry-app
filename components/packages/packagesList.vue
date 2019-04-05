@@ -11,11 +11,9 @@
                     <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
                 <div class="wash-menu">
-                   <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                   <i class="fa fa-check"></i><li>Beddings</li>
-                   <i class="fa fa-check"></i><li>Curtains</li>
-                   <i class="fa fa-check"></i><li>Duvets</li>
-                   <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
+                   <span v-for="(benefit, i) in plan.benefits" :key="i">
+                       <i class="fa fa-check"></i><li>{{ benefit.name }}</li>
+                   </span>
                 </div>
                 <form method="get" id="sub-btn">
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>

@@ -24,13 +24,13 @@ module.exports = {
             })
 
             if (!user) {
-                return res.status(403).send({error: 'user not found'})
+                return res.status(403).send(new Error('user not found'))
+                // return res.status(403).send({error: 'user not found'})
             }
             user = user.toJSON()
             bcrypt.compare(req.body.password, user.password, function(err, result) {
                 if (err) res.status(500).send({ error: 'server error' })
                 if (result) {
-                    console.log(req.headers.user_type)
                     res.status(200).send({ user, token: jwtSignUser(user) })
                 } else {
                     res.status(401).send({error: 'incorrect login details'})

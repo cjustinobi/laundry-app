@@ -1,6 +1,8 @@
 <template> 
     <div class="sign-up">
-        <small v-if="errors">{{ errors }}</small>
+
+        <notification :error="error" :success="success" :message="message"></notification>
+
         <div class="elegant-image">
             <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
@@ -34,7 +36,7 @@
         </p>
         <div class="sign-up-sect">
             <button @click.prevent="signUp" class="sign-up-button">
-                <i class="fa fa-user"></i> Create account
+                <i class="fa fa-user"></i> {{ signUpTxt }}
             </button>
             <small class="account" @click.prevent="$emit('toggleLogin')">
                 Already have an account?
@@ -46,9 +48,16 @@
 
 <script>
 
+    import  Notifications  from '~/mixins/notifications'
+    import  Notification  from '~/components/shared/notification'
+
+
     export default {
         name: 'signUp',
-        data: function() {
+        mixins: [Notifications],
+
+        components: { Notification },
+        data() {
             return {
                 details: {
                     fullname: '',
@@ -57,17 +66,22 @@
                     password: '',
                     plan_id: '',
                 },
+                signUpTxt: 'Sign Up',
                 errors: '',
                 eyeSlash: false,
             }
         },
         methods: {
             async signUp() {
+                this.signUpTxt = 'signing up ...'
                 try {
                     let res = await this.$axios.$post('/api/register', this.details)
-                    console.log(res)
                 } catch (e) {
-                    alert(this.errors = e.response.data.error)
+
+                    this.signUpTxt = 'Sign up'
+                    this.message = e.response.data.error
+                    return this.error = true
+
                 }
             },
             toggleEyeSlash() {
@@ -75,13 +89,14 @@
                 if(el.type === 'password'){
                     el.type = 'text'
                     this.eyeSlash = true
-                }else {
-                    el.type === 'text'
-                    el.type = 'password'
-                    this.eyeSlash = false
-                    } 
+                } else {
+                    if (el.type === 'text') {
+                        el.type = 'password'
+                        this.eyeSlash = false
+                    }
                 }
-            },
+            }
+        },
         mounted() {
             document.body.style.background = "#fefefe";
         },
@@ -158,10 +173,21 @@
         font-size: 50px;
         margin-bottom: 40px;
     }
+
+    .sign-up {
+        position: relative;
+        display: grid;
+        grid-template-rows: repeat(6, auto);
+        grid-template: repeat(4, auto) / auto;
+        justify-items: center;
+        grid-gap: 10px;
+        margin-top: 60px;
+    }
     .terms{
         text-align: justify; 
         width: 530px; 
         margin: 10px 0;
+
     }
     .sign-up-sect{
         display: grid;

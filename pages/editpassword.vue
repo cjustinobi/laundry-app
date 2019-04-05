@@ -133,7 +133,7 @@ export default {
     .pw-icon{
         position: absolute;
         right: 3px;
-        top: 140px;
+        top: 129px;
         cursor: pointer;
     }
     .update-sect{

@@ -26,9 +26,12 @@
             </nuxt-link>
             <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
-                <div :class="{'count': wideMenu}">0</div>
-                <div :class="[{'small-count': !wideMenu}]">0</div>
+                <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
+            </nuxt-link>
+            <nuxt-link to='/contactsupport' class='logo'>
+                <i class="fa fa-user" title="Contact/Support"></i>
+                <span v-if="wideMenu">Contact support</span>
             </nuxt-link>
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>

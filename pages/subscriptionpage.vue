@@ -269,6 +269,17 @@
         }
     }
 
+    @media (min-width: 1038px) { 
+        .payment-total{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-content: center;
+            grid-gap: 20px;
+            align-content: center;
+            margin: 20px;
+        }
+    }
+
     @media (min-width: 768px) { 
         .payment-total{
             display: grid;

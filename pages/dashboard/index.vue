@@ -239,6 +239,9 @@ export default {
     .balance{
        font-size: 14px;
     }
+    .all-balance{
+        grid-gap: 5px;
+    }
     .overview{
         /* padding: 10px 0 0 70px; */
     }

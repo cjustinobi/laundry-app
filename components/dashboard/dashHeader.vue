@@ -130,10 +130,10 @@ export default {
         /* right: 10px; */
         background-color: red;
         color: #fefefe;
-        height: 13px;
-        width: 13px;
+        height: 12px;
+        width: 12px;
         border-radius: 50%;
-        font-size: 10px;
+        font-size: 9px;
     }
     .fa-user{
         cursor: pointer;

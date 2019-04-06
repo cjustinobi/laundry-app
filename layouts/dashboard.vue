@@ -1,11 +1,18 @@
 <template>
-    <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
-        <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-            <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
-        </aside>
-        <div class="content">
-            <dash-header @showDrawer="hideDrawer = false"></dash-header>
-            <div class="nuxt-rend"><nuxt/></div>
+    <div class="dashboard-container">
+        <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
+            <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+                <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
+            </aside>
+            <div class="content">
+                <dash-header @showDrawer="hideDrawer = false"></dash-header>
+                <div class="nuxt-rend"><nuxt/></div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <div><quick-links/></div>
+            <div><app-footer></app-footer></div>
         </div>
         
         <div :class="[{'hide-drawer': hideDrawer}]">
@@ -18,11 +25,13 @@
     import UserSidebar from '~/components/dashboard/user/sidebar'
     import AdminSidebar from '~/components/dashboard/admin/sidebar'
     import DashHeader from '~/components/dashboard/dashHeader'
+    import QuickLinks from '~/components/guest/quickLinks'
+    import AppFooter from '~/components/guest/appFooter'
     import Drawer from '~/components/dashboard/drawer'
 
     export default {
 
-        components: { UserSidebar, AdminSidebar, DashHeader, Drawer },
+        components: { UserSidebar, AdminSidebar, DashHeader,QuickLinks, AppFooter, Drawer },
         middleware: ['check-auth'],
 
         data() {
@@ -87,9 +96,14 @@
 </script>
 
 <style scoped>
+    .dashboard-container{
+        display: grid;
+        grid-template-rows: auto auto;
+    }
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
+        /* grid-template-rows: 1fr 1fr; */
         background-color: #fefefe;
         position: relative;
         min-height: 100vh;
@@ -101,6 +115,10 @@
     .content{
         display: grid;
         grid-template-rows: 60px 1fr;
+    }
+    .footer-section{
+        display: grid;
+        grid-template-rows: 1fr;
     }
     .sidebar{
         position: relative;
@@ -160,7 +178,7 @@
     }
 
     .backdrop{
-        @include backdrop;
+        /* @include backdrop; */
     }
 
 

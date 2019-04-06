@@ -1,5 +1,5 @@
 <template>
-    <div class="create-benefit">
+    <div class="create-benefit" :style="myStyle">
         <div class="btn-created">
             <button class="create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">CREATE BENEFITS</button>
         </div>
@@ -35,7 +35,9 @@ export default {
 
     data() {
         return {
+            //  myStyle: { backgroundColor: "#f0faff" },
             showBenefitForm: false,
+            
         }
     },
     

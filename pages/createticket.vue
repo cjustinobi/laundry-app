@@ -1,11 +1,11 @@
 <template>
-    <div class="contact-support" :style="myStyle">
+    <div class="ticket-container" :style="myStyle">
         <div class="contact">
             <div class="title"><h2>Help and Support</h2></div>
             <div class="ticket-btn">
                 <nuxt-link  to="/"><button class="t-btn open-ticket">Opened Tickets</button></nuxt-link>
                 <nuxt-link  to="/"><button class="t-btn close-ticket">Closed Tickets</button></nuxt-link>
-                <nuxt-link class="create-link"  to="/createticket"><button class="t-btn create-ticket">Create Tickets</button></nuxt-link>
+                <nuxt-link class="create-link"  to="/"><button class="t-btn create-ticket">Create Tickets</button></nuxt-link>
             </div>
             <div class="horizontal-line"></div>
             <div class="ticket-wrapper">
@@ -13,7 +13,21 @@
                     <h4 class="rt-head">Recent Tickets</h4>
                 </div>
                 <div class="ticket-list">
-                    <h4 class="tl-head">No Ticket has been opened</h4>
+                    <h4>Tickets</h4>
+                    <label for=""> Category <br>
+                        <select v-model="category" id="" class="select">
+                            <option disabled>Select category</option>
+                            <option >Delayed delivery</option>
+                            <option value="">Stained clothes</option>
+                            <option value="">Inadequate starch</option>
+                        </select>
+                    </label>
+                    <label for=""> Subject <br>
+                        <input type="text" placeholder="Enter Subject">
+                    </label>
+                    <label for=""> Message <br>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </label>
                 </div>
             </div>
         </div>
@@ -31,8 +45,10 @@
             return {
                 myStyle: {
                     backgroundColor: "#f0faff"
-                }
+                },
+                category: 'Select category'
             }
+            
         },
         mounted() {
             // document.body.style.background = "#e1f5fe";
@@ -44,7 +60,7 @@
 </script>
 
 <style scoped>
-    .contact-support{
+    .ticket-container{
         display: grid;
         /* grid-template-rows: 1fr 1fr 1fr; */
         min-height: 100vh;
@@ -83,12 +99,11 @@
         grid-template-columns: 200px 1fr;
         background-color: #fefefe;
         height: 400px;
-        /* width: 100%; */
         margin: 70px 40px 40px 40px;
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
         padding: 15px;
-        grid-gap: 20px;
+        grid-gap: 30px;
     }
     .t-btn{
         height: 35px;
@@ -130,6 +145,17 @@
         padding: 12px; 
         background-color: #e7b83f;
         color: #fefefe;
+    }
+    .ticket-list{
+        display: grid;
+
+    }
+    .select{
+        width: 300px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid rgb(197, 197, 197);
+        outline: none;
     }
 
     @media (max-width: 767px) {

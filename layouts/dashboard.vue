@@ -1,13 +1,18 @@
 <template>
     <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
-        <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+        <!--<aside v-if="user.user_type == 1" :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
             <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
-        </aside>
+        </aside>-->
+        <div>
+            <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+                <admin-sidebar @toggleMenu="adjustMenu"></admin-sidebar>
+            </aside>
+        </div>
         <div class="content">
             <dash-header @showDrawer="hideDrawer = false"></dash-header>
             <div class="nuxt-rend"><nuxt/></div>
         </div>
-        
+
         <div :class="[{'hide-drawer': hideDrawer}]">
             <drawer id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
         </div>
@@ -45,43 +50,34 @@
                     this.hideDrawer = false
                 }
             },
-            // toggleSidebar(e) {
-            //     let x = document.getElementById("sidebar")
-            //     if (x.style.display === 'block') {
-            //         this.backdrop = false
-            //         x.style.display = "none"
-            //     } else {
-            //         this.backdrop = true 
-            //         x.style.display = 'block'
-            //     }
-            // },
 
             minimzeWindow(){
                 window.onresize = () => {
                     this.windowWidth = window.innerWidth
                 }
-                    this.windowWidth = window.innerWidth
+                this.windowWidth = window.innerWidth
             },
         },
-        mounted() {
-            this.minimzeWindow()
-            
-            },
-            
-            
+
+        computed: {
+            user() {
+                return this.$store.getters['auth/user']
+            }
+        },
+
         watch: {
             windowWidth(e) {
                 // Hides wider device sidebar.
                 e < 768 ? this.sidebar = false : this.sidebar = true
             },
-                // Hides the drawer on the Dashboard
+            // Hides the drawer on the Dashboard
             '$route': function(e) {
                 // let slideDrawUp = document.getElementById('draw-down')
                 // slideDrawUp.style.animationName = "hide"
                 this.hideDrawer = true
             }
         }
-   
+
     }
 
 </script>
@@ -105,7 +101,7 @@
     .sidebar{
         position: relative;
         background-color: #fefefe;
-        
+
     }
     #draw-down{
         -webkit-animation-name: show;
@@ -160,7 +156,7 @@
     }
 
     .backdrop{
-        @include backdrop;
+    @include backdrop;
     }
 
 

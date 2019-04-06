@@ -16,15 +16,15 @@
                 <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">My Orders</span>
             </nuxt-link>
-            <nuxt-link to='/mysubscription' class='logo'>
+            <nuxt-link to='/dashboard/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
                 <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
-            <nuxt-link to='/transaction' class='logo'>
+            <nuxt-link to='/dashboard/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i> 
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
-            <nuxt-link to='/notifications' class='logo'>
+            <nuxt-link to='/dashboard/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
@@ -33,19 +33,12 @@
                 <i class="fa fa-user" title="Contact/Support"></i>
                 <span v-if="wideMenu">Contact support</span>
             </nuxt-link>
-            <nuxt-link to='/referafriend' class='logo'>
+            <nuxt-link to='/dashboard/referral' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/addpackage' class='logo'>
-                <i class="fa fa-plus-circle" title="Add Package"></i>
-                <span v-if="wideMenu">Add Package</span>
-            </nuxt-link>
-            <nuxt-link to='/createbenefits' class='logo'>
-                <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
-                <span v-if="wideMenu">Create Benefits</span>
-            </nuxt-link>
-            <nuxt-link to='/settings' class='logo setting-icon'>
+
+            <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
             </nuxt-link>

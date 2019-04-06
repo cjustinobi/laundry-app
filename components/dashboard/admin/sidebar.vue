@@ -38,11 +38,11 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Referrals</span>
             </nuxt-link>
-            <nuxt-link to='/addpackage' class='logo'>
+            <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
                 <span v-if="wideMenu">Add Package</span>
             </nuxt-link>
-            <nuxt-link to='/createbenefits' class='logo'>
+            <nuxt-link to='/admin/benefits/add' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span v-if="wideMenu">Create Benefits</span>
             </nuxt-link>

@@ -1,13 +1,13 @@
 <template>
     <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
         <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-            <sidebar @toggleMenu="adjustMenu"></sidebar>
+            <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
+            <admin-sidebar @toggleMenu="adjustMenu"></admin-sidebar>
         </aside>
         <div class="content">
             <dash-header @showDrawer="hideDrawer = false"></dash-header>
             <div class="nuxt-rend"><nuxt/></div>
         </div>
-        
         <div :class="[{'hide-drawer': hideDrawer}]">
             <drawer id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
         </div>
@@ -15,13 +15,14 @@
 </template>
 
 <script>
-    import Sidebar from '~/components/dashboard/sidebar'
+    import UserSidebar from '~/components/dashboard/user/sidebar'
+    import AdminSidebar from '~/components/dashboard/admin/sidebar'
     import DashHeader from '~/components/dashboard/dashHeader'
     import Drawer from '~/components/dashboard/drawer'
 
     export default {
 
-        components: { Sidebar, DashHeader, Drawer },
+        components: { UserSidebar, AdminSidebar, DashHeader, Drawer },
         middleware: ['check-auth'],
 
         data() {

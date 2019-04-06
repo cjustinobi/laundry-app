@@ -26,15 +26,11 @@
             </nuxt-link>
             <nuxt-link to='/mysubscription' class='logo'>
                 <i class="fa fa-shopping-bag" title="Subscription"></i>
-                <span v-if="wideMenu">My subscription</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-address-card" title="Pick-up Form"></i>
-                <span v-if="wideMenu">Pick-up Form</span>
+                <span v-if="wideMenu">Subscription</span>
             </nuxt-link>
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
-                <span v-if="wideMenu">Refer a Friend</span>
+                <span v-if="wideMenu">Referrals</span>
             </nuxt-link>
             <nuxt-link to='/addpackage' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
@@ -64,16 +60,7 @@
                 this.wideMenu = !this.wideMenu
                 this.$emit('toggleMenu', this.wideMenu)
             }
-        },
-
-        // watch: {
-        //     '$route': function(e) {
-        //         if (e && window.innerWidth < 768) {
-        //             this.backdrop = false
-        //             document.getElementById("sidebar-head").style.display = "none"
-        //         }
-        //     }
-        // }
+        }
     }
 
 </script>

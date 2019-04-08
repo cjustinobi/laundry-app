@@ -11,7 +11,7 @@
             </a>
         </div>
 
-        <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+        <div v-if="user !== undefined && user.user_type == 1" class='sidebar-nav' :class="{'center-nav': !wideMenu}">
             <nuxt-link to='/dashboard' class='logo'>
                 <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">My Orders</span>
@@ -21,7 +21,7 @@
                 <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/transactions' class='logo'>
-                <i class="fa fa-history" title="Transaction History"></i>
+                <i class="fa fa-history" title="Transaction History"></i> 
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/notifications' class='logo'>
@@ -41,6 +41,43 @@
             <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
+            </nuxt-link>
+        </div>
+
+        <div  v-if="user !== undefined && user.user_type == 3" class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+            <nuxt-link to='/dashboard' class='logo'>
+                <i class="fa fa-dashcube" title="Dashboard"></i>
+                <span v-if="wideMenu">Dashboard</span>
+            </nuxt-link>
+            <nuxt-link to='/pickupform' class='logo'>
+                <i class="fa fa-suitcase" title="My Orders"></i>
+                <span v-if="wideMenu">Orders</span>
+            </nuxt-link>
+            <nuxt-link to='/mysubscription' class='logo'>
+                <i class="fa fa-hashtag" title="Subscription"></i>
+                <span v-if="wideMenu">Subscriptions</span>
+            </nuxt-link>
+            <nuxt-link to='/transaction' class='logo'>
+                <i class="fa fa-history" title="Transaction History"></i>
+                <span v-if="wideMenu">Transaction History</span>
+            </nuxt-link>
+            <nuxt-link to='/notifications' class='logo'>
+                <i class="fa fa-bell" title="Notifications"></i>
+                <span v-if="wideMenu">Notifications</span>
+            </nuxt-link>
+
+
+            <nuxt-link to='/referafriend' class='logo'>
+                <i class="fa fa-user-plus" title="Refer a Friend"></i>
+                <span v-if="wideMenu">Referrals</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/packages/add' class='logo'>
+                <i class="fa fa-plus-circle" title="Add Package"></i>
+                <span v-if="wideMenu">Add Package</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/benefits/add' class='logo'>
+                <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
+                <span v-if="wideMenu">Create Benefits</span>
             </nuxt-link>
         </div>
 
@@ -96,7 +133,7 @@
     }
     .sidebar-nav a:active{
         color: #b4b4b4;
-
+        
     }
     .center-nav{
         display: grid;
@@ -112,7 +149,7 @@
     .brand-name{
         display: grid;
         grid-template-columns: 10px 10px;
-
+        
     }
     .fa-home{
         color: #fefefe;
@@ -176,7 +213,7 @@
             grid-template-columns: 145px 40px;
             /* display: none; */
         }
-
+        
     }
 
     @media (min-width: 768px) {

@@ -2,7 +2,12 @@
     <div>
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
-                <button class="edit-button" @click.prevent="editPackage()">Edit</button>
+                <actions
+                        @editItem="editItem"
+                        @removeItem="removeItem"
+                        :itemId="plan.id"
+                        :api="api">
+                </actions>
                 <div class="name">
                     <img class="elegant-image" src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
                     <h1>{{ plan.name }}</h1>
@@ -20,58 +25,62 @@
                 </form>
             </div>
 
-        
-    </div>
-    <div :class="{'backdrop' : showForm}">
+
+        </div>
+        <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <editor :editDetail="editDetail" @cancelForm="showForm = false"/>
+                <editor :editDetail="editDetail" @cancelForm="showForm = false"></editor>
             </div>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
+    import Actions from '~/components/shared/actions'
+    import Editor from '~/components/packages/editor'
 
-import Editor from '~/components/packages/editor'
-
-export default {
-    components:{
-        Editor
-    },
-    data() {
-        return {
-            showForm: false,
-            editDetail: '',
-            showEditButton: false
-        }
-    },
-
-    methods: {
-        hideButton(){
-            this.showEditButton = false
+    export default {
+        components:{
+            Editor, Actions
         },
-        // editPackage(i) {
-        //     this.showForm = true;
-        //     this.editDetail = this.packages.find((item, index) => index == i)
-        // },
-        subscribe() {
-            this.$root.$emit("package", 2000);
-            this.$router.push({ path: "/volunteer" });
-        }
-    },
+        data() {
+            return {
+                showForm: false,
+                editDetail: '',
+                showEditButton: false,
+                api: '/api/plans/'
+            }
+        },
+
+        methods: {
+            hideButton(){
+                this.showEditButton = false
+            },
+            removeItem(i) {
+                this.$store.dispatch('plans/removeItem', i)
+            },
+             editItem(i) {
+                 this.showForm = true;
+                 this.editDetail = this.plans.find(plan => plan.id === i)
+             },
+            subscribe() {
+                this.$root.$emit("package", 2000);
+                this.$router.push({ path: "/volunteer" });
+            }
+        },
 
 
-    mounted() {
-        this.$store.dispatch('plans/getPlans')
-        this.hideButton()
-    },
+        mounted() {
+            this.$store.dispatch('plans/getPlans')
+            this.hideButton()
+        },
 
-    computed: {
-        plans() {
-            return this.$store.getters['plans/allPlans']
+        computed: {
+            plans() {
+                return this.$store.getters['plans/allPlans']
+            }
         }
     }
-}
 </script>
 
 <style scoped>
@@ -101,6 +110,7 @@ export default {
         height: 30px
     }
     .pack-item{
+        position: relative;
         border: 1px solid #b2d2e4;
         border-radius: 10px;
         display: grid;
@@ -200,28 +210,28 @@ export default {
     }
 
     @media (max-width: 767px) {
-    .packages{
-        grid-template: auto / 1fr;        
+        .packages{
+            grid-template: auto / 1fr;
+        }
+        .wash-menu{
+            font-size: 14px;
+        }
+        .pack-item{
+        }
+        .elegant-image{
+            width: 30px;
+        }
+        .name{
+            font-size: 18px;
+        }
+        .price{
+            font-size: 16px;
+        }
+        .subscribe{
+            width: 200px;
+            height: 40px;
+            font-size: 16px;
+        }
     }
-    .wash-menu{
-        font-size: 14px;
-    }
-    .pack-item{
-    }
-    .elegant-image{
-        width: 30px;
-    }
-    .name{
-        font-size: 18px;
-    }
-    .price{
-        font-size: 16px;
-    }
-    .subscribe{
-        width: 200px;
-        height: 40px;
-        font-size: 16px;
-    }
-}
 
 </style>

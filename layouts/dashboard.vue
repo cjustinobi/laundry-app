@@ -1,13 +1,12 @@
 <template>
     <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
-        <!--<aside v-if="user.user_type == 1" :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+
+        <aside v-if="user !== undefined && user.user_type == 1"  :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
             <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
-        </aside>-->
-        <div>
-            <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-                <admin-sidebar @toggleMenu="adjustMenu"></admin-sidebar>
-            </aside>
-        </div>
+        </aside>
+        <aside v-if="user !== undefined && user.user_type == 3"  :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+            <admin-sidebar @toggleMenu="adjustMenu"></admin-sidebar>
+        </aside>
         <div class="content">
             <dash-header @showDrawer="hideDrawer = false"></dash-header>
             <div class="nuxt-rend"><nuxt/></div>
@@ -59,11 +58,11 @@
             },
         },
 
-        computed: {
+        /*computed: {
             user() {
                 return this.$store.getters['auth/user']
             }
-        },
+        },*/
 
         watch: {
             windowWidth(e) {

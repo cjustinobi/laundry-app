@@ -38,16 +38,13 @@
 <script>
 
     import Multiselect from 'vue-multiselect'
-    import  Notifications  from '~/mixins/notifications'
-    import  Notification  from '~/components/shared/notification'
-    import  FormElements  from '~/mixins/formElements'
+    import Notifications  from '~/mixins/notifications'
+    import Notification  from '~/components/shared/notification'
+    import FormElements  from '~/mixins/formElements'
 
     export default {
 
-        props:[
-            'editDetail',
-            'showForm'
-        ],
+        props:['editDetail', 'showForm'],
 
         mixins: [FormElements, Notifications],
 
@@ -71,7 +68,7 @@
                 this.details.benefits = this.details.benefits.map(item => item.id)
 
                 try {
-                    let res = await this.$store.dispatch('plans/store', this.details)
+                    let res = await this.$store.dispatch('plans/store', {data: this.details, editMode: this.editDetail})
                     if (res) {
                         this.isLoading = false
                         this.clearFields(this.details)

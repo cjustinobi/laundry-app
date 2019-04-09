@@ -23,11 +23,12 @@
                         </select>
                     </label>
                     <label for=""> Subject <br>
-                        <input type="text" placeholder="Enter Subject">
+                        <input type="text" placeholder="Enter Subject" class="input-subject">
                     </label>
                     <label for=""> Message <br>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <textarea name="" id="" cols="60" rows="10"  class="textarea"></textarea>
                     </label>
+                    <nuxt-link class="send-link" to="/"><button class="t-btn send-ticket">Send</button></nuxt-link>
                 </div>
             </div>
         </div>
@@ -98,12 +99,12 @@
         display: grid;
         grid-template-columns: 200px 1fr;
         background-color: #fefefe;
-        height: 400px;
+        height: 500px;
         margin: 70px 40px 40px 40px;
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
         padding: 15px;
-        grid-gap: 30px;
+        grid-gap: 70px;
     }
     .t-btn{
         height: 35px;
@@ -133,6 +134,14 @@
     .create-ticket:hover{
         background-color: #00122b;
     }
+    .send-ticket{
+        background-color: #e7b83f;
+        color: #fefefe;
+        margin-left: 295px;
+    }
+    .send-ticket:hover{
+        background-color: #f3ae00;
+    }
     .recent-ticket{
         border: 1px solid rgb(202, 202, 202);
     }
@@ -148,14 +157,26 @@
     }
     .ticket-list{
         display: grid;
-
+        grid-gap: 15px;
+        grid-template: auto / 500px;
     }
     .select{
-        width: 300px;
+        width: 440px;
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(197, 197, 197);
         outline: none;
+    }
+    .input-subject{
+        width: 440px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid rgb(197, 197, 197);
+        outline: none;
+    }
+    .textarea{
+        padding: 10px;
+        border: 1px solid rgb(224, 224, 224);
     }
 
     @media (max-width: 767px) {
@@ -169,14 +190,14 @@
         }
         .ticket-wrapper{
             grid-template-columns: 1fr;
-            /* height: 700px; */
+            height: 700px;
             padding: 15px;
             grid-gap: 20px;
         }
         .t-btn{
             height: 30px;
             width: 150px;
-            font-size: 16px;
+            font-size: 14px;
         }
         .create-link{
             grid-column-start: 4;

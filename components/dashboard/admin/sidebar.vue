@@ -13,36 +13,30 @@
 
         <div class='sidebar-nav' :class="{'center-nav': !wideMenu}">
             <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="Dashboard"></i>
-                <span v-if="wideMenu">Dashboard</span>
-            </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-suitcase" title="My Orders"></i>
+                <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">Orders</span>
             </nuxt-link>
-            <nuxt-link to='/mysubscription' class='logo'>
+            <nuxt-link to='/dashboard/subscriptions' class='logo'>
                 <i class="fa fa-hashtag" title="Subscription"></i>
                 <span v-if="wideMenu">Subscriptions</span>
             </nuxt-link>
-            <nuxt-link to='/transaction' class='logo'>
+            <nuxt-link to='/dashboard/transaction' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
-            <nuxt-link to='/notifications' class='logo'>
+            <nuxt-link to='/dashboard/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-
-
             <nuxt-link to='/referafriend' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Referrals</span>
             </nuxt-link>
-            <nuxt-link to='/addpackage' class='logo'>
+            <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
                 <span v-if="wideMenu">Add Package</span>
             </nuxt-link>
-            <nuxt-link to='/createbenefits' class='logo'>
+            <nuxt-link to='/admin/benefits/add' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span v-if="wideMenu">Create Benefits</span>
             </nuxt-link>

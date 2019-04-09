@@ -9,6 +9,8 @@
 import Users from '~/components/users/all'
 export default {
 
+    layout: 'dashboard',
+
     components: {
         Users
     },

@@ -14,7 +14,7 @@
             <div><quick-links/></div>
             <div><app-footer></app-footer></div>
         </div>
-        
+
         <div :class="[{'hide-drawer': hideDrawer}]">
             <drawer id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
         </div>
@@ -54,43 +54,34 @@
                     this.hideDrawer = false
                 }
             },
-            // toggleSidebar(e) {
-            //     let x = document.getElementById("sidebar")
-            //     if (x.style.display === 'block') {
-            //         this.backdrop = false
-            //         x.style.display = "none"
-            //     } else {
-            //         this.backdrop = true 
-            //         x.style.display = 'block'
-            //     }
-            // },
 
             minimzeWindow(){
                 window.onresize = () => {
                     this.windowWidth = window.innerWidth
                 }
-                    this.windowWidth = window.innerWidth
+                this.windowWidth = window.innerWidth
             },
         },
-        mounted() {
-            this.minimzeWindow()
-            
-            },
-            
-            
+
+        computed: {
+            user() {
+                return this.$store.getters['auth/user']
+            }
+        },
+
         watch: {
             windowWidth(e) {
                 // Hides wider device sidebar.
                 e < 768 ? this.sidebar = false : this.sidebar = true
             },
-                // Hides the drawer on the Dashboard
+            // Hides the drawer on the Dashboard
             '$route': function(e) {
                 // let slideDrawUp = document.getElementById('draw-down')
                 // slideDrawUp.style.animationName = "hide"
                 this.hideDrawer = true
             }
         }
-   
+
     }
 
 </script>
@@ -105,12 +96,15 @@
         grid-template-columns: 200px 1fr;
         /* grid-template-rows: 1fr 1fr; */
         background-color: #fefefe;
-        position: relative;
+        /* position: relative; */
         min-height: 100vh;
     }
     .minimized{
         display: grid;
         grid-template-columns: 80px 1fr;
+    }
+    aside.sidebar{
+        border-right: 1px solid rgb(238, 238, 238);
     }
     .content{
         display: grid;
@@ -177,11 +171,6 @@
         height: 100%;
     }
 
-    .backdrop{
-        /* @include backdrop; */
-    }
-
-
     @media (max-width: 767px) {
         .dashboard{
             grid-template-columns: 1fr;
@@ -189,8 +178,11 @@
         }
         .minimized{
             grid-template-columns: 1fr;
-            position: absolute;
-            top: 0;
+            /* position: absolute;
+            top: 0; */
+        }
+        .sidebar{
+            display: none;
         }
     }
 </style>

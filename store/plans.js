@@ -7,7 +7,8 @@ export const mutations = {
         state.plans =payload
     },
     ADD_PLAN (state, payload) {
-        state.plans.push(payload)
+        let index = state.plans.findIndex(plan => plan.id === payload.id)
+        state.plans[index] = payload
     },
     REMOVE_ITEM (state, i) {
         state.plans = state.plans.filter(plan => plan.id !== i)

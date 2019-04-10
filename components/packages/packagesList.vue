@@ -20,7 +20,7 @@
                        <i class="fa fa-check"></i><li>{{ benefit.name }}</li>
                    </span>
                 </div>
-                <form method="get" id="sub-btn">
+                <form v-if="user !== undefined && user.user_type !== 3" method="get" id="sub-btn">
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
                 </form>
             </div>

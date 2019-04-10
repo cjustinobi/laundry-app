@@ -132,8 +132,8 @@ export default {
     }
     .pw-icon{
         position: absolute;
-        right: 3px;
-        top: 129px;
+        right: 8px;
+        top: 110px;
         cursor: pointer;
     }
     .update-sect{

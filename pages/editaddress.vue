@@ -3,7 +3,7 @@
         <div class="title"><h2>My Account</h2></div>
         <div class="edit-wrapper">
             <ul class="edit-list">
-                <li class="edit-links"><nuxt-link to="/editprofile">Profile</nuxt-link></li>
+                <li class="edit-links"><nuxt-link to="/profile">Profile</nuxt-link></li>
                 <li class="edit-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
                 <li class="edit-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
             </ul>

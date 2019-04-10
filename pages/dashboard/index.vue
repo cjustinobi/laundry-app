@@ -36,13 +36,13 @@
                     <p style="color: #114e9e">don't have any</p>
                     <p style="color: #114e9e">luxury plan</p>
                 </div>
-                <div class="express-create-btn"><button class="express-btn">Create Plan</button></div>
+                <div class="express-create-btn"><button class="express-btn">Upgrade Plan</button></div>
             </div>
 
             <div class="luxury-plans">
                 <div class="luxury-plan-title">
                     <h4>Luxury Plans</h4>
-                    <div class="luxury-create-btn"><button class="luxury-btn">Create Plan</button></div>
+                    <div class="luxury-create-btn"><button class="luxury-btn">Upgrade Plan</button></div>
                 </div>
                 <div class="luxury-inner">
                     <img class="elegant-image" src="~assets/images/EL_logo_2.png" alt="Elegant Logo">

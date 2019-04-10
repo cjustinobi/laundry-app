@@ -1,43 +1,151 @@
 <template>
-    <div class="profile-page">
-        <h4>User Profile</h4>
-        <div class="edit-profile">
-            <nuxt-link to="/editprofile">Edit</nuxt-link>
+    <div class="edit-profile" :style="myStyle">
+        <div class="title"><h2>My Account</h2></div>
+        <div class="edit-wrapper">
+            <ul class="edit-list">
+                <li class="edit-links"><nuxt-link to="/editprofile">Profile</nuxt-link></li>
+                <li class="edit-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
+                <li class="edit-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
+            </ul>
+
+            <div><img src="~assets/images/profile_pic.jpg" alt="Profile Avatar"></div>
+            <div class="update-form">
+                <p>{{ firstName }}</p>
+                <p>{{ lastName }}</p>
+                <p>{{ email }}</p>
+                <p>{{ mobileNumber }}</p>
+                <div class="update-sect">
+                    <button @click.prevent="signUp" class="update-button">
+                        Update Profile
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
+export default {
+    
+    layout: 'dashboard',
 
-        layout: 'dashboard'
+    data() {
+        return {
+            myStyle: {
+                backgroundColor: "#f0faff"
+            },
+            firstName: 'Glory',
+            lastName: 'Agatevure',
+            email: 'agatevureglory@gmail.com',
+            mobileNumber: 2348037303414
+        }
+    },
+    mounted() {
+        // document.body.style.background = "#e1f5fe";
+    },
+    destroyed() {
+        document.body.style.background = "none";
     }
+}
 </script>
 
 <style scoped>
-    .profile-page{
+    .edit-profile{
         display: grid;
-        grid-template-rows: 70px 70px;
-        margin: 20px;
-
+        min-height: 100vh;
+    }
+    .title{
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        height: 80px;
+        color: #114e9e;
+        background-color: #f0faff;
+        border-bottom: 1px solid rgb(207, 207, 207);
     }
     a{
         text-decoration: none;
-        color: #fefefe;
     }
-    .edit-profile{
+    .edit-wrapper{
         display: grid;
-        align-content: center;
-        justify-items: center;
-        width: 100px;
-        height: 30px;
+        background-color: #fefefe;
+        margin: 40px;
+        padding: 0 50px;
+        box-shadow: 5px 5px 15px grey;
+    }
+    .edit-list{
+        display: grid;
+        grid-template: 80px / repeat(3, 150px); 
+        align-items: center; 
+        padding: 0px;
+        font-size: 18px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        list-style: none;
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+    .edit-links a{
+        color: #114e9e;
+        transition: 0.6s ease-in;
+    }
+    .edit-links a:hover,
+    .edit-links a:active{
+        color: #a0a0a0; 
+    }
+    img{
+        width: 60px;
+    }
+    .update-form{
+        display: grid;
+        grid-template-rows: repeat(3, 20px), 90px;
+        grid-gap: 20px;
+        margin-top: 40px;
+        color: #114e9e;
+        
+    }
+    .update-form input{
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid rgb(207, 207, 207);
+        font-size: 25px;
+        outline-style: none;
+    }
+    .update-sect{
+        display: grid;
+        align-items: center;
+        margin: 20px 0 40px 0;
+    }
+    .update-button{
+        height: 50px;
+        width: 250px;
         padding: 10px;
-        background-color: #114e9e;
+        background-color: #01355f;
         color: #fefefe;
         font-size: 18px;
         outline: none;
         border: none;
         cursor: pointer;
         transition: 0.6s ease-in;
+    }
+    .update-button:hover{
+        background-color: #00122b;
+    }
+
+    @media (max-width: 767px) {
+        .edit-list{
+            font-size: 15px;
+        }
+        .update-form{
+            grid-gap: 20px;
+        }
+        .update-form input{
+            font-size: 20px;
+        }
+        .update-button{
+            width: 200px;
+            font-size: 14px;
+        }
     }
 </style>

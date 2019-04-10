@@ -1,17 +1,17 @@
 <template>
-    <div class="add-package">
-        <div class="btn-add">
-            <button v-if="!showForm" class="create-btn" @click.prevent="showForm = true">ADD PACKAGE</button>
+    <div class="create-benefit">
+        <div class="btn-created">
+            <button class="create-btn" v-if="!showProductForm" @click.prevent="showProductForm = true">CREATE PRODUCT</button>
         </div>
 
-        <div class="all-packages">
-            <all-packages/>
-        </div>
-        
-        <div :class="{'backdrop': showForm}">
-            <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <plan-editor @cancelForm="showForm = false" />
+        <div :class="{'backdrop': showProductForm}">
+            <div :class="[{'show-form': showProductForm, 'hide-form': !showProductForm}]">
+                <editor @cancelForm="showProductForm = false" />
             </div>
+        </div>
+
+        <div>
+            <all-products/>
         </div>
     </div>
     
@@ -19,34 +19,37 @@
 
 <script>
 
-import PlanEditor from '~/components/packages/editor'
-import AllPackages from '~/components/packages/packagesList'
+import Editor from '~/components/products/editor'
+import AllProducts from '~/components/products/list'
 
 
 export default {
-    
+
     layout: 'dashboard',
 
     components: {
-        PlanEditor,
-        AllPackages 
+        Editor,
+        AllProducts
+        
     },
 
     data() {
         return {
-            showForm: false,
+            showProductForm: false,
+            
         }
     },
+    
+
 }
 </script>
 
 <style scoped>
-    .add-package{
+    .create-benefit{
         display: grid;
-        grid-template-columns: 1fr;
         position: relative;
     }
-    .btn-add{
+    .btn-created{
         display: grid;
         justify-content: center;
     }

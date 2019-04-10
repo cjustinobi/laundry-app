@@ -31,11 +31,24 @@
                     <p>
                         Hi there, <br><br>
                         Your friend just sent you a 25% voucher to use on <br>  
-                        ELaundry!
+                        ELaundry! If you are not familiar, ELaundry collects, <br>
+                        clean and deliver your laundry straight at your door, <br>
+                        saving you both time and money. <br><br>
+                        It is really simple to use, just sign up on our <nuxt-link to="/login">website.</nuxt-link><br>
+                        Then use code to get 25% of your first order. <br><br>
+                        Find out why thousands across Nigeria are switching <br>
+                        their laundry, dry cleaning and ironing to ELaundry. <br><br>
+                        Happy ELaundry!
                     </p>
+                    <div class="ticket-btn">
+                        <nuxt-link  to="/">
+                            <button class="invite-btn">
+                                <i class="fa fa-paper-plane"></i> Share Invite links to friends
+                            </button>
+                        </nuxt-link>
+                    </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>
@@ -81,6 +94,7 @@
     }
     a{
         text-decoration: none;
+        color: #f8b711;
     }
     img{
         background-size: cover;
@@ -111,7 +125,8 @@
         color: #114e9e;
     }
     .share-box{
-        margin: 0 auto;
+        display: grid;
+        margin: 20px auto;
         max-width: 500px;
         background-color: #f0faff;
         border: 1px solid rgb(233, 233, 233);
@@ -125,7 +140,7 @@
     .input{
         padding: 20px;
         height: 50px;
-        outline: none;
+        border: none;
         border: 1px solid rgb(233, 233, 233);
     }
     .invitation-msg{
@@ -134,6 +149,11 @@
         padding: 20px;
         border: 1px solid rgb(233, 233, 233);
         background-color: #fefefe;
+    }
+    .invite-btn{
+        height: 40px;
+        width: 250px;
+        margin-top: 15px;
     }
     
 

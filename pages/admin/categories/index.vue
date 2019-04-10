@@ -1,17 +1,17 @@
 <template>
-    <div class="add-package">
-        <div class="btn-add">
-            <button v-if="!showForm" class="create-btn" @click.prevent="showForm = true">ADD PACKAGE</button>
+    <div class="create-benefit">
+        <div class="btn-created">
+            <button class="create-btn" v-if="!showCategoryForm" @click.prevent="showCategoryForm = true">CREATE CATEGORY</button>
         </div>
 
-        <div class="all-packages">
-            <all-packages/>
-        </div>
-        
-        <div :class="{'backdrop': showForm}">
-            <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <plan-editor @cancelForm="showForm = false" />
+        <div :class="{'backdrop': showCategoryForm}">
+            <div :class="[{'show-form': showCategoryForm, 'hide-form': !showCategoryForm}]">
+                <editor @cancelForm="showCategoryForm = false" />
             </div>
+        </div>
+
+        <div>
+            <all-categories/>
         </div>
     </div>
     
@@ -19,34 +19,45 @@
 
 <script>
 
-import PlanEditor from '~/components/packages/editor'
-import AllPackages from '~/components/packages/packagesList'
+import Editor from '~/components/categories/editor'
+import AllCategories from '~/components/categories/list'
 
 
 export default {
-    
+
     layout: 'dashboard',
 
     components: {
-        PlanEditor,
-        AllPackages 
+        Editor,
+        AllCategories
+        
     },
 
     data() {
         return {
-            showForm: false,
+            showCategoryForm: false,
+            
         }
     },
+    
+
 }
 </script>
 
 <style scoped>
-    .add-package{
+    .show-form{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 300px;
+        transform: translate(-50%, -50%);
+    }
+    .create-benefit{
         display: grid;
-        grid-template-columns: 1fr;
         position: relative;
     }
-    .btn-add{
+    .btn-created{
         display: grid;
         justify-content: center;
     }

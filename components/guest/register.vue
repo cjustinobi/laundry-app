@@ -163,8 +163,8 @@
     }
     .pw-icon{
         position: absolute;
-        right: 0;
-        bottom: 4px;
+        right: 10px;
+        bottom: 17px;
         cursor: pointer;
     }
     .login-reg{
@@ -222,17 +222,18 @@
             padding: 15px;
         }
         .names{
-            grid-template-columns: 180px 180px;
+            grid-template-columns: 170px 170px;
         }
         .names input{
-            width: 140px;
+            width: 120px;
         }
         input{
             width: 370px;
             font-size: 20px;
         }
         .pw-icon{
-            right: 1px;
+            right: 6px;
+            bottom: 17px;   
         }
         .terms{
             width: 370px

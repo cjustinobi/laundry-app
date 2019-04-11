@@ -26,7 +26,6 @@
         methods: {
             toggleLogin() {
                 this.loginState ? this.loginState = false : this.loginState = true
-                
             }
         }
       

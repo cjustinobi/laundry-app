@@ -1,12 +1,6 @@
 <template>
     <div class="edit-address" :style="myStyle">
-        <div class="title"><h2>My Account</h2></div>
         <div class="edit-wrapper">
-            <ul class="edit-list">
-                <li class="edit-links"><nuxt-link to="/profile">Profile</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
-            </ul>
             <div class="update-form">
                 <label for="">Street name <br>
                     <input type="text" required>
@@ -71,8 +65,8 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 40px;
-        padding: 0 50px;
+        margin: 40px 80px;
+        padding: 0 60px;
         box-shadow: 5px 5px 15px grey;
     }
     .edit-list{

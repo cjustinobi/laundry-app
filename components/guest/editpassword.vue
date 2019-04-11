@@ -1,12 +1,6 @@
 <template>
     <div class="edit-password" :style="myStyle">
-        <div class="title"><h2>My Account</h2></div>
         <div class="edit-wrapper">
-            <ul class="edit-list">
-                <li class="edit-links"><nuxt-link to="/profile">Profile</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
-            </ul>
             <div class="update-form">
                 <div class="password-wrapper">
                     <label for="" class="pw-input">Old Password <br>
@@ -83,8 +77,9 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 40px;
-        padding: 0 50px;
+        margin: 40px 80px;
+        padding: 0 60px;
+        align-items: center;
         box-shadow: 5px 5px 15px grey;
     }
     .edit-list{
@@ -158,8 +153,16 @@ export default {
     }
 
     @media (max-width: 767px) {
+        .edit-wrapper{
+            margin: 0 80px 40px 80px;
+            padding: 0 70px;
+        }
         .edit-list{
             font-size: 15px;
+        }
+        .pw-icon{
+            right: 8px;
+            top: 120px;
         }
         .update-form{
             grid-gap: 20px;

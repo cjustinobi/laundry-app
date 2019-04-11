@@ -3,50 +3,65 @@
         <div class="title"><h2>My Account</h2></div>
         <div class="edit-wrapper">
             <ul class="edit-list">
-                <li class="edit-links"><nuxt-link to="/editprofile">Profile</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
+                <li class="edit-links" @click.prevent="toggleTab('profile')">Profile</li>
+                <li class="edit-links" @click.prevent="toggleTab('address')">Address</li>
+                <li class="edit-links" @click.prevent="toggleTab('password')">Change Password</li>
             </ul>
-
-            <div><img src="~assets/images/profile_pic.jpg" alt="Profile Avatar"></div>
-            <div class="update-form">
-                <p>{{ firstName }}</p>
-                <p>{{ lastName }}</p>
-                <p>{{ email }}</p>
-                <p>{{ mobileNumber }}</p>
-                <div class="update-sect">
-                    <button @click.prevent="signUp" class="update-button">
-                        Update Profile
-                    </button>
-                </div>
-            </div>
         </div>
+
+        <div><profileXXX v-if="profile"></profileXXX></div>
+        <div><editAddress v-if="address"></editAddress></div>
+        <div><editPassword  v-if="password"></editPassword></div>
     </div>
 </template>
 
 <script>
-export default {
-    
-    layout: 'dashboard',
+    import ProfileXXX from '~/components/guest/profileXXX'
+    import EditAddress from '~/components/guest/editAddress'
+    import EditPassword from '~/components/guest/editPassword'
 
-    data() {
-        return {
-            myStyle: {
-                backgroundColor: "#f0faff"
+    export default {
+        
+        layout: 'dashboard',
+        components: {ProfileXXX, EditAddress, EditPassword},
+
+        data() {
+            return {
+                myStyle: {
+                    backgroundColor: "#f0faff"
+                },
+                profile: true,
+                address: false,
+                password: false
+            }
+        },
+        methods: {
+            toggleTab(val) {
+                if(val == 'profile') {
+                    this.address =false
+                    this.password = false
+                    return this.profile = true
+                }
+                if(val == 'address') {
+                    this.password =false
+                    this.profile = false
+                    return this.address = true
+                }
+                if(val == 'password') {
+                    this.profile =false
+                    this.address = false
+                    return this.password = true
+                }
             },
-            firstName: 'Glory',
-            lastName: 'Agatevure',
-            email: 'agatevureglory@gmail.com',
-            mobileNumber: 2348037303414
+        
+        },
+        mounted() {
+            // document.body.style.background = "#e1f5fe";
+        },
+        destroyed() {
+            document.body.style.background = "none";
         }
-    },
-    mounted() {
-        // document.body.style.background = "#e1f5fe";
-    },
-    destroyed() {
-        document.body.style.background = "none";
     }
-}
 </script>
 
 <style scoped>
@@ -61,17 +76,19 @@ export default {
         height: 80px;
         color: #114e9e;
         background-color: #f0faff;
-        border-bottom: 1px solid rgb(207, 207, 207);
     }
     a{
         text-decoration: none;
     }
     .edit-wrapper{
         display: grid;
+        grid-template-columns: 1fr;
         background-color: #fefefe;
-        margin: 40px;
-        padding: 0 50px;
+        margin: 40px 160px 0 160px;
+        padding: 0 70px;
         box-shadow: 5px 5px 15px grey;
+        grid-gap: 20px;
+        
     }
     .edit-list{
         display: grid;
@@ -93,59 +110,11 @@ export default {
     .edit-links a:active{
         color: #a0a0a0; 
     }
-    img{
-        width: 60px;
-    }
-    .update-form{
-        display: grid;
-        grid-template-rows: repeat(3, 20px), 90px;
-        grid-gap: 20px;
-        margin-top: 40px;
-        color: #114e9e;
-        
-    }
-    .update-form input{
-        width: 100%;
-        padding: 5px;
-        border: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        font-size: 25px;
-        outline-style: none;
-    }
-    .update-sect{
-        display: grid;
-        align-items: center;
-        margin: 20px 0 40px 0;
-    }
-    .update-button{
-        height: 50px;
-        width: 250px;
-        padding: 10px;
-        background-color: #01355f;
-        color: #fefefe;
-        font-size: 18px;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        transition: 0.6s ease-in;
-    }
-    .update-button:hover{
-        background-color: #00122b;
-    }
+   
 
     @media (max-width: 767px) {
         .edit-list{
             font-size: 15px;
-        }
-        .update-form{
-            grid-gap: 20px;
-        }
-        .update-form input{
-            font-size: 20px;
-        }
-        .update-button{
-            width: 200px;
-            font-size: 14px;
         }
     }
 </style>

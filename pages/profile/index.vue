@@ -6,12 +6,14 @@
                 <li class="edit-links" @click.prevent="toggleTab('profile')">Profile</li>
                 <li class="edit-links" @click.prevent="toggleTab('address')">Address</li>
                 <li class="edit-links" @click.prevent="toggleTab('password')">Change Password</li>
+                <li class="edit-links" @click.prevent="toggleTab('preferences')">Preferences</li>
             </ul>
         </div>
 
         <div><profileXXX v-if="profile"></profileXXX></div>
         <div><editAddress v-if="address"></editAddress></div>
         <div><editPassword  v-if="password"></editPassword></div>
+        <div><preferences  v-if="preferences"></preferences></div>
     </div>
 </template>
 
@@ -19,11 +21,12 @@
     import ProfileXXX from '~/components/guest/profileXXX'
     import EditAddress from '~/components/guest/editAddress'
     import EditPassword from '~/components/guest/editPassword'
+    import Preferences from '~/components/guest/Preferences'
 
     export default {
         
         layout: 'dashboard',
-        components: {ProfileXXX, EditAddress, EditPassword},
+        components: {ProfileXXX, EditAddress, EditPassword, Preferences},
 
         data() {
             return {
@@ -32,7 +35,8 @@
                 },
                 profile: true,
                 address: false,
-                password: false
+                password: false,
+                preferences: false
             }
         },
         methods: {
@@ -40,17 +44,26 @@
                 if(val == 'profile') {
                     this.address =false
                     this.password = false
+                    this.preferences = false
                     return this.profile = true
                 }
                 if(val == 'address') {
                     this.password =false
+                    this.preferences =false
                     this.profile = false
                     return this.address = true
                 }
                 if(val == 'password') {
+                    this.preferences =false
                     this.profile =false
                     this.address = false
                     return this.password = true
+                }
+                if(val == 'preferences') {
+                    this.profile =false
+                    this.address = false
+                    this.password = false
+                    return this.preferences = true
                 }
             },
         
@@ -92,7 +105,7 @@
     }
     .edit-list{
         display: grid;
-        grid-template: 80px / repeat(3, 150px); 
+        grid-template: 80px / repeat(4, 180px); 
         align-items: center; 
         padding: 0px;
         font-size: 18px;
@@ -100,7 +113,6 @@
         border: none;
         cursor: pointer;
         list-style: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
     }
     .edit-links a{
         color: #114e9e;
@@ -113,6 +125,9 @@
    
 
     @media (max-width: 767px) {
+        .title{
+            margin-top: 30px;
+        }
         .edit-list{
             font-size: 15px;
         }

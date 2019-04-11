@@ -77,31 +77,12 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 40px 80px;
-        padding: 0 60px;
         align-items: center;
+        margin: 0 160px 40px 160px;
+        padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
-    }
-    .edit-list{
-        display: grid;
-        grid-template: 80px / repeat(3, 150px); 
-        align-items: center; 
-        padding: 0px;
-        font-size: 18px;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        list-style: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
-    }
-    .edit-links a{
-        color: #114e9e;
-        transition: 0.6s ease-in;
-    }
-    .edit-links a:hover,
-    .edit-links a:active{
-        color: #a0a0a0;
-        
+        grid-gap: 10px;
+        height: 500px;
     }
     .update-form{
         display: grid;
@@ -154,7 +135,7 @@ export default {
 
     @media (max-width: 767px) {
         .edit-wrapper{
-            margin: 0 80px 40px 80px;
+            height: 400px;
             padding: 0 70px;
         }
         .edit-list{

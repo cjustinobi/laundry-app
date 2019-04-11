@@ -28,7 +28,9 @@
                     <label for=""> Message <br>
                         <textarea name="" id="" cols="60" rows="10"  class="textarea"></textarea>
                     </label>
-                    <nuxt-link class="send-link" to="/"><button class="t-btn send-ticket">Send</button></nuxt-link>
+                    <nuxt-link class="send-link" to="/">
+                        <button class="t-btn send-ticket">Send</button>
+                    </nuxt-link>
                 </div>
             </div>
         </div>
@@ -137,7 +139,7 @@
     .send-ticket{
         background-color: #e7b83f;
         color: #fefefe;
-        margin-left: 295px;
+        margin-left: 297px;
     }
     .send-ticket:hover{
         background-color: #f3ae00;

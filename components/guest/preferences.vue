@@ -1,15 +1,11 @@
 <template>
-    <div class="edit-profile" :style="myStyle">
-        <div class="edit-wrapper">
-            <div class="profile-img"><img src="~assets/images/profile_pic.jpg" alt="Profile Avatar"></div>
-            <div class="update-form">
-                <p>{{ firstName }}</p>
-                <p>{{ lastName }}</p>
-                <p>{{ email }}</p>
-                <p>{{ mobileNumber }}</p>
-                <div class="update-sect">
-                    <button @click.prevent="signUp" class="update-button">
-                        Edit Profile
+    <div class="edit-preferences" :style="myStyle">
+        <div class="preferences-wrapper">
+            <div class="preferences-list">
+                
+                <div class="update-preferences">
+                    <button @click.prevent="signUp" class="preferences-button">
+                        Change Preferences
                     </button>
                 </div>
             </div>
@@ -26,11 +22,7 @@ export default {
         return {
             myStyle: {
                 backgroundColor: "#f0faff"
-            },
-            firstName: 'Glory',
-            lastName: 'Agatevure',
-            email: 'agatevureglory@gmail.com',
-            mobileNumber: 2348037303414
+            }
         }
     },
     mounted() {
@@ -43,14 +35,14 @@ export default {
 </script>
 
 <style scoped>
-    .edit-profile{
+    .edit-preferences{
         display: grid;
         min-height: 100vh;
     }
     a{
         text-decoration: none;
     }
-    .edit-wrapper{
+    .preferences-wrapper{
         display: grid;
         grid-template-rows: 100px 300px;
         background-color: #fefefe;
@@ -60,29 +52,12 @@ export default {
         grid-gap: 10px;
         
     }
-    img{
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-    .profile-img{
-        display: grid;
-        justify-content: center;
-        cursor: pointer;
-    }
-    .update-form{
-        display: grid;
-        grid-template-rows: repeat(4, 20px), 40px;
-        grid-gap: 20px;
-        margin-top: 40px;
-        color: #114e9e;
-    }
-    .update-sect{
+    .update-preferences{
         display: grid;
         justify-content: center;
         margin: 20px 0;
     }
-    .update-button{
+    .preferences-button{
         height: 50px;
         width: 250px;
         padding: 10px;
@@ -94,26 +69,20 @@ export default {
         cursor: pointer;
         transition: 0.6s ease-in;
     }
-    .update-button:hover{
+    .preferences-button:hover{
         background-color: #00122b;
     }
 
     @media (max-width: 767px) {
-        .edit-wrapper{
+        .preferences-wrapper{
             grid-template-rows: 80px 300px;
             height: 500px;
             padding: 60px 70px 0 70px;
         }
-        .edit-list{
-            font-size: 15px;
-        }
-        .update-form{
+        .update-preferences{
             grid-gap: 20px;
         }
-        .update-form input{
-            font-size: 20px;
-        }
-        .update-button{
+        .preferences-button{
             width: 200px;
             font-size: 14px;
         }

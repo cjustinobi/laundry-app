@@ -15,9 +15,11 @@
                     <input type="text" required>
                 </label>
                 <div class="update-sect">
-                    <button @click.prevent="signUp" class="update-button">
-                        Update Address
-                    </button>
+                    <nuxt-link to="/addaddress">
+                        <button class="update-button">
+                            Update Address
+                        </button>
+                    </nuxt-link>
                 </div>
             </div>
         </div>
@@ -65,30 +67,10 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 40px 80px;
-        padding: 0 60px;
+        margin: 0 160px 40px 160px;
+        padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
-    }
-    .edit-list{
-        display: grid;
-        grid-template: 80px / repeat(3, 150px); 
-        align-items: center; 
-        padding: 0px;
-        font-size: 18px;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        list-style: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
-    }
-    .edit-links a{
-        color: #114e9e;
-        transition: 0.6s ease-in;
-    }
-    .edit-links a:hover,
-    .edit-links a:active{
-        color: #a0a0a0;
-        
+        grid-gap: 10px;;
     }
     .update-form{
         display: grid;
@@ -128,11 +110,14 @@ export default {
     }
 
     @media (max-width: 767px) {
-        .edit-list{
-            font-size: 15px;
+        .edit-wrapper{
+            height: 500px;
+            padding: 60px 70px 0 70px;
         }
         .update-form{
-            grid-gap: 20px;
+            grid-template-rows: repeat(3, 20px), 40px;
+            grid-gap: 10px;
+            
         }
         .update-form input{
             font-size: 20px;

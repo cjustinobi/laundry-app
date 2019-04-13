@@ -1,26 +1,25 @@
 <template>
-    <div class="edit-profile" :style="myStyle">
-        <div class="title"><h2>My Account</h2></div>
+    <div class="edit-address" :style="myStyle">
         <div class="edit-wrapper">
-            <ul class="edit-list">
-                <li class="edit-links"><nuxt-link to="/editprofile">Profile</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
-                <li class="edit-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
-            </ul>
             <div class="update-form">
-                <label for="">First name <br>
+                <label for="">Street name <br>
                     <input type="text" required>
                 </label>
-                <label for="" >Last Name <br>
+                <label for="" >Nearest Bus stop <br>
                     <input type="text" required>
                 </label>
-                <label for="" >Mobile <br>
+                <label for="" >City <br>
+                    <input type="text" required>
+                </label>
+                <label for="" >State <br>
                     <input type="text" required>
                 </label>
                 <div class="update-sect">
-                    <button @click.prevent="signUp" class="update-button">
-                        Update Profile
-                    </button>
+                    <nuxt-link to="/addaddress">
+                        <button class="update-button">
+                            Update Address
+                        </button>
+                    </nuxt-link>
                 </div>
             </div>
         </div>
@@ -49,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-    .edit-profile{
+    .edit-address{
         display: grid;
         min-height: 100vh;
     }
@@ -68,30 +67,10 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 40px;
-        padding: 0 50px;
+        margin: 0 160px 40px 160px;
+        padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
-    }
-    .edit-list{
-        display: grid;
-        grid-template: 80px / repeat(3, 150px); 
-        align-items: center; 
-        padding: 0px;
-        font-size: 18px;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        list-style: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
-    }
-    .edit-links a{
-        color: #114e9e;
-        transition: 0.6s ease-in;
-    }
-    .edit-links a:hover,
-    .edit-links a:active{
-        color: #a0a0a0;
-        
+        grid-gap: 10px;;
     }
     .update-form{
         display: grid;
@@ -131,11 +110,14 @@ export default {
     }
 
     @media (max-width: 767px) {
-        .edit-list{
-            font-size: 15px;
+        .edit-wrapper{
+            height: 500px;
+            padding: 60px 70px 0 70px;
         }
         .update-form{
-            grid-gap: 20px;
+            grid-template-rows: repeat(3, 20px), 40px;
+            grid-gap: 10px;
+            
         }
         .update-form input{
             font-size: 20px;

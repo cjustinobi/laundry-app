@@ -24,8 +24,8 @@
             <div class="enter-details"><h2>Enter your details below to share</h2></div>
             <div class="share-box">
                 <div class="input-details">
-                    <input type="text" placeholder="Full Name">
-                    <input type="text" placeholder="Referral code">
+                    <input type="text" placeholder="Full Name" class="input-name">
+                    <input type="text" placeholder="Referral code" class="input-referral">
                 </div>
                 <div class="invitation-msg">
                     <p>
@@ -113,6 +113,7 @@
         grid-template-columns: repeat(3, auto);
         margin: 40px 50px;
         grid-gap: 20px;
+        color: #225392;
     }
     .referral-inner{
         border-right: 1px solid rgb(189, 189, 189);
@@ -137,11 +138,17 @@
         grid-gap: 20px;
         margin: 20px 40px;
     }
-    .input{
-        padding: 20px;
-        height: 50px;
-        border: none;
+    .input-name {
+        padding: 10px;
+        height: 35px;
         border: 1px solid rgb(233, 233, 233);
+        color: #225392;
+    }
+    .input-referral{
+        padding: 10px;
+        height: 35px;
+        border: 1px solid rgb(233, 233, 233);
+        color: #225392;
     }
     .invitation-msg{
         display: grid;
@@ -149,15 +156,28 @@
         padding: 20px;
         border: 1px solid rgb(233, 233, 233);
         background-color: #fefefe;
+        color: #225392;
     }
     .invite-btn{
         height: 40px;
         width: 250px;
         margin-top: 15px;
+        background-color: #225392;
+        color: #fefefe;
+        outline: none;
+        border: none;
     }
     
 
     @media (max-width: 767px) {
-        
+        .referral-section{
+            grid-template: 1fr / 1fr;
+            grid-gap: 0;
+            margin: 40px 90px;
+            grid-gap: 30px;
+        }
+        .referral-inner{
+            border: none;
+        }
     }
 </style>

@@ -15,10 +15,6 @@ export default {
         Users
     },
 
-    data(){
-
-    },
-
     computed: {
         users(){
             return this.$store.getter['users/users']

@@ -1,8 +1,9 @@
 <template>
     <div class="action-container">
+        <notification :success="success" :error="error"></notification>
         <div v-if="selectedId && selectedId == itemId">
             <i class="fa fa-eye"></i>
-            <i class="fa fa-edit"></i>
+            <i @click="$emit('editItem', itemId)" class="fa fa-edit"></i>
             <i @click="delItem(itemId)" class="fa fa-trash"></i>
         </div>
         <span class="ellipsis">
@@ -17,10 +18,16 @@
 
 <script>
 
+    import Notifications from '~/mixins/notifications'
+    import Notification from '~/components/shared/notification'
 
     export default {
 
-        props: ['itemId', 'deleteEndPoint'],
+        props: ['itemId', 'api'],
+
+        components: { Notification },
+
+        mixins: [Notifications],
 
         methods: {
             unsetSelected() {
@@ -33,10 +40,12 @@
 
             async delItem(i) {
                 try {
-                    await this.$store.dispatch('shared/deleteItem', {i, deleteEndPoint: this.deleteEndPoint})
+                    await this.$store.dispatch('shared/deleteItem', {i, api: this.api})
+//                    this.messages.push('item removed')
+                    this.success = true
                     this.$emit('removeItem', i)
                 } catch (e) {
-                    this.messages.push(e.response.data.error)
+//                    this.messages.push(e.response.data.error)
                     this.error = true
                 }
             },
@@ -53,10 +62,7 @@
 </script>
 
 <style lang="scss" scoped>
-    /*@import '~/assets/scss/_mixins.scss';*/
-    .action-container{
-        position: relative;
-    }
+
     .fa-eye{
         position: absolute;
         top: -31px;
@@ -80,8 +86,8 @@
     }
     .ellipsis{
         position: absolute;
-        right: 10px;
-        top: -35px;
+        right: 15px;
+        top: 10px;
         cursor: pointer;
     }
 </style>

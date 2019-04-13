@@ -8,14 +8,25 @@ export const mutations = {
     },
     ADD_PRODUCTS (state, payload) {
         state.allProducts.push(payload)
+    },
+    REMOVE_ITEM (state, i) {
+        state.allProducts = state.allProducts.filter(product => product.id !== i)
     }
 
 }
 
 export const actions = {
     async store({ commit }, payload) {
+        let fd = new FormData()
+        fd.append('name', payload.name)
+        fd.append('price', payload.price)
+        fd.append('category_id', payload.category_id)
+        fd.append('file', payload.file)
+
+        const config = { header: { 'content-type': 'multipart/form-data' }}
         try {
-            let res = await this.$axios.$post('/api/products', payload)
+            let res = await this.$axios.$post('/api/products', fd, config)
+            return console.log(res)
             commit('ADD_PRODUCTS', res)
             return 'success'
         }
@@ -33,6 +44,10 @@ export const actions = {
         catch (e) {
             return e
         }
+    },
+
+    removeItem({ commit }, i) {
+        commit('REMOVE_ITEM', i)
     }
 }
 

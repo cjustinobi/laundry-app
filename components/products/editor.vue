@@ -12,6 +12,9 @@
                     <option disabled>Select category</option>
                     <option v-for="(category, i) in categories" :value="category.id" :key="i">{{ category.name }}</option>
                 </select>
+                <input type="file" ref="file" accept="image/*" @change="uploadFile" class="file">
+                <button @click.prevent="$refs.file.click()">Upload image</button>
+                <img v-if="filePreview" :src="filePreview" alt="">
                 <div class="btn-package">
                     <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
                     <button class="btn-submit" @click.prevent="submitProduct">
@@ -47,8 +50,10 @@
                 details: {
                     name: '',
                     price: '',
-                    category_id: 'Select category'
+                    category_id: 'Select category',
+                    file: '',
                 },
+                filePreview: '',
                 categories: ''
             }
         },
@@ -77,6 +82,11 @@
 
             async getCategories() {
                 this.categories = await this.$axios.$get('/api/categories')
+            },
+
+            uploadFile(e) {
+                this.details.file = e.target.files[0]
+                this.filePreview = URL.createObjectURL(this.details.file)
             }
 
         },
@@ -89,7 +99,7 @@
 
         mounted(){
             this.getCategories()
-            this.$store.dispatch('benefits/getProducts')
+            this.$store.dispatch('products/getProducts')
         },
 
 
@@ -128,6 +138,9 @@
     }
     img{
         width: 40px;
+    }
+    .file{
+        display: none;
     }
     .btn-cancel{
         border-radius: 5px;

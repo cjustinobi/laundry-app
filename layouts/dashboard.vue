@@ -2,14 +2,15 @@
     <div class="dashboard-container">
         <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
             <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-                <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
+                <sidebar @toggleMenu="adjustMenu"></sidebar>
+                <!--<admin-sidebar v-if="user !== undefined && user.user_type === 3" @toggleMenu="adjustMenu"></admin-sidebar>-->
             </aside>
             <div class="content">
                 <dash-header @showDrawer="hideDrawer = false"></dash-header>
                 <div class="nuxt-rend"><nuxt/></div>
             </div>
         </div>
-        
+
         <div class="footer-section">
             <div><quick-links/></div>
             <div><app-footer></app-footer></div>
@@ -22,18 +23,14 @@
 </template>
 
 <script>
-    import UserSidebar from '~/components/dashboard/user/sidebar'
-    import AdminSidebar from '~/components/dashboard/admin/sidebar'
+    import Sidebar from '~/components/dashboard/shared/sidebar'
     import DashHeader from '~/components/dashboard/dashHeader'
     import QuickLinks from '~/components/guest/quickLinks'
     import AppFooter from '~/components/guest/appFooter'
     import Drawer from '~/components/dashboard/drawer'
-
     export default {
-
-        components: { UserSidebar, AdminSidebar, DashHeader,QuickLinks, AppFooter, Drawer },
+        components: { Sidebar, DashHeader,QuickLinks, AppFooter, Drawer },
         middleware: ['check-auth'],
-
         data() {
             return {
                 sidebar: true,
@@ -43,7 +40,6 @@
                 windowWidth: ''
             }
         },
-
         methods: {
             adjustMenu(e) {
                 if (window.innerWidth > 767) {
@@ -54,7 +50,6 @@
                     this.hideDrawer = false
                 }
             },
-
             minimzeWindow(){
                 window.onresize = () => {
                     this.windowWidth = window.innerWidth
@@ -62,13 +57,11 @@
                 this.windowWidth = window.innerWidth
             },
         },
-
         computed: {
             user() {
                 return this.$store.getters['auth/user']
             }
         },
-
         watch: {
             windowWidth(e) {
                 // Hides wider device sidebar.
@@ -81,9 +74,7 @@
                 this.hideDrawer = true
             }
         }
-
     }
-
 </script>
 
 <style scoped>
@@ -117,7 +108,7 @@
     .sidebar{
         position: relative;
         background-color: #fefefe;
-        
+
     }
     #draw-down{
         -webkit-animation-name: show;
@@ -125,7 +116,6 @@
         animation-name: show;
         animation-duration: 1s;
     }
-
     @-webkit-keyframes show {
         0% {
             height: 0%;
@@ -146,7 +136,6 @@
             opacity: 1;
         }
     }
-
     /* @keyframes hide {
         0% {
             height: 100%;
@@ -160,7 +149,6 @@
             opacity: 0;
         }
     } */
-
     .hide-sidebar{
         display: none;
     }
@@ -170,7 +158,6 @@
         top: 0;
         height: 100%;
     }
-
     @media (max-width: 767px) {
         .dashboard{
             grid-template-columns: 1fr;

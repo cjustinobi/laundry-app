@@ -1,3 +1,6 @@
+const sharp = require ('sharp')
+const fs = require('fs')
+
 const Product = require('../../models').product
 const Category = require('../../models').category
 
@@ -12,8 +15,22 @@ module.exports = {
     },
 
     async store(req, res) {
-        return res.status(201).send(req.file)
+        return req.file.originalName
         try {
+            let result = await sharp(req.file.path)
+                .resize(300)
+                .background('red')
+                .embed()
+                .toFile(`./assets/uploads/products/${req.file.originalName}`)
+
+            fs.unlink(req.file.path, () => {
+                console.log('file unlinked')
+            })
+            return res.status(201).send(result)
+        } catch (err) {
+            return err
+        }
+        /*try {
             let product = await Product.create({
                 name: req.body.name,
                 price: req.body.price,
@@ -22,7 +39,7 @@ module.exports = {
             return res.status(201).send(product)
         } catch (e) {
             return res.status(400).send(e.message)
-        }
+        }*/
 
     },
 

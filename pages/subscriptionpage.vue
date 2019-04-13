@@ -89,7 +89,7 @@
 <style scoped>
     .edit-subpage{
         display: grid;
-        grid-template-rows: 80px 1fr 80px 1fr;
+        grid-template-rows: 80px 550px 80px 1fr;
         min-height: 100vh;
     }
     .title{
@@ -218,6 +218,9 @@
     }
 
     @media (max-width: 767px) {
+        .edit-subpage{
+            grid-template-rows: 80px 700px 80px 1fr;
+        }
         .edit-list{
             font-size: 15px;
         }

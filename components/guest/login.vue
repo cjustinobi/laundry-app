@@ -86,7 +86,6 @@ export default {
     mounted() {
         document.body.style.background = "#fefefe";
     },
-
     destroyed() {
         document.body.style.background = "none";
     }
@@ -121,8 +120,8 @@ export default {
     }
     .pw-icon{
         position: absolute;
-        right: 20px;
-        bottom: 4px;
+        right: 24px;
+        bottom: 16px;
         cursor: pointer;
     }
     input{

@@ -15,10 +15,11 @@
                 <div  class="price">
                     <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
-                <div class="wash-menu">
-                   <span v-for="(benefit, i) in plan.benefits" :key="i">
-                       <i class="fa fa-check"></i><li>{{ benefit.name }}</li>
-                   </span>
+                <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
+                   <!-- <span > -->
+                       <i class="fa fa-check"></i>
+                       <li>{{ benefit.name }}</li>
+                   <!-- </span> -->
                 </div>
                 <form v-if="user !== undefined && user.user_type !== 3" method="get" id="sub-btn">
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
@@ -89,25 +90,12 @@
         top: 0;
         /* left: 0; */
         display: grid;
-        grid-template: 1fr / repeat(auto-fit, minmax(250px, 350px));
+        grid-template: auto / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
         justify-items: center;
         grid-gap: 70px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
-    }
-
-    .wash-menu{
-        display: grid;
-        grid-template: repeat(5, 1fr) / 20px 1fr;
-        color: #728691;
-        font-size: 16px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding: 0 15px;
-    }
-    .wash-menu li{
-        list-style-type: none;
-        height: 30px
     }
     .pack-item{
         position: relative;
@@ -118,6 +106,8 @@
         min-height: 500px;
         background-color: #fefefe;
         transition: 0.7s ease-in;
+        grid-gap: 10px;
+        padding-bottom: 15px;
     }
     .packages .pack-item:nth-child(1){
         border-top: 7px solid rgb(247, 174, 241);
@@ -136,6 +126,19 @@
     }
     .packages .pack-item:nth-child(3):hover{
         border-top: 7px solid rgb(17, 145, 23);
+    }
+    .wash-menu{
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        grid-auto-rows: auto;
+        color: #728691;
+        font-size: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        padding: 0 15px;
+    }
+    .wash-menu li{
+        list-style-type: none;
+        height: 30px
     }
     .elegant-image{
         width: 40px;
@@ -174,7 +177,7 @@
     .subscribe{
         width: 300px;
         height: 60px;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         border: 1px solid #fff;
         background-color: #e7b83f;
         color: #fff;
@@ -189,8 +192,6 @@
         background-color: #f58b13;
         transition: .7s ease-out;
     }
-
-
     .edit-button:hover{
         background-color: rgb(248, 144, 118);
         color: #fff;

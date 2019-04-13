@@ -13,10 +13,6 @@
                 <plan-editor @cancelForm="showForm = false" />
             </div>
         </div>
-
-    
-
-
     </div>
     
 </template>
@@ -33,8 +29,7 @@ export default {
 
     components: {
         PlanEditor,
-        AllPackages
-        
+        AllPackages 
     },
 
     data() {

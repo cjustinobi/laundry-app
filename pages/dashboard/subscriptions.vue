@@ -23,8 +23,6 @@
         
         layout: 'dashboard',
 
-        
-
         data() {
             return {
                 myStyle: {
@@ -39,6 +37,7 @@
             document.body.style.background = "none";
         }
     }
+
 </script>
 
 <style scoped>
@@ -65,6 +64,7 @@
     }
     .edit-wrapper{
         display: grid;
+        grid-template-rows: 50px 150px;
         background-color: #fefefe;
         margin: 60px 40px 40px 40px;
         color: #114e9e;
@@ -80,9 +80,10 @@
     }
     .update-sect{
         display: grid;
+        grid-template-rows: 50px 70px;
         align-items: center;
         justify-items: center;
-        margin: 20px 0 40px 0;
+        margin: 20px 0;
     }
     .update-button{
         height: 50px;

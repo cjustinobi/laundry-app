@@ -1,11 +1,11 @@
 <template>
-    <div class="contact-support" :style="myStyle">
+    <div class="ticket-container" :style="myStyle">
         <div class="contact">
             <div class="title"><h2>Help and Support</h2></div>
             <div class="ticket-btn">
                 <nuxt-link  to="/"><button class="t-btn open-ticket">Opened Tickets</button></nuxt-link>
                 <nuxt-link  to="/"><button class="t-btn close-ticket">Closed Tickets</button></nuxt-link>
-                <nuxt-link class="create-link"  to="/createticket"><button class="t-btn create-ticket">Create Tickets</button></nuxt-link>
+                <nuxt-link class="create-link"  to="/"><button class="t-btn create-ticket">Create Tickets</button></nuxt-link>
             </div>
             <div class="horizontal-line"></div>
             <div class="ticket-wrapper">
@@ -13,7 +13,22 @@
                     <h4 class="rt-head">Recent Tickets</h4>
                 </div>
                 <div class="ticket-list">
-                    <h4 class="tl-head">No Ticket has been opened</h4>
+                    <h4>Tickets</h4>
+                    <label for=""> Category <br>
+                        <select v-model="category" id="" class="select">
+                            <option disabled>Select category</option>
+                            <option >Delayed delivery</option>
+                            <option value="">Stained clothes</option>
+                            <option value="">Inadequate starch</option>
+                        </select>
+                    </label>
+                    <label for=""> Subject <br>
+                        <input type="text" placeholder="Enter Subject" class="input-subject">
+                    </label>
+                    <label for=""> Message <br>
+                        <textarea name="" id="" cols="60" rows="10"  class="textarea"></textarea>
+                    </label>
+                    <nuxt-link class="send-link" to="/"><button class="t-btn send-ticket">Send</button></nuxt-link>
                 </div>
             </div>
         </div>
@@ -31,8 +46,10 @@
             return {
                 myStyle: {
                     backgroundColor: "#f0faff"
-                }
+                },
+                category: 'Select category'
             }
+            
         },
         mounted() {
             // document.body.style.background = "#e1f5fe";
@@ -44,7 +61,7 @@
 </script>
 
 <style scoped>
-    .contact-support{
+    .ticket-container{
         display: grid;
         /* grid-template-rows: 1fr 1fr 1fr; */
         min-height: 100vh;
@@ -82,13 +99,12 @@
         display: grid;
         grid-template-columns: 200px 1fr;
         background-color: #fefefe;
-        height: 400px;
-        /* width: 100%; */
+        height: 500px;
         margin: 70px 40px 40px 40px;
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
         padding: 15px;
-        grid-gap: 20px;
+        grid-gap: 70px;
     }
     .t-btn{
         height: 35px;
@@ -118,6 +134,14 @@
     .create-ticket:hover{
         background-color: #00122b;
     }
+    .send-ticket{
+        background-color: #e7b83f;
+        color: #fefefe;
+        margin-left: 295px;
+    }
+    .send-ticket:hover{
+        background-color: #f3ae00;
+    }
     .recent-ticket{
         border: 1px solid rgb(202, 202, 202);
     }
@@ -131,6 +155,29 @@
         background-color: #e7b83f;
         color: #fefefe;
     }
+    .ticket-list{
+        display: grid;
+        grid-gap: 15px;
+        grid-template: auto / 500px;
+    }
+    .select{
+        width: 440px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid rgb(197, 197, 197);
+        outline: none;
+    }
+    .input-subject{
+        width: 440px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid rgb(197, 197, 197);
+        outline: none;
+    }
+    .textarea{
+        padding: 10px;
+        border: 1px solid rgb(224, 224, 224);
+    }
 
     @media (max-width: 767px) {
         .ticket-btn{
@@ -143,14 +190,14 @@
         }
         .ticket-wrapper{
             grid-template-columns: 1fr;
-            /* height: 700px; */
+            height: 700px;
             padding: 15px;
             grid-gap: 20px;
         }
         .t-btn{
             height: 30px;
             width: 150px;
-            font-size: 16px;
+            font-size: 14px;
         }
         .create-link{
             grid-column-start: 4;

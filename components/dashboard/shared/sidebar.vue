@@ -11,7 +11,10 @@
             </a>
         </div>
 
-        <div v-if="user !== undefined && user.user_type == 1" class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+        <div
+                v-if="user !== undefined && user.user_type !== 3"
+                class='sidebar-nav' :class="{'center-nav': !wideMenu}"
+        >
             <nuxt-link to='/dashboard' class='logo'>
                 <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">My Orders</span>
@@ -21,7 +24,7 @@
                 <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/transactions' class='logo'>
-                <i class="fa fa-history" title="Transaction History"></i> 
+                <i class="fa fa-history" title="Transaction History"></i>
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/notifications' class='logo'>
@@ -29,7 +32,7 @@
                 <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/contactsupport' class='logo'>
+            <nuxt-link to='/support' class='logo'>
                 <i class="fa fa-user" title="Contact/Support"></i>
                 <span v-if="wideMenu">Contact support</span>
             </nuxt-link>
@@ -37,39 +40,47 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-
             <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
             </nuxt-link>
         </div>
 
-        <div  v-if="user !== undefined && user.user_type == 3" class='sidebar-nav' :class="{'center-nav': !wideMenu}">
+        <div
+                v-if="user !== undefined && user.user_type == 3"
+                class='sidebar-nav' :class="{'center-nav': !wideMenu}"
+        >
             <nuxt-link to='/dashboard' class='logo'>
                 <i class="fa fa-dashcube" title="Dashboard"></i>
                 <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
-            <nuxt-link to='/pickupform' class='logo'>
-                <i class="fa fa-suitcase" title="My Orders"></i>
+            <nuxt-link to='/admin/products' class='logo'>
+                <i class="fa fa-suitcase" title="Products"></i>
+                <span v-if="wideMenu">Products</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/categories' class='logo'>
+                <i class="fa fa-suitcase" title="Categories"></i>
+                <span v-if="wideMenu">Categories</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/users' class='logo'>
+                <i class="fa fa-suitcase" title="Users"></i>
+                <span v-if="wideMenu">Users</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/orders' class='logo'>
+                <i class="fa fa-suitcase" title="Orders"></i>
                 <span v-if="wideMenu">Orders</span>
             </nuxt-link>
-            <nuxt-link to='/mysubscription' class='logo'>
+            <nuxt-link to='/admin/subscriptions' class='logo'>
                 <i class="fa fa-hashtag" title="Subscription"></i>
                 <span v-if="wideMenu">Subscriptions</span>
             </nuxt-link>
-            <nuxt-link to='/transaction' class='logo'>
+            <nuxt-link to='admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>
-            <nuxt-link to='/notifications' class='logo'>
+            <nuxt-link to='/admin/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span v-if="wideMenu">Notifications</span>
-            </nuxt-link>
-
-
-            <nuxt-link to='/referafriend' class='logo'>
-                <i class="fa fa-user-plus" title="Refer a Friend"></i>
-                <span v-if="wideMenu">Referrals</span>
             </nuxt-link>
             <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
@@ -107,34 +118,35 @@
 <style scoped>
     .sidebar-container{
         display: grid;
-        min-height: 100vh;
-        grid-template-rows: 60px 1fr;
+        /* min-height: 100vh; */
+        grid-template-rows: 60px auto;
         transition: .8s ease-out;
         /* position: relative; */
     }
     .sidebar-nav {
         display: grid;
-        grid-template-rows: 50px;
+        grid-template-rows: 55px;
         margin-top: 40px;
         align-items: center;
         font-size: 17px;
         transition: .8s ease-out;
+
     }
     .sidebar-nav a{
         text-decoration: none;
         color: #114e9e;
         padding: 14px 10px;
-        /* transition: .8s ease-out; */
     }
     .sidebar-nav a:hover,
     .sidebar-nav a:active{
         background-color: #fad370;
         border-right: 1px solid #8f6600;
     }
-    .sidebar-nav a:active{
+    /* .sidebar-nav a:active{
         color: #b4b4b4;
         
-    }
+    } */
+
     .center-nav{
         display: grid;
         grid-template-rows: 45px;
@@ -149,7 +161,7 @@
     .brand-name{
         display: grid;
         grid-template-columns: 10px 10px;
-        
+
     }
     .fa-home{
         color: #fefefe;
@@ -205,7 +217,7 @@
         cursor: pointer;
     }
     .setting-icon{
-        margin-top: 40px;
+        margin-top: 120px;
     }
 
     @media (max-width: 767px){
@@ -213,7 +225,7 @@
             grid-template-columns: 145px 40px;
             /* display: none; */
         }
-        
+
     }
 
     @media (min-width: 768px) {

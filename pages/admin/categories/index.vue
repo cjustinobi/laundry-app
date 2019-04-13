@@ -1,17 +1,17 @@
 <template>
-    <div class="create-benefit" :style="myStyle">
+    <div class="create-benefit">
         <div class="btn-created">
-            <button class="create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">CREATE BENEFITS</button>
+            <button class="create-btn" v-if="!showCategoryForm" @click.prevent="showCategoryForm = true">CREATE CATEGORY</button>
         </div>
 
-        <div :class="{'backdrop': showBenefitForm}">
-            <div :class="[{'show-form': showBenefitForm, 'hide-form': !showBenefitForm}]">
-                <benefit-editor @cancelForm="showBenefitForm = false" />
+        <div :class="{'backdrop': showCategoryForm}">
+            <div :class="[{'show-form': showCategoryForm, 'hide-form': !showCategoryForm}]">
+                <editor @cancelForm="showCategoryForm = false" />
             </div>
         </div>
 
         <div>
-            <all-benefits/>
+            <all-categories/>
         </div>
     </div>
     
@@ -19,8 +19,8 @@
 
 <script>
 
-import BenefitEditor from '~/components/benefits/editor'
-import AllBenefits from '~/components/benefits/list'
+import Editor from '~/components/categories/editor'
+import AllCategories from '~/components/categories/list'
 
 
 export default {
@@ -28,15 +28,14 @@ export default {
     layout: 'dashboard',
 
     components: {
-        BenefitEditor,
-        AllBenefits
+        Editor,
+        AllCategories
         
     },
 
     data() {
         return {
-            //  myStyle: { backgroundColor: "#f0faff" },
-            showBenefitForm: false,
+            showCategoryForm: false,
             
         }
     },
@@ -46,6 +45,14 @@ export default {
 </script>
 
 <style scoped>
+    .show-form{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 300px;
+        transform: translate(-50%, -50%);
+    }
     .create-benefit{
         display: grid;
         position: relative;

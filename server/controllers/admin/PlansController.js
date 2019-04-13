@@ -7,14 +7,10 @@ const PlanBenefit = require('../../models').benefit_plan
 module.exports = {
     async index(req, res) {
         try {
-            let plans = await Plan.findAll({
-                include: [
-                    { model: Benefit }
-                ]
-        })
+            let plans = await Plan.findAll({include: [{ model: Benefit }]})
             return res.status(200).send(plans)
         } catch (err) {
-            return res.status(500).send(err)
+            return res.status(500).send(err.message)
         }
     },
 

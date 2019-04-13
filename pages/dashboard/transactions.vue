@@ -1,6 +1,7 @@
 <template>
     <div class="">
         <h4>Transaction History</h4>
+        
 
     </div>
 </template>
@@ -12,11 +13,12 @@
 
         data() {
             return {
+           
             }
         },
         methods: {
-            
-        }
+           
+            },
         
     }
 </script>

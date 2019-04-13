@@ -1,15 +1,19 @@
 <template>
-    <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
+    <div class="dashboard-container">
+        <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
+            <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
+                <sidebar @toggleMenu="adjustMenu"></sidebar>
+                <!--<admin-sidebar v-if="user !== undefined && user.user_type === 3" @toggleMenu="adjustMenu"></admin-sidebar>-->
+            </aside>
+            <div class="content">
+                <dash-header @showDrawer="hideDrawer = false"></dash-header>
+                <div class="nuxt-rend"><nuxt/></div>
+            </div>
+        </div>
 
-        <aside v-if="user !== undefined && user.user_type == 1"  :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-            <user-sidebar @toggleMenu="adjustMenu"></user-sidebar>
-        </aside>
-        <aside v-if="user !== undefined && user.user_type == 3"  :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-            <admin-sidebar @toggleMenu="adjustMenu"></admin-sidebar>
-        </aside>
-        <div class="content">
-            <dash-header @showDrawer="hideDrawer = false"></dash-header>
-            <div class="nuxt-rend"><nuxt/></div>
+        <div class="footer-section">
+            <div><quick-links/></div>
+            <div><app-footer></app-footer></div>
         </div>
 
         <div :class="[{'hide-drawer': hideDrawer}]">
@@ -19,16 +23,14 @@
 </template>
 
 <script>
-    import UserSidebar from '~/components/dashboard/user/sidebar'
-    import AdminSidebar from '~/components/dashboard/admin/sidebar'
+    import Sidebar from '~/components/dashboard/shared/sidebar'
     import DashHeader from '~/components/dashboard/dashHeader'
+    import QuickLinks from '~/components/guest/quickLinks'
+    import AppFooter from '~/components/guest/appFooter'
     import Drawer from '~/components/dashboard/drawer'
-
     export default {
-
-        components: { UserSidebar, AdminSidebar, DashHeader, Drawer },
+        components: { Sidebar, DashHeader,QuickLinks, AppFooter, Drawer },
         middleware: ['check-auth'],
-
         data() {
             return {
                 sidebar: true,
@@ -38,7 +40,6 @@
                 windowWidth: ''
             }
         },
-
         methods: {
             adjustMenu(e) {
                 if (window.innerWidth > 767) {
@@ -49,7 +50,6 @@
                     this.hideDrawer = false
                 }
             },
-
             minimzeWindow(){
                 window.onresize = () => {
                     this.windowWidth = window.innerWidth
@@ -57,13 +57,11 @@
                 this.windowWidth = window.innerWidth
             },
         },
-
-        /*computed: {
+        computed: {
             user() {
                 return this.$store.getters['auth/user']
             }
-        },*/
-
+        },
         watch: {
             windowWidth(e) {
                 // Hides wider device sidebar.
@@ -76,26 +74,36 @@
                 this.hideDrawer = true
             }
         }
-
     }
-
 </script>
 
 <style scoped>
+    .dashboard-container{
+        display: grid;
+        grid-template-rows: auto auto;
+    }
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
+        /* grid-template-rows: 1fr 1fr; */
         background-color: #fefefe;
-        position: relative;
+        /* position: relative; */
         min-height: 100vh;
     }
     .minimized{
         display: grid;
         grid-template-columns: 80px 1fr;
     }
+    aside.sidebar{
+        border-right: 1px solid rgb(238, 238, 238);
+    }
     .content{
         display: grid;
         grid-template-rows: 60px 1fr;
+    }
+    .footer-section{
+        display: grid;
+        grid-template-rows: 1fr;
     }
     .sidebar{
         position: relative;
@@ -108,7 +116,6 @@
         animation-name: show;
         animation-duration: 1s;
     }
-
     @-webkit-keyframes show {
         0% {
             height: 0%;
@@ -129,7 +136,6 @@
             opacity: 1;
         }
     }
-
     /* @keyframes hide {
         0% {
             height: 100%;
@@ -143,7 +149,6 @@
             opacity: 0;
         }
     } */
-
     .hide-sidebar{
         display: none;
     }
@@ -153,12 +158,6 @@
         top: 0;
         height: 100%;
     }
-
-    .backdrop{
-    @include backdrop;
-    }
-
-
     @media (max-width: 767px) {
         .dashboard{
             grid-template-columns: 1fr;
@@ -166,8 +165,11 @@
         }
         .minimized{
             grid-template-columns: 1fr;
-            position: absolute;
-            top: 0;
+            /* position: absolute;
+            top: 0; */
+        }
+        .sidebar{
+            display: none;
         }
     }
 </style>

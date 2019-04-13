@@ -8,19 +8,19 @@
                 <i class="fa fa-dashcube" title="My Orders"></i>
                 <span>My Orders</span>
             </nuxt-link>
-            <nuxt-link to='/mysubscription' class='logo'>
+            <nuxt-link to='/dashboard/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
                 <span>My subscription</span>
             </nuxt-link>
-            <nuxt-link  to='/transaction' class='logo'>
+            <nuxt-link  to='/dashboard/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i> 
                 <span>Transaction History</span>
             </nuxt-link>
-            <nuxt-link to='/notifications' class='logo'>
+            <nuxt-link to='/dashboard/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <span>Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/contactsupport' class='logo'>
+            <nuxt-link to='/support' class='logo'>
                 <i class="fa fa-user" title="Contact/Support"></i>
                 <span>Contact support</span>
             </nuxt-link>
@@ -28,11 +28,11 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i> 
                 <span>Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/addpackage' class='logo'>
+            <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
                 <span>Add Package</span>
             </nuxt-link>
-            <nuxt-link to='/createbenefits' class='logo'>
+            <nuxt-link to='/admin/benefits/add' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span>Create Benefits</span>
             </nuxt-link>

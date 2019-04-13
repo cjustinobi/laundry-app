@@ -58,7 +58,7 @@ export default {
         padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
-        
+        height: 550px;
     }
     img{
         width: 80px;

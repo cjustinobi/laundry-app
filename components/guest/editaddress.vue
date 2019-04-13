@@ -75,7 +75,7 @@ export default {
     .update-form{
         display: grid;
         grid-template-rows: repeat(3, 20px), 90px;
-        grid-gap: 20px;
+        grid-gap: 15px;
         margin-top: 40px;
         color: #114e9e;
         

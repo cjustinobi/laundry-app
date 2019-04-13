@@ -20,8 +20,6 @@
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
                 </form>
             </div>
-
-        
     </div>
     <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
@@ -87,6 +85,8 @@ export default {
         grid-gap: 70px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
+        /* border-bottom: 2px solid #f9a825; */
+        /* padding-bottom: 30px; */
     }
     .pack-item{
         border: 1px solid #b2d2e4;

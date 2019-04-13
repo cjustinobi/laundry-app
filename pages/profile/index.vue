@@ -98,10 +98,9 @@
         grid-template-columns: 1fr;
         background-color: #fefefe;
         margin: 40px 160px 0 160px;
-        padding: 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 20px;
-        
+        align-items: center;
     }
     .edit-list{
         display: grid;
@@ -113,13 +112,15 @@
         border: none;
         cursor: pointer;
         list-style: none;
+        justify-items: center;
+        
     }
-    .edit-links a{
+    .edit-links{
         color: #114e9e;
         transition: 0.6s ease-in;
     }
-    .edit-links a:hover,
-    .edit-links a:active{
+    .edit-links:hover,
+    .edit-links:active{
         color: #a0a0a0; 
     }
    

@@ -1,22 +1,20 @@
 <template>
     <div class="edit-password" :style="myStyle">
         <div class="edit-wrapper">
-            <div class="update-form">
-                <div class="password-wrapper">
-                    <label for="" class="pw-input">Old Password <br>
-                        <input type="password">
-                    </label>
-                    <label for="" class="pw-input">New Password <br>
-                        <input type="password" id="password">
-                        <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
-                        <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
-                    </label>
-                </div>
-                <div class="update-sect">
-                    <button @click.prevent="signUp" class="update-button">
-                        Update Password
-                    </button>
-                </div>
+            <div class="password-wrapper">
+                <label for="" class="pw-input">Old Password <br>
+                    <input type="password">
+                </label>
+                <label for="" class="pw-input">New Password <br>
+                    <input type="password" id="password">
+                    <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                    <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
+                </label>
+            </div>
+            <div class="update-sect">
+                <button @click.prevent="signUp" class="update-button">
+                    Update Password
+                </button>
             </div>
         </div>
     </div>
@@ -76,35 +74,29 @@ export default {
     }
     .edit-wrapper{
         display: grid;
+        grid-template-rows: 200px 80px;
         background-color: #fefefe;
         align-items: center;
         margin: 0 160px 40px 160px;
         padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
-        height: 500px;
-    }
-    .update-form{
-        display: grid;
-        grid-template-rows: repeat(3, 20px), 90px;
-        grid-gap: 20px;
-        margin-top: 40px;
-        color: #114e9e;
-        
-    }
-    .update-form input{
-        width: 100%;
-        padding: 5px;
-        border: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        font-size: 25px;
-        outline-style: none;
+        height: 400px;
     }
     .password-wrapper{
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 20px;
         position: relative;
+        color: #114e9e;
+    }
+    .password-wrapper input{
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid rgb(207, 207, 207);
+        font-size: 25px;
+        outline-style: none;
     }
     .pw-icon{
         position: absolute;
@@ -115,7 +107,8 @@ export default {
     .update-sect{
         display: grid;
         align-items: center;
-        margin: 20px 0 40px 0;
+        /* margin: 20px 0; */
+        height: 90px;
     }
     .update-button{
         height: 50px;
@@ -143,12 +136,9 @@ export default {
         }
         .pw-icon{
             right: 8px;
-            top: 120px;
+            top: 100px;
         }
-        .update-form{
-            grid-gap: 20px;
-        }
-        .update-form input{
+        .password-wrapper input{
             font-size: 20px;
         }
         .update-button{

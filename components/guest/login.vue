@@ -1,8 +1,10 @@
 <template>
+
     <div class="login">
-        <small v-if="errors">{{ errors }}</small>
+        <notification :error="error" :success="success" :message="message"></notification>
+
         <div class="elegant-image">
-            <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
+            <img src="~/assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
 
         <label for="">Email <br>
@@ -33,17 +35,19 @@
 </template>
 
 <script>
+    import  Notifications  from '~/mixins/notifications'
+    import  Notification  from '~/components/shared/notification'
 
 export default {
-    components: {
-        
-    },
+
     name: 'login',
+    mixins: [Notifications],
+
+    components: { Notification },
     data() {
         return {
             email: '',
             password: '',
-//            user: '',
             LoginText: 'Login',
             errors: null,
             eyeSlash: false
@@ -51,27 +55,37 @@ export default {
     },
 
     methods: {
-        signIn() {
-            this.LoginText = 'loading ...'
-            this.$store.dispatch('auth/signIn', { email: this.email, password: this.password })
-        },
+
         toggleEyeSlash() {
             let el = document.getElementById("password")
             if(el.type === 'password'){
                 el.type = 'text'
                 this.eyeSlash = true
             }else {
-                el.type === 'text'
-                el.type = 'password'
-                this.eyeSlash = false
-            } 
-        }
+                if (el.type === 'text') {
+                    el.type = 'password'
+                    this.eyeSlash = false
+                }
+            }
+        },
+      
+        async signIn() {
+            this.LoginText = 'loading ...'
 
+            try {
+                await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
+                return this.$router.push('/dashboard')
+            } catch (err) {
+                this.LoginText = 'Login'
+                this.message = res.response.data.error
+                this.error = true
+            }
+        }
     },
+
     mounted() {
         document.body.style.background = "#fefefe";
     },
-
     destroyed() {
         document.body.style.background = "none";
     }
@@ -80,10 +94,9 @@ export default {
 
 
 <style scoped>  
-    body{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    }
+
     .login{
+        position: relative;
         display: grid;
         width: 450px;
         margin: 50px auto 0 auto;
@@ -107,8 +120,8 @@ export default {
     }
     .pw-icon{
         position: absolute;
-        right: 20px;
-        bottom: 4px;
+        right: 24px;
+        bottom: 16px;
         cursor: pointer;
     }
     input{

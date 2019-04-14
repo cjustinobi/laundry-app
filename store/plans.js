@@ -7,16 +7,24 @@ export const mutations = {
         state.plans =payload
     },
     ADD_PLAN (state, payload) {
-        state.plans.push(payload)
+        let index = state.plans.findIndex(plan => plan.id === payload.id)
+        state.plans[index] = payload
+    },
+    REMOVE_ITEM (state, i) {
+        state.plans = state.plans.filter(plan => plan.id !== i)
     }
 
 }
 
 export const actions = {
-    async store({ commit }, payload) {
-
+    async store({ commit }, { data, editMode}) {
+        let res = ''
         try {
-            let res = await this.$axios.$post('/api/plans', payload)
+            if (editMode === undefined) {
+                res = await this.$axios.$post('/api/plans', data)
+            } else {
+                res = await this.$axios.$put(`/api/plans/${data.id}`, data)
+            }
             commit('ADD_PLAN', res)
             return 'success'
         }
@@ -34,6 +42,10 @@ export const actions = {
         catch (e) {
             return e
         }
+    },
+
+    removeItem({ commit }, i) {
+        commit('REMOVE_ITEM', i)
     }
 }
 

@@ -21,7 +21,7 @@ module.exports = {
             })
             res.status(201).send(user)
         } catch(err) {
-            res.status(400).send(err)
+            res.status(400).send({error: 'registration is unsuccessful'})
         }
     }
 }

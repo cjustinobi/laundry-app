@@ -5,7 +5,7 @@ export const state = () => ({
 export const mutations = {
 
 
-    SET_USERS (state, users) {
+    GET_USERS (state, users) {
         state.users = users
     }
 }
@@ -13,9 +13,8 @@ export const mutations = {
 export const actions = {
     async getUsers({ commit }) {
         try {
-            let users = await this.$axios.$get('/api/users')
-            commit ('SET_USERS', users)
-            return 'success'
+            let { data } = await this.$axios.$get('/api/users')
+            commit ('GET_USERS', data)
         }
         catch (err) {
             return err

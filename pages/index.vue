@@ -4,24 +4,36 @@
             <h1 class="relief">Save Time and Energy </h1>
             <h1>Looking good and clean always</h1>
             <div class="intro-request">
-                <nuxt-link to="/pick-up-form"><button class="request-btn">Request a Pick-up</button></nuxt-link>
+                <nuxt-link to="/usernotification"><button class="request-btn">Request a Pick-up</button></nuxt-link>
             </div>
         </div>
 
         <div class="the-how">
-              <p>How it works</p>
-              <div class="the-how-mark"></div>
+            <p>How it works</p>
+            <div class="the-how-mark"></div>
         </div>
         <div>
             <howItWorks></howItWorks>
         </div>
 
         <div class="pricing">
-              <p>Our Packages</p>
-              <div class="price-header"></div>
+            <p>Our Packages</p>
+            <div class="price-highlight"></div>
         </div>
         <div>
             <packages-list/>
+        </div>
+        <div class="divider"></div>
+
+        <div class="why-us">
+            <p>Why Us</p>
+            <div class="why-us-highlight"></div>
+        </div>
+        <div><usp></usp></div>
+
+        <div class="faq">
+            <p>Top 3 FAQ</p>
+            <div class="faq-highlight"></div>
         </div>
 
     </div>
@@ -31,12 +43,11 @@
 
     import HowItWorks from '~/components/guest/howItWorks'
     import PackagesList from '~/components/packages/packagesList'
+    import Usp from '~/components/guest/usp'
     
 
     export default {
-        components: {
-            HowItWorks,
-            PackagesList        }
+        components: { HowItWorks, PackagesList, Usp}
     }
 </script>
 
@@ -45,6 +56,7 @@
     .page{
         /* position: relative; */
         margin-top: 35px;
+        min-height: 100vh;
     }
     .intro{
         background-image: url('~assets/images/wash-machine.jpg');
@@ -76,6 +88,7 @@
         font-size: 20px;
         color: #0622be;
         font-weight: bold;
+        outline: none;
     }
     .request-btn:hover,
     .request-btn:active{
@@ -109,8 +122,46 @@
         margin: 70px 0 20px 0;
         color: #728691;
     }
-    .price-header{
+    .price-highlight{
         width: 180px;
+        background-color: #f9a825;
+        height: 2px;
+        margin-top: 20px;
+    }
+    .divider{
+        /* width: 200px; */
+        background-color: #f9a825;
+        height: 2px;
+        margin-top: 30px;
+    }
+    .why-us {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        font-family: Courier;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 70px 0 20px 0;
+        color: #728691;
+    }
+    .why-us-highlight{
+        width: 100px;
+        background-color: #f9a825;
+        height: 2px;
+        margin-top: 20px;
+    }
+    .faq{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        font-family: Courier;
+        font-size: 40px;
+        font-weight: bold;
+        margin: 70px 0 20px 0;
+        color: #728691;
+    }
+    .faq-highlight{
+        width: 140px;
         background-color: #f9a825;
         height: 2px;
         margin-top: 20px;

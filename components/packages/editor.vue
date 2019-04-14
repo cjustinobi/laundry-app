@@ -1,33 +1,36 @@
 <template>
-    <div class="editor">
-        <form class="form">
-            <div class="close-package">
-                <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
-            </div>
-            <input class="package-input" type="text" placeholder="name" v-model="details.name">
-            <input class="package-input" type="text" placeholder="price" v-model="details.price">
+    <div class="plan-editor-container">
+        <div class="editor">
+            <notification :error="error" :success="success" :message="message"></notification>
+            <form class="form">
+                <div class="close-package">
+                    <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
+                </div>
+                <input class="package-input" type="text" placeholder="name" v-model="details.name">
+                <input class="package-input" type="text" placeholder="price" v-model="details.price">
 
-            <multiselect v-if="benefits"
-                         class="add-product-cat"
-                         v-model="details.benefits"
-                         :options="benefits"
-                         :multiple="true"
-                         :close-on-select="true"
-                         :clear-on-select="false"
-                         :hide-selected="true"
-                         label="name"
-                         track-by="name"
-                         :preserve-search="false">
-            </multiselect>
+                <multiselect v-if="benefits"
+                             class="add-product-cat"
+                             v-model="details.benefits"
+                             :options="benefits"
+                             :multiple="true"
+                             :close-on-select="true"
+                             :clear-on-select="false"
+                             :hide-selected="true"
+                             label="name"
+                             track-by="name"
+                             :preserve-search="false">
+                </multiselect>
 
-            <div class="btn-package">
-                <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
-                <button class="btn-submit" @click.prevent="submitPackage">
-                    <img v-if="isLoading" src="~/assets/images/loading.gif" alt="Elegant image">
-                    <span v-else>{{ sendBtnTxt }}</span>
-                </button>
-            </div>
-        </form>
+                <div class="btn-package">
+                    <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
+                    <button class="btn-submit" @click.prevent="submitPackage">
+                        <img v-if="isLoading" src="~/assets/images/loading.gif" alt="Elegant image">
+                        <span v-else>{{ sendBtnTxt }}</span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
 </template>
@@ -35,18 +38,17 @@
 <script>
 
     import Multiselect from 'vue-multiselect'
-    import  FormElements  from '~/mixins/formElements'
+    import Notifications  from '~/mixins/notifications'
+    import Notification  from '~/components/shared/notification'
+    import FormElements  from '~/mixins/formElements'
 
     export default {
 
-        props:[
-            'editDetail',
-            'showForm'
-        ],
+        props:['editDetail', 'showForm'],
 
-        mixins: [FormElements],
+        mixins: [FormElements, Notifications],
 
-        components: { Multiselect },
+        components: { Multiselect, Notification },
 
         data() {
             return {
@@ -66,15 +68,19 @@
                 this.details.benefits = this.details.benefits.map(item => item.id)
 
                 try {
-                    let res = await this.$store.dispatch('plans/store', this.details)
+                    let res = await this.$store.dispatch('plans/store', {data: this.details, editMode: this.editDetail})
                     if (res) {
                         this.isLoading = false
                         this.clearFields(this.details)
+                        this.message = 'benefit successfully saved'
+                        this.success = true
                         this.$emit('cancelForm')
                     }
                 } catch (e) {
-                    console.log(e)
+
                     this.isLoading = false
+                    this.message = e.response.data.error
+                    this.error = true
                 }
             },
 
@@ -101,6 +107,9 @@
 </script>
 
 <style scoped>
+    .plan-editor-container{
+        position: relative;
+    }
     .editor{
         display: grid;
         justify-content: center;

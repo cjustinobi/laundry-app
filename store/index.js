@@ -17,9 +17,7 @@ export const actions = {
 
             const cookies = cookie.parse(req.headers.cookie || '')
             if (cookies.hasOwnProperty('x-access-token')) {
-                // setAuthToken(cookies['x-access-token'])
                 commit('auth/SET_TOKEN', cookies['x-access-token'])
-                return this.$router.push('/dashboard')
             } else {
                 // resetAuthToken()
 

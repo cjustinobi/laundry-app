@@ -2,7 +2,12 @@
     <div>
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
-                <button class="edit-button" @click.prevent="editPackage()">Edit</button>
+                <actions
+                        @editItem="editItem"
+                        @removeItem="removeItem"
+                        :itemId="plan.id"
+                        :api="api">
+                </actions>
                 <div class="name">
                     <img class="elegant-image" src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
                     <h1>{{ plan.name }}</h1>
@@ -10,70 +15,71 @@
                 <div  class="price">
                     <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
-                <div class="wash-menu">
-                   <i class="fa fa-check"></i><li>Wash, Starch &amp; Iron 20 clothes</li>
-                   <i class="fa fa-check"></i><li>Beddings</li>
-                   <i class="fa fa-check"></i><li>Curtains</li>
-                   <i class="fa fa-check"></i><li>Duvets</li>
-                   <i class="fa fa-check"></i><li>1 suit/any fabric you wish to be dry cleaned</li>
+                <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
+                   <!-- <span > -->
+                       <i class="fa fa-check"></i>
+                       <li>{{ benefit.name }}</li>
+                   <!-- </span> -->
                 </div>
-                <form method="get" id="sub-btn">
+                <form v-if="user !== undefined && user.user_type !== 3" method="get" id="sub-btn">
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
                 </form>
             </div>
-
-        
     </div>
     <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <editor :editDetail="editDetail" @cancelForm="showForm = false"/>
+                <editor :editDetail="editDetail" @cancelForm="showForm = false"></editor>
             </div>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
+    import Actions from '~/components/shared/actions'
+    import Editor from '~/components/packages/editor'
 
-import Editor from '~/components/packages/editor'
-
-export default {
-    components:{
-        Editor
-    },
-    data() {
-        return {
-            showForm: false,
-            editDetail: '',
-            showEditButton: false
-        }
-    },
-
-    methods: {
-        hideButton(){
-            this.showEditButton = false
+    export default {
+        components:{
+            Editor, Actions
         },
-        // editPackage(i) {
-        //     this.showForm = true;
-        //     this.editDetail = this.packages.find((item, index) => index == i)
-        // },
-        subscribe() {
-            this.$root.$emit("package", 2000);
-            this.$router.push({ path: "/volunteer" });
-        }
-    },
+        data() {
+            return {
+                showForm: false,
+                editDetail: '',
+                showEditButton: false,
+                api: '/api/plans/'
+            }
+        },
+
+        methods: {
+            hideButton(){
+                this.showEditButton = false
+            },
+            removeItem(i) {
+                this.$store.dispatch('plans/removeItem', i)
+            },
+             editItem(i) {
+                 this.showForm = true;
+                 this.editDetail = this.plans.find(plan => plan.id === i)
+             },
+            subscribe() {
+                this.$root.$emit("package", 2000);
+                this.$router.push({ path: "/volunteer" });
+            }
+        },
 
 
-    mounted() {
-        this.$store.dispatch('plans/getPlans')
-        this.hideButton()
-    },
+        mounted() {
+            this.$store.dispatch('plans/getPlans')
+            this.hideButton()
+        },
 
-    computed: {
-        plans() {
-            return this.$store.getters['plans/allPlans']
+        computed: {
+            plans() {
+                return this.$store.getters['plans/allPlans']
+            }
         }
     }
-}
 </script>
 
 <style scoped>
@@ -82,27 +88,17 @@ export default {
         top: 0;
         /* left: 0; */
         display: grid;
-        grid-template: 1fr / repeat(auto-fit, minmax(250px, 350px));
+        grid-template: auto / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
         justify-items: center;
         grid-gap: 70px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
-    }
-
-    .wash-menu{
-        display: grid;
-        grid-template: repeat(5, 1fr) / 20px 1fr;
-        color: #728691;
-        font-size: 16px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding: 0 15px;
-    }
-    .wash-menu li{
-        list-style-type: none;
-        height: 30px
+        /* border-bottom: 2px solid #f9a825; */
+        /* padding-bottom: 30px; */
     }
     .pack-item{
+        position: relative;
         border: 1px solid #b2d2e4;
         border-radius: 10px;
         display: grid;
@@ -110,6 +106,8 @@ export default {
         min-height: 500px;
         background-color: #fefefe;
         transition: 0.7s ease-in;
+        grid-gap: 10px;
+        padding-bottom: 15px;
     }
     .packages .pack-item:nth-child(1){
         border-top: 7px solid rgb(247, 174, 241);
@@ -128,6 +126,19 @@ export default {
     }
     .packages .pack-item:nth-child(3):hover{
         border-top: 7px solid rgb(17, 145, 23);
+    }
+    .wash-menu{
+        display: grid;
+        grid-template-columns: 20px 1fr;
+        grid-auto-rows: auto;
+        color: #728691;
+        font-size: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        padding: 0 15px;
+    }
+    .wash-menu li{
+        list-style-type: none;
+        height: 30px
     }
     .elegant-image{
         width: 40px;
@@ -166,7 +177,7 @@ export default {
     .subscribe{
         width: 300px;
         height: 60px;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         border: 1px solid #fff;
         background-color: #e7b83f;
         color: #fff;
@@ -181,8 +192,6 @@ export default {
         background-color: #f58b13;
         transition: .7s ease-out;
     }
-
-
     .edit-button:hover{
         background-color: rgb(248, 144, 118);
         color: #fff;
@@ -202,28 +211,28 @@ export default {
     }
 
     @media (max-width: 767px) {
-    .packages{
-        grid-template: auto / 1fr;        
+        .packages{
+            grid-template: auto / 1fr;
+        }
+        .wash-menu{
+            font-size: 14px;
+        }
+        .pack-item{
+        }
+        .elegant-image{
+            width: 30px;
+        }
+        .name{
+            font-size: 18px;
+        }
+        .price{
+            font-size: 16px;
+        }
+        .subscribe{
+            width: 200px;
+            height: 40px;
+            font-size: 16px;
+        }
     }
-    .wash-menu{
-        font-size: 14px;
-    }
-    .pack-item{
-    }
-    .elegant-image{
-        width: 30px;
-    }
-    .name{
-        font-size: 18px;
-    }
-    .price{
-        font-size: 16px;
-    }
-    .subscribe{
-        width: 200px;
-        height: 40px;
-        font-size: 16px;
-    }
-}
 
 </style>

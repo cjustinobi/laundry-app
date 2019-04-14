@@ -24,9 +24,11 @@ export const actions = {
             commit('SET_USER', user)
             localStorage.setItem('user', JSON.stringify(user))
             cookies.set('x-access-token', token, {expires: 7})
-            return this.$router.push('/dashboard')
+            return 'success'
 
-        } catch (e) { console.log(e) }
+        } catch (e) {
+            return (e)
+        }
     },
 
     logout({ commit }) {

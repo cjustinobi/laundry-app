@@ -1,6 +1,7 @@
 
 const AuthenticationControllerPolicy = require('../policies/AuthenticationControllerPolicy')
-const { isAdmin, upload } = require('../middleware')
+const { isAdmin } = require('../middleware')
+const { upload } = require('../config/multer')
 
 const LoginController = require('../controllers').login
 const RegisterController = require('../controllers').register

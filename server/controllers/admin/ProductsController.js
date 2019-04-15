@@ -15,32 +15,18 @@ module.exports = {
     },
 
     async store(req, res) {
-        return req.file.originalName
         try {
-            let result = await sharp(req.file.path)
-                .resize(300)
-                .background('red')
-                .embed()
-                .toFile(`./assets/uploads/products/${req.file.originalName}`)
-
-            fs.unlink(req.file.path, () => {
-                console.log('file unlinked')
-            })
-            return res.status(201).send(result)
-        } catch (err) {
-            return err
-        }
-        /*try {
             let product = await Product.create({
                 name: req.body.name,
                 price: req.body.price,
+                file_path: req.file.path,
                 category_id: req.body.category_id
             })
             return res.status(201).send(product)
-        } catch (e) {
-            return res.status(400).send(e.message)
-        }*/
 
+        } catch (err) {
+            return err
+        }
     },
 
     destroy(req, res) {

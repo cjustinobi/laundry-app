@@ -26,7 +26,7 @@ export const actions = {
         const config = { header: { 'content-type': 'multipart/form-data' }}
         try {
             let res = await this.$axios.$post('/api/products', fd, config)
-            return console.log(res)
+            console.log(res)
             commit('ADD_PRODUCTS', res)
             return 'success'
         }

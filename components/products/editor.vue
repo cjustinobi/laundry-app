@@ -68,7 +68,7 @@
                     if (res) {
                         this.isLoading = false
                         this.clearFields(this.details)
-                        this.message = 'benefit successfully saved'
+                        this.message = 'product successfully saved'
                         this.success = true
                         this.$emit('cancelForm')
                     }

@@ -11,7 +11,6 @@
                     :itemId="product.id" :api="api">
             </actions>
         </div>
-        <img src="../../assets/uploads/products/1555263072628-CONTRACTS.jpg" alt="EL image">
     </div>
 </template>
 
@@ -53,6 +52,10 @@ export default {
 <style lang="scss" scoped>
     .product{
         position: relative;
+    }
+    img{
+        width: 300px;
+        margin-left: 40px;
     }
 </style>
 

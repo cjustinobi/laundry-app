@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>All users</h1>
         <div class="users">
             <div class="user" v-for="(user, i) in users" :key="i">
                 <h1>{{ user.fullname }}</h1>

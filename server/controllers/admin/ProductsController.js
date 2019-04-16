@@ -1,5 +1,3 @@
-const sharp = require ('sharp')
-const fs = require('fs')
 
 const Product = require('../../models').product
 const Category = require('../../models').category

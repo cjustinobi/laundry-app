@@ -10,19 +10,16 @@
 
         <div class="user-view">
             <div class="new-order">
-                <i class="fa fa-cart-plus"></i>
-                <p>New order</p>
+                <i class="fa fa-cart-plus"></i> <p>New order</p>
             </div>
 
             <div class="bell">
-                <i class="fa fa-bell"></i>
-                <div class="count">0</div>
+                <i class="fa fa-bell"></i> <div class="count">0</div>
             </div>
             
             <div class="names">
                 <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
-                <i class="fa fa-user"></i>
-                <p>Glory Agatevure</p>
+                <i class="fa fa-user"></i> <p>Glory Agatevure</p>
             </div>
 
             <div id="dropdown" :class="[{'dropdown': dropdown}]">
@@ -87,7 +84,7 @@ export default {
 <style scoped>
     .main-head{
         display: grid;
-        grid-template-columns: 1fr 450px;
+        grid-template-columns: 1fr 350px;
         position: relative;
         align-items: center;
         background-color: #01355f;
@@ -106,9 +103,9 @@ export default {
     }
     .user-view{
         display: grid;
-        grid-template-columns: 140px 60px 170px 50px;
+        grid-template-columns: 120px 35px 150px 20px;
         align-items: center;
-        grid-gap: 10px;
+        grid-gap: 7px;
     }
     .new-order{
         display: grid;
@@ -193,13 +190,14 @@ export default {
 @media (max-width: 767px) {
     .main-head{
         grid-template-columns: 1fr 1fr;
+        grid-gap: 70px;
     }
     .user-h3{
         grid-template-columns: 50px 50px;
         font-size: 15px
     }
     .user-view{
-        grid-template-columns: 130px 50px 160px 40px;
+        grid-template-columns: 120px 30px 145px 20px;
     }
     img{
         width: 20px;

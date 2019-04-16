@@ -1,13 +1,13 @@
 <template>
     <div class="why-us">
-        <div class="services">
+        <!-- <div class="services">
             <div><img src="~assets/images/EL_laundry.png" alt=""></div>
             <h5>Affordable pricing</h5>
             <p>
                 Before colletion, just ensure your wash and fold laundry is in a separate pile to your
                 dry cleaning. Don't worry about dark and light fabrics, we will sort this out for you.
             </p>
-        </div>
+        </div> -->
     </div>
 </template>
 

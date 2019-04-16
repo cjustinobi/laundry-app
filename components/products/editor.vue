@@ -64,14 +64,14 @@
                 this.isLoading = true
 
                 try {
-                    let res = await this.$store.dispatch('products/store', this.details)
-                    if (res) {
-                        this.isLoading = false
-                        this.clearFields(this.details)
-                        this.message = 'product successfully saved'
-                        this.success = true
-                        this.$emit('cancelForm')
-                    }
+                    await this.$store.dispatch('products/store', this.details)
+                    this.isLoading = false
+                    this.clearFields(this.details)
+                    this.message = 'product successfully saved'
+                    this.success = true
+                    this.$store.dispatch('products/getProducts')
+                    this.$emit('cancelForm')
+
                 } catch (e) {
 
                     this.isLoading = false
@@ -91,15 +91,9 @@
 
         },
 
-        computed: {
-            products() {
-                return this.$store.getters['products/allProducts']
-            }
-        },
 
         mounted(){
             this.getCategories()
-            this.$store.dispatch('products/getProducts')
         },
 
 

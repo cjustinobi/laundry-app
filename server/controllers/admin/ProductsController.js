@@ -13,13 +13,17 @@ module.exports = {
     },
 
     async store(req, res) {
+        let filePath = req.file.path.replace('static\\', '\\')
         try {
             let product = await Product.create({
                 name: req.body.name,
                 price: req.body.price,
-                file_path: req.file.path,
+                file_path: filePath,
                 category_id: req.body.category_id
-            })
+            },
+            // {include: [{model: Category}]}
+        )
+
             return res.status(201).send(product)
 
         } catch (err) {

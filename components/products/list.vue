@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="product" v-for="(product, i) in products" :key="i">
-            <img :src="`../../${product.file_path}`" alt="EL image">
+            <img :src="product.file_path" alt="EL image">
             <p>{{ product.name }}</p>
             <p>{{ product.price }}</p>
             <p>{{ product.category.name }}</p>

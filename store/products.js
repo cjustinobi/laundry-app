@@ -5,6 +5,7 @@ export const state = () => ({
 export const mutations = {
     ALL_PRODUCTS (state, payload) {
         state.allProducts = payload
+        alert(state.allProducts)
     },
     ADD_PRODUCTS (state, payload) {
         state.allProducts.push(payload)
@@ -16,7 +17,7 @@ export const mutations = {
 }
 
 export const actions = {
-    async store({ commit }, payload) {
+    async store({ commit, dispatch }, payload) {
         let fd = new FormData()
         fd.append('name', payload.name)
         fd.append('price', payload.price)
@@ -27,8 +28,6 @@ export const actions = {
         try {
             let res = await this.$axios.$post('/api/products', fd, config)
             console.log(res)
-            commit('ADD_PRODUCTS', res)
-            return 'success'
         }
         catch(e) {
             return e

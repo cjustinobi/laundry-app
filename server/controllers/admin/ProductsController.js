@@ -1,5 +1,3 @@
-const sharp = require ('sharp')
-const fs = require('fs')
 
 const Product = require('../../models').product
 const Category = require('../../models').category
@@ -15,13 +13,16 @@ module.exports = {
     },
 
     async store(req, res) {
+        let filePath = req.file.path.replace('static\\', '\\')
         try {
             let product = await Product.create({
                 name: req.body.name,
                 price: req.body.price,
-                file_path: req.file.path,
+                file_path: filePath,
                 category_id: req.body.category_id
-            })
+            }
+            // {include: [Category]}
+        )
             return res.status(201).send(product)
 
         } catch (err) {

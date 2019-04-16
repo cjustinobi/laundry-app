@@ -1,4 +1,5 @@
 
+
 const Product = require('../../models').product
 const Category = require('../../models').category
 
@@ -20,9 +21,10 @@ module.exports = {
                 price: req.body.price,
                 file_path: filePath,
                 category_id: req.body.category_id
-            }
-            // {include: [Category]}
+            },
+            // {include: [{model: Category}]}
         )
+
             return res.status(201).send(product)
 
         } catch (err) {

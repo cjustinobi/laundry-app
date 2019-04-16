@@ -26,7 +26,8 @@ export const actions = {
 
         const config = { header: { 'content-type': 'multipart/form-data' }}
         try {
-            return await this.$axios.$post('/api/products', fd, config)
+            let res = await this.$axios.$post('/api/products', fd, config)
+            console.log(res)
         }
         catch(e) {
             return e

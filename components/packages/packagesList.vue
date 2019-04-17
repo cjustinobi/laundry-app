@@ -16,10 +16,8 @@
                     <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
                 <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
-                   <!-- <span > -->
                        <i class="fa fa-check"></i>
                        <li>{{ benefit.name }}</li>
-                   <!-- </span> -->
                 </div>
                 <form v-if="user !== undefined && user.user_type !== 3" method="get" id="sub-btn">
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>

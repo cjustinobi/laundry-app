@@ -5,7 +5,6 @@ export const state = () => ({
 export const mutations = {
     ALL_PRODUCTS (state, payload) {
         state.allProducts = payload
-        alert(state.allProducts)
     },
     ADD_PRODUCTS (state, payload) {
         state.allProducts.push(payload)

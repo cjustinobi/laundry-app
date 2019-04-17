@@ -1,29 +1,11 @@
 <template>
     <div class="product" :style="myStyle">
-        <div class="product-tabs">
-            <div class="fa" :class="{'addColor': faCheckCircle, 'removeColor': !faCheckCircle}">
-                <i class="fa fa-check-circle"></i> Items
-            </div>
-            <div class="demarcator"></div>
-            <div class="fa">
-                <i class="fa fa-check-circle"></i> Address
-            </div>
-            <div class="demarcator"></div>
-            <div class="fa">
-                <i class="fa fa-check-circle"></i> Time
-            </div>
-            <div class="demarcator"></div>
-            <div class="fa">
-                <i class="fa fa-check-circle"></i> Payment
-            </div>
-        </div>
         <div class="title"><h2>Choose items</h2></div>
         <div class="search-laundry">
             <input type="search" placeholder="Search for laundry items"><button class="search-btn">Search</button>
         </div>
 
         <div><items/></div>
-        
     </div>
 </template>
 
@@ -56,22 +38,7 @@
 <style scoped>
     .product{
         display: grid;
-        grid-template-rows: 50px 70px 90px 1fr;
-        min-height: 100vh;
-    }
-    .product-tabs{
-        display: grid;
-        justify-content: center;
-        color: #114e9e;
-        background-color: #fefefe;
-        grid-template-columns: auto 40px auto 40px auto 40px auto;
-        align-items: center;
-        grid-gap: 9px;
-    }
-    .demarcator{
-        width: 40px;
-        height: 1px;
-        background-color: #898f97;
+        grid-template-rows: 50px 70px 40px;
     }
     .fa{
         cursor: pointer;
@@ -94,7 +61,6 @@
         justify-content: center;
         background-color: #fefefe;
         grid-template-columns: 350px 130px;
-        /* align-items: center; */
         align-content: center;
     }
     .search-laundry input{

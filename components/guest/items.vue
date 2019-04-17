@@ -12,17 +12,6 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
-
-        <div class="laundry-list-wrapper">
-            <div class="laundry-list">
-                <img src="~assets/images/EL_laundry.png" alt="EL image">
-                <h5>Towels</h5>
-                <p class="p1">Washed, pressed and neatly folded</p>
-                <div class="separator"></div>
-                <h5>N1,000.00</h5>
-                <button class="laundry-list-btn">Add to cart</button>
-            </div>
-        </div>
         
     </div>
 </template>
@@ -54,8 +43,8 @@
 <style scoped>
     .items{
         display: grid;
-        grid-template-rows: 40px 1fr;
-        min-height: 100vh;
+        grid-template-rows: 40px;
+        /* min-height: 100vh; */
     }
     .product-list{
         display: grid;
@@ -86,41 +75,7 @@
         display: grid;
         align-self: center;
     }
-    .laundry-list-wrapper{
-        display: grid;
-        grid-template: 300px / repeat(auto-fit, minmax(270px, 250px));
-        grid-gap: 30px;
-    }
-    .laundry-list{
-        display: grid;
-        grid-template-rows: auto;
-        grid-gap: 5px;
-        background-color: #fefefe;
-        margin: 40px 0;
-        color: #114e9e;
-        min-height: 300px;
-        padding: 10px;
-    }
-    img{
-        display: grid;
-        align-self: center;
-        width: 150px;
-    }
-    .p1{
-        color: #8395b1;
-        font-size: 14px;
-    }
-    .separator{
-        height: 1px;
-        background-color: #8c929b;
-        padding: 0;
-    }
-    .laundry-list-btn{
-        width: 120px;
-        height: 35px;
-        background-color: #e7b83f;
-        color: #fefefe;
-    }
+   
 
     @media (max-width: 1124px) {
         .product-list{

@@ -1,7 +1,7 @@
 <template>
     <div class="action-container">
         <notification :success="success" :error="error"></notification>
-        <div v-if="selectedId && selectedId == itemId">
+        <div class="trash-edit" v-if="selectedId && selectedId == itemId">
             <i class="fa fa-eye"></i>
             <i @click="$emit('editItem', itemId)" class="fa fa-edit"></i>
             <i @click="delItem(itemId)" class="fa fa-trash"></i>
@@ -62,7 +62,14 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .action-container{
+        position: relative;
+    }
+    .trash-edit{
+        position: absolute;
+        top: 24px;
+        right: -24px;
+    }
     .fa-eye{
         position: absolute;
         top: -31px;
@@ -86,7 +93,7 @@
     }
     .ellipsis{
         position: absolute;
-        right: 15px;
+        right: -3px;
         top: 10px;
         cursor: pointer;
     }

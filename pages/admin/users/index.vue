@@ -112,7 +112,6 @@ export default {
         justify-content: center;
         background-color: #fefefe;
         grid-template-columns: 350px 130px;
-        /* align-items: center; */
         align-content: center;
     }
     .search-laundry input{

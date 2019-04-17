@@ -55,15 +55,15 @@
                 <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
             <nuxt-link to='/admin/products' class='logo'>
-                <i class="fa fa-suitcase" title="Products"></i>
+                <i class="fa fa-cart-plus" title="Products"></i>
                 <span v-if="wideMenu">Products</span>
             </nuxt-link>
             <nuxt-link to='/admin/categories' class='logo'>
-                <i class="fa fa-suitcase" title="Categories"></i>
+                <i class="fa fa-list" title="Categories"></i>
                 <span v-if="wideMenu">Categories</span>
             </nuxt-link>
             <nuxt-link to='/admin/users' class='logo'>
-                <i class="fa fa-suitcase" title="Users"></i>
+                <i class="fa fa-user" title="Users"></i>
                 <span v-if="wideMenu">Users</span>
             </nuxt-link>
             <nuxt-link to='/admin/orders' class='logo'>

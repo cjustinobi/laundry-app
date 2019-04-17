@@ -1,5 +1,5 @@
 <template>
-    <div class="create-benefit">
+    <div class="create-benefit" :style="myStyle">
         <div class="btn-created">
             <button class="create-btn" v-if="!showProductForm" @click.prevent="showProductForm = true">CREATE PRODUCT</button>
         </div>
@@ -14,7 +14,7 @@
             <all-products/>
         </div>
 
-        <div><products/></div>
+        
     </div>
     
 </template>
@@ -23,7 +23,7 @@
 
 import Editor from '~/components/products/editor'
 import AllProducts from '~/components/products/list'
-import Products from '~/components/guest/products'
+
 
 
 export default {
@@ -32,12 +32,14 @@ export default {
 
     components: {
         Editor,
-        AllProducts,
-        Products        
+        AllProducts        
     },
 
     data() {
         return {
+            myStyle: {
+                backgroundColor: "#f0faff"
+            },
             showProductForm: false,
             
         }
@@ -51,6 +53,7 @@ export default {
     .create-benefit{
         display: grid;
         position: relative;
+        min-height: 100vh;
     }
     .btn-created{
         display: grid;

@@ -2,12 +2,6 @@
     <div class="add-address" :style="myStyle">
         <div class="title"><h2>My Account</h2></div>
         <div class="add-wrapper">
-            <ul class="add-list">
-                <li class="add-links"><nuxt-link to="/profile">Profile</nuxt-link></li>
-                <li class="add-links"><nuxt-link to="/editaddress">Address</nuxt-link></li>
-                <li class="add-links"><nuxt-link to="/editpassword">Change Password</nuxt-link></li>
-            </ul>
-            
             <h4 class="address-head">Your Addresses (1)</h4>
             <div class="add-form">
                 <div class="font-folder">
@@ -71,10 +65,40 @@ export default {
     a{
         text-decoration: none;
     }
+    .edit-wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: #fefefe;
+        margin: 40px 160px 0 160px;
+        box-shadow: 5px 5px 15px grey;
+        grid-gap: 20px;
+        align-items: center;
+    }
+    .edit-list{
+        display: grid;
+        grid-template: 80px / repeat(4, 180px); 
+        align-items: center; 
+        padding: 0px;
+        font-size: 18px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        list-style: none;
+        justify-items: center;
+        
+    }
+    .edit-links{
+        color: #114e9e;
+        transition: 0.6s ease-in;
+    }
+    .edit-links:hover,
+    .edit-links:active{
+        color: #a0a0a0; 
+    }
     .add-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 40px 180px; 
+        margin: 0 160px 40px 160px; 
         padding: 0 60px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
@@ -167,6 +191,9 @@ export default {
         .add-button{
             width: 200px;
             font-size: 14px;
+        }
+        .edit-list{
+            font-size: 15px;
         }
     }
 </style>

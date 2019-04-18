@@ -3,6 +3,7 @@
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
                 <actions
+                        v-if="user !== undefined && user.user_type == 3"
                     	:class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]"
                         @editItem="editItem"
                         @removeItem="removeItem"
@@ -86,7 +87,6 @@
     .packages{
         position: relative;
         top: 0;
-        /* left: 0; */
         display: grid;
         grid-template: auto / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
@@ -94,8 +94,6 @@
         grid-gap: 70px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
-        /* border-bottom: 2px solid #f9a825; */
-        /* padding-bottom: 30px; */
     }
     .pack-item{
         position: relative;
@@ -170,14 +168,12 @@
     }
     #sub-btn{
         display: grid;
-        /* grid-template-columns: 1fr; */
         align-items: center;
         justify-self: center;
     }
     .subscribe{
         width: 300px;
         height: 60px;
-        /* border-radius: 10px; */
         border: 1px solid #fff;
         background-color: #e7b83f;
         color: #fff;
@@ -229,7 +225,7 @@
             font-size: 16px;
         }
         .subscribe{
-            width: 200px;
+            width: 270px;
             height: 40px;
             font-size: 16px;
         }

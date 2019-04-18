@@ -19,7 +19,7 @@
                 <h5>{{ product.price }}</h5>
                 <p>{{ product.category.name }}</p>
                 <button 
-                    v-if="user !== undefined && user.user_type !== 3"
+                    v-if="user !== undefined && user.user_type !== 3"   
                     class="laundry-list-btn">Add to cart
                 </button>
             </div>

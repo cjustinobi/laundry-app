@@ -120,7 +120,7 @@
         grid-template-rows: repeat(4, auto);
         grid-gap: 15px;
         padding: 10px 20px 20px 20px;
-        background-color: rgb(147, 191, 202);
+        background-color: #f8f8f8;
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
@@ -131,24 +131,26 @@
     }
     .btn-cancel{
         border-radius: 5px;
-        border: 1px solid grey;
         height: 40px;
         color: #fefefe;
         font-size: 16px;
         transition: 0.3s ease-in;
         background-color: rgb(245, 100, 100);
+        outline: none;
+        border: none;
     }
     .btn-cancel:hover{
         background-color: rgb(240, 59, 59);
     }
     .btn-submit{
         border-radius: 5px;
-        border: 1px solid grey;
         height: 40px;
         color: #fefefe;
         font-size: 16px;
         transition: 0.3s ease-in;
         background-color: #e7b83f;
+        outline: none;
+        border: none;
     }
     .btn-submit:hover{
         background-color: #f58b13;
@@ -166,7 +168,7 @@
     }
     .package-input{
         border-radius: 3px;
-        border: 1px solid grey;
+        border: 1px solid rgb(202, 202, 202);
         padding: 10px;
     }
     .btn-package{

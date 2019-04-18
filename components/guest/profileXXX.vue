@@ -52,13 +52,13 @@ export default {
     }
     .edit-wrapper{
         display: grid;
-        grid-template-rows: 100px 300px;
+        grid-template-rows: 80px 270px;
         background-color: #fefefe;
         margin: 0 160px 40px 160px;
         padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
-        height: 550px;
+        height: 470px;
     }
     img{
         width: 80px;
@@ -73,7 +73,7 @@ export default {
     .update-form{
         display: grid;
         grid-template-rows: repeat(4, 20px), 40px;
-        grid-gap: 20px;
+        grid-gap: 10px;
         margin-top: 40px;
         color: #114e9e;
     }
@@ -100,8 +100,8 @@ export default {
 
     @media (max-width: 767px) {
         .edit-wrapper{
-            grid-template-rows: 80px 300px;
-            height: 500px;
+            grid-template-rows: 70px 250px;
+            height: 430px;
             padding: 60px 70px 0 70px;
         }
         .edit-list{

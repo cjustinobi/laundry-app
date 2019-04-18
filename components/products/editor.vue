@@ -13,7 +13,7 @@
                     <option v-for="(category, i) in categories" :value="category.id" :key="i">{{ category.name }}</option>
                 </select>
                 <input type="file" ref="file" accept="image/*" @change="uploadFile" class="file">
-                <button @click.prevent="$refs.file.click()">Upload image</button>
+                <button class="upload-image" @click.prevent="$refs.file.click()">Upload image</button>
                 <img v-if="filePreview" :src="filePreview" alt="">
                 <div class="btn-package">
                     <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
@@ -121,7 +121,7 @@
         grid-gap: 12px;
         padding: 10px 20px 20px 20px;
         margin-top: 80px;
-        background-color: rgb(147, 191, 202);
+        background-color: #f8f8f8;
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
@@ -135,24 +135,26 @@
     }
     .btn-cancel{
         border-radius: 5px;
-        border: 1px solid grey;
         height: 40px;
         color: #fefefe;
         font-size: 16px;
         transition: 0.3s ease-in;
         background-color: rgb(245, 100, 100);
+        outline: none;
+        border: none;
     }
     .btn-cancel:hover{
         background-color: rgb(240, 59, 59);
     }
     .btn-submit{
         border-radius: 5px;
-        border: 1px solid grey;
         height: 40px;
         color: #fefefe;
         font-size: 16px;
         transition: 0.3s ease-in;
         background-color: #e7b83f;
+        outline: none;
+        border: none;
     }
     .btn-submit:hover{
         background-color: #f58b13;
@@ -170,7 +172,7 @@
     }
     .package-input{
         border-radius: 3px;
-        border: 1px solid grey;
+        border: 1px solid rgb(202, 202, 202);
         padding: 10px;
     }
     .btn-package{
@@ -179,7 +181,16 @@
         grid-gap: 10px;
         justify-content: space-between;
     }
-    
+    .upload-image{
+        background-color: #42a5f5;
+        color: #fefefe;
+        transition: 0.6s ease-in;
+        outline: none;
+        border: none;
+    }
+    .upload-image:hover{
+        background-color: #3391df;
+    }
     
 
     @media (max-width: 767px) {

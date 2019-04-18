@@ -78,17 +78,13 @@
         justify-content: center;
         align-items: center;
         grid-template-columns: 1fr;
-        /* min-width: 300px; */
-        /* position: absolute; */
         }
     .form{
         display: grid;
         grid-template-rows: 1fr;
         grid-gap: 20px;
         padding: 20px;
-        /* width: 300px;
-        height: 200px; */
-        background-color: rgb(111, 185, 185);
+        background-color: #f8f8f8;
         border-radius: 5px;
         border: 1px solid grey;
     }
@@ -129,33 +125,31 @@
     .btn-benefits{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        /* justify-content: end;
-        align-items: end; */
         grid-gap: 16px;
         font-size: 16px;
         outline: none;
     }
     .btn-cancel-benefits{
-        /* width: 170px; */
         border-radius: 5px;
-        border: 1px solid grey;
+        border: none;
         height: 40px;
         color: #fefefe;
         transition: 0.6s ease-in;
         background-color: rgb(245, 100, 100);
+        outline: none;
     }
     .btn-cancel-benefits:hover{
         background-color: rgb(240, 59, 59);
     }
     .btn-submit-benefits{
         display: grid;
-        /* width: 170px; */
         border-radius: 5px;
-        border: 1px solid grey;
+        border: none;
         color: #fefefe;
         height: 40px;
         background-color: #e7b83f;
         transition: 0.6s ease-in;
+        outline: none;
     }
     .btn-submit-benefits:hover{
         background-color: #f58b13;

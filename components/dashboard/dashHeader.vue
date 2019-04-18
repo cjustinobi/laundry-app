@@ -22,12 +22,15 @@
                 <i class="fa fa-user"></i> <p>Glory Agatevure</p>
             </div>
 
-            <div id="dropdown" :class="[{'dropdown': dropdown}]">
-                    <a class="pull-down" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
-                    <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
-                        <nuxt-link class="show my-profile" to="/profile"><i class="fa fa-user"></i> My Profile</nuxt-link>
-                        <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
-                    </div>
+            <div v-if="user !== undefined && user.user_type !== 3"
+                id="dropdown" :class="[{'dropdown': dropdown}]">
+                <a class="pull-down" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
+                <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
+                    <nuxt-link class="show my-profile" to="/profile">
+                        <i class="fa fa-user"></i> My Profile
+                    </nuxt-link>
+                    <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
+                </div>
             </div>
         </div>
 
@@ -53,7 +56,7 @@ export default {
             } else {
                 this.dropdownContent = false
                 x.style.display = "none"
-                x.className = x.className.replace(" show", "")
+                x.className.replace(" show", "")
             }
         },
         // hideLinks(e) {

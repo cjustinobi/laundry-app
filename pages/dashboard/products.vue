@@ -1,26 +1,29 @@
 <template>
     <div class="product" :style="myStyle">
         <div class="product-tabs">
-            <div class="fa" :class="{'addColor': faCheckCircle, 'removeColor': !faCheckCircle}">
+            <div class="fa"
+                @click.prevent="toggleTab('products')" 
+                :class="{'addColor': faCheckCircle, 'removeColor': !faCheckCircle}">
                 <i class="fa fa-check-circle"></i> Items
             </div>
             <div class="demarcator"></div>
-            <div class="fa">
+            <div class="fa" @click.prevent="toggleTab('address')">
                 <i class="fa fa-check-circle"></i> Address
             </div>
             <div class="demarcator"></div>
-            <div class="fa">
+            <div class="fa" @click.prevent="toggleTab('password')">
                 <i class="fa fa-check-circle"></i> Time
             </div>
             <div class="demarcator"></div>
-            <div class="fa">
+            <div class="fa" @click.prevent="toggleTab('subscriptions')">
                 <i class="fa fa-check-circle"></i> Payment
             </div>
         </div>
 
-        <div>
-            <all-products/>
-        </div>
+        <div><all-products v-if="products"/></div>
+        <div><editAddress v-if="address"></editAddress></div>
+        <div><editPassword  v-if="password"></editPassword></div>
+        <div><subscriptions v-if="subscriptions"/></div>
         
         
     </div>
@@ -28,20 +31,59 @@
 
 <script>
     import AllProducts from '~/components/products/list'
+    import EditAddress from '~/components/guest/editAddress'
+    import EditPassword from '~/components/guest/editPassword'
+    import Subscriptions from '~/components/guest/subscriptions'
+
     export default {
 
         layout: 'dashboard',
 
         components: {
-            AllProducts
+            AllProducts,
+            EditAddress, 
+            EditPassword,
+            Subscriptions
         },
         data() {
             return {
                 myStyle: {
                     backgroundColor: "#f0faff"
                 },
-                faCheckCircle: true
+                faCheckCircle: true,
+                products: true,
+                address: false,
+                password: false,
+                subscriptions: false
             }
+        },
+        methods: {
+            toggleTab(val) {
+                if(val == 'products') {
+                    this.address =false
+                    this.password = false
+                    this.subscriptions = false
+                    return this.products = true
+                }
+                if(val == 'address') {
+                    this.password =false
+                    this.subscriptions =false
+                    this.products = false
+                    return this.address = true
+                }
+                if(val == 'password') {
+                    this.subscriptions =false
+                    this.products =false
+                    this.address = false
+                    return this.password = true
+                }
+                if(val == 'subscriptions') {
+                    this.products =false
+                    this.address = false
+                    this.password = false
+                    return this.subscriptions = true
+                }
+            },
         },
         computed: {
             users(){

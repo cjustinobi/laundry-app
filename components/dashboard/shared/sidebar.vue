@@ -23,10 +23,6 @@
                 <i class="fa fa-cart-plus" title="Products"></i>
                 <span v-if="wideMenu">Products</span>
             </nuxt-link>
-            <nuxt-link to='/admin/categories' class='logo'>
-                <i class="fa fa-list" title="Categories"></i>
-                <span v-if="wideMenu">Categories</span>
-            </nuxt-link>
             <nuxt-link to='/dashboard/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
                 <span v-if="wideMenu">My subscription</span>
@@ -98,6 +94,10 @@
             <nuxt-link to='/admin/benefits/add' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span v-if="wideMenu">Create Benefits</span>
+            </nuxt-link>
+            <nuxt-link to='/logout' class='logo'>
+                <i class="fa fa-power-off" title="Logout"></i>
+                <span v-if="wideMenu">Logout</span>
             </nuxt-link>
         </div>
 

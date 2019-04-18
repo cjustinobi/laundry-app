@@ -1,5 +1,5 @@
 <template>
-    <div class="product" :style="myStyle">
+    <div class="product-page" :style="myStyle">
         <div class="product-tabs">
             <div class="fa"
                 @click.prevent="toggleTab('products')" 
@@ -54,7 +54,8 @@
                 products: true,
                 address: false,
                 password: false,
-                subscriptions: false
+                subscriptions: false,
+                insertMargin: false
             }
         },
         methods: {
@@ -98,10 +99,11 @@
 </script>
 
 <style scoped>
-    .product{
+    .product-page{
         display: grid;
-        grid-template-rows: 50px 1fr;
+        grid-template-rows: 50px;
         min-height: 100vh;
+        grid-gap: 20px;
     }
     .product-tabs{
         display: grid;

@@ -1,6 +1,6 @@
 <template>
     <div class="edit-address" :style="myStyle">
-        <div class="edit-wrapper">
+        <div :class="{'edit-wrapper': insertMargin, 'edit-wrapper-user': !insertMargin}">
             <div class="update-form">
                 <label for="">Street name <br>
                     <input type="text" required>
@@ -35,7 +35,8 @@ export default {
         return {
             myStyle: {
                 backgroundColor: "#f0faff"
-            }
+            },
+            insertMargin: true
         }
     },
     mounted() {
@@ -70,7 +71,15 @@ export default {
         margin: 0 160px 40px 160px;
         padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
-        grid-gap: 10px;;
+        grid-gap: 10px;
+    }
+    .edit-wrapper-user{
+        display: grid;
+        background-color: #fefefe;
+        margin: 40px 160px 40px 160px;
+        padding: 80px 70px 0 70px;
+        box-shadow: 5px 5px 15px grey;
+        grid-gap: 10px;
     }
     .update-form{
         display: grid;

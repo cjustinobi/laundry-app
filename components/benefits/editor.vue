@@ -2,7 +2,6 @@
     <div class="editor">
         <form class="form">
             <div class="create-close">
-                <!-- <button class="add-fields" @click.prevent="addItem">Add fields</button> -->
                 <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
             </div>
             <div v-for="(item, i) in items" :key="i">
@@ -79,16 +78,12 @@
         justify-content: center;
         align-items: center;
         grid-template-columns: 1fr;
-        /* min-width: 300px; */
-        /* position: absolute; */
         }
     .form{
         display: grid;
-        grid-template-rows: 1fr;
+        grid-template-rows: auto;
         grid-gap: 20px;
-        padding: 20px;
-        /* width: 300px;
-        height: 200px; */
+        padding: 10px 20px 20px 20px;
         background-color: rgb(111, 185, 185);
         border-radius: 5px;
         border: 1px solid grey;
@@ -103,20 +98,6 @@
     }
     .create-close a:hover{
         color: rgb(240, 59, 59);
-    }
-    .add-fields{
-        height: 40px;
-        color: #3f3f3f;
-        border: 1px solid #fefefe;
-        border-radius: 5px;
-        outline: none;
-        background-color: #cecece;
-        transition: 0.8s ease-in;
-        font-size: 17px;
-    }
-    .add-fields:hover{
-        color: #fefefe;
-        background-color: #575757;
     }
     .input-benefit{
         height: 40px;

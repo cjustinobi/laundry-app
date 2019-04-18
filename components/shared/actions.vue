@@ -1,12 +1,13 @@
 <template>
     <div class="action-container">
         <notification :success="success" :error="error"></notification>
-        <div class="trash-edit" v-if="selectedId && selectedId == itemId">
+        <div :class="[{'trash-edit-product': productList}, {'trash-edit-package': !productList}]" 
+            v-if="selectedId && selectedId == itemId">
             <i class="fa fa-eye"></i>
             <i @click="$emit('editItem', itemId)" class="fa fa-edit"></i>
             <i @click="delItem(itemId)" class="fa fa-trash"></i>
         </div>
-        <span class="ellipsis">
+        <span :class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]">
             <i v-if="selectedId && selectedId == itemId"
                @click.stop="unsetSelected"
                class="fa fa-times-circle">
@@ -29,6 +30,11 @@
 
         mixins: [Notifications],
 
+        data() {
+            return {
+                productList: true
+            }
+        },
         methods: {
             unsetSelected() {
                 this.$store.dispatch('shared/selectedIndex', null)
@@ -65,7 +71,12 @@
     .action-container{
         position: relative;
     }
-    .trash-edit{
+    .trash-edit-product{
+        position: absolute;
+        top: 24px;
+        right: -24px;
+    }
+    .trash-edit-package{
         position: absolute;
         top: 24px;
         right: -24px;
@@ -91,9 +102,15 @@
         color: indianred;
         cursor: pointer;
     }
-    .ellipsis{
+    .ellipsis-product{
         position: absolute;
         right: -3px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .ellipsis-package{
+        position: absolute;
+        right: 12px;
         top: 10px;
         cursor: pointer;
     }

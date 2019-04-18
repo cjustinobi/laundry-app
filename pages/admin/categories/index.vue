@@ -1,7 +1,11 @@
 <template>
-    <div class="create-benefit">
+    <div class="create-benefit" :style="myStyle">
         <div class="btn-created">
             <button class="create-btn" v-if="!showCategoryForm" @click.prevent="showCategoryForm = true">CREATE CATEGORY</button>
+        </div>
+
+        <div>
+            <all-categories/>
         </div>
 
         <div :class="{'backdrop': showCategoryForm}">
@@ -10,79 +14,67 @@
             </div>
         </div>
 
-        <div>
-            <all-categories/>
-        </div>
+        
     </div>
     
 </template>
 
 <script>
+    import AllCategories from '~/components/categories/list'
+    import Editor from '~/components/categories/editor'
 
-import Editor from '~/components/categories/editor'
-import AllCategories from '~/components/categories/list'
 
+    export default {
 
-export default {
+        layout: 'dashboard',
 
-    layout: 'dashboard',
+        components: {
+            AllCategories,
+            Editor
+        },
 
-    components: {
-        Editor,
-        AllCategories
+        data() {
+            return {
+                myStyle: {
+                        backgroundColor: "#f0faff"
+                    },
+                showCategoryForm: false
+            }
+        },
         
-    },
 
-    data() {
-        return {
-            showCategoryForm: false,
-            
-        }
-    },
-    
-
-}
+    }
 </script>
 
 <style scoped>
-    .show-form{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 300px;
-        transform: translate(-50%, -50%);
-    }
     .create-benefit{
         display: grid;
         position: relative;
+        /* min-height: 100vh; */
     }
     .btn-created{
         display: grid;
-        justify-content: center;
     }
     .create-btn{
-        margin: 40px 0;
-        width: 400px;
-        height: 60px;
-        border: 3px solid rgb(209, 159, 67);    
-        border-radius: 15px;
-        font-weight: bold;
+        margin: 40px 0 40px 40px;
+        width: 150px;
+        height: 40px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background-color: rgb(111, 185, 185);
-        color: #fff;
+        background-color: #114e9e;
+        color: #fefefe;
         outline: none;
         box-shadow: 0 0 20px 0 rgb(117, 126, 126);
         transition: 0.6s ease-in;
+        border: none;
     }
     .create-btn:hover{
-        background-color: darkcyan;
+        background-color: #00122b;
     }
 
     @media (max-width: 767px) {
         .create-btn{
-            width: 300px;
-            font-weight: 200;
+            width: 135px;
+            font-size: 14px;
         }
     }
 </style>

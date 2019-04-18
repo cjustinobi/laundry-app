@@ -114,21 +114,18 @@
         display: grid;
         justify-content: center;
         align-items: center;
-        /* position: absolute; */
-        /* z-index: 10000; */
-        /* top: 50%; */
     }
     .form{
         display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-gap: 20px;
-        padding: 20px;
+        grid-template-rows: repeat(7, auto);
+        grid-gap: 12px;
+        padding: 10px 20px 20px 20px;
         margin-top: 80px;
         background-color: rgb(147, 191, 202);
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
-        height: 300px;
+        height: 310px;
     }
     img{
         width: 40px;
@@ -189,7 +186,7 @@
         .form{
             grid-gap: 10px;
             width: 380px;
-            height: 250px;
+            height: 300px;
             padding: 12px;
         }
         .package-mobile{

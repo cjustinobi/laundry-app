@@ -1,4 +1,4 @@
-<template>
+    <template>
     <div class="plan-editor-container">
         <div class="editor">
             <notification :error="error" :success="success" :message="message"></notification>
@@ -114,15 +114,12 @@
         display: grid;
         justify-content: center;
         align-items: center;
-        /* position: absolute; */
-        /* z-index: 10000; */
-        /* top: 50%; */
     }
     .form{
         display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-gap: 20px;
-        padding: 20px;
+        grid-template-rows: repeat(4, auto);
+        grid-gap: 15px;
+        padding: 10px 20px 20px 20px;
         background-color: rgb(147, 191, 202);
         border-radius: 5px;
         border: 1px solid grey;

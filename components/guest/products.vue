@@ -54,7 +54,7 @@
         justify-items: center;
         align-content: center;
         color: #114e9e;
-        background-color: #f0faff;
+        background-color: #edf5f5;
     }
     .search-laundry{
         display: grid;

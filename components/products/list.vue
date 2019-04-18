@@ -5,6 +5,7 @@
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                  <actions
+                        v-if="user !== undefined && user.user_type == 3"
                         @editItem="editItem"
                         @removeItem="removeItem"
                         :itemId="product.id" :api="api">
@@ -17,7 +18,10 @@
                 <div class="separator"></div>
                 <h5>{{ product.price }}</h5>
                 <p>{{ product.category.name }}</p>
-                <button class="laundry-list-btn">Add to cart</button>
+                <button 
+                    v-if="user !== undefined && user.user_type !== 3"
+                    class="laundry-list-btn">Add to cart
+                </button>
             </div>
         </div>
     </div>

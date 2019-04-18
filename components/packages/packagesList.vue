@@ -3,6 +3,7 @@
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
                 <actions
+                    	:class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]"
                         @editItem="editItem"
                         @removeItem="removeItem"
                         :itemId="plan.id"
@@ -45,7 +46,8 @@
                 showForm: false,
                 editDetail: '',
                 showEditButton: false,
-                api: '/api/plans/'
+                api: '/api/plans/',
+                productList: false
             }
         },
 

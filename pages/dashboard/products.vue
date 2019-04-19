@@ -3,19 +3,22 @@
         <div class="product-tabs">
             <div class="fa"
                 @click.prevent="toggleTab('products')" 
-                :class="{'addColor': faCheckCircle, 'removeColor': !faCheckCircle}">
+                :class="{'addColor': products}">
                 <i class="fa fa-check-circle"></i> Items
             </div>
             <div class="demarcator"></div>
-            <div class="fa" @click.prevent="toggleTab('address')">
+            <div class="fa" @click.prevent="toggleTab('address')"
+                :class="{'addColor': address}">
                 <i class="fa fa-check-circle"></i> Address
             </div>
             <div class="demarcator"></div>
-            <div class="fa" @click.prevent="toggleTab('password')">
+            <div class="fa" @click.prevent="toggleTab('password')"
+                :class="{'addColor': password}">
                 <i class="fa fa-check-circle"></i> Time
             </div>
             <div class="demarcator"></div>
-            <div class="fa" @click.prevent="toggleTab('subscriptions')">
+            <div class="fa" @click.prevent="toggleTab('subscriptions')"
+                :class="{'addColor': subscriptions}">
                 <i class="fa fa-check-circle"></i> Payment
             </div>
         </div>
@@ -50,12 +53,10 @@
                 myStyle: {
                     backgroundColor: "#f0faff"
                 },
-                faCheckCircle: true,
                 products: true,
                 address: false,
                 password: false,
-                subscriptions: false,
-                insertMargin: false
+                subscriptions: false
             }
         },
         methods: {
@@ -124,9 +125,6 @@
     }
     .addColor{
         color: #e7b83f;
-    }
-    .removeColor{
-        color: #114e9e;
     }
     
   

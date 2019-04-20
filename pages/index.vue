@@ -35,6 +35,7 @@
             <p>Top 3 FAQ</p>
             <div class="faq-highlight"></div>
         </div>
+        <div><topFaq></topFaq></div>
 
     </div>
 </template>
@@ -44,17 +45,17 @@
     import HowItWorks from '~/components/guest/howItWorks'
     import PackagesList from '~/components/packages/packagesList'
     import Usp from '~/components/guest/usp'
+    import TopFaq from '~/components/guest/topFaq'
     
 
     export default {
-        components: { HowItWorks, PackagesList, Usp}
+        components: { HowItWorks, PackagesList, Usp, TopFaq}
     }
 </script>
 
 <style scoped>
 
     .page{
-        /* position: relative; */
         margin-top: 35px;
         min-height: 100vh;
     }
@@ -129,7 +130,6 @@
         margin-top: 20px;
     }
     .divider{
-        /* width: 200px; */
         background-color: #f9a825;
         height: 2px;
         margin-top: 30px;

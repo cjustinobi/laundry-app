@@ -5,7 +5,7 @@
         <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Packages</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/projects' class='logo'>Services</nuxt-link></li>
-        <li class="nav-item login-list"><nuxt-link to='/login' class='logo'>Sign up / Login</nuxt-link></li>
+        <li class="nav-item login-list"><nuxt-link to='/login' class='logo'>Login</nuxt-link></li>
     </ul>
 </template>
 
@@ -35,7 +35,7 @@
         align-items: center;
         justify-content: center;
         border: 1px solid rgb(196, 191, 191);
-        width: 140px;
+        width: 100px;
         height: 30px;
         border-radius: 5px;
         /* text-align: center; */

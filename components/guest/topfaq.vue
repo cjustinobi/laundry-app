@@ -1,42 +1,93 @@
 <template>
     <div class="top-faq">
-        <div class="faq-list">
-            <div><img src="~assets/images/EL_laundry.png" alt=""></div>
-            <h5>Affordable pricing</h5>
-            <p>
-                Before colletion, just ensure your wash and fold laundry is in a separate pile to your
-                dry cleaning. Don't worry about dark and light fabrics, we will sort this out for you.
-            </p>
+        <div class="faq-container">
+            <div class="faq-list">
+                <div class="faq-images"><img src="~assets/images/EL_iron.jpg" alt=""></div>
+                <h4>How do I prepare my first order ?</h4>
+                <p>
+                    Before colletion, just ensure your wash and fold laundry is in a separate pile to your
+                    dry cleaning. Don't worry about dark and light fabrics, we will sort this out for you.
+                </p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-images"><img src="~assets/images/EL_iron.jpg" alt=""></div>
+                <h4>Can I change my order ?</h4>
+                <p>
+                    Before colletion, just ensure your wash and fold laundry is in a separate pile to your
+                    dry cleaning. Don't worry about dark and light fabrics, we will sort this out for you.
+                </p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-images"><img src="~assets/images/EL_iron.jpg" alt=""></div>
+                <h4>What items can I wash ?</h4>
+                <p>
+                    Before colletion, just ensure your wash and fold laundry is in a separate pile to your
+                    dry cleaning. Don't worry about dark and light fabrics, we will sort this out for you.
+                </p>
+            </div>
         </div>
 
-        <p>For the full list of FAQ visit the page <nuxt-link to="/">here</nuxt-link></p>
+        <div class="full-list">
+            <p>For the full list of FAQ visit the page <nuxt-link to="/">here</nuxt-link></p>
+        </div>
     </div>
 </template>
 
 <script>
-export default {
-    
-}
+    export default {
+        
+    }
 </script>
 
 <style scoped>
     .top-faq{
         display: grid;
-        grid-template-columns: repeat(3, 300px);
-        grid-gap: 20px;
-        align-items: center;
-        justify-items: center;
-        border-bottom: 2px solid #f9a825; 
-        margin: 25px 0; 
-        padding: 0 20px;   
+        grid-template-rows: auto 30px;
+        margin-bottom: 40px;
+    }
+    .faq-container{
+        display: grid;
+        grid-gap: 70px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+        align-content: center;
+        justify-content: center;
+        min-height: 350px;
+        margin: 25px 0 0 0; 
+        padding: 0 20px 20px 20px;   
         font-size: 16px;
     }
-    
-
-    @media (max-width: 1048px) {
-        
+    .faq-list{
+        display: grid;
+        grid-template-rows: 150px 20px 110px;
+        grid-gap: 15px;
+        color: #114e9e;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 1px solid #f9a825;
+    }
+    .faq-images{
+        display: grid;
+        justify-items: center;
+    }
+    .full-list{
+        display: grid;
+        justify-items: center;
+        color: #114e9e;
+        height: 30px;
+    }
+    a{
+        text-decoration: none;
+        color:#f9a825;
     }
 
-     
-    
+    @media (max-width: 767px) {
+        .faq-container{
+            grid-gap: 40px;
+            grid-template-columns: 1fr;
+            padding: 0 60px 20px 60px;
+        }
+    } 
 </style>

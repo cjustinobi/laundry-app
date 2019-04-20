@@ -35,10 +35,11 @@
         </p>
         <div class="sign-up-sect">
             <button @click.prevent="signUp" class="sign-up-button">
-                <i class="fa fa-user"></i> {{ signUpTxt }}
+                <span v-if="!loading" ><i class="fa fa-user"></i> Register</span>
+                <img v-else="" src="~/assets/images/loading.gif" alt="">
             </button>
-            <small class="account" @click.prevent="$emit('toggleLogin')">
-                Already have an account?
+            <small class="account">
+                <nuxt-link to="/login">Already have an account?</nuxt-link>
             </small>
         </div>
     </div>
@@ -65,19 +66,18 @@
                     password: '',
                     plan_id: '',
                 },
-                signUpTxt: 'Sign Up',
-                errors: '',
                 eyeSlash: false,
+                loading: false,
             }
         },
         methods: {
             async signUp() {
-                this.signUpTxt = 'signing up ...'
+                this.loading = true
                 try {
-                    let res = await this.$axios.$post('/api/register', this.details)
+                    await this.$axios.$post('/api/register', this.details)
+                    this.$router.push('/login')
                 } catch (e) {
-
-                    this.signUpTxt = 'Sign up'
+                    this.loading = false
                     this.message = e.response.data.error
                     return this.error = true
 
@@ -87,13 +87,10 @@
                 let el = document.getElementById("password")
                 if(el.type === 'password'){
                     el.type = 'text'
-                    this.eyeSlash = true
-                } else {
-                    if (el.type === 'text') {
-                        el.type = 'password'
-                        this.eyeSlash = false
-                    }
-                }
+                    return this.eyeSlash = true
+                }   
+                el.type = 'password'
+                return this.eyeSlash = false
             }
         },
         mounted() {

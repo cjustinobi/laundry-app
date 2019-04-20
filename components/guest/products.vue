@@ -4,7 +4,6 @@
         <div class="search-laundry">
             <input type="search" placeholder="Search for laundry items"><button class="search-btn">Search</button>
         </div>
-
         <div><items/></div>
     </div>
 </template>

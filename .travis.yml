@@ -12,9 +12,9 @@ branches:
     - master
     - dev-branch
 before_install:
-  - sudo apt-get update && apt-get install -y curl
-  - sudo curl -sL https://deb.nodesource.com/setup_8.x | bash -
-  - sudo apt-get install -y nodejs
+  - apt-get update && apt-get install -y curl
+  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  - apt-get install -y nodejs
   - docker build . -t africinnovate-laundry
   - docker run -it --rm -p 80:3000 africinnovate-laundry /bin/bash
 

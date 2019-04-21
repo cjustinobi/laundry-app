@@ -7,6 +7,7 @@ ENV HOST 0.0.0.0
 RUN mkdir -p /app
 COPY . /app
 WORKDIR /app
+COPY package.json /app
 
 FROM nginx
 
@@ -15,10 +16,8 @@ EXPOSE 80
 EXPOSE 443
 CMD nginx -g "daemon off;"
 
-
-RUN npm install
-RUN npm run build
-CMD ["npm", "start"]
-
-
 COPY --from=builder /app /usr/share/nginx/html
+
+#RUN npm install
+#RUN npm run build
+CMD ["npm", "start"]

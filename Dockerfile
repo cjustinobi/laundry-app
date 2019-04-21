@@ -10,7 +10,7 @@ WORKDIR /app
 # Expose the app port
 
 FROM nginx
-EXPOSE 3000
+EXPOSE 80
 
 RUN npm install
 RUN npm run build

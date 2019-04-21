@@ -6,7 +6,12 @@ cache:
     - "node_modules"
 services:
   - docker
-before_install
+
+branches:
+  only:
+    - master
+    - dev-branch
+before_install:
   - docker build . -t africinnovate-laundry:latest
   - docker run
 

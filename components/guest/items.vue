@@ -2,7 +2,8 @@
     <div class="items" :style="myStyle">
         <div class="product-list">
             <div class="all-category">
-                <li class="product-links">All Categories</li> <i class="fa fa-bars"></i>
+                <li class="product-links">All Categories</li> 
+                <i @click.prevent="(hideSideLinks)" class="fa fa-bars"></i>
             </div>
             <li class="product-links">Subscriptions</li>
             <div class="yellow-demarcator"></div>
@@ -12,23 +13,36 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
+
+        <div id="side-links"><sideLinks></sideLinks></div>
         
     </div>
 </template>
 
 <script>
+    import SideLinks from '~/components/guest/sideLinks'
 
     export default {
         
         layout: 'dashboard',
 
-        components: {},
+        components: { SideLinks },
 
         data() {
             return {
                 myStyle: {
                     backgroundColor: "#f0faff"
                 },
+            }
+        },
+        methods: {
+            hideSideLinks() {
+                let x = document.getElementById('side-links')
+                if(x.style.display === 'none') {
+                    x.style.display = 'block'
+                } else {
+                    x.style.display = 'none'
+                }
             }
         },
         mounted() {
@@ -74,6 +88,9 @@
         cursor: pointer;
         display: grid;
         align-self: center;
+    }
+    #side-links{
+        display: none;
     }
    
 

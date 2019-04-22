@@ -151,11 +151,6 @@
         background-color: #fad370;
         border-right: 1px solid #8f6600;
     }
-    /* .sidebar-nav a:active{
-        color: #b4b4b4;
-        
-    } */
-
     .center-nav{
         display: grid;
         grid-template-rows: 45px;

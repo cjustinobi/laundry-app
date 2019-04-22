@@ -42,8 +42,8 @@
 <style scoped>
     .edit-subpage{
         display: grid;
-        grid-template-rows: 1fr 80px 1fr;
-        min-height: 100vh;
+        grid-template-rows: 700px 80px 1fr;
+        /* min-height: 100vh; */
         grid-gap: 10px;
     }
     .other-subscription{
@@ -57,6 +57,8 @@
     }
 
     @media (max-width: 767px) {
-        
+        .edit-subpage{
+            grid-template-rows: 800px 80px 1fr;
+        }
     }
 </style>

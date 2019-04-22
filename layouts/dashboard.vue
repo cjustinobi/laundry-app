@@ -28,6 +28,7 @@
     import QuickLinks from '~/components/guest/quickLinks'
     import AppFooter from '~/components/guest/appFooter'
     import Drawer from '~/components/dashboard/drawer'
+    
     export default {
         components: { Sidebar, DashHeader,QuickLinks, AppFooter, Drawer },
         middleware: ['check-auth'],

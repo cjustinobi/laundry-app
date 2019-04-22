@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="packages-contain">
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
                 <actions
@@ -26,7 +26,7 @@
                 </form>
             </div>
     </div>
-    <div :class="{'backdrop' : showForm}">
+        <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
                 <editor :editDetail="editDetail" @cancelForm="showForm = false"></editor>
             </div>
@@ -84,6 +84,9 @@
 </script>
 
 <style scoped>
+    .packages-contain{
+        display: grid;
+    }
     .packages{
         position: relative;
         top: 0;

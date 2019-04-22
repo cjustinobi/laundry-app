@@ -2,7 +2,7 @@
     <div class="all-products">
         <div><products/></div>
        
-        <div class="laundry-list-wrapper" >
+        <!-- <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                  <actions
                         v-if="user !== undefined && user.user_type == 3"
@@ -23,7 +23,7 @@
                     class="laundry-list-btn">Add to cart
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

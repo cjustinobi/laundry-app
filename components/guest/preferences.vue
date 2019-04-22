@@ -6,22 +6,25 @@
                 <div class="preferences-head">
                     <p>Starch</p>
                     <span>
-                        <i class="fa fa-toggle-off" v-if="!toggleOn" @click.prevent="toggleSwitch()"></i>
-                        <i class="fa fa-toggle-on" v-if="toggleOn" @click.prevent="toggleSwitch()"></i>
+                        <i :class="[{'fa fa-toggle-off': !starch, 'fa fa-toggle-on': starch}]" 
+                            @click.prevent="toggleSwitch('starch')">
+                        </i>
                     </span>
                 </div>
                 <div class="preferences-head">
                     <p>Light Starch</p>
-                    <span>
-                        <i class="fa fa-toggle-off" v-if="!toggleOn" @click.prevent="toggleSwitch()"></i>
-                        <i class="fa fa-toggle-on" v-if="toggleOn" @click.prevent="toggleSwitch()"></i>
+                    <span >
+                        <i :class="[{'fa fa-toggle-off': !lightStarch, 'fa fa-toggle-on': lightStarch}]" 
+                            @click.prevent="toggleSwitch('lightStarch')">
+                        </i>
                     </span>
                 </div>
                 <div class="preferences-head">
                     <p>No Starch</p>
                     <span>
-                        <i class="fa fa-toggle-off" v-if="!toggleOn" @click.prevent="toggleSwitch()"></i>
-                        <i class="fa fa-toggle-on" v-if="toggleOn" @click.prevent="toggleSwitch()"></i>
+                        <i :class="[{'fa fa-toggle-off': !noStarch, 'fa fa-toggle-on': noStarch}]" 
+                            @click.prevent="toggleSwitch('noStarch')">
+                        </i>
                     </span>
                 </div>
             </div>
@@ -31,15 +34,17 @@
                 <div class="preferences-head">
                     <p>Hung</p>
                     <span>
-                        <i class="fa fa-toggle-off" v-if="!toggleOn" @click.prevent="toggleSwitch()"></i>
-                        <i class="fa fa-toggle-on" v-if="toggleOn" @click.prevent="toggleSwitch()"></i>
+                        <i :class="[{'fa fa-toggle-off': !hung, 'fa fa-toggle-on': hung}]" 
+                            @click.prevent="toggleSwitch('hung')">
+                        </i>
                     </span>
                 </div>
                 <div class="preferences-head">
                     <p>Fold</p>
                     <span>
-                        <i class="fa fa-toggle-off" v-if="!toggleOn" @click.prevent="toggleSwitch()"></i>
-                        <i class="fa fa-toggle-on" v-if="toggleOn" @click.prevent="toggleSwitch()"></i>
+                        <i :class="[{'fa fa-toggle-off': !fold, 'fa fa-toggle-on': fold}]" 
+                            @click.prevent="toggleSwitch('fold')">
+                        </i>
                     </span>
                 </div>
             </div>
@@ -63,12 +68,38 @@ export default {
             myStyle: {
                 backgroundColor: "#f0faff"
             },
-            toggleOn: false
+            starch: true,
+            lightStarch: false,
+            noStarch: false,
+            hung: false,
+            fold: true
         }
     },
     methods: {
-        toggleSwitch() {
-            this.toggleOn ? this.toggleOn = false : this.toggleOn = true
+        toggleSwitch(v) {
+            if (v == 'starch') {
+                this.starch =! this.starch
+                this.lightStarch = false
+                this.noStarch = false
+            }
+            if (v == 'lightStarch') {
+                this.lightStarch =! this.lightStarch
+                this.noStarch = false
+                this.starch = false
+            }
+            if (v == 'noStarch') {
+                this.noStarch =! this.noStarch
+                this.starch = false
+                this.lightStarch = false
+            }
+            if (v == 'hung') {
+                this.hung =! this.hung
+                this.fold = false
+            }
+            if (v == 'fold') {
+                this.fold =! this.fold
+                this.hung = false
+            }
         }
     },
     mounted() {

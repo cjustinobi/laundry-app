@@ -26,18 +26,19 @@
 #CMD ["npm", "start"]
 
 
-FROM node:8
+FROM node:11.10.1-alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR '/app'
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
 
+
 RUN npm install
-RUN npm run build
+#RUN npm run build
 # If you are building your code for production
 # RUN npm ci --only=production
 
@@ -45,4 +46,4 @@ RUN npm run build
 COPY . .
 
 EXPOSE 80
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start" ]

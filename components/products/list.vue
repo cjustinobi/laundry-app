@@ -1,8 +1,8 @@
 <template>
     <div class="all-products">
-        <div><products/></div>
-       
-        <!-- <div class="laundry-list-wrapper" >
+        <div><products v-if="user !== undefined && user.user_type !== 3"/></div>
+       <div><items @toogleSideLinks="toogleSideLinks"/></div>
+        <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                  <actions
                         v-if="user !== undefined && user.user_type == 3"
@@ -23,21 +23,28 @@
                     class="laundry-list-btn">Add to cart
                 </button>
             </div>
-        </div> -->
+        </div>
+
+        <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links">
+            <sideLinks @cancelLinks="cancelLinks"></sideLinks>
+        </div>
     </div>
 </template>
 
 <script>
     import Products from '~/components/guest/products'
+    import Items from '~/components/guest/items'
     import Actions from '~/components/shared/actions'
+    import SideLinks from '~/components/guest/sideLinks'
 
 export default {
 
-    components: { Products, Actions },
+    components: { Products, Items, Actions, SideLinks },
 
     data() {
         return {
-            api: '/api/products/'
+            api: '/api/products/',
+            sideLinks: true
         }
     },
 
@@ -46,8 +53,19 @@ export default {
             this.showForm = true;
             this.editDetail = this.products.find(product => product.id === i)
         },
-        removeItem(i) {
+        removeItem(i) { 
             this.$store.dispatch('products/removeItem', i)
+        },
+        toogleSideLinks() {
+            let x = document.getElementById('side-links')
+            if(x.style.display === 'block') {
+                x.style.display = 'none'
+            } else {
+                x.style.display = 'block'
+            }
+        },
+        cancelLinks() {
+            this.sideLinks = false
         }
     },
 
@@ -67,6 +85,8 @@ export default {
         display: grid;
         grid-template-rows: auto 1fr;
         min-height: 100vh;
+        position: relative;
+        top: 0;
     }
     .laundry-list-wrapper{
         display: grid;
@@ -116,6 +136,18 @@ export default {
     }
     .laundry-list-btn:hover{
         background-color: #f58b13;
+    }
+    .side-links{
+        position: fixed;
+        left: 50;
+        top: 250;
+        z-index: 1000;
+    }
+    #side-links{
+        display: none;
+    }
+    .hide-side-links{
+        display: none;
     }
 </style>
 

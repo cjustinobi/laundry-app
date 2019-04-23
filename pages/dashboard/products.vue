@@ -24,8 +24,8 @@
         </div>
 
         <div><all-products v-if="products"/></div>
-        <div><editAddress v-if="address"></editAddress></div>
-        <div><editPassword  v-if="password"></editPassword></div>
+        <div><editAddress v-if="address" class="insert-margin"></editAddress></div>
+        <div><editPassword  v-if="password" class="insert-margin"></editPassword></div>
         <div><subscriptions v-if="subscriptions"/></div>
         
         
@@ -104,7 +104,7 @@
         display: grid;
         grid-template-rows: 50px;
         min-height: 100vh;
-        grid-gap: 20px;
+        /* grid-gap: 20px; */
     }
     .product-tabs{
         display: grid;
@@ -125,6 +125,9 @@
     }
     .addColor{
         color: #e7b83f;
+    }
+    .insert-margin{
+        margin-top: 40px;
     }
     
   

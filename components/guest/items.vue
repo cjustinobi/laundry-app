@@ -3,7 +3,7 @@
         <div class="product-list">
             <div class="all-category">
                 <li class="product-links">All Categories</li> 
-                <i @click.prevent="(hideSideLinks)" class="fa fa-bars"></i>
+                <a href="#" @click.prevent="$emit('toogleSideLinks')"><i class="fa fa-bars"></i></a>
             </div>
             <li class="product-links">Subscriptions</li>
             <div class="yellow-demarcator"></div>
@@ -14,19 +14,19 @@
             <li class="product-links">Laundry</li>
         </div>
 
-        <div id="side-links"><sideLinks></sideLinks></div>
+        
         
     </div>
 </template>
 
 <script>
-    import SideLinks from '~/components/guest/sideLinks'
+    
 
     export default {
         
         layout: 'dashboard',
 
-        components: { SideLinks },
+        components: {  },
 
         data() {
             return {
@@ -35,16 +35,7 @@
                 },
             }
         },
-        methods: {
-            hideSideLinks() {
-                let x = document.getElementById('side-links')
-                if(x.style.display === 'none') {
-                    x.style.display = 'block'
-                } else {
-                    x.style.display = 'none'
-                }
-            }
-        },
+        
         mounted() {
             // document.body.style.background = "#e1f5fe";
         },
@@ -59,6 +50,7 @@
         display: grid;
         grid-template-rows: 40px;
         /* min-height: 100vh; */
+        position: relative;
     }
     .product-list{
         display: grid;
@@ -78,6 +70,7 @@
         display: grid;
         grid-template-columns: 1fr 50px;
         grid-gap: 15px;
+        position: relative;
     }
     .yellow-demarcator{
         height: 12px;
@@ -89,9 +82,7 @@
         display: grid;
         align-self: center;
     }
-    #side-links{
-        display: none;
-    }
+    
    
 
     @media (max-width: 1124px) {

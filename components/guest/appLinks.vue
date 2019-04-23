@@ -5,6 +5,7 @@
         <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Packages</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/projects' class='logo'>Services</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/' class='logo'>Blog</nuxt-link></li>
         <li class="nav-item login-list"><nuxt-link to='/login' class='logo'>Login</nuxt-link></li>
     </ul>
 </template>

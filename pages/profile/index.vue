@@ -1,6 +1,6 @@
 <template>
     <div class="edit-profile" :style="myStyle">
-        <div class="title"><h2>My Account</h2></div>
+        <!-- <div class="title"><h2>My Account</h2></div> -->
         <div class="edit-wrapper">
             <ul class="edit-list">
                 <li class="edit-links" @click.prevent="toggleTab('profile')">Profile</li>

@@ -20,8 +20,8 @@
                 <span v-if="wideMenu">My Orders</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/products' class='logo'>
-                <i class="fa fa-cart-plus" title="Products"></i>
-                <span v-if="wideMenu">Products</span>
+                <i class="fa fa-cart-plus" title="Items"></i>
+                <span v-if="wideMenu">Items</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
@@ -59,8 +59,8 @@
                 <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
             <nuxt-link to='/admin/products' class='logo'>
-                <i class="fa fa-cart-plus" title="Products"></i>
-                <span v-if="wideMenu">Products</span>
+                <i class="fa fa-cart-plus" title="Items"></i>
+                <span v-if="wideMenu">Items</span>
             </nuxt-link>
             <nuxt-link to='/admin/categories' class='logo'>
                 <i class="fa fa-list" title="Categories"></i>

@@ -6,10 +6,7 @@
             <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
         <div class="names">
-            <label for="">First name <br>
-                <input v-model="details.fullname" required>
-            </label>
-            <label for="" >Last Name <br>
+            <label for="">Full name <br>
                 <input v-model="details.fullname" required>
             </label>
         </div>
@@ -131,12 +128,10 @@
     }
     .names{
         display: grid;
-        grid-template-columns: 250px 250px;
-        justify-items: space-between;
-        grid-gap: 30px;
+        grid-template-columns: 530px;
     }
     .names input{
-        width: 190px;
+        width: 530px;
     }
     input{
         width: 530px;

@@ -36,7 +36,6 @@ export default {
             myStyle: {
                 backgroundColor: "#f0faff"
             },
-            insertMargin: true
         }
     },
     mounted() {

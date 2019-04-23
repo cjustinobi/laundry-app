@@ -1,6 +1,6 @@
 language: node_js
 node_js: 
-  - stable
+  - node
 cache:
   directories:
     - node_modules
@@ -12,8 +12,14 @@ branches:
     - master
     - dev-branch
 before_install:
-  - docker build . -t africinnovate-laundry:latest
-  - docker run -it --rm -p 80:3000 africinnovate-laundry
+  - docker build . -t cejowisz/africinnovate-laundry
+  - docker run -it --rm -p 80:3000 africinnovate-laundry /bin/bash
 
 before_deploy:
   - docker login -u "$DOCKER_USER" -p "$REGISTRY_PASS"
+
+deploy:
+    provider: script
+    script: docker push africinnovate-laundry
+    on:
+      branch: dev-branch

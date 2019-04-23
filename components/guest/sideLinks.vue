@@ -1,6 +1,9 @@
 <template>
     <div class="side-links" :style="myStyle">
         <div :class="{'side-list': toggleSideLinks}">
+            <div class="close-package">
+                <a href="#" @click.prevent="$emit('cancelLinks')"><i class="fa fa-window-close"></i></a>
+            </div>
             <nuxt-link to="/">Men</nuxt-link>
             <nuxt-link to="/">Women</nuxt-link>
             <nuxt-link to="/">Children</nuxt-link>
@@ -37,7 +40,7 @@
         display: grid;
         /* grid-template-rows: 1fr; */
         width: 200px;
-        height: 250px;
+        height: 300px;
     }
     a{
         text-decoration: none;
@@ -56,6 +59,17 @@
     .side-list a:active{
         background-color: #fcd982;
         border-right: 1px solid #8f6600;
+    }
+    .close-package{
+        display: grid;
+        justify-items: flex-end;
+        align-content: center;
+    }.close-package a{
+        color: rgb(245, 100, 100);
+    }
+    .close-package a:hover{
+        color: rgb(240, 59, 59);
+        transition: 0.3s ease-in;
     }
     
 

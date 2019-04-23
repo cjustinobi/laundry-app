@@ -1,11 +1,10 @@
 <template>
     <div class="main-head">
-        <div class="user-h3">
+        <!-- <div class="user-h3">
             <nuxt-link to='/'  class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
-            <!-- <h3>User Dashboard</h3> -->
         </div>
 
         <div class="user-view">
@@ -18,7 +17,6 @@
             </div>
             
             <div class="names">
-                <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
                 <i class="fa fa-user"></i> <p>Glory Agatevure</p>
             </div>
 
@@ -32,7 +30,7 @@
                     <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </template>
@@ -59,16 +57,6 @@ export default {
                 x.className.replace(" show", "")
             }
         },
-        // hideLinks(e) {
-        //     let el = document.getElementById("dropdown")
-        //     if(el.style.display = 'block') {
-        //         this.dropdown = true
-        //         // el.style.display = 'block'
-        //     }else {
-        //         this.dropdown = false
-        //         el.style.display = 'none'
-        //     }
-        // }
     },
     watch: {
         'route': function(e) {
@@ -127,7 +115,6 @@ export default {
         align-items: center;
         position: absolute;
         top: 20px;
-        /* right: 10px; */
         background-color: red;
         color: #fefefe;
         height: 12px;
@@ -174,7 +161,6 @@ export default {
         padding: 15px;
         border: 1px solid #fefefe;
         border-radius: 5px;
-        /* grid-gap: 15px; */
         background-color: #c7c7c7;
         transition: 0.6s ease-in;
     }
@@ -183,10 +169,6 @@ export default {
     }
     .dropdown-content a{
         text-decoration: none;
-    }
-    .dropdown-content a:hover,
-    .dropdown-content a:active{
-        /* color: rgb(207, 202, 240); */
     }
     
 

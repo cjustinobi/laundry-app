@@ -39,6 +39,9 @@ html,body {
 .hide-form{
     display: none;
 }
+.loading{
+    width: 22px;
+}
 .backdrop{
     position: fixed;
     top: 0;

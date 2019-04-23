@@ -37,9 +37,9 @@ WORKDIR /app
 COPY package.json ./
 
 
-RUN npm install node-gyp -g &&\
-npm install &&\
-#npm install --build-from-source=bcrypt && \
+#RUN npm install node-pre-gyp -g &&\
+RUN npm install &&\
+#npm install --build-from-source && \
 npm cache clean --force
 #RUN npm run build
 # If you are building your code for production

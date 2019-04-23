@@ -37,7 +37,8 @@ module.exports = {
     plugins: [
         { src: '~/plugins/axios' },
         { src: '~/plugins/user', ssr: false },
-        { src: '~/plugins/localStorage', ssr: false }
+        { src: '~/plugins/localStorage', ssr: false },
+        { src: '~/plugins/notification', ssr: false },
     ],
 
     /*

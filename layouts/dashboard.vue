@@ -1,5 +1,6 @@
 <template>
     <div class="dashboard-container">
+        <Notification/>
         <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
             <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
                 <sidebar @toggleMenu="adjustMenu"></sidebar>
@@ -69,8 +70,6 @@
             },
             // Hides the drawer on the Dashboard
             '$route': function(e) {
-                // let slideDrawUp = document.getElementById('draw-down')
-                // slideDrawUp.style.animationName = "hide"
                 this.hideDrawer = true
             }
         }

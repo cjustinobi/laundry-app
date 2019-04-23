@@ -26,10 +26,10 @@
 #CMD ["npm", "start"]
 
 
-FROM node:11.10.1-alpine
+FROM node:alpine
 
 # Create app directory
-WORKDIR '/app'
+WORKDIR /app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -37,7 +37,10 @@ WORKDIR '/app'
 COPY package.json ./
 
 
-RUN npm install
+RUN npm install node-gyp -g &&\
+npm install &&\
+#npm install --build-from-source=bcrypt && \
+npm cache clean --force
 #RUN npm run build
 # If you are building your code for production
 # RUN npm ci --only=production

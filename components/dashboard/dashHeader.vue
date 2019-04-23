@@ -1,6 +1,6 @@
 <template>
     <div class="main-head">
-        <!-- <div class="user-h3">
+        <div class="user-h3">
             <nuxt-link to='/'  class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
@@ -30,7 +30,7 @@
                     <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
                 </div>
             </div>
-        </div> -->
+        </div>
 
     </div>
 </template>

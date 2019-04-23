@@ -13,15 +13,17 @@
             </div>
         </div>
 
+        <div><paymentpage/></div>
     </div>
 </template>
 
 <script>
-    
+    import Paymentpage from '~/components/guest/paymentpage'
 
     export default {
         
         layout: 'dashboard',
+        components: { Paymentpage },
 
         data() {
             return {

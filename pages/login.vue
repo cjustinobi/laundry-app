@@ -1,6 +1,5 @@
 <template>
     <div class="login">
-        <notification :error="error" :success="success" :message="message"></notification>
 
         <div class="elegant-image">
             <img src="~/assets/images/EL_logo_3.png" alt="Elegant Laundry">
@@ -20,7 +19,8 @@
         <div class="login-sect">
             <button @click="signIn" class="login-button ">
                 <i class="fa fa-sign-in"></i> 
-                {{LoginText}}
+                <span v-if="!loading">Login</span>
+                <img v-else="" src="~/assets/images/loading.gif" class="loading" alt="elegant image">
             </button>
             <span class="pw">Forgot your password?</span>
         </div>
@@ -36,21 +36,16 @@
 </template>
 
 <script>
-    import  Notifications  from '~/mixins/notifications'
-    import  Notification  from '~/components/shared/notification'
 
 export default {
 
     name: 'login',
-    mixins: [Notifications],
 
-    components: { Notification },
     data() {
         return {
             email: '',
             password: '',
-            LoginText: 'Login',
-            errors: null,
+            loading: false,
             eyeSlash: false
         }
     },
@@ -71,15 +66,15 @@ export default {
         },
       
         async signIn() {
-            this.LoginText = 'loading ...'
-
+            this.loading = true
             try {
                 await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
                 return this.$router.push('/dashboard')
             } catch (err) {
-                this.LoginText = 'Login'
-                this.message = res.response.data.error
-                this.error = true
+                this.loading = false
+                this.$store.dispatch('notifications/setStatus',
+                    { messages: ['invalid credentials'], state: 'error' }
+                )
             }
         }
     },

@@ -2,7 +2,7 @@ const User = require('../../models').user
 const Plan  = require('../../models').plan
 const jwt = require('jsonwebtoken')
 const jwtConfig = require('../../config/jwt')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 function jwtSignUser(user) {
     const ONE_WEEK = 60 * 60 * 24 * 7

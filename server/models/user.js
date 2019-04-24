@@ -1,6 +1,6 @@
 // const Promise = require('bluebird')
 // const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const saltRounds = 10
 
 

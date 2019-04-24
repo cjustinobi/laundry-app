@@ -61,6 +61,15 @@
         align-items: center;
     }
     .item-head{
-        
+        background-color: #fefefe;
+    }
+    .number{
+        background-color: #fefefe;
+    }
+    .amount{
+        background-color: #114e9e;
+        color: #fefefe;
+        display: grid;
+        justify-items: center;
     }
 </style>

@@ -1,12 +1,11 @@
 <template> 
     <div class="sign-up">
-        <notification :error="error" :success="success" :message="message"></notification>
 
         <div class="elegant-image">
             <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
         <div class="names">
-            <label for="">Full name <br>
+            <label for="">First name <br>
                 <input v-model="details.fullname" required>
             </label>
         </div>
@@ -17,7 +16,10 @@
             <input v-model="details.phone" required>
         </label>
         <label for="">Plan ID <br>
-            <input v-model="details.plan_id" required>
+            <select v-model="details.plan_id" required>
+                <option disabled>Select package</option>
+                <option v-for="(plan, i) in plans" :key="i" :value="plan.id">{{ plan.name }}</option>
+            </select>
         </label>
         <div class="password-wrapper">
             <label for="">Password <br>
@@ -33,7 +35,7 @@
         <div class="sign-up-sect">
             <button @click.prevent="signUp" class="sign-up-button">
                 <span v-if="!loading" ><i class="fa fa-user"></i> Register</span>
-                <img v-else="" src="~/assets/images/loading.gif" alt="">
+                <img v-else="" class="loading" src="~/assets/images/loading.gif" alt="">
             </button>
             <small class="account">
                 <nuxt-link to="/login">Already have an account?</nuxt-link>
@@ -45,15 +47,10 @@
 
 <script>
 
-    import  Notifications  from '~/mixins/notifications'
-    import  Notification  from '~/components/shared/notification'
-
-
     export default {
-        name: 'signUp',
-        mixins: [Notifications],
 
-        components: { Notification },
+        name: 'signUp',
+
         data() {
             return {
                 details: {
@@ -61,13 +58,15 @@
                     email: '',
                     phone: '',
                     password: '',
-                    plan_id: '',
+                    plan_id: 'Select package',
                 },
                 eyeSlash: false,
                 loading: false,
             }
         },
+
         methods: {
+
             async signUp() {
                 this.loading = true
                 try {
@@ -75,11 +74,13 @@
                     this.$router.push('/login')
                 } catch (e) {
                     this.loading = false
-                    this.message = e.response.data.error
-                    return this.error = true
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: [e.response.data.error], state: 'error' }
+                    )
 
                 }
             },
+
             toggleEyeSlash() {
                 let el = document.getElementById("password")
                 if(el.type === 'password'){
@@ -90,8 +91,16 @@
                 return this.eyeSlash = false
             }
         },
+
+        computed: {
+            plans() {
+                return this.$store.getters['plans/allPlans']
+            }
+        },
+
         mounted() {
             document.body.style.background = "#fefefe";
+            this.$store.dispatch('plans/getPlans')
         },
 
         destroyed() {

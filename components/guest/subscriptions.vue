@@ -21,8 +21,8 @@
                 <div class="payment-method">
                     <h4>Payment Method</h4>
                     <div class="payment-sect">
-                        <div><input type="checkbox" name="" id=""> Card Payment</div>
-                        <div><input type="checkbox" name="" id=""> Bank Transfer</div>
+                        <div><input type="checkbox" class="check-box"> Card Payment</div>
+                        <div><input type="checkbox" class="check-box"> Bank Transfer</div>
                     </div>
                     <p>Support only Naira cards</p>
                 </div>
@@ -197,6 +197,9 @@
     }
     .confirm-order:hover{
         background-color: #f58b13;
+    }
+    .check-box{
+        color: #114e9e;
     }
    
     @media (max-width: 767px) {

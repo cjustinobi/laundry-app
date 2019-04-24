@@ -9,7 +9,7 @@
                         <p>Eket, Akwa Ibom State</p>
                     </div>
                     <div>
-                        <div class="edit-address"><h4>Pick-up Address</h4> <i class="fa fa-edit"></i></div>
+                        <div class="edit-address"><h4>Delivery Address</h4> <i class="fa fa-edit"></i></div>
                         <p>30, Afaha Uqua road</p>
                         <p>Eket, Akwa Ibom State</p>
                     </div>
@@ -17,14 +17,12 @@
                 <div class="line-demarcator"></div>
                  <div class="pick-address">
                     <div>
-                        <div class="edit-address"><h4>Pick-up Address</h4> <i class="fa fa-edit"></i></div>
-                        <p>30, Afaha Uqua road</p>
-                        <p>Eket, Akwa Ibom State</p>
+                        <div class="edit-address"><h4>Estimated collection time</h4> <i class="fa fa-edit"></i></div>
+                        <p>02:00PM - 04:00PM on 19th Mar, 2019</p>
                     </div>
                     <div>
-                        <div class="edit-address"><h4>Pick-up Address</h4> <i class="fa fa-edit"></i></div>
-                        <p>30, Afaha Uqua road</p>
-                        <p>Eket, Akwa Ibom State</p>
+                        <div class="edit-address"><h4>Estimated delivery time</h4> <i class="fa fa-edit"></i></div>
+                        <p>02:00PM - 04:00PM on 19th Mar, 2019</p>
                     </div>
                 </div>    
                 <div class="payment-method">
@@ -48,12 +46,45 @@
                 </div>
             </div> 
             <div class="cart-summary">
-
+                <div class="cart"><h4>Cart Summary</h4></div>
+                <div class="cart-inner">
+                    <div class="total">
+                        <p>Total</p>
+                        <p>N3000</p>
+                        <p>Delivery charge</p>
+                        <p>N1000</p>
+                        <p>Grand Total</p>
+                        <p>N4000</p>
+                    </div>
+                    <div class="gift"><input type="checkbox" id=""> I have a coupon/Gift card</div>
+                    <div>
+                        <img src="~assets/images/mastercard.png" alt="Master Card">
+                        <img src="~assets/images/visa.png" alt="Visa Card">
+                        <img src="~assets/images/verve.jpg" alt="Verve Card">
+                    </div>
+                    <button class="pay-now">Pay Now</button>
+                </div>
             </div>
         </div>
 
         <div class="verify-cart">
-
+            <div class="cart-items"><h4>Verify Cart Items</h4></div>
+            <div class="sub-heading">
+                <p>#</p>
+                <p>Product</p>
+                <p>Description</p>
+                <p>Unit Price</p>
+                <p>Quantity</p>
+                <p>Total</p>
+            </div>
+            <div class="table-data">
+                <p>1</p>
+                <img class="table-img" src="~assets/images/EL_laundry.png" alt="Elegant Image">
+                <p>Long sleeve shirt</p>
+                <p>N15000</p>
+                <p><i class="fa fa-plus-square"></i> 2 <i class="fa fa-minus-square"></i></p>
+                <p>N30,000</p>
+            </div>
         </div>
 
         <div class="btn-container">
@@ -113,8 +144,8 @@
     .payment-container{
         display: grid;
         min-height: 100vh;
-        grid-template-rows: 300px 100px 60px;
-        grid-gap: 20px;
+        grid-template-rows: 300px 120px 60px;
+        grid-gap: 40px;
     }
     .address-time-container{
         display: grid;
@@ -144,29 +175,33 @@
         grid-template-columns: 1fr 50px;
         margin-bottom: 8px;
     }
+    .fa-edit{
+        color: #e7b83f;
+        cursor: pointer;
+    }
     .line-demarcator{
         background-color: rgb(194, 194, 194);
         height: 1px;
     }
     .cart-summary{
         display: grid;
+        grid-template-rows: 50px 1fr;
         height: 300px;
         color: #114e9e;
         background-color: #fefefe;
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
         margin-right: 40px;
-        padding: 15px;
     }
     .verify-cart{
         display: grid;
-        height: 90px;
+        height: 120px;
         color: #114e9e;
         background-color: #fefefe;
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
         margin: 0 40px 40px 40px;
-        padding: 15px;
+        /* padding: 15px; */
     }
     .btn-container{
         display: grid;
@@ -180,6 +215,7 @@
         outline: none;
         border: none;
         transition: 0.8s ease-in;
+        box-shadow: 5px 5px 15px grey;
     }
     .add-btn:hover{
         background-color: #053472;
@@ -208,6 +244,81 @@
     }
     .change-color{
         color: #e7b83f;
+    }
+    .cart{
+        height: 40px;
+        background-color: rgb(241, 241, 241);
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+    .cart-inner{
+        padding: 15px;
+        display: grid;
+        grid-template-rows: 90px 40px 40px 50px;
+        align-items: center;
+    }
+    .total{
+        display: grid;
+        grid-template: repeat(3, 30px) / 1fr 60px;
+    }
+    .gift{
+        color: #e7b83f;
+    }
+    img{
+        width: 20px;
+    }
+    .pay-now{
+        height: 40px;
+        width: 200px;
+        padding: 10px;
+        background-color: #e7b83f;
+        color: #fefefe;
+        font-size: 17px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+        box-shadow: 5px 5px 15px grey;
+    }
+    .pay-now:hover{
+        background-color: #f58b13;
+    }
+    .cart-items{
+        background-color: rgb(241, 241, 241);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        height: 35px;
+    }
+    .sub-heading{
+        display: grid;
+        grid-template-columns: 60px repeat(5, auto);
+        height: 40px;
+        align-items: center;
+        justify-items: center;
+        color: #114e9e;
+    }
+    .table-data{
+        display: grid;
+        grid-template-columns: 60px repeat(5, auto);
+        align-items: center;
+        justify-items: center;
+        color: #114e9e;
+        padding-bottom: 10px;
+    }
+    .fa-plus-square,
+    .fa-minus-square{
+        color: #e7b83f;
+        cursor: pointer;
+    }
+    .fa-plus-square:hover,
+    .fa-minus-square:hover{
+        color: #f58b13;
+        transition: 0.7s ease-in;
+    }
+    .table-img{
+        width: 40px;
     }
 
 

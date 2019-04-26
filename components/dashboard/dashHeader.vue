@@ -58,17 +58,14 @@ export default {
                 x.style.display = "none"
                 x.className.replace(" show", "")
             }
-        },
-        // hideLinks(e) {
-        //     let el = document.getElementById("dropdown")
-        //     if(el.style.display = 'block') {
-        //         this.dropdown = true
-        //         // el.style.display = 'block'
-        //     }else {
-        //         this.dropdown = false
-        //         el.style.display = 'none'
-        //     }
-        // }
+        }
+    },
+    computed: {
+        user() {
+            if (this.$store.state.auth.user) {
+                return this.$store.state.auth.user
+            }
+        }
     },
     watch: {
         'route': function(e) {

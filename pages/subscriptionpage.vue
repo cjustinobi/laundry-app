@@ -1,6 +1,6 @@
 <template>
     <div class="edit-subpage" :style="myStyle">
-        <div><subscriptions/></div>
+        <div><Subscriptions/></div>
 
         <div class="other-subscription">
           <h4>Other Subscription Plans</h4>
@@ -54,9 +54,5 @@
         color: #114e9e;
         margin: 20px 40px 0 40px;
         padding-left: 20PX;
-    }
-
-    @media (max-width: 767px) {
-        
     }
 </style>

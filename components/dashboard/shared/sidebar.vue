@@ -119,7 +119,15 @@
                 this.wideMenu = !this.wideMenu
                 this.$emit('toggleMenu', this.wideMenu)
             }
-        }
+        },
+
+        computed: {
+            user() {
+                if (this.$store.state.auth.user) {
+                    return this.$store.state.auth.user
+                }
+            }
+        },
     }
 
 </script>

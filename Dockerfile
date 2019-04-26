@@ -26,7 +26,7 @@
 #CMD ["npm", "start"]
 
 
-FROM node:alpine
+FROM node:11.10.1-alpine
 
 # Create app directory
 WORKDIR /app
@@ -37,13 +37,11 @@ WORKDIR /app
 COPY package.json ./
 
 
-#RUN npm install node-pre-gyp -g &&\
-RUN npm install &&\
-#npm install --build-from-source && \
+RUN npm install \
 npm cache clean --force
-#RUN npm run build
+
 # If you are building your code for production
-# RUN npm ci --only=production
+RUN npm ci --only=production
 
 # Bundle app source
 COPY . .

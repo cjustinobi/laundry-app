@@ -56,7 +56,15 @@ export default {
                 x.style.display = "none"
                 x.className.replace(" show", "")
             }
-        },
+        }
+    },
+    computed: {
+        user() {
+            if (this.$store.state.auth.user) {
+                return this.$store.state.auth.user
+            }
+        }
+
     },
     watch: {
         'route': function(e) {

@@ -1,7 +1,6 @@
 <template>
     <div class="plan-editor-container">
         <div class="editor">
-            <notification :error="error" :success="success" :message="message"></notification>
             <form class="form">
                 <div class="close-package">
                     <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
@@ -29,9 +28,6 @@
 </template>
 
 <script>
-
-    import  Notifications  from '~/mixins/notifications'
-    import  Notification  from '~/components/shared/notification'
     import  FormElements  from '~/mixins/formElements'
 
     export default {
@@ -41,9 +37,7 @@
             'showForm'
         ],
 
-        mixins: [FormElements, Notifications],
-
-        components: { Notification },
+        mixins: [FormElements],
 
         data() {
             return { 
@@ -67,16 +61,18 @@
                     await this.$store.dispatch('products/store', this.details)
                     this.isLoading = false
                     this.clearFields(this.details)
-                    this.message = 'product successfully saved'
-                    this.success = true
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: ['product successfully saved'], state: 'success' }
+                    )
                     this.$store.dispatch('products/getProducts')
                     this.$emit('cancelForm')
 
                 } catch (e) {
 
                     this.isLoading = false
-                    this.message = e.response.data.error
-                    this.error = true
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: [e.response.data.error], state: 'error' }
+                    )
                 }
             },
 

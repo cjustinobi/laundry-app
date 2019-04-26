@@ -1,6 +1,5 @@
 <template>
     <div class="action-container">
-        <notification :success="success" :error="error"></notification>
         <div :class="[{'trash-edit-product': productList}, {'trash-edit-package': !productList}]" 
             v-if="selectedId && selectedId == itemId">
             <i class="fa fa-eye"></i>
@@ -19,16 +18,9 @@
 
 <script>
 
-    import Notifications from '~/mixins/notifications'
-    import Notification from '~/components/shared/notification'
-
     export default {
 
         props: ['itemId', 'api'],
-
-        components: { Notification },
-
-        mixins: [Notifications],
 
         data() {
             return {
@@ -47,11 +39,12 @@
             async delItem(i) {
                 try {
                     await this.$store.dispatch('shared/deleteItem', {i, api: this.api})
-//                    this.messages.push('item removed')
-                    this.success = true
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: ['item removed'], status: 'success' })
                     this.$emit('removeItem', i)
                 } catch (e) {
-//                    this.messages.push(e.response.data.error)
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: [e.response.data.error], status: 'error' })
                     this.error = true
                 }
             },
@@ -67,7 +60,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
     .action-container{
         position: relative;
     }

@@ -48,7 +48,7 @@ module.exports = {
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
         '@nuxtjs/pwa',
-        // '@nuxtjs/style-resources',
+        '@nuxtjs/style-resources',
     ],
     /*
     ** Axios module configuration
@@ -67,7 +67,7 @@ module.exports = {
         extractCSS: true,
         styleResources: {
             scss: [
-                './assets/scss/*.scss'
+                './assets/scss/_mixins.scss'
             ]
         },
         extend(config, ctx) {

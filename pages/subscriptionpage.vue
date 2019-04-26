@@ -1,6 +1,6 @@
 <template>
     <div class="edit-subpage" :style="myStyle">
-        <div><subscriptions/></div>
+        <div><Subscriptions/></div>
 
         <div class="other-subscription">
           <h4>Other Subscription Plans</h4>

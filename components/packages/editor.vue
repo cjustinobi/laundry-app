@@ -1,7 +1,6 @@
     <template>
     <div class="plan-editor-container">
         <div class="editor">
-            <notification :error="error" :success="success" :message="message"></notification>
             <form class="form">
                 <div class="close-package">
                     <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
@@ -38,17 +37,15 @@
 <script>
 
     import Multiselect from 'vue-multiselect'
-    import Notifications  from '~/mixins/notifications'
-    import Notification  from '~/components/shared/notification'
     import FormElements  from '~/mixins/formElements'
 
     export default {
 
         props:['editDetail', 'showForm'],
 
-        mixins: [FormElements, Notifications],
+        mixins: [FormElements],
 
-        components: { Multiselect, Notification },
+        components: { Multiselect },
 
         data() {
             return {
@@ -72,15 +69,14 @@
                     if (res) {
                         this.isLoading = false
                         this.clearFields(this.details)
-                        this.message = 'benefit successfully saved'
-                        this.success = true
+                        this.$store.dispatch('notifications/setStatus',
+                            { messages: ['benefit successfully saved'], status: 'success' })
                         this.$emit('cancelForm')
                     }
                 } catch (e) {
-
                     this.isLoading = false
-                    this.message = e.response.data.error
-                    this.error = true
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: [e.response.data.error], status: 'error' })
                 }
             },
 
@@ -96,7 +92,6 @@
             this.$store.dispatch('benefits/getBenefits')
         },
 
-
         watch: {
             editDetail: function(e){
                 e ? this.details = e : ''
@@ -107,6 +102,7 @@
 </script>
 
 <style scoped>
+    @import '~/node_modules/vue-multiselect/dist/vue-multiselect.min.css';
     .plan-editor-container{
         position: relative;
     }
@@ -206,9 +202,6 @@
     @media (min-width: 768px) {
         
     }
-</style>
-<style>
-    @import '~/node_modules/vue-multiselect/dist/vue-multiselect.min.css';
 </style>
 
 

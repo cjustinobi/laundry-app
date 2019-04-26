@@ -1,7 +1,7 @@
 {
-  "name": "water",
+  "name": "ElegantLaundry",
   "version": "1.0.0",
-  "description": "NGO water project",
+  "description": "A Laundry app",
   "author": "Cejowisz",
   "private": true,
   "scripts": {
@@ -27,7 +27,7 @@
     "js-cookie": "^2.2.0",
     "jsonwebtoken": "^8.5.0",
     "multer": "^1.4.1",
-    "nuxt": "^2.6.2",
+    "nuxt": "^2.6.3",
     "pg": "^7.8.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.42.0",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^0.1.2",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0"

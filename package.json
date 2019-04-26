@@ -1,7 +1,7 @@
 {
-  "name": "water",
+  "name": "ElegantLaundry",
   "version": "1.0.0",
-  "description": "NGO water project",
+  "description": "A Laundry app",
   "author": "Cejowisz",
   "private": true,
   "scripts": {

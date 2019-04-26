@@ -2,7 +2,8 @@
     <div class="items" :style="myStyle">
         <div class="product-list">
             <div class="all-category">
-                <li class="product-links">All Categories</li> <i class="fa fa-bars"></i>
+                <li class="product-links">All Categories</li> 
+                <a href="#" @click.prevent="$emit('toogleSideLinks')"><i class="fa fa-bars"></i></a>
             </div>
             <li class="product-links">Subscriptions</li>
             <div class="yellow-demarcator"></div>
@@ -12,17 +13,20 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
+
+        
         
     </div>
 </template>
 
 <script>
+    
 
     export default {
         
         layout: 'dashboard',
 
-        components: {},
+        components: {  },
 
         data() {
             return {
@@ -31,6 +35,7 @@
                 },
             }
         },
+        
         mounted() {
             // document.body.style.background = "#e1f5fe";
         },
@@ -45,6 +50,7 @@
         display: grid;
         grid-template-rows: 40px;
         /* min-height: 100vh; */
+        position: relative;
     }
     .product-list{
         display: grid;
@@ -64,6 +70,7 @@
         display: grid;
         grid-template-columns: 1fr 50px;
         grid-gap: 15px;
+        position: relative;
     }
     .yellow-demarcator{
         height: 12px;
@@ -75,6 +82,7 @@
         display: grid;
         align-self: center;
     }
+    
    
 
     @media (max-width: 1124px) {

@@ -1,6 +1,5 @@
 <template>
     <div class="dashboard-container">
-        <Notification/>
         <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
             <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
                 <sidebar @toggleMenu="adjustMenu"></sidebar>
@@ -8,7 +7,10 @@
             </aside>
             <div class="content">
                 <dash-header @showDrawer="hideDrawer = false"></dash-header>
-                <div class="nuxt-rend"><nuxt/></div>
+                <div class="nuxt-rend">
+                    <notification/>
+                    <nuxt/>
+                </div>
             </div>
         </div>
 
@@ -29,6 +31,7 @@
     import QuickLinks from '~/components/guest/quickLinks'
     import AppFooter from '~/components/guest/appFooter'
     import Drawer from '~/components/dashboard/drawer'
+    
     export default {
         components: { Sidebar, DashHeader,QuickLinks, AppFooter, Drawer },
         middleware: ['check-auth'],

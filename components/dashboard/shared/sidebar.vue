@@ -12,7 +12,6 @@
         </div>
 
         <div
-                v-if="user !== undefined && user.user_type !== 3"
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>
@@ -20,8 +19,8 @@
                 <span v-if="wideMenu">My Orders</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/products' class='logo'>
-                <i class="fa fa-cart-plus" title="Products"></i>
-                <span v-if="wideMenu">Products</span>
+                <i class="fa fa-cart-plus" title="Items"></i>
+                <span v-if="wideMenu">Items</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
@@ -51,7 +50,6 @@
         </div>
 
         <div
-                v-if="user !== undefined && user.user_type == 3"
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>
@@ -59,8 +57,8 @@
                 <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
             <nuxt-link to='/admin/products' class='logo'>
-                <i class="fa fa-cart-plus" title="Products"></i>
-                <span v-if="wideMenu">Products</span>
+                <i class="fa fa-cart-plus" title="Items"></i>
+                <span v-if="wideMenu">Items</span>
             </nuxt-link>
             <nuxt-link to='/admin/categories' class='logo'>
                 <i class="fa fa-list" title="Categories"></i>
@@ -159,11 +157,6 @@
         background-color: #fad370;
         border-right: 1px solid #8f6600;
     }
-    /* .sidebar-nav a:active{
-        color: #b4b4b4;
-        
-    } */
-
     .center-nav{
         display: grid;
         grid-template-rows: 45px;

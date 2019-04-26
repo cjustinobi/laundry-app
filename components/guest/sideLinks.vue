@@ -1,0 +1,79 @@
+<template>
+    <div class="side-links" :style="myStyle">
+        <div :class="{'side-list': toggleSideLinks}">
+            <div class="close-package">
+                <a href="#" @click.prevent="$emit('cancelLinks')"><i class="fa fa-window-close"></i></a>
+            </div>
+            <nuxt-link to="/">Men</nuxt-link>
+            <nuxt-link to="/">Women</nuxt-link>
+            <nuxt-link to="/">Children</nuxt-link>
+            <nuxt-link to="/">Babies</nuxt-link>
+        </div>
+    </div>
+</template>
+
+<script>
+
+    export default {
+        
+        components: {},
+
+        data() {
+            return {
+                myStyle: {
+                    backgroundColor: "#d2eaf7"
+                },
+                toggleSideLinks: true
+            }
+        },
+        mounted() {
+            // document.body.style.background = "#e1f5fe";
+        },
+        destroyed() {
+            document.body.style.background = "none";
+        }
+    }
+</script>
+
+<style scoped>
+    .side-links{
+        display: grid;
+        /* grid-template-rows: 1fr; */
+        width: 200px;
+        height: 300px;
+    }
+    a{
+        text-decoration: none;
+        color: #114e9e;
+    }
+    .side-list{
+        display: grid;
+        grid-template-rows: 50px;
+        margin-top: 30px;
+        align-items: center;
+    }
+    .side-list a{
+        padding: 14px 10px;
+    }
+    .side-list a:hover,
+    .side-list a:active{
+        background-color: #fcd982;
+        border-right: 1px solid #8f6600;
+    }
+    .close-package{
+        display: grid;
+        justify-items: flex-end;
+        align-content: center;
+    }.close-package a{
+        color: rgb(245, 100, 100);
+    }
+    .close-package a:hover{
+        color: rgb(240, 59, 59);
+        transition: 0.3s ease-in;
+    }
+    
+
+    @media (max-width: 767px) {
+       
+    }
+</style>

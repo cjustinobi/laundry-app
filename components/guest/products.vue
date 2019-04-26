@@ -4,18 +4,18 @@
         <div class="search-laundry">
             <input type="search" placeholder="Search for laundry items"><button class="search-btn">Search</button>
         </div>
-        <div><items/></div>
+        
     </div>
 </template>
 
 <script>
-    import Items from '~/components/guest/items'
+    
 
     export default {
         
         layout: 'dashboard',
 
-        components: { Items },
+        components: {  },
 
         data() {
             return {
@@ -37,7 +37,7 @@
 <style scoped>
     .product{
         display: grid;
-        grid-template-rows: 50px 70px 40px;
+        grid-template-rows: 50px 70px;
     }
     .fa{
         cursor: pointer;

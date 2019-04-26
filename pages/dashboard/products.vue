@@ -17,16 +17,16 @@
                 <i class="fa fa-check-circle"></i> Time
             </div>
             <div class="demarcator"></div>
-            <div class="fa" @click.prevent="toggleTab('subscriptions')"
-                :class="{'addColor': subscriptions}">
+            <div class="fa" @click.prevent="toggleTab('paymentpage')"
+                :class="{'addColor': paymentpage}">
                 <i class="fa fa-check-circle"></i> Payment
             </div>
         </div>
 
         <div><all-products v-if="products"/></div>
-        <div><editAddress v-if="address"></editAddress></div>
-        <div><editPassword  v-if="password"></editPassword></div>
-        <div><subscriptions v-if="subscriptions"/></div>
+        <div><editAddress v-if="address" class="insert-margin"></editAddress></div>
+        <div><editPassword  v-if="password" class="insert-margin"></editPassword></div>
+        <div><paymentpage v-if="paymentpage" class="insert-margin"/></div>
         
         
     </div>
@@ -36,7 +36,7 @@
     import AllProducts from '~/components/products/list'
     import EditAddress from '~/components/guest/editAddress'
     import EditPassword from '~/components/guest/editPassword'
-    import Subscriptions from '~/components/guest/subscriptions'
+    import Paymentpage from '~/components/guest/paymentpage'
 
     export default {
 
@@ -46,7 +46,7 @@
             AllProducts,
             EditAddress, 
             EditPassword,
-            Subscriptions
+            Paymentpage
         },
         data() {
             return {
@@ -56,7 +56,7 @@
                 products: true,
                 address: false,
                 password: false,
-                subscriptions: false
+                paymentpage: false
             }
         },
         methods: {
@@ -64,26 +64,26 @@
                 if(val == 'products') {
                     this.address =false
                     this.password = false
-                    this.subscriptions = false
+                    this.paymentpage = false
                     return this.products = true
                 }
                 if(val == 'address') {
                     this.password =false
-                    this.subscriptions =false
+                    this.paymentpage =false
                     this.products = false
                     return this.address = true
                 }
                 if(val == 'password') {
-                    this.subscriptions =false
+                    this.paymentpage =false
                     this.products =false
                     this.address = false
                     return this.password = true
                 }
-                if(val == 'subscriptions') {
+                if(val == 'paymentpage') {
                     this.products =false
                     this.address = false
                     this.password = false
-                    return this.subscriptions = true
+                    return this.paymentpage = true
                 }
             },
         },
@@ -104,7 +104,7 @@
         display: grid;
         grid-template-rows: 50px;
         min-height: 100vh;
-        grid-gap: 20px;
+        /* grid-gap: 20px; */
     }
     .product-tabs{
         display: grid;
@@ -125,6 +125,9 @@
     }
     .addColor{
         color: #e7b83f;
+    }
+    .insert-margin{
+        margin-top: 60px;
     }
     
   

@@ -17,11 +17,11 @@
 </template>
 
 <script>
-    
 
     export default {
         
         layout: 'dashboard',
+        components: {  },
 
         data() {
             return {

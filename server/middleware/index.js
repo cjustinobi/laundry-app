@@ -4,7 +4,7 @@ module.exports = {
         if (req.headers.user_type == 3) {
             next()
         } else {
-            res.status(500).send('not permitted to do this')
+            res.status(500).send('you don\'t have the right to perform the action')
         }
     }
 }

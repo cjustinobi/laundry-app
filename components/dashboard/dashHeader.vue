@@ -5,7 +5,6 @@
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
-            <!-- <h3>User Dashboard</h3> -->
         </div>
 
         <div class="user-view">
@@ -18,7 +17,6 @@
             </div>
             
             <div class="names">
-                <!-- <img src="~assets/images/profile_pic.jpg" class="user-img" alt=""> -->
                 <i class="fa fa-user"></i> <p>Glory Agatevure</p>
             </div>
 
@@ -66,6 +64,7 @@ export default {
                 return this.$store.state.auth.user
             }
         }
+
     },
     watch: {
         'route': function(e) {
@@ -124,7 +123,6 @@ export default {
         align-items: center;
         position: absolute;
         top: 20px;
-        /* right: 10px; */
         background-color: red;
         color: #fefefe;
         height: 12px;
@@ -171,7 +169,6 @@ export default {
         padding: 15px;
         border: 1px solid #fefefe;
         border-radius: 5px;
-        /* grid-gap: 15px; */
         background-color: #c7c7c7;
         transition: 0.6s ease-in;
     }
@@ -180,10 +177,6 @@ export default {
     }
     .dropdown-content a{
         text-decoration: none;
-    }
-    .dropdown-content a:hover,
-    .dropdown-content a:active{
-        /* color: rgb(207, 202, 240); */
     }
     
 

@@ -50,9 +50,6 @@
         display: grid;
         height: 50px;
         align-content: center;
-        /* justify-content: center; */
-        /* align-items: center; */
-        /* justify-self: center; */
         justify-items: center;
         color: #fefefe;
         font-weight: 700;

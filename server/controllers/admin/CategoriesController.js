@@ -18,5 +18,22 @@ module.exports = {
             return res.status(400).send(err.message)
         }
 
-    }
+    },
+
+    destroy(req, res) {
+        return Category
+            .findById(req.params.id)
+            .then(category => {
+                if (!category) {
+                    return res.status(400).send({
+                        message: 'category not found',
+                    });
+                }
+                return category
+                    .destroy()
+                    .then(() => res.status(204).send())
+                    .catch((error) => res.status(400).send(error));
+            })
+            .catch((error) => res.status(400).send(error));
+    },
 }

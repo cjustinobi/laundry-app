@@ -1,10 +1,9 @@
 <template>
     <div class="sidebar-container">
-        <div :class="[{'sidebar-head': side}, {'minimized-sidebar': !side}]">
+        <!-- <div :class="[{'sidebar-head': side}, {'minimized-sidebar': !side}]">
             <nuxt-link to='/' class="brand-name">
                 <i v-if="!wideMenu" class="fa fa-home" title="Home"></i>
                 <img v-if="wideMenu" src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture">
-                <!-- <h1 v-if="wideMenu" class='wr-logo'>GPAT</h1> -->
             </nuxt-link>
             <a class='toggle-bar' @click.prevent="toggleMenu" title="Menu">
                 <i class='fa fa-bars' style="color: #fefefe"></i>
@@ -36,7 +35,7 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-        </div>
+        </div> -->
 
     </div>
 </template>
@@ -67,8 +66,6 @@
         min-height: 100vh;
         grid-template-rows: 60px 1fr;
         transition: .8s ease-out;
-        /* position: relative; */
-
     }
     .sidebar-nav {
         display: grid;
@@ -82,12 +79,10 @@
         text-decoration: none;
         color: #fefefe;
         padding: 14px 10px;
-        /* transition: .8s ease-out; */
     }
     .center-nav{
         display: grid;
         grid-auto-rows: 45px;
-        /* align-items: center; */
     }
     .center-nav a{
         padding-left: 30px;

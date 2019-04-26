@@ -6,12 +6,15 @@
           <h4>Other Subscription Plans</h4>
         </div>
 
+        <div><pay-stack/></div>
+
         <div><package-list></package-list></div>
     </div>
 </template>
 
 <script>
     import Subscriptions from '~/components/guest/subscriptions'
+    import PayStack from '~/components/guest/payStack'
     import PackageList from '~/components/packages/packagesList'
 
     export default {
@@ -20,6 +23,7 @@
 
         components: {
             Subscriptions,
+            PayStack,
             PackageList
         },
 

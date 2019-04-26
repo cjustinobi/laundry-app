@@ -61,15 +61,19 @@
             </label>
         </div>
 
-        <div class="btn-back"><button class="back"><i class="fa fa-angle-left"></i> Back</button></div>
+        <div class="btn-back"><button class="back"><i class="fa fa-angle-left"></i> &nbsp; Back</button></div>
+
+        <div><transaction-history/></div>
       
     </div>
 </template>
 
 <script>
+import TransactionHistory from '~/components/guest/transactionHistory'
     export default {
 
         layout: 'dashboard',
+        components: { TransactionHistory },
 
         data() {
             return {

@@ -1,5 +1,5 @@
 <template>
-    <div class="add-package" :style="myStyle">
+    <div class="add-package" :style="addPackage">
         <div class="btn-add">
             <button v-if="!showForm" class="create-btn" @click.prevent="showForm = true">ADD PACKAGE</button>
         </div>
@@ -34,7 +34,7 @@ export default {
 
     data() {
         return {
-            myStyle: { backgroundColor: "#f0faff" },
+            addPackage: { backgroundColor: "#f0faff" },
             showForm: false
         }
     },

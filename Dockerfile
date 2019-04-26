@@ -1,25 +1,18 @@
+FROM node:8.2.1
 
-FROM node:11.10.1-alpine AS builder
 
 ENV NODE_ENV=production
 ENV HOST 0.0.0.0
 
+RUN mkdir -p /app
+
+COPY . /app
+
 WORKDIR /app
 
-# Install app dependencies
-RUN apk update && apk upgrade && apk add git
+# Expose the app port
+EXPOSE 3000
 
-COPY --from=builder /app /usr/share/nginx/html
-
-FROM nginx
-
-ADD nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 80
-EXPOSE 443
-CMD nginx -g "daemon off;"
-
-COPY --from=builder /app /usr/share/nginx/html
 
 RUN npm install
 RUN npm run build

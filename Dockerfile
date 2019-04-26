@@ -6,7 +6,8 @@ ENV HOST 0.0.0.0
 
 WORKDIR /app
 
-COPY package*.json /app
+# Install app dependencies
+RUN apk update && apk upgrade && apk add git
 
 COPY --from=builder /app /usr/share/nginx/html
 

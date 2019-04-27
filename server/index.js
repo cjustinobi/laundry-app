@@ -36,7 +36,7 @@ async function start() {
         resave: false,
         saveUninitialized: false
     }))
-
+    require('./routes')(app)
     // Give nuxt middleware to express
     app.use(nuxt.render)
 
@@ -58,4 +58,4 @@ app.use(session({
     saveUninitialized: false
 }))*/
 
-require('./routes')(app)
+// require('./routes')(app)

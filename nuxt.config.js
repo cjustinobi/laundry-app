@@ -58,8 +58,8 @@ module.exports = {
     ** Axios module configuration
     */
     axios: {
-        // baseURL: 'localhost:3000/'
-        baseURL: 'http://159.65.241.148'
+        baseURL: 'localhost:3000/'
+        // baseURL: 'http://142.93.189.236'
     },
 
     /*

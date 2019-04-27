@@ -32,7 +32,7 @@ async function start() {
     app.use(bodyParser.urlencoded({extended: false}))
     app.use(cookieParser())
     app.use(session({
-        secret: process.env.sessionSecret,
+        secret: 'justin',
         resave: false,
         saveUninitialized: false
     }))

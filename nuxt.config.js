@@ -4,7 +4,9 @@ const pkg = require('./package')
 module.exports = {
     mode: 'universal',
     env: {
-        baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+        baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+        jwtSecret: 'justin',
+        sessionSecret: 'justin'
     },
     /*
     ** Headers of the page

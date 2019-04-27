@@ -3,7 +3,9 @@ const pkg = require('./package')
 
 module.exports = {
     mode: 'universal',
-
+    env: {
+        baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    },
     /*
     ** Headers of the page
     */
@@ -54,7 +56,7 @@ module.exports = {
     ** Axios module configuration
     */
     axios: {
-        // See https://github.com/nuxt-community/axios-module#options
+        baseUrl: 'http://159.65.241.148/'
     },
 
     /*

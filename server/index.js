@@ -28,6 +28,15 @@ async function start() {
         await builder.build()
     }
 
+    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(cookieParser())
+    app.use(session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false
+    }))
+
     // Give nuxt middleware to express
     app.use(nuxt.render)
 
@@ -40,13 +49,13 @@ async function start() {
 }
 start()
 
-app.use(bodyParser.json())
+/*app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
-}))
+}))*/
 
 require('./routes')(app)

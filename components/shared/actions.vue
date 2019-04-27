@@ -107,4 +107,7 @@
         top: 10px;
         cursor: pointer;
     }
+    .cc{
+        color: red;
+    }
 </style>

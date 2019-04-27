@@ -4,7 +4,7 @@ const pkg = require('./package')
 module.exports = {
     mode: 'universal',
     env: {
-        baseUrl: process.env.BASE_URL || 'http://localhost:4000'
+        baseUrl: process.env.BASE_URL || 'http://localhost:3000'
     },
     /*
     ** Headers of the page
@@ -56,7 +56,7 @@ module.exports = {
     ** Axios module configuration
     */
     axios: {
-        baseURL: 'http://159.65.241.148/'
+        baseURL: 'http://159.65.241.148'
     },
 
     /*

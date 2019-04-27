@@ -2,7 +2,6 @@
     <ul class='nav-list'>
         <li class="nav-item"><nuxt-link to='/about' class='logo'>About</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/contact' class='logo'>How It Works</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Packages</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/projects' class='logo'>Services</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/' class='logo'>Blog</nuxt-link></li>

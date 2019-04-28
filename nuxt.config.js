@@ -59,11 +59,16 @@ module.exports = {
     */
     axios: {
         // baseURL: 'localhost:3000/'
-        // proxy: true
-        baseURL: 'http://142.93.189.236'
+        proxy: true,
+        baseURL: 'http://142.93.189.236/'
     },
     proxy: {
-        // '/api': 'https://api.parse.com/'
+        // '/api': 'localhost:3000/'
+    },
+
+    server: {
+        host: '0.0.0.0', // default: localhost,
+        timing: false
     },
 
     /*

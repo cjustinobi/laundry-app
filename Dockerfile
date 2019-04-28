@@ -1,17 +1,17 @@
-FROM node:alpine
+#FROM node:8.2.1
 
 
-ENV NODE_ENV=production
-ENV HOST 0.0.0.0
+#ENV NODE_ENV=production
+#ENV HOST 0.0.0.0
 
-COPY . /app
+#COPY . /app
 
-WORKDIR /app
+#WORKDIR /app
 
 # Expose the app port
-EXPOSE 3000
+#EXPOSE 3000
 
 
-RUN npm install
-RUN npm run build
-CMD ["npm", "start"]
+#RUN npm install
+#RUN npm run build
+#CMD ["npm", "start"]

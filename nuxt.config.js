@@ -4,7 +4,6 @@ const pkg = require('./package')
 module.exports = {
     mode: 'universal',
     env: {
-        baseUrl: process.env.BASE_URL || 'http://localhost:3000',
         jwtSecret: 'justin',
         sessionSecret: 'justin'
     },
@@ -58,17 +57,7 @@ module.exports = {
     ** Axios module configuration
     */
     axios: {
-        // baseURL: 'localhost:3000/'
-        proxy: true,
         baseURL: 'http://142.93.189.236/'
-    },
-    proxy: {
-        // '/api': 'localhost:3000/'
-    },
-
-    server: {
-        host: '0.0.0.0', // default: localhost,
-        timing: false
     },
 
     /*

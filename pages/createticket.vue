@@ -53,9 +53,7 @@
             }
             
         },
-        mounted() {
-            // document.body.style.background = "#e1f5fe";
-        },
+
         destroyed() {
             document.body.style.background = "none";
         }

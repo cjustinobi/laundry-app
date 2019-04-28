@@ -101,8 +101,6 @@
         
         layout: 'dashboard',
 
-        
-
         data() {
             return {
                 myStyle: {

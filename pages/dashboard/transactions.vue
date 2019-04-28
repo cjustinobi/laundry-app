@@ -82,10 +82,7 @@ import TransactionHistory from '~/components/guest/transactionHistory'
                 },
                 paymode: 'Mode of Payment'
             }
-        },
-        methods: {
-          
-            },
+        }
         
     }
 </script>

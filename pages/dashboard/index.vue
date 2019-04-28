@@ -59,8 +59,6 @@
 
 <script>
 
-
-
 export default {
     layout: 'dashboard',
 }

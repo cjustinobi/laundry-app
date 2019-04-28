@@ -21,7 +21,6 @@
     export default {
         
         layout: 'dashboard',
-        components: {  },
 
         data() {
             return {

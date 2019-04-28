@@ -24,8 +24,6 @@
 import Editor from '~/components/products/editor'
 import AllProducts from '~/components/products/list'
 
-
-
 export default {
 
     layout: 'dashboard',

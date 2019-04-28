@@ -46,7 +46,6 @@
     import PackagesList from '~/components/packages/packagesList'
     import Usp from '~/components/guest/usp'
     import TopFaq from '~/components/guest/topFaq'
-    
 
     export default {
         components: { HowItWorks, PackagesList, Usp, TopFaq}

@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
     async store({ commit }, payload) {
         try {
-            let res = await this.$axios.$post('/api/benefits', { benefits: payload })
+            let res = await this.$axios.$post('benefits', { benefits: payload })
             commit('ADD_BENEFITS', res)
             return 'success'
         }
@@ -26,7 +26,7 @@ export const actions = {
 
     async getBenefits({ commit }) {
         try {
-            let benefits = await this.$axios.$get('/api/benefits')
+            let benefits = await this.$axios.$get('benefits')
             commit('ALL_BENEFITS', benefits)
             return 'success'
         }

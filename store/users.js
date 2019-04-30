@@ -13,7 +13,7 @@ export const mutations = {
 export const actions = {
     async getUsers({ commit }) {
         try {
-            let { data } = await this.$axios.$get('/api/users')
+            let { data } = await this.$axios.$get('users')
             commit ('GET_USERS', data)
         }
         catch (err) {

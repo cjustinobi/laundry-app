@@ -47,7 +47,7 @@
                 showForm: false,
                 editDetail: '',
                 showEditButton: false,
-                api: '/api/plans/',
+                api: 'plans/',
                 productList: false
             }
         },

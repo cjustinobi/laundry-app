@@ -77,7 +77,7 @@
             },
 
             async getCategories() {
-                this.categories = await this.$axios.$get('/api/categories')
+                this.categories = await this.$axios.$get('categories')
             },
 
             uploadFile(e) {

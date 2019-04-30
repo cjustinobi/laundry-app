@@ -43,7 +43,7 @@ export default {
 
     data() {
         return {
-            api: '/api/products/',
+            api: 'products/',
             sideLinks: true
         }
     },

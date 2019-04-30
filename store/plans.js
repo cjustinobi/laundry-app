@@ -21,9 +21,9 @@ export const actions = {
         let res = ''
         try {
             if (editMode === undefined) {
-                res = await this.$axios.$post('/api/plans', data)
+                res = await this.$axios.$post('plans', data)
             } else {
-                res = await this.$axios.$put(`/api/plans/${data.id}`, data)
+                res = await this.$axios.$put(`plans/${data.id}`, data)
             }
             commit('ADD_PLAN', res)
             return 'success'
@@ -35,7 +35,7 @@ export const actions = {
 
     async getPlans({ commit }) {
         try {
-            let plans = await this.$axios.$get('/api/plans')
+            let plans = await this.$axios.$get('plans')
             commit('ALL_PLANS', plans)
             return 'success'
         }

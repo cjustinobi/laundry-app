@@ -70,7 +70,7 @@
             async signUp() {
                 this.loading = true
                 try {
-                    await this.$axios.$post('/api/register', this.details)
+                    await this.$axios.$post('register', this.details)
                     this.$router.push('/login')
                 } catch (e) {
                     this.loading = false
@@ -82,7 +82,7 @@
             },
 
             toggleEyeSlash() {
-                let el = document.getElementById("password")
+                let el = document.getElementById('password')
                 if(el.type === 'password'){
                     el.type = 'text'
                     return this.eyeSlash = true

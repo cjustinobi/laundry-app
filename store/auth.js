@@ -19,7 +19,7 @@ export const mutations = {
 export const actions = {
     async signIn({ commit }, payload) {
         try {
-            let { user, token } = await this.$axios.$post('/api/login', payload)
+            let { user, token } = await this.$axios.$post('login', payload)
             commit('SET_TOKEN', token)
             commit('SET_USER', user)
             localStorage.setItem('user', JSON.stringify(user))

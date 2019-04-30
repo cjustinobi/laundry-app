@@ -1,6 +1,6 @@
-# water
+# laundry-front
 
-> NGO water project
+> My excellent Nuxt.js project
 
 ## Build Setup
 

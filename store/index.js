@@ -1,16 +1,6 @@
 import cookie from 'cookie'
 
-
 export const strict = false
-
-export const state = () => ({
-
-})
-
-
-export const mutations = {
-
-}
 
 export const actions = {
     nuxtServerInit ({commit}, {req}) {

@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
     async store({ commit }, payload) {
         try {
-            let res = await this.$axios.$post('/api/categories', { categories: payload })
+            let res = await this.$axios.$post('categories', { categories: payload })
             console.log('this is res from categories ' + res)
             commit('ADD_CATEGORIES', res)
             return 'success'
@@ -27,7 +27,7 @@ export const actions = {
 
     async getCategories({ commit }) {
         try {
-            let categories = await this.$axios.$get('/api/categories')
+            let categories = await this.$axios.$get('categories')
             commit('ALL_CATEGORIES', categories)
             return 'success'
         }

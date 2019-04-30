@@ -25,7 +25,7 @@ export const actions = {
 
         const config = { header: { 'content-type': 'multipart/form-data' }}
         try {
-            let res = await this.$axios.$post('/api/products', fd, config)
+            let res = await this.$axios.$post('products', fd, config)
             console.log(res)
         }
         catch(e) {
@@ -35,7 +35,7 @@ export const actions = {
 
     async getProducts({ commit }) {
         try {
-            let products = await this.$axios.$get('/api/products')
+            let products = await this.$axios.$get('products')
             commit('ALL_PRODUCTS', products)
             return 'success'
         }

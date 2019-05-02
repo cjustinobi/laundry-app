@@ -46,7 +46,7 @@
             padding: 10px 24px;
         }
         .blog-search{
-            max-width: 400px;
+            width: 70%;
             height: 40px;
             padding: 10px;
         }

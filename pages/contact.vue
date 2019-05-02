@@ -59,11 +59,13 @@
         align-items: center;
         text-align: center;
         background-color: #fefefe;
+        padding: 10px;
     }
     .quick-response{
         display: grid;
         align-items: center;
         text-align: center;
+        padding: 10px;
     }
     .message-area{
         display: grid;
@@ -71,6 +73,7 @@
         grid-gap: 100px;
         justify-content: center;
         margin: 0 30px 30px 30px;
+        padding: 10px;
     }
     .form-container{
         display: grid;
@@ -127,6 +130,14 @@
             grid-template-columns: 1fr;
             grid-gap: 50px;
             margin: 0 40px 30px 40px;
+        }
+        input{
+            width: 70%;
+            height: 30px;
+        }
+        #text-area{
+            width: 70%;
+            height: 150px;
         }
     }
 </style>

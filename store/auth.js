@@ -1,6 +1,4 @@
-
 import cookies from 'js-cookie'
-
 export const state = () => ({
     token: '',
     user: ''

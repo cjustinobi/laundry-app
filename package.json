@@ -12,13 +12,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^2.6.0",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "cookie": "^0.3.1",
+    "cross-env": "^5.2.0",
+    "js-cookie": "^2.2.0",
+    "nuxt": "^2.4.0",
     "vue-multiselect": "^2.1.4",
     "vuex-persistedstate": "^2.5.4"
   },

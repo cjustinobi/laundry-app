@@ -137,7 +137,7 @@
     }
     .names{
         display: grid;
-        grid-template-columns: 530px;
+        /* grid-template-columns: 530px; */
     }
     .names input{
         width: 530px;
@@ -223,10 +223,10 @@
             padding: 15px;
         }
         .names{
-            grid-template-columns: 170px 170px;
+            /* grid-template-columns: 370px; */
         }
         .names input{
-            width: 120px;
+            width: 370px;
         }
         input{
             width: 370px;

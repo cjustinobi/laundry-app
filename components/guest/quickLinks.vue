@@ -9,16 +9,16 @@
 
         <div class="quick-ls">
             <h4>Quick Links</h4>
-            <nuxt-link to="/volunteer">Pricing</nuxt-link>
-            <nuxt-link to="/projects">Services</nuxt-link>
-            <nuxt-link to="/projects">FAQ</nuxt-link>
+            <nuxt-link to="/pricing">Pricing</nuxt-link>
+            <nuxt-link to="/services">Services</nuxt-link>
+            <nuxt-link to="/faqList">FAQ</nuxt-link>
         </div>
 
         <div class="socials">
             <h4>Socials</h4>
             <div class="socials-links">
-                <a href="https://www.facebook.com/Waterreliefafrica"> <i class="fa fa-facebook fa-lg social-icons"></i></a>
-                <a href="https://www.twitter.com/Waterreliefafrica"> <i class="fa fa-twitter fa-lg social-icons"></i></a>
+                <a href="https://www.facebook.com/elegantlaundry"> <i class="fa fa-facebook fa-lg social-icons"></i></a>
+                <a href="https://www.twitter.com/elegantlaundry"> <i class="fa fa-twitter fa-lg social-icons"></i></a>
                 <a href="tel:2347051120971"> <i class="fa fa-whatsapp fa-lg social-icons"></i></a>
             </div>
         </div>

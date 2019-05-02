@@ -53,7 +53,7 @@ export default {
   ** Axios module configuration
   */
   axios: {
-      // baseURL: 'http://209.97.190.169/api/'
+      baseURL: 'localhost:9000/api/'
   },
     proxy: true,
 

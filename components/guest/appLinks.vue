@@ -2,9 +2,10 @@
     <ul class='nav-list'>
         <li class="nav-item"><nuxt-link to='/about' class='logo'>About</nuxt-link></li>
         <li class="nav-item"><nuxt-link to='/contact' class='logo'>How It Works</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/volunteer' class='logo'>Pricing</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/projects' class='logo'>Services</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/' class='logo'>Blog</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/pricing' class='logo'>Pricing</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/services' class='logo'>Services</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/contact' class='logo'>Contact</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/blog' class='logo'>Blog</nuxt-link></li>
         <li class="nav-item login-list"><nuxt-link to='/login' class='logo'>Login</nuxt-link></li>
     </ul>
 </template>

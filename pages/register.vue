@@ -1,6 +1,5 @@
 <template> 
     <div class="sign-up">
-
         <div class="elegant-image">
             <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
@@ -16,7 +15,7 @@
             <input v-model="details.phone" required>
         </label>
         <label for="">Plan ID <br>
-            <select v-model="details.plan_id" required>
+            <select v-model="details.plan_id" required class="plan-select">
                 <option disabled>Select package</option>
                 <option v-for="(plan, i) in plans" :key="i" :value="plan.id">{{ plan.name }}</option>
             </select>
@@ -118,9 +117,9 @@
         position: relative;
         grid-template-rows: repeat(6, auto);
         justify-items: center;
-        width: 600px;
+        width: 580px;
         margin: 50px auto;
-        padding: 30px;
+        padding: 20px 30px;
         grid-gap: 20px;
         border: 1px solid #e2e2e2;
         box-shadow: 0 5px 5px 5px #a5a5a5;
@@ -137,7 +136,7 @@
     }
     .names{
         display: grid;
-        grid-template-columns: 530px;
+        /* grid-template-columns: 530px; */
     }
     .names input{
         width: 530px;
@@ -147,7 +146,7 @@
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(207, 207, 207);
-        height: 50px;
+        height: 40px;
         font-size: 25px;
         outline-style: none;
     }
@@ -156,7 +155,14 @@
         justify-content: center;
     }
     img{
-        width: 80px;
+        width: 50px;
+    }
+    .plan-select{
+        width: 530px;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid rgb(197, 197, 197);
+        outline: none;
     }
     .password-wrapper{
         display: grid;
@@ -218,30 +224,33 @@
             text-align: center;
         }
         .sign-up{
-            width: 420px;
+            width: 380px;
             grid-gap: 10px;
             padding: 15px;
         }
         .names{
-            grid-template-columns: 170px 170px;
+            /* grid-template-columns: 370px; */
         }
         .names input{
-            width: 120px;
+            width: 320px;
         }
         input{
-            width: 370px;
+            width: 320px;
             font-size: 20px;
+        }
+        .plan-select{
+            width: 320px;
         }
         .pw-icon{
             right: 6px;
             bottom: 17px;   
         }
         .terms{
-            width: 370px
+            width: 320px
         }
         .sign-up-sect{
             display: grid;
-            grid-template-columns: 160px 200px;
+            grid-template-columns: 150px 160px;
             grid-gap: 20px;
             align-items: center;
             margin-top: 10px;

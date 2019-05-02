@@ -28,7 +28,7 @@
         </div>
 
         <div class="full-list">
-            <p>For the full list of FAQ visit the page <nuxt-link to="/">here</nuxt-link></p>
+            <p>For the full list of FAQ visit the page <nuxt-link to="/faqList">here</nuxt-link></p>
         </div>
     </div>
 </template>

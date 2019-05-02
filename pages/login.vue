@@ -1,6 +1,5 @@
 <template>
     <div class="login">
-
         <div class="elegant-image">
             <img src="~/assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
@@ -90,14 +89,13 @@ export default {
 
 
 <style scoped>  
-
     .login{
         position: relative;
         display: grid;
         width: 450px;
-        margin: 50px auto 0 auto;
+        margin: 50px auto 10px auto;
         align-items: center;
-        padding: 30px;
+        padding: 20px 30px;
         grid-gap: 20px;
         border: 1px solid #e2e2e2;
         box-shadow: 0 5px 5px 5px #a5a5a5;
@@ -107,7 +105,7 @@ export default {
         justify-content: center;
     }
     img{
-        width: 80px;
+        width: 50px;
     }
     a{
         color: #114e9e;
@@ -128,7 +126,7 @@ export default {
         cursor: pointer;
     }
     input{
-        width: 380px;
+        width: 400px;
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(207, 207, 207);
@@ -192,42 +190,43 @@ export default {
 
     @media (max-width: 767px) {
         .login{
-            padding: 30px;
-            grid-gap: 10px;
+            padding: 20px;
+            grid-gap: 25px;
+            width: 320px;
+            grid-template-columns: 270px;
         }
         .login-button{
             font-size: 16px;
         }
-        .login{
-        width: 350px;
-        padding: 20px;
-        grid-gap: 20px;
-       }
        input{
-        width: 300px;
-        height: 40px;
-        font-size: 20px; 
+            width: 270px;
+            height: 40px;
+            font-size: 20px; 
        }
        .pw{
            font-size: 15px;
        }
        .pw-icon{
-        right: 30px;
+            right: 20px;
         }
        .login-sect{
-        grid-template-columns: 150px 150px;
-        grid-gap: 30px;
+            grid-template-columns: 120px 130px;
+            grid-gap: 15px;
        }
        .login-button{
-        height: 50px;
-        padding: 10px;
-        font-size: 16px;
+            height: 40px;
+            padding: 10px;
+            font-size: 16px;
        }
        .no-account {
-        font-size: 14px;
+            font-size: 14px;
        }
+       .create-account{
+            grid-template-columns: 140px 120px;
+            grid-gap: 20px;
+        }
        .create{
-        font-size: 14px;
+            font-size: 14px;
        }
     }
 </style>

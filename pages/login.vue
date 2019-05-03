@@ -19,7 +19,7 @@
             <button @click="signIn" class="login-button ">
                 <i class="fa fa-sign-in"></i> 
                 <span v-if="!loading">Login</span>
-                <img v-else="" src="~/assets/images/loading.gif" class="loading" alt="elegant image">
+                <img v-else="" src="~/assets/images/loading.gif" class="loading" alt="Loading gif">
             </button>
             <span class="pw">Forgot your password?</span>
         </div>
@@ -88,7 +88,7 @@ export default {
 </script>
 
 
-<style scoped>  
+<style lang="scss" scoped>  
     .login{
         position: relative;
         display: grid;
@@ -153,6 +153,9 @@ export default {
         border: none;
         cursor: pointer;
         transition: 0.6s ease-in;
+        img{
+            width: 19px;
+        }
     }
     .login-button:hover{
         background-color: #052b5e;

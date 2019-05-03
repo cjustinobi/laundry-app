@@ -11,7 +11,7 @@
             </a>
         </div>
 
-        <div
+        <div    v-if="user !== undefined && user.user_type !== 3"
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>
@@ -49,7 +49,7 @@
             </nuxt-link>
         </div>
 
-        <div
+        <div    v-if="user !== undefined && user.user_type == 3"
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>

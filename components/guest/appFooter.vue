@@ -4,9 +4,9 @@
             <h5><a href="#" target="_blank">Elegant Laundry 2019 All Rights Reserved</a></h5>
         </div>
         <div class="socials">
-            <nuxt-link to="/projects">Terms and Conditions</nuxt-link> 
+            <nuxt-link to="/terms">Terms and Conditions</nuxt-link> 
             <div class="separator">|</div>
-            <nuxt-link to="/projects">Privacy Policy</nuxt-link>
+            <nuxt-link to="/policy">Privacy Policy</nuxt-link>
         </div>
     </footer>
 </template>

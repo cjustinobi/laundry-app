@@ -92,7 +92,7 @@ export default {
     .login{
         position: relative;
         display: grid;
-        width: 450px;
+        width: 460px;
         margin: 50px auto 10px auto;
         align-items: center;
         padding: 20px 30px;
@@ -121,7 +121,7 @@ export default {
     }
     .pw-icon{
         position: absolute;
-        right: 24px;
+        right: 15px;
         bottom: 16px;
         cursor: pointer;
     }

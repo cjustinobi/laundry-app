@@ -70,12 +70,13 @@ export default {
         grid-template-columns: 1fr;
         background-color: rgb(233, 233, 233);
         min-height: 100vh;
+        justify-content: center;
     }
     .main-overview{
         display: grid;
         grid-auto-rows: 50px 1fr;
         background-color: #fefefe;
-        margin: 70px 80px;
+        margin: 50px 80px;
         border-radius: 5px;
         box-shadow: 5px 5px 15px grey;
     }
@@ -83,7 +84,7 @@ export default {
         display: grid;
         align-items: center;
         border-bottom: 1px solid rgb(230, 224, 224);
-        padding-left: 120px;
+        padding-left: 40px;
         color: #114e9e;
     }
     .balance{
@@ -107,9 +108,9 @@ export default {
     }
     .plans{
         display: grid;
-        grid-template: 200px / repeat(auto-fit, minmax(300px, 1fr));
+        grid-template: 200px / repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: 20px;
-        margin: 70px 80px;
+        margin: 0 80px 70px 80px;
     }
     .basic-plans{
         display: grid;
@@ -227,24 +228,24 @@ export default {
     }
 
 @media (max-width: 480px) {
-    .balance{
-        grid-template-columns: 1fr;
-        height: 200px;
-    }
+    
 }
 
 @media (max-width: 767px) {
     .balance{
-       font-size: 14px;
+        font-size: 14px;
+        grid-template-columns: 1fr;
+        height: 200px;
     }
     .all-balance{
         grid-gap: 5px;
     }
-    .overview{
-        /* padding: 10px 0 0 70px; */
-    }
     .plans{
-        grid-template: 1fr / repeat(auto-fit, minmax(auto, 1fr));
+        grid-template: 1fr / repeat(auto-fit, minmax(200, 1fr));
+    }
+    .luxury-btn{
+        width: 100px;
+        font-size: 12px;
     }
 }
 </style>

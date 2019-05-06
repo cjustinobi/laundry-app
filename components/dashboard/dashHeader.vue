@@ -17,7 +17,8 @@
             </div>
             
             <div class="names">
-                <i class="fa fa-user"></i> <p>Glory Agatevure</p>
+                <i class="fa fa-user"></i> 
+                <p>Glory Agatevure</p>
             </div>
 
             <div v-if="user !== undefined && user.user_type !== 3"
@@ -94,6 +95,11 @@ export default {
     a{
         color: #fefefe;
     }
+    .user-h3{
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
     .user-img{
         width: 30px;
         height: 30px;
@@ -104,7 +110,7 @@ export default {
         display: grid;
         grid-template-columns: 120px 35px 150px 20px;
         align-items: center;
-        grid-gap: 7px;
+        grid-gap: 15px;
     }
     .new-order{
         display: grid;
@@ -137,11 +143,6 @@ export default {
         display: grid;
         grid-template-columns: 25px auto;
         
-    }
-    .user-h3{
-        display: grid;
-        grid-template-columns: 1fr;
-        text-align: center;
     }
     .pull-down{
         display: grid;
@@ -182,15 +183,16 @@ export default {
 
 @media (max-width: 767px) {
     .main-head{
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 70px;
+        grid-template-columns: 60px auto;
+        grid-gap: 15px;
+        font-size: 12px;
     }
     .user-h3{
-        grid-template-columns: 50px 50px;
-        font-size: 15px
+        grid-template-columns: 30px 30px;
     }
     .user-view{
-        grid-template-columns: 120px 30px 145px 20px;
+        grid-template-columns: 80px 25px 145px 20px;
+        grid-gap: 7px;
     }
     img{
         width: 20px;
@@ -198,12 +200,12 @@ export default {
     }
     .new-order{
         display: grid;
-        grid-template-columns: 25px 100px;
+        grid-template-columns: 15px 60px;
     }
     .names{
         display: grid;
-        grid-template-columns: 25px 110px;
-        font-size: 14px;
+        grid-template-columns: 15px 90px;
+        /* font-size: 14px; */
     }
 }
 

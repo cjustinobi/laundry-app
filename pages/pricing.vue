@@ -103,6 +103,7 @@
         display: grid;
         grid-gap: 90px;
         margin: 0 70px;
+        overflow-x: auto;
     }
     table {
         border-collapse: collapse;
@@ -114,6 +115,7 @@
         text-align: center;
         padding: 8px;
         background-color: #fefefe;
+        width: auto;
     }
     .text-yellow{
         color: #e7b83f;
@@ -121,8 +123,9 @@
     .discount{
         margin: 0 70px;
         display: grid;
-        grid-template-columns: 30px 750px 30px;
+        grid-template-columns: 30px auto 30px;
         justify-content: center;
+        justify-items: center;
     }
     .fa-asterisk{
         color: #e7b83f;
@@ -153,6 +156,10 @@
         }
         .quick-response{
             margin: 0 40px;
+        }
+        table {
+            /* width: 70%;
+            font-size: 14px; */
         }
     }
 </style>

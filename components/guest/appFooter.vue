@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="elegant-laundry">
-            <h5><a href="#" target="_blank">Elegant Laundry 2019 All Rights Reserved</a></h5>
+            <nuxt-link to="/rights">Elegant Laundry 2019 All Rights Reserved</nuxt-link>
         </div>
         <div class="socials">
             <nuxt-link to="/terms">Terms and Conditions</nuxt-link> 

@@ -83,7 +83,7 @@
         justify-items: center;
         text-align: center;
         padding: 10px;
-        width: 70%;
+        width: 70%;  
         border-bottom: 1px solid #e7b83f;
         margin: 0 auto 10px auto;
     }

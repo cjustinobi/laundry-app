@@ -7,7 +7,8 @@ export const actions = {
 
             const cookies = cookie.parse(req.headers.cookie || '')
             if (cookies.hasOwnProperty('x-access-token')) {
-                // await this.$axios.$get('')
+                let res = await this.$axios.$get('me')
+                commit('auth/SET_USER', res)
                 commit('auth/SET_TOKEN', cookies['x-access-token'])
             } else {
                 // resetAuthToken()

@@ -1,6 +1,6 @@
 <template>
     <div id="sidebar"  :class="[{'sidebar': sidebar}]">
-        <app-link ></app-link>
+        <AppLink/>
     </div>
 </template>
 
@@ -15,12 +15,6 @@
         data() {
             return {
                 sidebar: true
-            }
-        },
-
-        methods: {
-            toggleSidebar() {
-                console.log(this)
             }
         }
 

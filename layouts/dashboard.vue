@@ -2,11 +2,11 @@
     <div class="dashboard-container">
         <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
             <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-                <sidebar @toggleMenu="adjustMenu"></sidebar>
+                <Sidebar @toggleMenu="adjustMenu"/>
                 <!--<admin-sidebar v-if="user !== undefined && user.user_type === 3" @toggleMenu="adjustMenu"></admin-sidebar>-->
             </aside>
             <div class="content">
-                <dash-header @showDrawer="hideDrawer = false"></dash-header>
+                <DashHeader @showDrawer="hideDrawer = false"/>
                 <div class="nuxt-rend">
                     <notification/>
                     <nuxt/>
@@ -15,12 +15,12 @@
         </div>
 
         <div class="footer-section">
-            <div><quick-links/></div>
-            <div><app-footer></app-footer></div>
+            <div><QuickLinks/></div>
+            <div><AppFooter/></div>
         </div>
 
         <div :class="[{'hide-drawer': hideDrawer}]">
-            <drawer id="draw-down" @hideDrawer="hideDrawer = true"></drawer>
+            <Drawer id="draw-down" @hideDrawer="hideDrawer = true"/>
         </div>
     </div>
 </template>

@@ -12,7 +12,7 @@
         <div class="app-links"><app-links></app-links></div>
         
 
-        <a class='toggle-icon' @click.prevent="$emit('toggleSidebar')">
+        <a style="cursor: pointer" class='toggle-icon' @click.prevent="$emit('toggleSidebar')">
             <i class='fa fa-bars'></i>
         </a>
         

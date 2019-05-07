@@ -68,10 +68,10 @@
     }
     .ticket-btn{
         display: grid;
-        grid-template-columns: repeat(5, 180px);
+        grid-template-columns: repeat(3, 180px);
         grid-gap: 30px;
-        align-items: center;
-        margin: 10px 40px;
+        align-content: center;
+        margin: 0px 40px;
         color: #114e9e;
     }
     .horizontal-line{
@@ -83,7 +83,6 @@
         grid-template-columns: 200px 1fr;
         background-color: #fefefe;
         height: 400px;
-        /* width: 100%; */
         margin: 70px 40px 40px 40px;
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
@@ -93,7 +92,6 @@
     .t-btn{
         height: 35px;
         width: 160px;  
-        padding: 10px;
         background-color: #eeeeee;
         color: #114e9e;
         font-size: 17px;
@@ -108,15 +106,17 @@
         background-color: rgb(172, 172, 172);
         color: #f0f0f0;
     }
-    .create-link{
-        grid-column-start: 5;
-    }
     .create-ticket{
         background-color: #114e9e;
         color: #fefefe;
+        display: grid;
+        justify-self: end;
+        justify-items: end;
+        align-self: flex-end;
+        align-items: flex-end;
     }
     .create-ticket:hover{
-        background-color: #00122b;
+        background-color: #073d88;
     }
     .recent-ticket{
         border: 1px solid rgb(202, 202, 202);
@@ -126,34 +126,25 @@
         padding: 12px; 
         text-align: center; 
     }
-    .tl-head{
-        padding: 12px; 
+    .ticket-list{
         background-color: #e7b83f;
         color: #fefefe;
+        height: 45px;
+        display: grid;
+        align-items: center;
+        padding-left: 12px; 
     }
 
     @media (max-width: 767px) {
-        .ticket-btn{
-            display: grid;
-            grid-template-columns: repeat(4, 180px);
-            grid-gap: 30px;
-            align-items: center;
-            margin: 10px 40px;
-            color: #114e9e;
-        }
         .ticket-wrapper{
             grid-template-columns: 1fr;
-            /* height: 700px; */
             padding: 15px;
             grid-gap: 20px;
         }
         .t-btn{
-            height: 30px;
+            height: 25px;
             width: 150px;
-            font-size: 16px;
-        }
-        .create-link{
-            grid-column-start: 4;
+            font-size: 15px;
         }
     }
 </style>

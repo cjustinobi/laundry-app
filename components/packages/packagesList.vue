@@ -109,6 +109,7 @@
         transition: 0.7s ease-in;
         grid-gap: 10px;
         padding-bottom: 15px;
+        /* grid-template-rows: 130px 70px 1fr 70px; */
     }
     .packages .pack-item:nth-child(1){
         border-top: 7px solid rgb(247, 174, 241);
@@ -131,7 +132,7 @@
     .wash-menu{
         display: grid;
         grid-template-columns: 20px 1fr;
-        grid-auto-rows: auto;
+        grid-auto-rows: 40px;
         color: #728691;
         font-size: 16px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

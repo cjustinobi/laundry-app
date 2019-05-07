@@ -19,7 +19,7 @@
             <button @click="signIn" class="login-button ">
                 <i class="fa fa-sign-in"></i> 
                 <span v-if="!loading">Login</span>
-                <img v-else="" src="~/assets/images/loading.gif" class="loading" alt="elegant image">
+                <img v-else="" src="~/assets/images/loading.gif" class="loading" alt="Loading gif">
             </button>
             <span class="pw">Forgot your password?</span>
         </div>
@@ -88,11 +88,11 @@ export default {
 </script>
 
 
-<style scoped>  
+<style lang="scss" scoped>  
     .login{
         position: relative;
         display: grid;
-        width: 450px;
+        width: 460px;
         margin: 50px auto 10px auto;
         align-items: center;
         padding: 20px 30px;
@@ -121,7 +121,7 @@ export default {
     }
     .pw-icon{
         position: absolute;
-        right: 24px;
+        right: 15px;
         bottom: 16px;
         cursor: pointer;
     }
@@ -153,6 +153,9 @@ export default {
         border: none;
         cursor: pointer;
         transition: 0.6s ease-in;
+        img{
+            width: 19px;
+        }
     }
     .login-button:hover{
         background-color: #052b5e;

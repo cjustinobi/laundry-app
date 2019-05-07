@@ -28,8 +28,8 @@
             </label>
         </div>
         <p class="terms">
-            By creating an account, you agree to our <nuxt-link to="/">terms and conditions</nuxt-link>
-            and that you have read our <nuxt-link to="/">priavcy policy</nuxt-link>
+            By creating an account, you agree to our <nuxt-link to="/terms">terms and conditions</nuxt-link>
+            and that you have read our <nuxt-link to="/policy">privacy policy</nuxt-link>
         </p>
         <div class="sign-up-sect">
             <button @click.prevent="signUp" class="sign-up-button">

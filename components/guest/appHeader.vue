@@ -7,7 +7,7 @@
         </nuxt-link>
 
         <div class="intro-request">
-            <nuxt-link to="/usernotification"><button class="request-btn">Request a Pick-up</button></nuxt-link>
+            <nuxt-link to="/dashboard/products"><button class="request-btn">Request a Pick-up</button></nuxt-link>
         </div>
         <div class="app-links"><app-links></app-links></div>
         

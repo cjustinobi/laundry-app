@@ -1,5 +1,5 @@
     <template>
-    <div class="plan-editor-container">
+    <div class="plan-editor-container plan-editor">
         <div class="editor">
             <form class="form">
                 <div class="close-package">
@@ -101,11 +101,10 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
     @import '~/node_modules/vue-multiselect/dist/vue-multiselect.min.css';
-    .plan-editor-container{
+    .plan-editor{
         position: relative;
-    }
     .editor{
         display: grid;
         justify-content: center;
@@ -167,6 +166,15 @@
         border: 1px solid rgb(202, 202, 202);
         padding: 10px;
     }
+    .add-product-cat{
+        width: 340px;
+        border-radius: 3px;
+        border: 1px solid rgb(202, 202, 202);
+        padding: 10px;
+    }
+    input.multiselect_input{
+        width: 130px;
+    }
     .btn-package{
         display: grid;
         grid-template-columns: 150px 150px;
@@ -201,6 +209,7 @@
 
     @media (min-width: 768px) {
         
+    }
     }
 </style>
 

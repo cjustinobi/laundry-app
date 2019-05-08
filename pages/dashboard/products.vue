@@ -133,7 +133,13 @@
   
 
     @media (max-width: 767px) {
-        
+        .product-tabs{
+            grid-template-columns: auto 20px auto 20px auto 20px auto;
+            padding: 0 15px;
+        }
+        .demarcator{
+            width: 20px;
+        }
     }
 </style>
 

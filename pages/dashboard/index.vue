@@ -239,6 +239,12 @@ export default {
 }
 
 @media (max-width: 767px) {
+    .main-overview{
+        margin: 50px 80px 20px 80px;
+    }
+    .overview{
+        padding-left: 20px;
+    }
     .balance{
         font-size: 14px;
         grid-template-columns: 1fr;

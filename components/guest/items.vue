@@ -89,6 +89,7 @@
             font-size: 15px;
         }
         .all-category{
+            grid-template-columns: 1fr 20px;
             grid-gap: 15px;
         }
         .yellow-demarcator{
@@ -104,6 +105,8 @@
             grid-template: 45px / repeat(5, auto); 
             height: 50px;
             font-size: 13px;
+            grid-gap: 7px;
+            
         }
     }
 </style>

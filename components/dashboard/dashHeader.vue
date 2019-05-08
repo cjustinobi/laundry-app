@@ -51,7 +51,7 @@ export default {
             if(x.className.indexOf("show") == -1) {
                 this.dropdownContent = true
                 x.className += " show"
-                x.style.display = "block"
+                x.style.display = "grid"
             } else {
                 this.dropdownContent = false
                 x.style.display = "none"
@@ -211,6 +211,11 @@ export default {
         display: grid;
         grid-template-columns: 15px 90px;
         /* font-size: 14px; */
+    }
+    .dropdown-content{
+        /* min-width: 120px;
+        height: 70px;
+        padding: 15px; */
     }
 }
 

@@ -1,16 +1,16 @@
 <template>
     <div class="container">
 
-        <app-header @toggleSidebar="toggleSidebar"></app-header>
+        <AppHeader @toggleSidebar="toggleSidebar"/>
 
-        <div class="nuxt-render"><nuxt /></div>
+        <div class="nuxt-render"><nuxt/></div>
 
-        <div><quick-links/></div>
+        <div><QuickLinks/></div>
 
-        <div id="footer"><app-footer></app-footer></div>
+        <div id="footer"><AppFooter/></div>
 
         <div :class="{backdrop}">
-            <div id="sidebar-link" class="sidebar"><sidebar></sidebar></div>
+            <div id="sidebar-link" class="sidebar"><Sidebar/></div>
         </div>
 
     </div>

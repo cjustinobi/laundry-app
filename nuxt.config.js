@@ -27,6 +27,7 @@ export default {
     ** Global CSS
     */
     css: [
+        '~/assets/css/page-transition.css',
         '~/assets/font-awesome/css/font-awesome.min.css'
     ],
 

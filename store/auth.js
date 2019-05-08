@@ -43,5 +43,5 @@ export const actions = {
 
 export const getters = {
     token: state => state.token,
-    user: user => state.user
+    user: state => state.user
 }

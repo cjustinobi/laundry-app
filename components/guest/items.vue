@@ -104,8 +104,9 @@
        .product-list{
             grid-template: 45px / repeat(5, auto); 
             height: 50px;
-            font-size: 13px;
+            font-size: 11px;
             grid-gap: 7px;
+            padding: 0 12px;
             
         }
     }

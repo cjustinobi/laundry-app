@@ -65,8 +65,8 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 0 160px 40px 160px;
-        padding: 80px 70px 0 70px;
+        margin: 0 160px 150px 160px;
+        padding: 50px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
     }
@@ -110,7 +110,8 @@ export default {
     @media (max-width: 767px) {
         .edit-wrapper{
             height: 500px;
-            padding: 60px 70px 0 70px;
+            padding: 30px 30px 0 30px;
+            margin: 0 60px;
         }
         .update-form{
             grid-template-rows: repeat(3, 20px), 40px;

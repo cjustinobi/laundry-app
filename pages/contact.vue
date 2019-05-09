@@ -126,6 +126,9 @@
         .contact-container{
             grid-gap: 40px;
         }
+        .quick-response{
+            padding: 10px 20px;
+        }
         .message-area{
             grid-template-columns: 1fr;
             grid-gap: 50px;

@@ -52,7 +52,7 @@ export default {
         display: grid;
         grid-template-rows: 80px 270px;
         background-color: #fefefe;
-        margin: 0 160px 40px 160px;
+        margin: 0 160px 80px 160px;
         padding: 80px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
@@ -100,7 +100,8 @@ export default {
         .edit-wrapper{
             grid-template-rows: 70px 250px;
             height: 430px;
-            padding: 60px 70px 0 70px;
+            padding: 30px 30px 0 30px;
+            margin: 0 60px 40px 60px;
         }
         .edit-list{
             font-size: 15px;

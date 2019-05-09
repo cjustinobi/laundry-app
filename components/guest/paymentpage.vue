@@ -183,7 +183,7 @@
     }
     .cart-summary{
         display: grid;
-        grid-template-rows: 50px 1fr;
+        grid-template-rows: 40px 1fr;
         height: 300px;
         color: #114e9e;
         background-color: #fefefe;
@@ -253,7 +253,7 @@
     .cart-inner{
         padding: 15px;
         display: grid;
-        grid-template-rows: 90px 40px 40px 50px;
+        grid-template-rows: 90px 30px 30px 50px;
         align-items: center;
     }
     .total{
@@ -321,6 +321,46 @@
 
 
     @media (max-width: 767px) {
-        
+        .payment-container{
+            grid-template-rows: 1fr 140px 60px;
+            grid-gap: 30px;
+            /* justify-items: center; */
+            padding-bottom: 20px;
+        }
+        .address-time-container{
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+            height: 330px;
+        }
+        .address-inner{
+            margin: 0 20px;
+            font-size: 12px;
+            /* height: 350px; */
+        }
+        .pick-address{
+            grid-gap: 10px;
+        }
+        .payment-method{
+            grid-template-columns: 1fr;
+        }
+        .payment-inner{
+            grid-column-start: 1;
+        }
+        .cart-summary{
+            margin: 0 20px;
+        }
+        .verify-cart{
+            margin: 0 20px;
+            font-size: 12px;    
+        }
+        .sub-heading{
+            grid-gap: 5px;
+        }
+        .table-data{
+            grid-gap: 5px;
+        }
+        .btn-container{
+            margin: 0 0 0 20px;
+        }
     }
 </style>

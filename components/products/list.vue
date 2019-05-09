@@ -90,10 +90,11 @@ export default {
     }
     .laundry-list-wrapper{
         display: grid;
-        grid-template: 320px / repeat(auto-fit, minmax(240px, 255px));
+        grid-template: 380px / repeat(auto-fit, minmax(240px, 255px));
         grid-gap: 30px;
         position: relative;
         justify-content: center;
+        margin: 20px 0;
     }
     .laundry-list{
         display: grid;

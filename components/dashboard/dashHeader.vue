@@ -51,7 +51,7 @@ export default {
             if(x.className.indexOf("show") == -1) {
                 this.dropdownContent = true
                 x.className += " show"
-                x.style.display = "block"
+                x.style.display = "grid"
             } else {
                 this.dropdownContent = false
                 x.style.display = "none"
@@ -84,7 +84,7 @@ export default {
 <style scoped>
     .main-head{
         display: grid;
-        grid-template-columns: 1fr 350px;
+        grid-template-columns: 1fr;
         position: relative;
         align-items: center;
         background-color: #01355f;
@@ -111,6 +111,7 @@ export default {
         grid-template-columns: 120px 35px 150px 20px;
         align-items: center;
         grid-gap: 15px;
+        justify-self: flex-end;
     }
     .new-order{
         display: grid;
@@ -179,19 +180,23 @@ export default {
     .dropdown-content a{
         text-decoration: none;
     }
+
+@media (max-width: 480px) {
+    
+}
     
 
 @media (max-width: 767px) {
     .main-head{
-        grid-template-columns: 60px auto;
-        grid-gap: 15px;
+        grid-template-columns: 80px auto;
+        grid-gap: 40px;
         font-size: 12px;
     }
     .user-h3{
-        grid-template-columns: 30px 30px;
+        grid-template-columns: 40px 40px;
     }
     .user-view{
-        grid-template-columns: 80px 25px 145px 20px;
+        grid-template-columns: 80px 25px 115px 20px;
         grid-gap: 7px;
     }
     img{
@@ -206,6 +211,11 @@ export default {
         display: grid;
         grid-template-columns: 15px 90px;
         /* font-size: 14px; */
+    }
+    .dropdown-content{
+        /* min-width: 120px;
+        height: 70px;
+        padding: 15px; */
     }
 }
 

@@ -80,7 +80,7 @@
 <style scoped>
     .edit-profile{
         display: grid;
-        min-height: 100vh;
+        max-height: 100vh;
     }
     .title{
         display: grid;
@@ -104,7 +104,7 @@
     }
     .edit-list{
         display: grid;
-        grid-template: 80px / repeat(4, 180px); 
+        grid-template: 80px / repeat(4, auto); 
         align-items: center; 
         padding: 0px;
         font-size: 18px;
@@ -126,11 +126,16 @@
    
 
     @media (max-width: 767px) {
+        .edit-wrapper{
+            margin: 40px 60px 0 60px;
+        }
         .title{
             margin-top: 30px;
         }
         .edit-list{
-            font-size: 15px;
+            grid-template: 60px / repeat(4, auto); 
+            font-size: 12px;
+            grid-gap: 5px;
         }
     }
 </style>

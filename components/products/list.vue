@@ -1,26 +1,27 @@
 <template>
     <div class="all-products">
         <div><Products v-if="user !== undefined && user.user_type !== 3"/></div>
-       <div><Items @toogleSideLinks="toogleSideLinks"/></div>
+        <div><Items @toogleSideLinks="toogleSideLinks"/></div>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
-                 <Actions
+                <Actions
                         v-if="user !== undefined && user.user_type == 3"
                         @editItem="editItem"
                         @removeItem="removeItem"
                         :itemId="product.id" :api="api"/>
 
                 <div class="img-square">
-                    <img :src="product.file_path" alt="EL image">
+                    <img :src="`${baseUrl}${product.file_path}`" alt="EL image">
+                    <!--<img :src="product.file_path" alt="EL image">-->
                 </div>
                 <h5>{{ product.name }}</h5>
                 <p class="p1">Washed, pressed and neatly folded</p>
                 <div class="separator"></div>
                 <h5>{{ product.price }}</h5>
                 <p>{{ product.category.name }}</p>
-                <button 
-                    v-if="user !== undefined && user.user_type !== 3"   
-                    class="laundry-list-btn">Add to cart
+                <button
+                        v-if="user !== undefined && user.user_type !== 3"
+                        class="laundry-list-btn">Add to cart
                 </button>
             </div>
         </div>
@@ -32,52 +33,57 @@
 </template>
 
 <script>
+
+    import User from '~/mixins/user'
     import Products from '~/components/guest/products'
     import Items from '~/components/guest/items'
     import Actions from '~/components/shared/actions'
     import SideLinks from '~/components/guest/sideLinks'
 
-export default {
+    export default {
 
-    components: { Products, Items, Actions, SideLinks },
+        mixins: [User],
 
-    data() {
-        return {
-            api: 'products/',
-            sideLinks: true
-        }
-    },
+        components: { Products, Items, Actions, SideLinks },
 
-    methods: {
-        editItem(i) {
-            this.showForm = true;
-            this.editDetail = this.products.find(product => product.id === i)
-        },
-        removeItem(i) { 
-            this.$store.dispatch('products/removeItem', i)
-        },
-        toogleSideLinks() {
-            let x = document.getElementById('side-links')
-            if(x.style.display === 'block') {
-                x.style.display = 'none'
-            } else {
-                x.style.display = 'block'
+        data() {
+            return {
+                baseUrl: process.env.baseUrl,
+                api: 'products/',
+                sideLinks: true
             }
         },
-        cancelLinks() {
-            this.sideLinks = false
-        }
-    },
 
-    computed: {
-        products() {
-            return this.$store.getters['products/allProducts']
+        methods: {
+            editItem(i) {
+                this.showForm = true;
+                this.editDetail = this.products.find(product => product.id === i)
+            },
+            removeItem(i) {
+                this.$store.dispatch('products/removeItem', i)
+            },
+            toogleSideLinks() {
+                let x = document.getElementById('side-links')
+                if(x.style.display === 'block') {
+                    x.style.display = 'none'
+                } else {
+                    x.style.display = 'block'
+                }
+            },
+            cancelLinks() {
+                this.sideLinks = false
+            }
+        },
+
+        computed: {
+            products() {
+                return this.$store.getters['products/allProducts']
+            }
+        },
+        beforeMount() {
+            this.$store.dispatch('products/getProducts')
         }
-    },
-    beforeMount() {
-        this.$store.dispatch('products/getProducts')
     }
-}
 </script>
 
 <style lang="scss" scoped>

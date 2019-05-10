@@ -90,7 +90,11 @@
 </template>
 
 <script>
+    import User from '~/mixins/user'
+
     export default {
+
+        mixins: [User],
 
         data() {
             return {

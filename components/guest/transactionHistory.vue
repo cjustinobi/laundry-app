@@ -1,4 +1,4 @@
-<template>
+    <template>
     <div class="transaction-history" :style="myStyle">
         <div class="transaction-wrapper">
             <div class="sub-heading"><h4>Transactions</h4></div>
@@ -159,6 +159,19 @@
     }
 
     @media (max-width: 767px) {
-
+        .transaction-wrapper{
+            grid-template-rows: 40px 50px 250px 30px;
+            margin: 60px 20px 40px 20px;
+            padding-bottom: 20px;
+        }
+        table {
+            width: 60%;
+            margin: 0 20px;
+            font-size: 12px;
+        }
+        td, th {
+            text-align: center;
+            padding: 8px;
+        }
     }  
 </style>

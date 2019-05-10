@@ -87,9 +87,7 @@
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;
-        /* grid-template-rows: 1fr 1fr; */
         background-color: #fefefe;
-        /* position: relative; */
         min-height: 100vh;
     }
     .minimized{
@@ -160,6 +158,7 @@
         top: 0;
         height: 100%;
     }
+    
     @media (max-width: 767px) {
         .dashboard{
             grid-template-columns: 1fr;
@@ -167,8 +166,6 @@
         }
         .minimized{
             grid-template-columns: 1fr;
-            /* position: absolute;
-            top: 0; */
         }
         .sidebar{
             display: none;

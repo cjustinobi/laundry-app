@@ -173,11 +173,19 @@
         .referral-section{
             grid-template: 1fr / 1fr;
             grid-gap: 0;
-            margin: 40px 90px;
+            margin: 40px 20px;
             grid-gap: 30px;
         }
         .referral-inner{
             border: none;
+        }
+        .input-details{
+            grid-gap: 20px;
+            margin: 20px;
+        }
+        .invitation-msg{
+            margin: 20px;
+            padding: 20px;
         }
     }
 </style>

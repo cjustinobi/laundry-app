@@ -1,15 +1,15 @@
 <template>
     <div class="all-products">
-        <div><products v-if="user !== undefined && user.user_type !== 3"/></div>
-       <div><items @toogleSideLinks="toogleSideLinks"/></div>
+        <div><Products v-if="user !== undefined && user.user_type !== 3"/></div>
+       <div><Items @toogleSideLinks="toogleSideLinks"/></div>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
-                 <actions
+                 <Actions
                         v-if="user !== undefined && user.user_type == 3"
                         @editItem="editItem"
                         @removeItem="removeItem"
-                        :itemId="product.id" :api="api">
-                </actions>
+                        :itemId="product.id" :api="api"/>
+
                 <div class="img-square">
                     <img :src="product.file_path" alt="EL image">
                 </div>
@@ -26,7 +26,7 @@
         </div>
 
         <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links">
-            <sideLinks @cancelLinks="cancelLinks"></sideLinks>
+            <SideLinks @cancelLinks="cancelLinks"/>
         </div>
     </div>
 </template>

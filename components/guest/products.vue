@@ -13,8 +13,6 @@
 
     export default {
 
-        components: {  },
-
         data() {
             return {
                 myStyle: {

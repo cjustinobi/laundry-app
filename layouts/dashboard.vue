@@ -34,7 +34,7 @@
     
     export default {
         components: { Sidebar, DashHeader,QuickLinks, AppFooter, Drawer },
-        middleware: ['check-auth'],
+        // middleware: ['check-auth'],
         data() {
             return {
                 sidebar: true,

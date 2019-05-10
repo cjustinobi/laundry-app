@@ -23,10 +23,10 @@
             </div>
         </div>
 
-        <div><all-products v-if="products"/></div>
-        <div><editAddress v-if="address" class="insert-margin"></editAddress></div>
-        <div><editPassword  v-if="password" class="insert-margin"></editPassword></div>
-        <div><paymentpage v-if="paymentpage" class="insert-margin"/></div>
+        <div><AllProducts v-if="products"/></div>
+        <div><EditAddress v-if="address" class="insert-margin"/></div>
+        <div><EditPassword  v-if="password" class="insert-margin"/></div>
+        <div><PaymentPage v-if="paymentpage" class="insert-margin"/></div>
         
         
     </div>
@@ -36,7 +36,7 @@
     import AllProducts from '~/components/products/list'
     import EditAddress from '~/components/guest/editAddress'
     import EditPassword from '~/components/guest/editPassword'
-    import Paymentpage from '~/components/guest/paymentpage'
+    import PaymentPage from '~/components/guest/paymentpage'
 
     export default {
 
@@ -46,7 +46,7 @@
             AllProducts,
             EditAddress, 
             EditPassword,
-            Paymentpage
+            PaymentPage
         },
         data() {
             return {
@@ -89,12 +89,12 @@
         },
         computed: {
             users(){
-                return this.$store.getter['users/users']
+                // return this.$store.getter['users/users']
             }
         },
 
         mounted() {
-            this.$store.dispatch('users/getUsers')
+            // this.$store.dispatch('users/getUsers')
         }
     }
 </script>

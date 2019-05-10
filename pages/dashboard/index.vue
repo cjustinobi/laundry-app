@@ -60,7 +60,8 @@
 <script>
 
 export default {
-    layout: 'dashboard'
+    layout: 'dashboard',
+    middleware: ['check-auth'],
 }
 </script>
 

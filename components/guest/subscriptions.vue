@@ -105,7 +105,8 @@
     }
     .sub-heading{
         display: grid;
-        grid-template-columns: 60px repeat(4, auto);
+        /* grid-template-columns: 60px repeat(4, auto); */
+        grid-template-columns: repeat(5, auto);
         height: 40px;
         align-items: center;
         justify-items: center;
@@ -114,7 +115,8 @@
     }
     .table-data{
         display: grid;
-        grid-template-columns: 60px repeat(4, auto);
+        /* grid-template-columns: 60px repeat(4, auto); */
+        grid-template-columns: repeat(5, auto);
         align-items: center;
         justify-items: center;
         color: #114e9e;
@@ -222,12 +224,12 @@
         .payment-total{
             grid-template-rows: 130px 1fr;
             grid-gap: 20px;
-            margin: 20px;
+            margin: 10px;
             justify-content: center;
             align-content: center;
         }
         .payment-method{
-            padding: 10px;
+            padding: 7px;
         }
         .plan-total{
             grid-template-rows: repeat(2, 40px) 160px 6 0px ;

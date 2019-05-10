@@ -80,7 +80,7 @@
 <style scoped>
     .edit-profile{
         display: grid;
-        max-height: 100vh;
+        min-height: 100vh;
     }
     .title{
         display: grid;

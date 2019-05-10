@@ -86,7 +86,7 @@ export default {
         display: grid;
         grid-template-columns: 1fr;
         position: relative;
-        align-items: center;
+        /* align-items: center; */
         background-color: #01355f;
         height: 60px;
         color: #fefefe;
@@ -109,7 +109,7 @@ export default {
     .user-view{
         display: grid;
         grid-template-columns: 120px 35px 150px 20px;
-        align-items: center;
+        /* align-items: center; */
         grid-gap: 15px;
         justify-self: flex-end;
     }
@@ -120,22 +120,21 @@ export default {
     }
     .bell{
         cursor: pointer;
-    }
-    .fa-bell{
         position: relative;
     }
     .count{
         display: grid;
         justify-items: center;
-        align-items: center;
+        /* align-items: center; */
         position: absolute;
-        top: 20px;
+        top: 14px;
         background-color: red;
         color: #fefefe;
         height: 12px;
         width: 12px;
         border-radius: 50%;
         font-size: 9px;
+        left: 5px;
     }
     .fa-user{
         cursor: pointer;
@@ -147,7 +146,7 @@ export default {
     }
     .pull-down{
         display: grid;
-        align-items: center;
+        /* align-items: center; */
         cursor: pointer;
     }
     .dropdown a{
@@ -191,6 +190,7 @@ export default {
         grid-template-columns: 80px auto;
         grid-gap: 40px;
         font-size: 12px;
+        align-items: center;
     }
     .user-h3{
         grid-template-columns: 40px 40px;
@@ -198,6 +198,7 @@ export default {
     .user-view{
         grid-template-columns: 80px 25px 115px 20px;
         grid-gap: 7px;
+        align-items: center;
     }
     img{
         width: 20px;
@@ -212,10 +213,8 @@ export default {
         grid-template-columns: 15px 90px;
         /* font-size: 14px; */
     }
-    .dropdown-content{
-        /* min-width: 120px;
-        height: 70px;
-        padding: 15px; */
+    .pull-down{
+        align-items: center;
     }
 }
 

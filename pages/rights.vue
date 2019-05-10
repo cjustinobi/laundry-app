@@ -1,7 +1,7 @@
 <template>
-    <div class="terms-container">
+    <div class="rights-container">
         <div class="touch"><h2>Terms of Use</h2></div>
-        <div class="terms-body">
+        <div class="rights-body">
             <p class="pb">
                 Elegant Online Services (“Elegant.com“) is committed to protecting and respecting your privacy.
                  Please read these terms and conditions carefully before using our website.
@@ -72,7 +72,7 @@
     }
 </script>
 <style scoped>
-    .terms-container{
+    .rights-container{
         display: grid;
         min-height: 100vh;
         grid-template-rows: 80px 1fr;
@@ -88,7 +88,7 @@
         border-bottom: 1px solid #e7b83f;
         margin: 0 auto 10px auto;
     }
-    .terms-body{
+    .rights-body{
         grid-template-rows: 90px;
         text-align: left;
         padding: 10px;
@@ -120,19 +120,9 @@
 
     @media (max-width: 767px) {
         .touch{
-            display: grid;
-            align-items: center;
-            justify-items: center;
-            text-align: center;
             padding: 20px;
             width: 90%;
             margin: 0 auto 10px auto;
-        }
-        .policy-body{
-            text-align: left;
-            padding: 20px;
-            width: 90%;
-            margin: 0 auto;
         }
     }
 </style>

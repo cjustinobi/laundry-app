@@ -110,10 +110,11 @@ import TransactionHistory from '~/components/guest/transactionHistory'
     }
     .items{
         display: grid;
-        grid-template-columns: 750px 80px 110px;
+        grid-template-columns: 1fr 80px 110px;
         margin: 0 60px;
         grid-gap: 20px;
         align-items: center;
+        width: 90%;
     }
     .item-head{
         background-color: #fefefe;
@@ -132,7 +133,7 @@ import TransactionHistory from '~/components/guest/transactionHistory'
     }
     .third-section{
         display: grid;
-        grid-template-rows: 30px 110px;
+        grid-template-rows: 30px 120px;
         margin: 0 60px;
     }
     .item-total{
@@ -149,7 +150,7 @@ import TransactionHistory from '~/components/guest/transactionHistory'
     .coupon-section{
         display: grid;
         grid-template-columns: 1fr 80px;
-        width: 300px;
+        width: 90%;
         padding: 10px;
         border: 1px solid rgb(236, 236, 236);
         background-color: rgb(241, 241, 241);
@@ -158,12 +159,14 @@ import TransactionHistory from '~/components/guest/transactionHistory'
         display: grid;
         justify-items: center;
         background-color: #fefefe;
+        text-align: center;
     }
     .second-item{
         display: grid;
         grid-template-columns: 1fr 300px;
         align-items: center;
         padding-top: 10px;
+        grid-gap: 15px;
     }
     .total-inner2{
         display: grid;
@@ -235,5 +238,37 @@ import TransactionHistory from '~/components/guest/transactionHistory'
     }
     .back:hover{
         background-color: #f58b13;
+    }
+
+    @media (max-width: 767px) {
+        .items{
+            grid-template-columns: 1fr 40px 110px;
+            margin: 0 20px;
+            width: 90%;
+            align-content: center;
+        }
+        .coupon-section{
+            grid-template-columns: 1fr 40px;
+            grid-gap: 10px;
+            padding: 5px;
+        }
+        .third-section{
+            grid-template-rows: 30px 110px;
+            margin: 0 20px;
+        }
+        .pick-up-delivery{
+            grid-template-rows: 30px 110px;
+            margin: 0 20px;
+        }
+        .pick-up-day{
+            margin: 0 20px;
+        }
+        .mode-of-payment{
+            margin: 0 20px;
+        }
+        .back{
+            font-size: 14px;
+            margin: 0 20px;
+        }
     }
 </style>

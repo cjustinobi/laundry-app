@@ -5,7 +5,8 @@ export default ({store}) => {
         key: 'laundry',
         storage: window.sessionStorage,
         reducer: state => ({
-            auth: state.auth
+            auth: state.auth,
+            cart: state.cart
         })
     })(store)
 }

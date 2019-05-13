@@ -61,13 +61,7 @@
 
 export default {
     layout: 'dashboard',
-
-    methods: {
-        async me() {
-            let res = await this.$axios.$get('me')
-            console.log(res)
-        }
-    }
+    middleware: ['check-auth'],
 }
 </script>
 

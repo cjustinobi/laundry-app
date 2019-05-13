@@ -8,8 +8,8 @@
         </div>
 
         <div class="user-view">
-            <div class="new-order">
-                <i class="fa fa-cart-plus"><div class="order-count">0</div></i> <p>New order</p>
+            <div class="new-order" @click="$router.push('/dashboard/cart')">
+                <i class="fa fa-cart-plus"></i><div class="order-count">0</div> <p>New order</p>
             </div>
 
             <div class="bell">
@@ -242,7 +242,6 @@ export default {
     .names{
         display: grid;
         grid-template-columns: 15px 90px;
-        /* font-size: 14px; */
     }
     .pull-down{
         align-items: center;

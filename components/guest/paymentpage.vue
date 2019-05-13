@@ -66,31 +66,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="verify-cart">
-            <div class="cart-items"><h4>Verify Cart Items</h4></div>
-            <div class="sub-heading">
-                <p>#</p>
-                <p>Product</p>
-                <p>Description</p>
-                <p>Unit Price</p>
-                <p>Quantity</p>
-                <p>Total</p>
-            </div>
-            <div class="table-data">
-                <p>1</p>
-                <img class="table-img" src="~assets/images/EL_laundry.png" alt="Elegant Image">
-                <p>Long sleeve shirt</p>
-                <p>N15000</p>
-                <p><i class="fa fa-plus-square"></i> 2 <i class="fa fa-minus-square"></i></p>
-                <p>N30,000</p>
-            </div>
-        </div>
-
-        <div class="btn-container">
-            <button class="add-btn"><i class="fa fa-plus"></i> Add more items</button>
-        </div>
-
     </div>
 </template>
 
@@ -191,20 +166,8 @@
         box-shadow: 5px 5px 15px grey;
         margin-right: 40px;
     }
-    .verify-cart{
-        display: grid;
-        height: 120px;
-        color: #114e9e;
-        background-color: #fefefe;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        box-shadow: 5px 5px 15px grey;
-        margin: 0 40px 40px 40px;
-        /* padding: 15px; */
-    }
-    .btn-container{
-        display: grid;
-        margin-left: 40px;
-    }
+ 
+    
     .add-btn{
         background-color: #114e9e;
         height: 50px;
@@ -243,13 +206,7 @@
     .change-color{
         color: #e7b83f;
     }
-    .cart{
-        height: 40px;
-        background-color: rgb(241, 241, 241);
-        display: grid;
-        justify-items: center;
-        align-items: center;
-    }
+    
     .cart-inner{
         padding: 15px;
         display: grid;
@@ -283,29 +240,6 @@
     .pay-now:hover{
         background-color: #f58b13;
     }
-    .cart-items{
-        background-color: rgb(241, 241, 241);
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        height: 35px;
-    }
-    .sub-heading{
-        display: grid;
-        grid-template-columns: 60px repeat(5, auto);
-        height: 40px;
-        align-items: center;
-        justify-items: center;
-        color: #114e9e;
-    }
-    .table-data{
-        display: grid;
-        grid-template-columns: 60px repeat(5, auto);
-        align-items: center;
-        justify-items: center;
-        color: #114e9e;
-        padding-bottom: 10px;
-    }
     .fa-plus-square,
     .fa-minus-square{
         color: #e7b83f;
@@ -315,9 +249,6 @@
     .fa-minus-square:hover{
         color: #f58b13;
         transition: 0.7s ease-in;
-    }
-    .table-img{
-        width: 40px;
     }
 
 
@@ -349,19 +280,6 @@
         }
         .cart-summary{
             margin: 0 20px;
-        }
-        .verify-cart{
-            margin: 0 20px;
-            font-size: 12px;    
-        }
-        .sub-heading{
-            grid-gap: 5px;
-        }
-        .table-data{
-            grid-gap: 5px;
-        }
-        .btn-container{
-            margin: 0 0 0 20px;
         }
     }
 </style>

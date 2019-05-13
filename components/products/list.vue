@@ -1,83 +1,108 @@
 <template>
     <div class="all-products">
-        <div><products v-if="user !== undefined && user.user_type !== 3"/></div>
-       <div><items @toogleSideLinks="toogleSideLinks"/></div>
+        <div><Products v-if="user !== undefined && user.user_type !== 3"/></div>
+        <div><Items @toogleSideLinks="toogleSideLinks"/></div>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
-                 <actions
+                <Actions
                         v-if="user !== undefined && user.user_type == 3"
                         @editItem="editItem"
                         @removeItem="removeItem"
-                        :itemId="product.id" :api="api">
-                </actions>
+                        :itemId="product.id" :api="api"/>
+
                 <div class="img-square">
-                    <img :src="product.file_path" alt="EL image">
+                    <img :src="`${baseUrl}${product.file_path}`" alt="EL image">
                 </div>
                 <h5>{{ product.name }}</h5>
                 <p class="p1">Washed, pressed and neatly folded</p>
+                <h5>&#8358;{{ currency.format(product.price) }}</h5>
                 <div class="separator"></div>
-                <h5>{{ product.price }}</h5>
                 <p>{{ product.category.name }}</p>
-                <button 
-                    v-if="user !== undefined && user.user_type !== 3"   
-                    class="laundry-list-btn">Add to cart
+                <button
+                        v-if="user.user_type !== 3"
+                        class="laundry-list-btn">
+                        <span @click="addToCart(product, i)">Add to cart</span>
+                        <span @click="incrementItem(product, i)">+</span>
+                        <span :ref="`qty-${i}`">1</span>
+                        <span @click="decrementItem(product.id, i)">-</span>
                 </button>
             </div>
         </div>
 
         <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links">
-            <sideLinks @cancelLinks="cancelLinks"></sideLinks>
+            <SideLinks @cancelLinks="cancelLinks"/>
         </div>
     </div>
 </template>
 
 <script>
-    import Products from '~/components/guest/products'
+
+    import User from '~/mixins/user'
+    import Cart from '~/mixins/cart'
     import Items from '~/components/guest/items'
     import Actions from '~/components/shared/actions'
+    import Products from '~/components/guest/products'
     import SideLinks from '~/components/guest/sideLinks'
+    import CurrencyFormatter from '~/mixins/currencyFormatter'
 
-export default {
+    export default {
 
-    components: { Products, Items, Actions, SideLinks },
+        mixins: [User, CurrencyFormatter, Cart],
 
-    data() {
-        return {
-            api: 'products/',
-            sideLinks: true
-        }
-    },
+        components: { Products, Items, Actions, SideLinks },
 
-    methods: {
-        editItem(i) {
-            this.showForm = true;
-            this.editDetail = this.products.find(product => product.id === i)
-        },
-        removeItem(i) { 
-            this.$store.dispatch('products/removeItem', i)
-        },
-        toogleSideLinks() {
-            let x = document.getElementById('side-links')
-            if(x.style.display === 'block') {
-                x.style.display = 'none'
-            } else {
-                x.style.display = 'block'
+        data() {
+            return {
+                baseUrl: process.env.baseUrl,
+                api: 'products/',
+                sideLinks: true,
+                items: []
             }
         },
-        cancelLinks() {
-            this.sideLinks = false
-        }
-    },
 
-    computed: {
-        products() {
-            return this.$store.getters['products/allProducts']
+        methods: {
+            editItem(i) {
+                this.showForm = true;
+                this.editDetail = this.products.find(product => product.id === i)
+            },
+            removeItem(i) {
+                this.$store.dispatch('products/removeItem', i)
+            },
+            toogleSideLinks() {
+                let x = document.getElementById('side-links')
+                if(x.style.display === 'block') {
+                    x.style.display = 'none'
+                } else {
+                    x.style.display = 'block'
+                }
+            },
+            cancelLinks() {
+                this.sideLinks = false
+            },
+            addToCart(product, i) {
+                // Check if this particluar item has been added.
+                const item  = this.items.find(item => item.id == product.id)
+                // Syncs the store.
+                if (item) {
+                    this.$store.dispatch('cart/addToCart', { item, elId: i })
+                } else {
+                    // Add it for the first time.
+                    product.qty = 1
+                    this.items.push(product)
+                    this.$store.dispatch('cart/addToCart', { item: product, elId: i })
+                } 
+            }
+        },
+        computed: {
+            products() {
+                return this.$store.getters['products/allProducts']
+            }
+        },
+
+        beforeMount() {
+            this.$store.dispatch('products/getProducts')
         }
-    },
-    beforeMount() {
-        this.$store.dispatch('products/getProducts')
     }
-}
 </script>
 
 <style lang="scss" scoped>

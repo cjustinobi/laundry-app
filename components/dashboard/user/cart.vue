@@ -19,6 +19,7 @@
                 <span :ref="`qty-${i}`">{{ item.qty }}</span>
                 <i @click="incrementItem(item, i)" class="fa fa-plus-square"></i></p>
             <p>N30,000</p>
+            <button class="del-cart" @click.prevent="deleteCart(i)">Delete</button>
         </div>
         <div class="btn-container">
             <button class="add-btn"><i class="fa fa-plus"></i> Add more items</button>
@@ -40,6 +41,11 @@
             return {
                 baseUrl: process.env.baseUrl,
                 api: 'products/'
+            }
+        },
+        methods: {
+            deleteCart(i) {
+                this.$store.dispatch('items', i)
             }
         },
         computed: {
@@ -69,7 +75,7 @@
     }
     .sub-heading{
         display: grid;
-        grid-template-columns: 60px repeat(5, auto);
+        grid-template-columns: 60px repeat(6, 1fr);
         height: 40px;
         align-items: center;
         justify-items: center;
@@ -77,7 +83,7 @@
     }
     .table-data{
         display: grid;
-        grid-template-columns: 60px repeat(5, auto);
+        grid-template-columns: 60px repeat(6, 1fr);
         align-items: center;
         justify-items: center;
         color: #114e9e;
@@ -89,6 +95,15 @@
     }
     img{
         width: 50px;
+    }
+    .del-cart{
+        height: 20px;
+        width: 50px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .add-btn{
+        height: 30px;
     }
     .no-items{
         display: grid;
@@ -104,13 +119,22 @@
             font-size: 12px;    
         }
         .sub-heading{
+            grid-template-columns: 20px repeat(6, 1fr);
             grid-gap: 5px;
+            padding: 0 5px;
         }
         .table-data{
+            grid-template-columns: 20px repeat(6, 1fr);
             grid-gap: 5px;
+            padding: 0 5px;
         }
         .btn-container{
-            margin: 0 0 0 20px;
+            margin-left: 20px;
+        }
+        .del-cart{
+            height: 15px;
+            width: 40px;
+            font-size: 9px;
         }
     }
 </style>

@@ -2,7 +2,6 @@
     <header>
 
         <nuxt-link to='/' class="brand-name">
-            <!-- <h1 class='wr-logo'>GPAT</h1> -->
             <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture">
         </nuxt-link>
 

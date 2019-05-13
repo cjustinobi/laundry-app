@@ -8,7 +8,7 @@
         </div>
 
         <div class="user-view">
-            <div class="new-order">
+            <div class="new-order" @click="$router.push('/dashboard/cart')">
                 <i class="fa fa-cart-plus"></i> <p>New order</p>
             </div>
 

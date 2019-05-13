@@ -13,6 +13,9 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
+        <div>
+            <nuxt-link to='/dashboard/cart'>View Cart</nuxt-link>
+        </div>
 
         
         
@@ -45,7 +48,7 @@
 <style scoped>
     .items{
         display: grid;
-        grid-template-rows: 40px;
+        grid-template-rows: 40px 50px;
         /* min-height: 100vh; */
         position: relative;
     }

@@ -9,7 +9,7 @@
 
         <div class="user-view">
             <div class="new-order" @click="$router.push('/dashboard/cart')">
-                <i class="fa fa-cart-plus"></i><div class="order-count">0</div> <p>New order</p>
+                <i class="fa fa-cart-plus"><div class="order-count">0</div></i><p>New order</p>
             </div>
 
             <div class="bell">
@@ -120,10 +120,11 @@ export default {
         display: grid;
         grid-template-columns: 25px auto;
         cursor: pointer;
+        position: relative;
     }
     .fa-cart-plus{
         cursor: pointer;
-        position: relative;
+        
     }
     .order-count{
         display: grid;

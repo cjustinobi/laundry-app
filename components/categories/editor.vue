@@ -85,7 +85,7 @@
         grid-template-rows: 1fr;
         grid-gap: 20px;
         padding: 20px;
-        background-color: #f8f8f8;
+        background-color: #e9e9e9;
         border-radius: 5px;
         border: 1px solid grey;
     }
@@ -134,13 +134,13 @@
         border-radius: 5px;
         border: none;
         height: 40px;
-        color: #fefefe;
+        color: #000;
         transition: 0.6s ease-in;
-        background-color: rgb(245, 100, 100);
+        background-color: #d8d8d8;
         outline: none;
     }
     .btn-cancel-benefits:hover{
-        background-color: rgb(240, 59, 59);
+        background-color: #b8b8b8;
     }
     .btn-submit-benefits{
         display: grid;

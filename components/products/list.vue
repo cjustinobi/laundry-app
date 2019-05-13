@@ -18,14 +18,17 @@
                 <h5>&#8358;{{ currency.format(product.price) }}</h5>
                 <div class="separator"></div>
                 <p>{{ product.category.name }}</p>
-                <button
-                        v-if="user.user_type !== 3"
+                <div class="btn-container" v-if="user.user_type !== 3">
+                    <button
                         class="laundry-list-btn">
                         <span @click="addToCart(product, i)">Add to cart</span>
-                        <span @click="incrementItem(product, i)">+</span>
-                        <span :ref="`qty-${i}`">1</span>
-                        <span @click="decrementItem(product.id, i)">-</span>
-                </button>
+                    </button>
+                    <div>
+                        <span @click="incrementItem(product, i)"><i class="fa fa-plus-square fa-2x"></i></span>
+                        <span class="cart-qty" :ref="`qty-${i}`">1</span>
+                        <span @click="decrementItem(product.id, i)"><i class="fa fa-minus-square fa-2x"></i></span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -108,7 +111,7 @@
 <style lang="scss" scoped>
     .all-products{
         display: grid;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
         min-height: 100vh;
         position: relative;
         top: 0;
@@ -152,9 +155,14 @@
         background-color: #8c929b;
         padding: 0;
     }
+    .btn-container{
+        display: grid;
+        grid-template-columns: 150px auto;
+        grid-gap: 5px;
+    }
     .laundry-list-btn{
-        width: 235px;
-        height: 35px;
+        // width: 235px;
+        height: 30px;
         background-color: #e7b83f;
         color: #fefefe;
         outline: none;
@@ -163,6 +171,13 @@
     }
     .laundry-list-btn:hover{
         background-color: #f58b13;
+    }
+    .fa-plus-square,
+    .fa-minus-square{
+        color: #f1c657;
+    }
+    .cart-qty{
+        font-size: 23px;
     }
     .side-links{
         position: fixed;

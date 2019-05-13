@@ -57,7 +57,7 @@
         background-color: #fefefe;
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
-        margin: 0 40px 40px 40px;
+        margin: 40px;
     }
     .cart-items{
         background-color: rgb(241, 241, 241);

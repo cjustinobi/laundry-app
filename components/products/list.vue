@@ -126,7 +126,7 @@
     }
     .laundry-list{
         display: grid;
-        grid-gap: 5px;
+        // grid-gap: 5px;
         background-color: #fefefe;
         color: #114e9e;
         min-height: 320px;
@@ -174,7 +174,12 @@
     }
     .fa-plus-square,
     .fa-minus-square{
-        color: #f1c657;
+        color: #dfdfdf;
+    }
+    .fa-plus-square:hover,
+    .fa-minus-square:hover{
+        color: #b8b8b8;
+        transition: 0.8s ease-in;
     }
     .cart-qty{
         font-size: 23px;
@@ -192,7 +197,7 @@
         display: none;
     }
     
-    @media (max-width: 7767px) {
+    @media (max-width: 767px) {
         .laundry-list-wrapper{
             grid-gap: 20px;
         }

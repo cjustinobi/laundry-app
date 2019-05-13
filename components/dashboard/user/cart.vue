@@ -12,7 +12,7 @@
         <div class="table-data" v-for="(item, i) in items" :key="i">
             <p>{{ i + 1 }}</p>
             <img class="table-img" :src="`${baseUrl}${item.file_path}`" alt="Elegant Image">
-            <p>Long sleeve shirt</p>
+            <p>{{ item.name }}</p>
             <p>&#8358;{{ currency.format(item.price) }}</p>
             <p>
                 <i @click="decrementItem(item.id, i)" class="fa fa-minus-square"></i>
@@ -24,8 +24,8 @@
             <button class="add-btn"><i class="fa fa-plus"></i> Add more items</button>
         </div>
     </div>
-    <div v-else>
-        <h4>you don't have items in cart</h4>
+    <div v-else class="no-items">
+        <h3>you don't have items in cart</h3>
     </div>
 </template>
 
@@ -38,7 +38,8 @@
         mixins: [CurrencyFormatter, Cart],
         data() { 
             return {
-                baseUrl: process.env.baseUrl
+                baseUrl: process.env.baseUrl,
+                api: 'products/'
             }
         },
         computed: {
@@ -89,9 +90,17 @@
     img{
         width: 50px;
     }
+    .no-items{
+        display: grid;
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+        margin: 30px;
+    }
+
     @media (max-width: 767px) {
         .cart{
-            margin: 0 20px;
+            margin: 30px 15px;
             font-size: 12px;    
         }
         .sub-heading{

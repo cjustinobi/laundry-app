@@ -121,7 +121,7 @@
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
-        height: 310px;
+        height: 330px;
     }
     img{
         width: 40px;

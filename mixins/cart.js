@@ -35,7 +35,24 @@ export default {
                     this.$store.dispatch('cart/updateItemQty', { itemId, qty: item.qty })
                 }
             }
+        },
+        getQty(productId) {
+            let items = this.$store.state.cart.items
+            if (items.length > 0) {
+                const item = items.filter(item => item.id === productId)
+                if (item.length > 0) {
+                    return item[0].qty
+                }
+                // return typeof(item[0].key !== 'undefined') ? item[0].key : 1
+                // console.log( 'jkljl ' + JSON.stringify(item))
+                // return item[0].qty
+            }
+            return 1
         }
+    },
+
+    mounted() {
+        this.getQty()
     },
 
     computed: {

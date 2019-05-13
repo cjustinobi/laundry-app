@@ -23,7 +23,7 @@
                         class="laundry-list-btn">
                         <span @click="addToCart(product, i)">Add to cart</span>
                         <span @click="incrementItem(product, i)">+</span>
-                        <span :ref="`qty-${i}`">1</span>
+                        <span :ref="`qty-${i}`">{{ getQty(product.id) }}</span>
                         <span @click="decrementItem(product.id, i)">-</span>
                 </button>
             </div>

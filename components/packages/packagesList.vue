@@ -94,7 +94,7 @@
         grid-template: auto / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
         justify-items: center;
-        grid-gap: 70px;
+        grid-gap: 40px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
     }
@@ -103,7 +103,7 @@
         border: 1px solid #b2d2e4;
         border-radius: 10px;
         display: grid;
-        margin: 30px 0;
+        margin-top: 30px;
         min-height: 500px;
         background-color: #fefefe;
         transition: 0.7s ease-in;
@@ -213,6 +213,7 @@
     @media (max-width: 767px) {
         .packages{
             grid-template: auto / 1fr;
+            grid-gap: 30px;
         }
         .wash-menu{
             font-size: 14px;

@@ -100,7 +100,6 @@ export default {
         display: grid;
         grid-gap: 5px;
         background-color: #fefefe;
-        margin: 40px 0;
         color: #114e9e;
         min-height: 320px;
         padding: 10px;
@@ -109,13 +108,15 @@ export default {
     .img-square{
         width: 150px;
         height: 150px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
+        // display: grid;
+        // align-items: center;
+        // justify-items: center;
+        background-size: contain;
+        background-position: left;
     }
     img{
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
     }
     .p1{
         color: #8395b1;
@@ -149,6 +150,12 @@ export default {
     }
     .hide-side-links{
         display: none;
+    }
+    
+    @media (max-width: 7767px) {
+        .laundry-list-wrapper{
+            grid-gap: 20px;
+        }
     }
 </style>
 

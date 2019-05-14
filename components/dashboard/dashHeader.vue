@@ -9,7 +9,7 @@
 
         <div class="user-view">
             <div class="new-order" @click="$router.push('/dashboard/cart')">
-                <i class="fa fa-cart-plus"><div class="order-count">0</div></i><p>New order</p>
+                <i class="fa fa-cart-plus"><div class="order-count">0</div></i><p>Cart</p>
             </div>
 
             <div class="bell">
@@ -111,7 +111,7 @@ export default {
     }
     .user-view{
         display: grid;
-        grid-template-columns: 120px 35px 150px 20px;
+        grid-template-columns: 70px 35px 150px 30px;
         /* align-items: center; */
         grid-gap: 15px;
         justify-self: flex-end;
@@ -161,7 +161,7 @@ export default {
     }
     .names{
         display: grid;
-        grid-template-columns: 25px auto;
+        grid-template-columns: 20px auto;
         
     }
     .pull-down{
@@ -216,7 +216,7 @@ export default {
         grid-template-columns: 40px 40px;
     }
     .user-view{
-        grid-template-columns: 80px 25px 115px 20px;
+        grid-template-columns: 50px 30px 115px 25px;
         grid-gap: 7px;
         align-items: center;
     }
@@ -226,7 +226,7 @@ export default {
     }
     .new-order{
         display: grid;
-        grid-template-columns: 17px 60px;
+        grid-template-columns: 19px 30px;
     }
     .order-count{
         top: 6px;

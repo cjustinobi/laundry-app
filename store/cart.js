@@ -31,6 +31,9 @@ export const mutations = {
         if (item) {
             item.qty = qty
         }
+    },
+    DELETE_ITEM (state, itemId) {
+        state.items = state.items.filter(item => item.id != itemId)
     }
 }
 
@@ -43,6 +46,9 @@ export const actions = {
     },
     updateItemQty({ commit }, payload) {
         commit('UPDATE_ITEM_QTY', payload)
+    },
+    deleteItem({ commit }, itemId) { 
+        commit('DELETE_ITEM', itemId)
     }
 }
 

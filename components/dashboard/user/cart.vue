@@ -17,16 +17,21 @@
             <p>
                 <i @click="decrementItem(item.id, i)" class="fa fa-minus-square"></i>
                 <span :ref="`qty-${i}`">{{ item.qty }}</span>
-                <i @click="incrementItem(item, i)" class="fa fa-plus-square"></i></p>
-            <p>N30,000</p>
-            <button class="del-cart" @click.prevent="deleteCart(i)">Delete</button>
+                <i @click="incrementItem(item, i)" class="fa fa-plus-square"></i>
+            </p>
+            <p>{{ item.price * item.qty }}</p>
+            <span>
+                <i @click.prevent="$store.dispatch('cart/deleteItem', item.id)" class="fa fa-trash"></i>
+            </span>
         </div>
         <div class="btn-container">
-            <button class="add-btn"><i class="fa fa-plus"></i> Add more items</button>
+            <button class="add-btn"><nuxt-link to="/dashboard/products">
+                <i class="fa fa-plus"></i> Add more items
+            </nuxt-link></button>
         </div>
     </div>
     <div v-else class="no-items">
-        <h3>you don't have items in cart</h3>
+        <h2>You don't have items in cart</h2>
     </div>
 </template>
 
@@ -43,11 +48,7 @@
                 api: 'products/'
             }
         },
-        methods: {
-            deleteCart(i) {
-                this.$store.dispatch('items', i)
-            }
-        },
+      
         computed: {
             items() {
                 return this.$store.getters['cart/items']
@@ -73,25 +74,47 @@
         justify-items: center;
         height: 35px;
     }
+    a{
+        text-decoration: none;
+        color: #fefefe;
+    }
     .sub-heading{
         display: grid;
-        grid-template-columns: 60px repeat(6, 1fr);
-        height: 40px;
+        grid-template-columns: 60px repeat(5, 1fr) 50px;
+        height: 45px;
         align-items: center;
         justify-items: center;
         color: #114e9e;
+        padding-bottom: 5px;
+        font-weight: bold;
     }
     .table-data{
         display: grid;
-        grid-template-columns: 60px repeat(6, 1fr);
+        grid-template-columns: 60px repeat(5, 1fr) 50px;
         align-items: center;
         justify-items: center;
         color: #114e9e;
-        padding-bottom: 10px;
+        padding: 0 10px 10px 0;
+        grid-row-gap: 10px;
+    }
+    .table-img{
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+    .fa-minus-square,
+    .fa-plus-square{
+        cursor: pointer;
+    }
+    .fa-trash{
+        cursor: pointer;
     }
     .btn-container{
         display: grid;
-        margin-left: 40px;
     }
     img{
         width: 50px;
@@ -104,6 +127,15 @@
     }
     .add-btn{
         height: 30px;
+        background-color: #114e9e;
+        color: #fefefe;
+        outline: none;
+        border: none;
+        // border-radius: 0 5px 5px 0;
+    }
+    .add-btn:hover{
+        background-color: #0b3f83;
+        transition: 0.8s ease-in;
     }
     .no-items{
         display: grid;
@@ -111,6 +143,7 @@
         justify-items: center;
         align-items: center;
         margin: 30px;
+        color: rgb(150, 150, 150);
     }
 
     @media (max-width: 767px) {
@@ -119,17 +152,23 @@
             font-size: 12px;    
         }
         .sub-heading{
-            grid-template-columns: 20px repeat(6, 1fr);
+            grid-template-columns: 30px repeat(5, 1fr) 30px;
             grid-gap: 5px;
             padding: 0 5px;
         }
         .table-data{
-            grid-template-columns: 20px repeat(6, 1fr);
+            grid-template-columns: 30px repeat(5, 1fr) 30px;
             grid-gap: 5px;
             padding: 0 5px;
+            height: 50px;
+        }
+        .table-img{
+            width: 30px;
+            height: 30px;
+            background-size: contain;
         }
         .btn-container{
-            margin-left: 20px;
+            
         }
         .del-cart{
             height: 15px;

@@ -7,7 +7,7 @@ export default {
                 const item  = this.items.find(item => item.id == product.id)
                 if (item) {
                     // Item exist already, so increase the quantity.
-                    item.qty++
+                    
                     el[0].innerText = item.qty
                     // Sync the store qty.
                     this.$store.dispatch('cart/updateItemQty', { itemId: product.id, qty: item.qty })

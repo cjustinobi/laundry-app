@@ -138,6 +138,7 @@
         background-color: #d8d8d8;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-cancel:hover{
         background-color: #b8b8b8;
@@ -151,6 +152,7 @@
         background-color: #e7b83f;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-submit:hover{
         background-color: #f58b13;

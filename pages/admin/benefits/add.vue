@@ -63,15 +63,16 @@
         box-shadow: 0 0 20px 0 rgb(117, 126, 126);
         transition: 0.6s ease-in;
         border: none;
+        cursor: pointer;
     }
     .create-btn:hover{
-        background-color: #00122b;
+        background-color: #032f6d;
     }
 
     @media (max-width: 767px) {
         .create-btn{
             width: 135px;
-            font-size: 14px;
+            font-size: 12px;
         }
     }
 </style>

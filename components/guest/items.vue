@@ -13,11 +13,6 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
-        <div class="view-cart" v-if="user !== undefined && user.user_type !== 3">
-            <nuxt-link to='/dashboard/cart'>View Cart</nuxt-link>
-        </div>
-
-        
         
     </div>
 </template>
@@ -48,7 +43,7 @@
 <style scoped>
     .items{
         display: grid;
-        grid-template-rows: 40px 70px;
+        grid-template-rows: 40px;
         /* min-height: 100vh; */
         position: relative;
     }
@@ -86,17 +81,6 @@
         display: grid;
         align-self: center;
     }
-    .view-cart{
-        display: grid;
-        justify-self: end;
-        width: 200px;
-        height: 40px;
-        margin: 20px;
-        background-color: #dbb34d;
-        align-items: center;
-        justify-items: center;
-    }
-    
    
 
     @media (max-width: 1124px) {

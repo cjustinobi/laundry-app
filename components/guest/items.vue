@@ -3,7 +3,9 @@
         <div class="product-list">
             <div class="all-category">
                 <li class="product-links">All Categories</li> 
-                <a href="#" @click.prevent="$emit('toogleSideLinks')"><i class="fa fa-bars"></i></a>
+                <a href="#" class="item-menu-bar" @click.prevent="$emit('toogleSideLinks')">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
             <li class="product-links">Subscriptions</li>
             <div class="yellow-demarcator"></div>
@@ -60,7 +62,11 @@
     }
     a{
         text-decoration: none;
-        color: #fefefe;
+        color: #8a8989;
+    }
+    .item-menu-bar{
+        display: grid;
+        align-items: center;
     }
     .product-links{
         cursor: pointer;

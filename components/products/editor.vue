@@ -113,7 +113,7 @@
     }
     .form{
         display: grid;
-        grid-template-rows: repeat(7, auto);
+        grid-template-rows: repeat(7, 30px);
         grid-gap: 12px;
         padding: 10px 20px 20px 20px;
         margin-top: 80px;
@@ -124,7 +124,7 @@
         height: 330px;
     }
     img{
-        width: 40px;
+        width: 30px;
     }
     .file{
         display: none;

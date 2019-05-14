@@ -32,8 +32,15 @@
             </div>
         </div>
 
-        <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links">
-            <SideLinks @cancelLinks="cancelLinks"/>
+        <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
+            v-if="user && user.user_type === 3" 
+        >
+            <SideLinks />
+        </div>
+        <div :class="[{'side-links1': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
+            v-if="user && user.user_type === 1"
+        >
+            <SideLinks />
         </div>
     </div>
 </template>
@@ -80,7 +87,7 @@
                 }
             },
             cancelLinks() {
-                this.sideLinks = false
+                // this.sideLinks = false
             },
             addToCart(product, i) {
                 // Check if this particluar item has been added.
@@ -185,10 +192,18 @@
         font-size: 23px;
     }
     .side-links{
-        position: fixed;
-        left: 50;
-        top: 250;
+        position: absolute;
+        left: 0px;
+        top: 20px;
         z-index: 1000;
+        transition: 0.8s ease-in;
+    }
+    .side-links1{
+        position: absolute;
+        left: 0px;
+        top: 138px;
+        z-index: 1000;
+        transition: 0.8s ease-in;
     }
     #side-links{
         display: none;
@@ -200,6 +215,14 @@
     @media (max-width: 767px) {
         .laundry-list-wrapper{
             grid-gap: 20px;
+        }
+        .side-links{
+            left: 0px;
+            top: 25px;
+        }
+        .side-links1{
+            left: 0px;
+            top: 143px;
         }
     }
 </style>

@@ -18,7 +18,7 @@
                 <h5>&#8358;{{ currency.format(product.price) }}</h5>
                 <div class="separator"></div>
                 <p>{{ product.category.name }}</p>
-                <div class="btn-container" v-if="user.user_type !== 3">
+                <div class="btn-container" v-if="user && user.user_type === 1">
                     <button
                         class="laundry-list-btn">
                         <span @click="addToCart(product, i)">Add to cart</span>
@@ -33,7 +33,7 @@
         </div>
 
         <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
-            v-if="user && user.user_type === 3" 
+            v-if="user && user.user_type === 3"
         >
             <SideLinks />
         </div>
@@ -164,7 +164,7 @@
     }
     .btn-container{
         display: grid;
-        grid-template-columns: 150px auto;
+        grid-template-columns: 140px auto;
         grid-gap: 5px;
     }
     .laundry-list-btn{
@@ -189,7 +189,7 @@
         transition: 0.8s ease-in;
     }
     .cart-qty{
-        font-size: 23px;
+        font-size: 21px;
     }
     .side-links{
         position: absolute;

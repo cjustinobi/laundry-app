@@ -117,12 +117,12 @@
     .payment-container{
         display: grid;
         min-height: 100vh;
-        grid-template-rows: 300px 120px 60px;
-        grid-gap: 40px;
+        grid-template-rows: 300px;
+        /* grid-gap: 40px; */
     }
     .address-time-container{
         display: grid;
-        grid-template-columns: 700px 400px;
+        grid-template-columns: 1fr auto;
         grid-gap: 50px;
         height: 300px;
     }
@@ -156,6 +156,12 @@
         background-color: rgb(194, 194, 194);
         height: 1px;
     }
+    .cart{
+        display: grid;
+        align-items: center;
+        background-color: rgb(241, 241, 241);
+        padding-left: 15px;
+    }
     .cart-summary{
         display: grid;
         grid-template-rows: 40px 1fr;
@@ -166,8 +172,6 @@
         box-shadow: 5px 5px 15px grey;
         margin-right: 40px;
     }
- 
-    
     .add-btn{
         background-color: #114e9e;
         height: 50px;
@@ -206,7 +210,6 @@
     .change-color{
         color: #e7b83f;
     }
-    
     .cart-inner{
         padding: 15px;
         display: grid;
@@ -254,15 +257,14 @@
 
     @media (max-width: 767px) {
         .payment-container{
-            grid-template-rows: 1fr 140px 60px;
-            grid-gap: 30px;
-            /* justify-items: center; */
-            padding-bottom: 20px;
+            grid-template-rows: 1fr;
+            /* grid-gap: 30px; */
+            /* padding-bottom: 20px; */
         }
         .address-time-container{
-            grid-template-columns: 1fr;
-            grid-gap: 20px;
-            height: 330px;
+            grid-template: 1fr / 1fr;
+            grid-gap: 30px;
+            /* height: 330px; */
         }
         .address-inner{
             margin: 0 20px;
@@ -275,11 +277,14 @@
         .payment-method{
             grid-template-columns: 1fr;
         }
+        .select-payment{
+            font-size: 11px;
+        }
         .payment-inner{
             grid-column-start: 1;
         }
         .cart-summary{
-            margin: 0 20px;
+            margin: 0 20px 20px 20px;
         }
     }
 </style>

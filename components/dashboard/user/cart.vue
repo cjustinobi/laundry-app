@@ -115,6 +115,7 @@
     }
     .btn-container{
         display: grid;
+        cursor: pointer;
     }
     img{
         width: 50px;
@@ -131,7 +132,6 @@
         color: #fefefe;
         outline: none;
         border: none;
-        // border-radius: 0 5px 5px 0;
     }
     .add-btn:hover{
         background-color: #0b3f83;

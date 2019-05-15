@@ -118,4 +118,9 @@
             
         }
     }
+    @media (max-width: 450px) {
+       .product-list{
+            font-size: 9px;
+        }
+    }
 </style>

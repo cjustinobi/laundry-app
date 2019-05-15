@@ -1,5 +1,5 @@
 <template>
-    <div class="product" :style="myStyle">
+    <div class="users-containers" :style="myStyle">
         <div class="all-users">
             <users></users>
         </div>
@@ -37,9 +37,8 @@ export default {
 </script>
 
 <style scoped>
-    .product{
+    .users-containers{
         display: grid;
-        /* grid-template-rows: 50px 70px 90px 40px; */
         min-height: 100vh;
     }
     .all-users{
@@ -48,7 +47,7 @@ export default {
 
      @media (max-width: 767px) {
         .all-users{
-            margin: 30px;
+            margin: 30px 20px;
         }
     }
     

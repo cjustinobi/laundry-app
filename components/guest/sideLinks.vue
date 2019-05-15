@@ -22,7 +22,7 @@
         data() {
             return {
                 myStyle: {
-                    backgroundColor: "#d2eaf7"
+                    backgroundColor: "#8f3366"
                 },
                 toggleSideLinks: true
             }
@@ -39,13 +39,12 @@
 <style scoped>
     .side-links{
         display: grid;
-        /* grid-template-rows: 1fr; */
         width: 200px;
         height: 300px;
     }
     a{
         text-decoration: none;
-        color: #114e9e;
+        color: #fefefe;
     }
     .side-list{
         display: grid;
@@ -58,7 +57,7 @@
     }
     .side-list a:hover,
     .side-list a:active{
-        background-color: #fcd982;
+        background-color: #dd88b7;
         border-right: 1px solid #8f6600;
     }
     .close-package{
@@ -76,7 +75,7 @@
 
     @media (max-width: 767px) {
        .side-links{
-            width: 170px;
+            width: 150px;
             height: 300px;
         }
     }

@@ -2,9 +2,9 @@
     <div class="services-container">
         <div class="services-wrapper">
             <div class="services-inner">
-                <div class="services-img"><img src="~assets/images/EL_laundry.png" alt=""></div>
+                <div class="services-img"><img src="~assets/images/EL_iron.jpg" alt=""></div>
                 <div class="order-list">
-                    <h2>Dry Cleaning</h2>
+                    <h2>Wash &amp; Fold</h2>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit odio beatae blanditiis rem 
                         possimus porro accusamus aspernatur fugiat maiores, facere exercitationem quisquam ex! 
@@ -14,9 +14,9 @@
                 </div>
             </div>
             <div class="services-inner">
-                <div class="services-img"><img src="~assets/images/EL_laundry.png" alt=""></div>
+                <div class="services-img"><img src="~assets/images/EL_iron.jpg" alt=""></div>
                 <div class="order-list">
-                    <h2>Dry Cleaning</h2>
+                    <h2>Wash &amp; Fold</h2>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit odio beatae blanditiis rem 
                         possimus porro accusamus aspernatur fugiat maiores, facere exercitationem quisquam ex! 

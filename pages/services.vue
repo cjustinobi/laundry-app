@@ -2,33 +2,82 @@
     <div class="services">
         <div class="title"><h2>Services</h2></div>
         <div class="services-list">
-            <li class="services-links">Dry Cleaning</li>
+            <li class="services-links" :class="{'addColor': dryCleaning}"
+                @click.prevent="toggleServices('dryCleaning')"
+            >Dry Cleaning
+            </li>
             <div class="yellow-demarcator"></div> 
-            <li class="services-links">Wash &amp; Fold</li>
+            <li class="services-links" :class="{'addColor': washFold}"
+                @click.prevent="toggleServices('washFold')"
+            >Wash &amp; Fold
+            </li>
             <div class="yellow-demarcator"></div>
-            <li class="services-links">Handled with extra love &amp; care</li>
+            <li class="services-links" :class="{'addColor': handleCare}"
+                @click.prevent="toggleServices('handleCare')"
+            >Handled with extra love &amp; care
+            </li>
             <div class="yellow-demarcator"></div>
-            <li class="services-links">Donate or recycle</li>
+            <li class="services-links" :class="{'addColor': recycle}"
+                @click.prevent="toggleServices('recycle')"
+            >Donate or recycle
+            </li>
         </div>
         <div class="hr-demarcator"/>
         
-        <div><dryCleaning/></div>
+        <div><DryCleaning v-if="dryCleaning"/></div>
+        <div><WashFold v-if="washFold"/></div>
+        <div><HandleCare v-if="handleCare"/></div>
+        <div><Recycle v-if="recycle"/></div>
 
     </div>
 </template>
 
 <script>
     import DryCleaning from '~/components/guest/dryCleaning'
+    import WashFold from '~/components/guest/washFold'
+    import HandleCare from '~/components/guest/handleCare'
+    import Recycle from '~/components/guest/recycle'
 
     export default {
         components:{
-            DryCleaning
+            DryCleaning, WashFold, HandleCare, Recycle
         },
 
         data() {
             return {
-               
+               dryCleaning: true,
+               washFold: false,
+               handleCare: false,
+               recycle: false
             }
+        },
+        methods: {
+             toggleServices(val) {
+                if(val == 'dryCleaning') {
+                    this.washFold =false
+                    this.handleCare = false
+                    this.recycle = false
+                    return this.dryCleaning = true
+                }
+                if(val == 'washFold') {
+                    this.handleCare =false
+                    this.recycle =false
+                    this.dryCleaning = false
+                    return this.washFold= true
+                }
+                if(val == 'handleCare') {
+                    this.recycle =false
+                    this.dryCleaning =false
+                    this.washFold = false
+                    return this.handleCare = true
+                }
+                if(val == 'recycle') {
+                    this.dryCleaning =false
+                    this.washFold = false
+                    this.handleCare = false
+                    return this.recycle = true
+                }
+             }
         },
         mounted() {
             document.body.style.background = "#f0faff";
@@ -44,14 +93,12 @@
         display: grid;
         grid-template-rows: 70px 70px 1px 1fr;
         min-height: 100vh;
-        /* grid-gap: 10px; */
         margin-top: -14px;
     }
     .title{
         display: grid;
         justify-items: center;
         align-content: center;
-        /* height: 80px; */
         color: #114e9e;
         background-color: #fefefe;
         
@@ -86,6 +133,9 @@
         background-color: #fdc026;
         margin: 0 auto;
     }
+    .addColor{
+        color: #e7b83f;
+    }
 
     @media (max-width: 878px) {
         .services-list{
@@ -101,6 +151,9 @@
             font-size: 12px;
             grid-gap: 8px;
             padding: 0 10px;    
+        }
+        .yellow-demarcator{
+            display: none;
         }
     }
     @media (max-width: 450px) {

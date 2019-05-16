@@ -4,11 +4,11 @@
             <img src="~/assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
 
-        <label for="">Email <br>
-            <input type="text" v-model="email" required><br>
+        <label for="email">Email <br>
+            <input type="text" v-model="email" id="email" required><br>
         </label>
         <div class="password-wrapper">
-            <label for="" class="pw-input">Password <br>
+            <label for="password" class="pw-input">Password <br>
                 <input type="password" v-model="password" id="password">
                 <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
                 <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
@@ -66,13 +66,15 @@ export default {
       
         async signIn() {
             this.loading = true
+            const self = this
             try {
                 await this.$store.dispatch('auth/signIn', {email: this.email, password: this.password})
                 return this.$router.push('/dashboard')
             } catch (err) {
                 this.loading = false
+                console.log(err.response.data.error)
                 this.$store.dispatch('notifications/setStatus',
-                    { messages: ['invalid credentials'], state: 'error' }
+                    { messages: ['incorrect details supplied'], state: 'error' }
                 )
             }
         }

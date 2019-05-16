@@ -17,7 +17,9 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
         ]
     },
-
+    env: {
+        baseUrl: 'http://127.0.0.1:9000/'
+    },
     /*
     ** Customize the progress-bar color
     */

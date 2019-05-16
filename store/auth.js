@@ -16,17 +16,11 @@ export const mutations = {
 
 export const actions = {
     async signIn({ commit }, payload) {
-        try {
-            let { user, token } = await this.$axios.$post('login', payload)
-            commit('SET_TOKEN', token)
-            commit('SET_USER', user)
-            localStorage.setItem('user', JSON.stringify(user))
-            cookies.set('x-access-token', token, {expires: 7})
-            return 'success'
-
-        } catch (e) {
-            return (e)
-        }
+        let { user, token } = await this.$axios.$post('login', payload)
+        commit('SET_TOKEN', token)
+        commit('SET_USER', user)
+        localStorage.setItem('user', JSON.stringify(user))
+        cookies.set('x-access-token', token, {expires: 7})
     },
 
     logout({ commit }) {

@@ -13,8 +13,6 @@
 
     export default {
 
-        components: {  },
-
         data() {
             return {
                 myStyle: {
@@ -61,6 +59,7 @@
         align-content: center;
     }
     .search-laundry input{
+        width: 100%;
         height: 30px;
         color: #898f97;
         padding-left: 5px;
@@ -80,6 +79,8 @@
     }
 
     @media (max-width: 767px) {
-       
+       .search-laundry{
+            grid-template-columns: auto 130px;
+        }
     }
 </style>

@@ -112,20 +112,12 @@
     
 
     @media (max-width: 767px) {
-        .touch{
-            display: grid;
-            align-items: center;
-            justify-items: center;
-            text-align: center;
-            padding: 20px;
-            width: 90%;
-            margin: 0 auto 10px auto;
+        .terms-container{
+            grid-template-rows: 100px 1fr;
         }
-        .policy-body{
-            text-align: left;
-            padding: 20px;
+        .touch{
+            padding: 10px;
             width: 90%;
-            margin: 0 auto;
         }
     }
 </style>

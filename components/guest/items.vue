@@ -3,7 +3,9 @@
         <div class="product-list">
             <div class="all-category">
                 <li class="product-links">All Categories</li> 
-                <a href="#" @click.prevent="$emit('toogleSideLinks')"><i class="fa fa-bars"></i></a>
+                <a href="#" class="item-menu-bar" @click.prevent="$emit('toogleSideLinks')">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
             <li class="product-links">Subscriptions</li>
             <div class="yellow-demarcator"></div>
@@ -13,8 +15,6 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
-
-        
         
     </div>
 </template>
@@ -60,6 +60,14 @@
         background-color: rgb(241, 241, 241);
         justify-items: center;
     }
+    a{
+        text-decoration: none;
+        color: #8a8989;
+    }
+    .item-menu-bar{
+        display: grid;
+        align-items: center;
+    }
     .product-links{
         cursor: pointer;
     }
@@ -79,7 +87,6 @@
         display: grid;
         align-self: center;
     }
-    
    
 
     @media (max-width: 1124px) {
@@ -89,11 +96,13 @@
             font-size: 15px;
         }
         .all-category{
+            grid-template-columns: 1fr 20px;
             grid-gap: 15px;
         }
         .yellow-demarcator{
             display: none;
         }
+        
     }
 
     @media (max-width: 767px) {
@@ -103,7 +112,15 @@
        .product-list{
             grid-template: 45px / repeat(5, auto); 
             height: 50px;
-            font-size: 13px;
+            font-size: 11px;
+            grid-gap: 7px;
+            padding: 0 12px;
+            
+        }
+    }
+    @media (max-width: 450px) {
+       .product-list{
+            font-size: 9px;
         }
     }
 </style>

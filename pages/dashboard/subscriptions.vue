@@ -5,7 +5,7 @@
             <div class="edit-wrapper">
                 <div class="sub-heading"><h4>Current Subscription</h4></div>
                 <div class="update-sect">
-                    <h4>You currently do not have a subscription</h4>
+                    <h4 class="h4">You currently do not have a subscription</h4>
                     <nuxt-link to="/subscriptionpage" class="update-button">
                         <i class="fa fa-shopping-bag"></i> Subscribe Now
                     </nuxt-link>
@@ -83,6 +83,7 @@
         align-items: center;
         justify-items: center;
         margin: 20px 0;
+        text-align: center;
     }
     .update-button{
         height: 50px;
@@ -109,6 +110,9 @@
             width: 200px;
             height: 40px;
             font-size: 14px;
+        }
+        .h4{
+            padding: 0 3px;
         }
     }
 </style>

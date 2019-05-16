@@ -13,7 +13,7 @@
             <div class="the-how-mark"></div>
         </div>
         <div>
-            <howItWorks></howItWorks>
+            <HowItWorks/>
         </div>
 
         <div class="pricing">
@@ -21,7 +21,7 @@
             <div class="price-highlight"></div>
         </div>
         <div>
-            <packages-list/>
+            <PackagesList/>
         </div>
         <div class="divider"></div>
 
@@ -29,13 +29,13 @@
             <p>Why Us</p>
             <div class="why-us-highlight"></div>
         </div>
-        <div><usp></usp></div>
+        <div><Usp/></div>
 
         <div class="faq">
             <p>Top 3 FAQ</p>
             <div class="faq-highlight"></div>
         </div>
-        <div><topFaq></topFaq></div>
+        <div><TopFaq/></div>
 
     </div>
 </template>

@@ -8,12 +8,12 @@
         </div>
 
         <div class="user-view">
-            <div class="new-order">
-                <i class="fa fa-cart-plus"></i> <p>New order</p>
+            <div class="new-order" @click="$router.push('/dashboard/cart')">
+                <i class="fa fa-cart-plus"><div class="order-count">0</div></i><p>Cart</p>
             </div>
 
             <div class="bell">
-                <i class="fa fa-bell"></i> <div class="count">0</div>
+                <i class="fa fa-bell"></i> <div class="notification-count">0</div>
             </div>
             
             <div class="names">
@@ -23,7 +23,7 @@
 
             <div v-if="user !== undefined && user.user_type !== 3"
                 id="dropdown" :class="[{'dropdown': dropdown}]">
-                <a class="pull-down" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
+                <a class="pull-down" @mouseover="showPull" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
                 <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
                     <nuxt-link class="show my-profile" to="/profile">
                         <i class="fa fa-user"></i> My Profile
@@ -51,12 +51,15 @@ export default {
             if(x.className.indexOf("show") == -1) {
                 this.dropdownContent = true
                 x.className += " show"
-                x.style.display = "block"
+                x.style.display = "grid"
             } else {
                 this.dropdownContent = false
                 x.style.display = "none"
-                x.className.replace(" show", "")
+                x.className.replace("")
             }
+        },
+        showPull() {
+            // this.dropdownContent = !this.dropdownContent
         }
     },
     computed: {
@@ -84,9 +87,9 @@ export default {
 <style scoped>
     .main-head{
         display: grid;
-        grid-template-columns: 1fr 350px;
+        grid-template-columns: 1fr;
         position: relative;
-        align-items: center;
+        /* align-items: center; */
         background-color: #01355f;
         height: 60px;
         color: #fefefe;
@@ -108,45 +111,62 @@ export default {
     }
     .user-view{
         display: grid;
-        grid-template-columns: 120px 35px 150px 20px;
-        align-items: center;
+        grid-template-columns: 70px 35px 150px 30px;
+        /* align-items: center; */
         grid-gap: 15px;
+        justify-self: flex-end;
     }
     .new-order{
         display: grid;
         grid-template-columns: 25px auto;
         cursor: pointer;
-    }
-    .bell{
-        cursor: pointer;
-    }
-    .fa-bell{
         position: relative;
     }
-    .count{
+    .fa-cart-plus{
+        cursor: pointer;
+        
+    }
+    .order-count{
         display: grid;
         justify-items: center;
-        align-items: center;
         position: absolute;
-        top: 20px;
+        top: 6px;
         background-color: red;
         color: #fefefe;
         height: 12px;
         width: 12px;
         border-radius: 50%;
         font-size: 9px;
+        left: 9px;
+    }
+    .bell{
+        cursor: pointer;
+        position: relative;
+    }
+    .notification-count{
+        display: grid;
+        justify-items: center;
+        position: absolute;
+        top: 6px;
+        background-color: red;
+        color: #fefefe;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        font-size: 9px;
+        left: 9px;
     }
     .fa-user{
         cursor: pointer;
     }
     .names{
         display: grid;
-        grid-template-columns: 25px auto;
+        grid-template-columns: 20px auto;
         
     }
     .pull-down{
         display: grid;
-        align-items: center;
+        /* align-items: center; */
         cursor: pointer;
     }
     .dropdown a{
@@ -174,25 +194,31 @@ export default {
         transition: 0.6s ease-in;
     }
     .dropdown:hover .dropdown-content{
-        display: block;
+        /* display: block; */
     }
     .dropdown-content a{
         text-decoration: none;
     }
+
+@media (max-width: 480px) {
+    
+}
     
 
 @media (max-width: 767px) {
     .main-head{
-        grid-template-columns: 60px auto;
-        grid-gap: 15px;
+        grid-template-columns: 80px auto;
+        grid-gap: 40px;
         font-size: 12px;
+        align-items: center;
     }
     .user-h3{
-        grid-template-columns: 30px 30px;
+        grid-template-columns: 40px 40px;
     }
     .user-view{
-        grid-template-columns: 80px 25px 145px 20px;
+        grid-template-columns: 50px 30px 115px 25px;
         grid-gap: 7px;
+        align-items: center;
     }
     img{
         width: 20px;
@@ -200,12 +226,26 @@ export default {
     }
     .new-order{
         display: grid;
-        grid-template-columns: 15px 60px;
+        grid-template-columns: 19px 30px;
+    }
+    .order-count{
+        top: 6px;
+        left: 7px;
+        width: 10px;
+        height: 10px;
+    }
+    .notification-count{
+        /* top: 6px;
+        left: 7px; */
+        width: 10px;
+        height: 10px;
     }
     .names{
         display: grid;
         grid-template-columns: 15px 90px;
-        /* font-size: 14px; */
+    }
+    .pull-down{
+        align-items: center;
     }
 }
 

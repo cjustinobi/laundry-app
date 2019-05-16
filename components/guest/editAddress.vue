@@ -66,14 +66,14 @@ export default {
         display: grid;
         background-color: #fefefe;
         margin: 0 160px 40px 160px;
-        padding: 80px 70px 0 70px;
+        padding: 50px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
     }
     .update-form{
         display: grid;
-        grid-template-rows: repeat(3, 20px), 90px;
-        grid-gap: 15px;
+        grid-template-rows: repeat(4, 20px), 70px;
+        grid-gap: 10px;
         margin-top: 40px;
         color: #114e9e;
         
@@ -110,7 +110,8 @@ export default {
     @media (max-width: 767px) {
         .edit-wrapper{
             height: 500px;
-            padding: 60px 70px 0 70px;
+            padding: 30px 30px 0 30px;
+            margin: 0 60px;
         }
         .update-form{
             grid-template-rows: repeat(3, 20px), 40px;

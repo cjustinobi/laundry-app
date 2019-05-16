@@ -135,7 +135,7 @@ export default {
     }
     .preferences-head{
         display: grid;
-        grid-template-columns: 220px 50px;
+        grid-template-columns: 1fr 90px;
         grid-gap: 50px;
     }
     .shirt-laundry-preferences{
@@ -166,7 +166,13 @@ export default {
 
     @media (max-width: 767px) {
         .preferences-wrapper{
-           
+            grid-template-rows: 130px 90px 70px;
+            padding: 40px 30px 0 30px;
+            font-size: 13px;
+            margin: 0 60px;
+        }
+        .preferences-list{
+            grid-template-rows: 30px repeat(3, 30px);
         }
         .update-preferences{
             grid-gap: 20px;

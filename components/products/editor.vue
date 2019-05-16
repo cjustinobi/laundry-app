@@ -113,18 +113,18 @@
     }
     .form{
         display: grid;
-        grid-template-rows: repeat(7, auto);
+        grid-template-rows: repeat(7, 30px);
         grid-gap: 12px;
         padding: 10px 20px 20px 20px;
         margin-top: 80px;
-        background-color: #f8f8f8;
+        background-color: #e9e9e9;
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
-        height: 310px;
+        height: 330px;
     }
     img{
-        width: 40px;
+        width: 30px;
     }
     .file{
         display: none;
@@ -132,15 +132,16 @@
     .btn-cancel{
         border-radius: 5px;
         height: 40px;
-        color: #fefefe;
+        color: #000;
         font-size: 16px;
         transition: 0.3s ease-in;
-        background-color: rgb(245, 100, 100);
+        background-color: #d8d8d8;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-cancel:hover{
-        background-color: rgb(240, 59, 59);
+        background-color: #b8b8b8;
     }
     .btn-submit{
         border-radius: 5px;
@@ -151,6 +152,7 @@
         background-color: #e7b83f;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-submit:hover{
         background-color: #f58b13;

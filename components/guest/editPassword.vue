@@ -58,15 +58,6 @@ export default {
         display: grid;
         min-height: 100vh;
     }
-    .title{
-        display: grid;
-        justify-items: center;
-        align-content: center;
-        height: 80px;
-        color: #114e9e;
-        background-color: #f0faff;
-        border-bottom: 1px solid rgb(207, 207, 207);
-    }
     a{
         text-decoration: none;
     }
@@ -126,8 +117,9 @@ export default {
 
     @media (max-width: 767px) {
         .edit-wrapper{
-            height: 400px;
-            padding: 0 70px;
+            height: 300px;
+            padding: 0 30px;
+            margin: 0 60px;
         }
         .edit-list{
             font-size: 15px;

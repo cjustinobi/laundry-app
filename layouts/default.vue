@@ -3,7 +3,10 @@
 
         <AppHeader @toggleSidebar="toggleSidebar"/>
 
-        <div class="nuxt-render"><nuxt/></div>
+        <div class="nuxt-render">
+            <notification/>
+            <nuxt/>
+        </div>
 
         <div><QuickLinks/></div>
 
@@ -81,8 +84,6 @@
 
      @media(max-width: 767px) {
         .sidebar{
-            /* display: none; */
-            /* position: relative; */
             right: 0;
             width: 100%;
         }

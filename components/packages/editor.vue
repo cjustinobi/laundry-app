@@ -115,7 +115,7 @@
         grid-template-rows: repeat(4, auto);
         grid-gap: 15px;
         padding: 10px 20px 20px 20px;
-        background-color: #f8f8f8;
+        background-color: #e9e9e9;
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
@@ -127,15 +127,16 @@
     .btn-cancel{
         border-radius: 5px;
         height: 40px;
-        color: #fefefe;
+        color: #000;
         font-size: 16px;
         transition: 0.3s ease-in;
-        background-color: rgb(245, 100, 100);
+        background-color: #d8d8d8;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-cancel:hover{
-        background-color: rgb(240, 59, 59);
+        background-color: #b8b8b8;
     }
     .btn-submit{
         border-radius: 5px;
@@ -146,6 +147,7 @@
         background-color: #e7b83f;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-submit:hover{
         background-color: #f58b13;
@@ -167,13 +169,13 @@
         padding: 10px;
     }
     .add-product-cat{
-        width: 340px;
+        width: 334px;
         border-radius: 3px;
         border: 1px solid rgb(202, 202, 202);
         padding: 10px;
     }
     input.multiselect_input{
-        width: 130px;
+        // width: 130px;
     }
     .btn-package{
         display: grid;
@@ -188,7 +190,7 @@
         .form{
             grid-gap: 10px;
             width: 380px;
-            height: 250px;
+            height: 280px;
             padding: 12px;
         }
         .package-mobile{

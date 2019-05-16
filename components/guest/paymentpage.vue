@@ -66,31 +66,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="verify-cart">
-            <div class="cart-items"><h4>Verify Cart Items</h4></div>
-            <div class="sub-heading">
-                <p>#</p>
-                <p>Product</p>
-                <p>Description</p>
-                <p>Unit Price</p>
-                <p>Quantity</p>
-                <p>Total</p>
-            </div>
-            <div class="table-data">
-                <p>1</p>
-                <img class="table-img" src="~assets/images/EL_laundry.png" alt="Elegant Image">
-                <p>Long sleeve shirt</p>
-                <p>N15000</p>
-                <p><i class="fa fa-plus-square"></i> 2 <i class="fa fa-minus-square"></i></p>
-                <p>N30,000</p>
-            </div>
-        </div>
-
-        <div class="btn-container">
-            <button class="add-btn"><i class="fa fa-plus"></i> Add more items</button>
-        </div>
-
     </div>
 </template>
 
@@ -142,12 +117,12 @@
     .payment-container{
         display: grid;
         min-height: 100vh;
-        grid-template-rows: 300px 120px 60px;
-        grid-gap: 40px;
+        grid-template-rows: 300px;
+        /* grid-gap: 40px; */
     }
     .address-time-container{
         display: grid;
-        grid-template-columns: 700px 400px;
+        grid-template-columns: 1fr auto;
         grid-gap: 50px;
         height: 300px;
     }
@@ -181,29 +156,21 @@
         background-color: rgb(194, 194, 194);
         height: 1px;
     }
+    .cart{
+        display: grid;
+        align-items: center;
+        background-color: rgb(241, 241, 241);
+        padding-left: 15px;
+    }
     .cart-summary{
         display: grid;
-        grid-template-rows: 50px 1fr;
+        grid-template-rows: 40px 1fr;
         height: 300px;
         color: #114e9e;
         background-color: #fefefe;
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
         margin-right: 40px;
-    }
-    .verify-cart{
-        display: grid;
-        height: 120px;
-        color: #114e9e;
-        background-color: #fefefe;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        box-shadow: 5px 5px 15px grey;
-        margin: 0 40px 40px 40px;
-        /* padding: 15px; */
-    }
-    .btn-container{
-        display: grid;
-        margin-left: 40px;
     }
     .add-btn{
         background-color: #114e9e;
@@ -243,18 +210,12 @@
     .change-color{
         color: #e7b83f;
     }
-    .cart{
-        height: 40px;
-        background-color: rgb(241, 241, 241);
-        display: grid;
-        justify-items: center;
-        align-items: center;
-    }
     .cart-inner{
         padding: 15px;
         display: grid;
-        grid-template-rows: 90px 40px 40px 50px;
+        grid-template-rows: 90px 30px 30px 50px;
         align-items: center;
+        grid-gap: 8px;
     }
     .total{
         display: grid;
@@ -282,29 +243,6 @@
     .pay-now:hover{
         background-color: #f58b13;
     }
-    .cart-items{
-        background-color: rgb(241, 241, 241);
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        height: 35px;
-    }
-    .sub-heading{
-        display: grid;
-        grid-template-columns: 60px repeat(5, auto);
-        height: 40px;
-        align-items: center;
-        justify-items: center;
-        color: #114e9e;
-    }
-    .table-data{
-        display: grid;
-        grid-template-columns: 60px repeat(5, auto);
-        align-items: center;
-        justify-items: center;
-        color: #114e9e;
-        padding-bottom: 10px;
-    }
     .fa-plus-square,
     .fa-minus-square{
         color: #e7b83f;
@@ -315,12 +253,38 @@
         color: #f58b13;
         transition: 0.7s ease-in;
     }
-    .table-img{
-        width: 40px;
-    }
 
 
     @media (max-width: 767px) {
-        
+        .payment-container{
+            grid-template-rows: 1fr;
+            /* grid-gap: 30px; */
+            /* padding-bottom: 20px; */
+        }
+        .address-time-container{
+            grid-template: 1fr / 1fr;
+            grid-gap: 30px;
+            /* height: 330px; */
+        }
+        .address-inner{
+            margin: 0 20px;
+            font-size: 12px;
+            /* height: 350px; */
+        }
+        .pick-address{
+            grid-gap: 10px;
+        }
+        .payment-method{
+            grid-template-columns: 1fr;
+        }
+        .select-payment{
+            font-size: 11px;
+        }
+        .payment-inner{
+            grid-column-start: 1;
+        }
+        .cart-summary{
+            margin: 0 20px 20px 20px;
+        }
     }
 </style>

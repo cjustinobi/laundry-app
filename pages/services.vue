@@ -1,36 +1,29 @@
 <template>
-    <div class="notifications">
-        <div class="title"><h2>Notifications</h2></div>
-        <div class="product-list">
-            <li class="product-links">Dry Cleaning</li>
+    <div class="services">
+        <div class="title"><h2>Services</h2></div>
+        <div class="services-list">
+            <li class="services-links">Dry Cleaning</li>
             <div class="yellow-demarcator"></div> 
-            <li class="product-links">Wash &amp; Fold</li>
+            <li class="services-links">Wash &amp; Fold</li>
             <div class="yellow-demarcator"></div>
-            <li class="product-links">Handled with extra love &amp; care</li>
+            <li class="services-links">Handled with extra love &amp; care</li>
             <div class="yellow-demarcator"></div>
-            <li class="product-links">Donate or recycle</li>
+            <li class="services-links">Donate or recycle</li>
         </div>
-        <div/>
-        <div class="notifications-wrapper">
-            <img src="~assets/images/EL_laundry.png" alt="">
-            <div class="order-list">
-                <h2>Dry Cleaning</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit odio beatae blanditiis rem 
-                    possimus porro accusamus aspernatur fugiat maiores, facere exercitationem quisquam ex! 
-                    Mollitia totam aliquam suscipit veritatis sequi odit.
-                </p>
-            </div>
-        </div>
+        <div class="hr-demarcator"/>
+        
+        <div><dryCleaning/></div>
 
     </div>
 </template>
 
 <script>
-    
+    import DryCleaning from '~/components/guest/dryCleaning'
 
     export default {
-
+        components:{
+            DryCleaning
+        },
 
         data() {
             return {
@@ -47,11 +40,11 @@
 </script>
 
 <style scoped>
-    .notifications{
+    .services{
         display: grid;
-        grid-template-rows: 80px 70px 1px 1fr;
+        grid-template-rows: 70px 70px 1px 1fr;
         min-height: 100vh;
-        /* grid-gap: 20px; */
+        /* grid-gap: 10px; */
         margin-top: -14px;
     }
     .title{
@@ -63,7 +56,7 @@
         background-color: #fefefe;
         
     }
-    .product-list{
+    .services-list{
         display: grid;
         grid-template-columns: auto 90px auto 90px auto 90px auto; 
         align-items: center; 
@@ -72,57 +65,47 @@
         grid-gap: 5px;
         padding: 0 20px;
         justify-items: center;
+        color: #114e9e;
     }
     a{
         text-decoration: none;
         color: #8a8989;
     }
-    .product-links{
+    .services-links{
         cursor: pointer;
     }
     .yellow-demarcator{
         height: 12px;
-        background-color: #e7b83f;
+        background-color: #a87e12;
         width: 1px;
     }
-    hr{
+    .hr-demarcator{
         width: 90%;
         display: grid;
         justify-items: center;
+        background-color: #fdc026;
+        margin: 0 auto;
     }
-    .notifications-wrapper{
-        display: grid;
-        grid-template-columns: 90px 1fr;
-        grid-gap: 20px;
-        margin: 40px;
-        color: #114e9e;
-        padding: 15px;
+
+    @media (max-width: 878px) {
+        .services-list{
+            font-size: 13px;
+        }
     }
-    .notifications-wrapper img{
-        width: 80px;
-    }
-    .order-list{
-        display: grid;
-        grid-template-rows: 30px 175px;
-        grid-gap: 10px;
-    }
-    
     @media (max-width: 767px) {
-        .notifications{
+        .services{
             grid-template-rows: 80px 60px 1px 1fr;
         }
-        .order-list{
-            grid-gap: 15px;
-        }
-        .product-list{
+        .services-list{
             grid-template-columns: repeat(4, auto);
             font-size: 12px;
             grid-gap: 8px;
-            padding: 0 10px;
-            
+            padding: 0 10px;    
         }
-        .yellow-demarcator{
-            display: none;
+    }
+    @media (max-width: 450px) {
+        .services-list{
+            font-size: 9px;
         }
     }
 </style>

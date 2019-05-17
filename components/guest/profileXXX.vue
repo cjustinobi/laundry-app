@@ -100,8 +100,8 @@ export default {
         .edit-wrapper{
             grid-template-rows: 70px 250px;
             height: 430px;
-            padding: 30px 30px 0 30px;
-            margin: 0 60px 40px 60px;
+            padding: 30px 20px 0 20px;
+            margin: 0 20px 40px 20px;
         }
         .edit-list{
             font-size: 15px;

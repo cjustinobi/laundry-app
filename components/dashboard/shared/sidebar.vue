@@ -43,7 +43,7 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
+            <nuxt-link to='/user/preferences' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
             </nuxt-link>

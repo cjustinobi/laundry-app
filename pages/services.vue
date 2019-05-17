@@ -114,10 +114,6 @@
         justify-items: center;
         color: #114e9e;
     }
-    a{
-        text-decoration: none;
-        color: #8a8989;
-    }
     .services-links{
         cursor: pointer;
     }

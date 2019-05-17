@@ -118,8 +118,8 @@ export default {
     @media (max-width: 767px) {
         .edit-wrapper{
             height: 300px;
-            padding: 0 30px;
-            margin: 0 60px;
+            padding: 0 20px;
+            margin: 0 20px;
         }
         .edit-list{
             font-size: 15px;

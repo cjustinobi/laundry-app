@@ -141,10 +141,18 @@
             padding: 15px;
             grid-gap: 20px;
         }
+        .ticket-btn{
+            grid-template-columns: repeat(3, 110px);
+            grid-gap: 10px;
+            margin: 0 10px;
+            color: #114e9e;
+            /* width: 80%; */
+            justify-content: center;
+        }
         .t-btn{
             height: 25px;
-            width: 150px;
-            font-size: 15px;
+            width: 110px;
+            font-size: 13px;
         }
     }
 </style>

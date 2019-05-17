@@ -77,5 +77,10 @@ export default {
         },
         extend(config, ctx) {
         }
+    },
+    generate: {
+        minify: {
+            collapseWhitespace: false
+        }
     }
 }

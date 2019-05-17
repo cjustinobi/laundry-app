@@ -60,7 +60,7 @@
 
 <script>
 export default {
-
+    layout: 'dashboard',
     data() {
         return {
             myStyle: {
@@ -113,6 +113,7 @@ export default {
     .edit-preferences{
         display: grid;
         min-height: 100vh;
+        /* margin-top: -12px; */
     }
     a{
         text-decoration: none;
@@ -121,7 +122,7 @@ export default {
         display: grid;
         grid-template-rows: 110px 90px 90px;
         background-color: #fefefe;
-        margin: 0 160px 40px 160px;
+        margin: 40px 160px;
         padding: 70px 70px 0 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 18px;
@@ -167,9 +168,9 @@ export default {
     @media (max-width: 767px) {
         .preferences-wrapper{
             grid-template-rows: 130px 90px 70px;
-            padding: 40px 20px 0 20px;
+            padding: 30px 20px;
             font-size: 13px;
-            margin: 0 20px;
+            margin: 20px 30px 0 30px;
         }
         .preferences-list{
             grid-template-rows: 30px repeat(3, 30px);

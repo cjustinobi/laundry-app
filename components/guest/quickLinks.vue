@@ -139,7 +139,7 @@ export default {
             grid-template: 1fr / 1fr;
             grid-gap: 20px;
             justify-items: start;
-            padding-left: 40px;
+            padding-left: 30px;
             position: relative;
             top: 0;
             left: 0;

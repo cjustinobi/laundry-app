@@ -255,7 +255,7 @@
     }
 
 
-    @media (max-width: 767px) {
+    @media (max-width: 1124px) {
         .payment-container{
             grid-template-rows: 1fr;
             /* grid-gap: 30px; */

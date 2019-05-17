@@ -127,7 +127,7 @@
 
     @media (max-width: 767px) {
         .edit-wrapper{
-            margin: 40px 60px 0 60px;
+            margin: 40px 20px 0 20px;
         }
         .title{
             margin-top: 30px;
@@ -135,7 +135,7 @@
         .edit-list{
             grid-template: 60px / repeat(4, auto); 
             font-size: 12px;
-            grid-gap: 5px;
+            grid-gap: 2px;
         }
     }
 </style>

@@ -89,7 +89,7 @@ export default {
     .update-sect{
         display: grid;
         align-items: center;
-        margin: 20px 0 40px 0;
+        /* margin: 20px 0 40px 0; */
     }
     .update-button{
         height: 50px;
@@ -110,8 +110,9 @@ export default {
     @media (max-width: 767px) {
         .edit-wrapper{
             height: 500px;
-            padding: 30px 30px 0 30px;
-            margin: 0 60px;
+            padding: 30px 20px 20px 20px;
+            margin: 0 20px 40px 20px;
+            
         }
         .update-form{
             grid-template-rows: repeat(3, 20px), 40px;
@@ -120,6 +121,11 @@ export default {
         }
         .update-form input{
             font-size: 20px;
+        }
+        .update-sect{
+            display: grid;
+            align-items: center;
+            margin: 0;
         }
         .update-button{
             width: 200px;

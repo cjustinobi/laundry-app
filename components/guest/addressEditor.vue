@@ -48,7 +48,8 @@ export default {
 <style scoped>
     .edit-address{
         display: grid;
-        /* min-height: 100vh; */
+        min-height: 100vh;
+        /* height: 100%; */
     }
     .title{
         display: grid;
@@ -65,8 +66,8 @@ export default {
     .edit-wrapper{
         display: grid;
         background-color: #fefefe;
-        margin: 0 200px 40px 200px;
-        padding: 30px;
+        margin: 0 160px 40px 160px;
+        padding: 50px 50px 10px 50px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
     }
@@ -85,10 +86,10 @@ export default {
         border-bottom: 1px solid rgb(207, 207, 207);
         font-size: 16px;
         outline-style: none;height: 40px;
-        height: 20px;
+        /* height: 20px; */
     }
     .form-label{
-        height: 50px;
+        /* height: 50px; */
     }
     .update-sect{
         display: grid;
@@ -132,7 +133,7 @@ export default {
             margin: 0;
         }
         .form-label{
-            height: 50px;
+            /* height: 50px; */
         }
         .update-button{
             width: 200px;

@@ -129,7 +129,7 @@
         display: grid;
         margin: 20px auto;
         max-width: 500px;
-        background-color: #f0faff;
+        background-color: #ddf0fa;
         border: 1px solid rgb(233, 233, 233);
     }
     .input-details{

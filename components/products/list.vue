@@ -164,7 +164,7 @@
     }
     .btn-container{
         display: grid;
-        grid-template-columns: 140px auto;
+        grid-template-columns:   auto;
         grid-gap: 5px;
     }
     .laundry-list-btn{

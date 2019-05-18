@@ -28,7 +28,7 @@
             </nuxt-link>
             <nuxt-link to='/dashboard/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
-                <span v-if="wideMenu">Transaction History</span>
+                <span v-if="wideMenu">Transactions</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
@@ -74,7 +74,7 @@
             </nuxt-link>
             <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
-                <span v-if="wideMenu">Transaction History</span>
+                <span v-if="wideMenu">Transactions</span>
             </nuxt-link>
             <nuxt-link to='/admin/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>

@@ -1,7 +1,8 @@
 <template>
     <div class="all-products">
-        <div><Products v-if="user !== undefined && user.user_type !== 3"/></div>
+        <div><Search/></div>
         <div><Items @toogleSideLinks="toogleSideLinks"/></div>
+        <button @click.prevent="$emit('nextTab', 'address')" v-if="items.length > 0">Continue</button>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                 <Actions
@@ -24,13 +25,12 @@
                         <span @click="addToCart(product, i)">Add to cart</span>
                     </button>
                     <div>
-                        <span @click="incrementItem(product, i)"><i class="fa fa-plus-square fa-2x"></i></span>
-                        <span class="cart-qty" :ref="`qty-${i}`">1</span>
-                        <span @click="decrementItem(product.id, i)"><i class="fa fa-minus-square fa-2x"></i></span>
+                        <span @click="decrementItem(product.id, i)"><i class="fa fa-minus-square"></i></span>
+                        <span class="cart-qty" :ref="`qty-${i}`">{{ getQty(product.id) }}</span>
+                        <span @click="incrementItem(product, i)"><i class="fa fa-plus-square"></i></span>
                     </div>
                 </div>
             </div>
-        </div>
 
         <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
             v-if="user && user.user_type === 3"
@@ -43,6 +43,7 @@
             <SideLinks />
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -51,7 +52,7 @@
     import Cart from '~/mixins/cart'
     import Items from '~/components/guest/items'
     import Actions from '~/components/shared/actions'
-    import Products from '~/components/guest/products'
+    import Search from '~/components/guest/search'
     import SideLinks from '~/components/guest/sideLinks'
     import CurrencyFormatter from '~/mixins/currencyFormatter'
 
@@ -59,14 +60,13 @@
 
         mixins: [User, CurrencyFormatter, Cart],
 
-        components: { Products, Items, Actions, SideLinks },
+        components: { Search, Items, Actions, SideLinks },
 
         data() {
             return {
                 baseUrl: process.env.baseUrl,
                 api: 'products/',
-                sideLinks: true,
-                items: []
+                sideLinks: true
             }
         },
 
@@ -91,7 +91,7 @@
             },
             addToCart(product, i) {
                 // Check if this particluar item has been added.
-                const item  = this.items.find(item => item.id == product.id)
+                const item  = this.products.find(item => item.id == product.id)
                 // Syncs the store.
                 if (item) {
                     this.$store.dispatch('cart/addToCart', { item, elId: i })
@@ -164,7 +164,7 @@
     }
     .btn-container{
         display: grid;
-        grid-template-columns: 140px auto;
+        grid-template-columns:   auto;
         grid-gap: 5px;
     }
     .laundry-list-btn{

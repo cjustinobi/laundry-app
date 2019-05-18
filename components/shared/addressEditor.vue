@@ -1,28 +1,28 @@
 <template>
-    <div class="edit-address" :style="myStyle">
-        <div class="edit-wrapper">
+    <div class="edit-address">
+        <form class="edit-wrapper">
             <div class="update-form">
                 <label for="">Street name <br>
-                    <input type="text" required>
+                    <input v-model="details.address" required>
                 </label>
                 <label for="" >Nearest Bus stop <br>
-                    <input type="text" required>
+                    <input v-model="details.address" required>
                 </label>
                 <label for="" >City <br>
-                    <input type="text" required>
+                    <input v-model="details.address" required>
                 </label>
                 <label for="" >State <br>
-                    <input type="text" required>
+                    <input v-model="details.address" required>
                 </label>
                 <div class="update-sect">
                     <nuxt-link to="/addaddress">
-                        <button class="update-button">
-                            Update Address
+                        <button @click.prevent="saveAddress" class="update-button">
+                            Save Address
                         </button>
                     </nuxt-link>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>
 
@@ -31,13 +31,13 @@ export default {
 
     data() {
         return {
-            myStyle: {
-                backgroundColor: "#f0faff"
-            },
+            details: ''
         }
     },
-    mounted() {
-        // document.body.style.background = "#e1f5fe";
+    methods: {
+        async saveAddress() {
+            this.$axios.$post('address', this.details)
+        }
     },
     destroyed() {
         document.body.style.background = "none";

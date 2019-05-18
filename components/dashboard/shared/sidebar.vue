@@ -18,7 +18,7 @@
                 <i class="fa fa-dashcube" title="My Orders"></i>
                 <span v-if="wideMenu">My Orders</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/products' class='logo'>
+            <nuxt-link to='/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>
                 <span v-if="wideMenu">Items</span>
             </nuxt-link>
@@ -43,7 +43,7 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/user/preferences' class='logo setting-icon'>
+            <nuxt-link to='/settings' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
             </nuxt-link>

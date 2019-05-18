@@ -23,8 +23,8 @@
             </div>
         </div>
 
-        <div><AllProducts v-if="products"/></div>
-        <div><EditAddress v-if="address" class="insert-margin"/></div>
+        <div><AllProducts v-if="products" @nextTab="toggleTab" /></div>
+        <div><AddressEditor v-if="address" class="insert-margin"/></div>
         <div><EditPassword  v-if="password" class="insert-margin"/></div>
         <div><PaymentPage v-if="paymentpage" class="insert-margin"/></div>
         
@@ -34,7 +34,7 @@
 
 <script>
     import AllProducts from '~/components/products/list'
-    import EditAddress from '~/components/guest/editAddress'
+    import AddressEditor from '~/components/shared/addressEditor'
     import EditPassword from '~/components/guest/editPassword'
     import PaymentPage from '~/components/guest/paymentpage'
 
@@ -44,7 +44,7 @@
 
         components: {
             AllProducts,
-            EditAddress, 
+            AddressEditor, 
             EditPassword,
             PaymentPage
         },
@@ -60,6 +60,7 @@
             }
         },
         methods: {
+           
             toggleTab(val) {
                 if(val == 'products') {
                     this.address =false

@@ -70,6 +70,9 @@
                 this.loading = true
                 try {
                     await this.$axios.$post('register', this.details)
+                    this.$store.dispatch('notifications/setStatus',
+                        { messages: ['successfully registered'], state: 'error' }
+                    )
                     this.$router.push('/login')
                 } catch (e) {
                     this.loading = false

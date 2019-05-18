@@ -23,7 +23,7 @@
             <nuxt-link to='/dashboard/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <!-- <div :class="{'count': wideMenu}">0</div> -->
-                <span v-if="wideMenu">Notifications</span>
+                <span >Notifications</span>
             </nuxt-link>
             <nuxt-link to='/support' class='logo'>
                 <i class="fa fa-user" title="Contact/Support"></i>
@@ -40,9 +40,9 @@
         </div>
 
         <div v-if="user !== undefined && user.user_type == 3" class='sidebar-nav'>
-            <nuxt-link to='/dashboard' class='logo'>
+            <nuxt-link to='/admin/dashboard' class='logo'>
                 <i class="fa fa-dashcube" title="Dashboard"></i>
-                <span>Dashboard</span>
+                <span>All orders</span>
             </nuxt-link>
             <nuxt-link to='/admin/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>
@@ -56,15 +56,11 @@
                 <i class="fa fa-user" title="Users"></i>
                 <span>Users</span>
             </nuxt-link>
-            <nuxt-link to='/admin/orders' class='logo'>
-                <i class="fa fa-suitcase" title="Orders"></i>
-                <span v-if="wideMenu">Orders</span>
-            </nuxt-link>
             <nuxt-link to='/admin/subscriptions' class='logo'>
                 <i class="fa fa-hashtag" title="Subscription"></i>
                 <span>Subscriptions</span>
             </nuxt-link>
-            <nuxt-link to='admin/transactions' class='logo'>
+            <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span>Transaction History</span>
             </nuxt-link>
@@ -121,7 +117,7 @@
 
 <style scoped>
     .drawer-container{
-        height: 100vh;
+        height: 100%;
         position: fixed;
         top: 0;
         width: 100%;

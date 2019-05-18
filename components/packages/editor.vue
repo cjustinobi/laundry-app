@@ -133,6 +133,7 @@
         background-color: #d8d8d8;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-cancel:hover{
         background-color: #b8b8b8;
@@ -146,6 +147,7 @@
         background-color: #e7b83f;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-submit:hover{
         background-color: #f58b13;
@@ -167,13 +169,13 @@
         padding: 10px;
     }
     .add-product-cat{
-        width: 340px;
+        width: 334px;
         border-radius: 3px;
         border: 1px solid rgb(202, 202, 202);
         padding: 10px;
     }
     input.multiselect_input{
-        width: 130px;
+        // width: 130px;
     }
     .btn-package{
         display: grid;
@@ -188,7 +190,7 @@
         .form{
             grid-gap: 10px;
             width: 380px;
-            height: 250px;
+            height: 280px;
             padding: 12px;
         }
         .package-mobile{

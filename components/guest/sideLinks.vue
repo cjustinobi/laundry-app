@@ -1,13 +1,14 @@
 <template>
     <div class="side-links" :style="myStyle">
         <div :class="{'side-list': toggleSideLinks}">
-            <div class="close-package">
+            <!-- <div class="close-package">
                 <a href="#" @click.prevent="$emit('cancelLinks')"><i class="fa fa-window-close"></i></a>
-            </div>
+            </div> -->
             <nuxt-link to="/">Men</nuxt-link>
             <nuxt-link to="/">Women</nuxt-link>
             <nuxt-link to="/">Children</nuxt-link>
-            <nuxt-link to="/">Babies</nuxt-link>
+            <nuxt-link to="/">Ironing</nuxt-link>
+            <nuxt-link to="/">Dry cleaning</nuxt-link>
         </div>
     </div>
 </template>
@@ -21,7 +22,7 @@
         data() {
             return {
                 myStyle: {
-                    backgroundColor: "#d2eaf7"
+                    backgroundColor: "#8f3366"
                 },
                 toggleSideLinks: true
             }
@@ -38,26 +39,25 @@
 <style scoped>
     .side-links{
         display: grid;
-        /* grid-template-rows: 1fr; */
         width: 200px;
         height: 300px;
     }
     a{
         text-decoration: none;
-        color: #114e9e;
+        color: #fefefe;
     }
     .side-list{
         display: grid;
-        grid-template-rows: 50px;
-        margin-top: 30px;
+        grid-template-rows: 55px;
+        margin-top: 10px;
         align-items: center;
     }
     .side-list a{
-        padding: 14px 10px;
+        padding: 16px;
     }
     .side-list a:hover,
     .side-list a:active{
-        background-color: #fcd982;
+        background-color: #dd88b7;
         border-right: 1px solid #8f6600;
     }
     .close-package{
@@ -74,6 +74,9 @@
     
 
     @media (max-width: 767px) {
-       
+       .side-links{
+            width: 150px;
+            height: 300px;
+        }
     }
 </style>

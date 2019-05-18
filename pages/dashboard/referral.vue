@@ -176,16 +176,45 @@
             margin: 40px 20px;
             grid-gap: 30px;
         }
+        .refer-head{
+            font-size: 13px;
+            padding: 0 10px;
+        }
+        .enter-details{
+            font-size: 13px;
+            padding: 0 10px;
+        }
         .referral-inner{
             border: none;
         }
         .input-details{
-            grid-gap: 20px;
-            margin: 20px;
+            grid-template-columns: 120px 120px;
+            grid-gap: 10px;
+            margin: 10px;
         }
         .invitation-msg{
-            margin: 20px;
+            margin: 10px;
             padding: 20px;
+        }
+        .share-box{
+            display: grid;
+            /* margin: 20px 10px; */
+            max-width: 300px;
+            background-color: #f0faff;
+            border: 1px solid rgb(233, 233, 233);
+            justify-content: center;
+            justify-items: center;
+        }
+        .input-name,
+        .input-referral {
+            padding: 8px;
+            height: 30px;
+        }
+        .invite-btn{
+            height: 30px;
+            width: 190px;
+            margin-top: 15px;
+            font-size: 12px;
         }
     }
 </style>

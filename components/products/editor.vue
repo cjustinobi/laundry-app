@@ -113,7 +113,7 @@
     }
     .form{
         display: grid;
-        grid-template-rows: repeat(7, auto);
+        grid-template-rows: repeat(7, 30px);
         grid-gap: 12px;
         padding: 10px 20px 20px 20px;
         margin-top: 80px;
@@ -124,7 +124,7 @@
         height: 330px;
     }
     img{
-        width: 40px;
+        width: 30px;
     }
     .file{
         display: none;
@@ -138,6 +138,7 @@
         background-color: #d8d8d8;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-cancel:hover{
         background-color: #b8b8b8;
@@ -151,6 +152,7 @@
         background-color: #e7b83f;
         outline: none;
         border: none;
+        cursor: pointer;
     }
     .btn-submit:hover{
         background-color: #f58b13;

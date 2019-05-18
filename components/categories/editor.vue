@@ -138,6 +138,7 @@
         transition: 0.6s ease-in;
         background-color: #d8d8d8;
         outline: none;
+        cursor: pointer;
     }
     .btn-cancel-benefits:hover{
         background-color: #b8b8b8;
@@ -151,6 +152,7 @@
         background-color: #e7b83f;
         transition: 0.6s ease-in;
         outline: none;
+        cursor: pointer;
     }
     .btn-submit-benefits:hover{
         background-color: #f58b13;

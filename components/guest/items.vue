@@ -3,7 +3,9 @@
         <div class="product-list">
             <div class="all-category">
                 <li class="product-links">All Categories</li> 
-                <a href="#" @click.prevent="$emit('toogleSideLinks')"><i class="fa fa-bars"></i></a>
+                <a href="#" class="item-menu-bar" @click.prevent="$emit('toogleSideLinks')">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
             <li class="product-links">Subscriptions</li>
             <div class="yellow-demarcator"></div>
@@ -13,11 +15,6 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
-        <div class="view-cart" v-if="user !== undefined && user.user_type !== 3">
-            <nuxt-link to='/dashboard/cart'>View Cart</nuxt-link>
-        </div>
-
-        
         
     </div>
 </template>
@@ -48,7 +45,7 @@
 <style scoped>
     .items{
         display: grid;
-        grid-template-rows: 40px 70px;
+        grid-template-rows: 40px;
         /* min-height: 100vh; */
         position: relative;
     }
@@ -65,7 +62,11 @@
     }
     a{
         text-decoration: none;
-        color: #fefefe;
+        color: #8a8989;
+    }
+    .item-menu-bar{
+        display: grid;
+        align-items: center;
     }
     .product-links{
         cursor: pointer;
@@ -86,17 +87,6 @@
         display: grid;
         align-self: center;
     }
-    .view-cart{
-        display: grid;
-        justify-self: end;
-        width: 200px;
-        height: 40px;
-        margin: 20px;
-        background-color: #dbb34d;
-        align-items: center;
-        justify-items: center;
-    }
-    
    
 
     @media (max-width: 1124px) {
@@ -126,6 +116,11 @@
             grid-gap: 7px;
             padding: 0 12px;
             
+        }
+    }
+    @media (max-width: 450px) {
+       .product-list{
+            font-size: 9px;
         }
     }
 </style>

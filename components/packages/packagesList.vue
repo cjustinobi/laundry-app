@@ -184,6 +184,7 @@
         outline: none;
         font-weight: bold;
         font-size: 20px;
+        cursor: pointer;
     }
     .subscribe:hover,
     .subscribe:active{

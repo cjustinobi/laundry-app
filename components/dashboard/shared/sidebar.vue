@@ -43,7 +43,7 @@
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
+            <nuxt-link to='/user/preferences' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
             </nuxt-link>
@@ -52,9 +52,9 @@
         <div    v-if="user && user.user_type === 3"
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
-            <nuxt-link to='/dashboard' class='logo'>
+            <nuxt-link to='/admin/dashboard' class='logo'>
                 <i class="fa fa-dashcube" title="Dashboard"></i>
-                <span v-if="wideMenu">Dashboard</span>
+                <span v-if="wideMenu">All Orders</span>
             </nuxt-link>
             <nuxt-link to='/admin/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>
@@ -68,15 +68,11 @@
                 <i class="fa fa-user" title="Users"></i>
                 <span v-if="wideMenu">Users</span>
             </nuxt-link>
-            <nuxt-link to='/admin/orders' class='logo'>
-                <i class="fa fa-suitcase" title="Orders"></i>
-                <span v-if="wideMenu">Orders</span>
-            </nuxt-link>
             <nuxt-link to='/admin/subscriptions' class='logo'>
                 <i class="fa fa-hashtag" title="Subscription"></i>
                 <span v-if="wideMenu">Subscriptions</span>
             </nuxt-link>
-            <nuxt-link to='admin/transactions' class='logo'>
+            <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span v-if="wideMenu">Transaction History</span>
             </nuxt-link>

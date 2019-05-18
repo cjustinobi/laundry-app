@@ -212,6 +212,7 @@
         display: grid;
         grid-template-rows: 90px 30px 30px 50px;
         align-items: center;
+        grid-gap: 8px;
     }
     .total{
         display: grid;

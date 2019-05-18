@@ -13,6 +13,9 @@
             <div class="yellow-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
+        <div class="view-cart" v-if="user !== undefined && user.user_type !== 3">
+            <nuxt-link to='/dashboard/cart'>View Cart</nuxt-link>
+        </div>
 
         
         
@@ -45,7 +48,7 @@
 <style scoped>
     .items{
         display: grid;
-        grid-template-rows: 40px;
+        grid-template-rows: 40px 70px;
         /* min-height: 100vh; */
         position: relative;
     }
@@ -59,6 +62,10 @@
         padding: 0 20px;
         background-color: rgb(241, 241, 241);
         justify-items: center;
+    }
+    a{
+        text-decoration: none;
+        color: #fefefe;
     }
     .product-links{
         cursor: pointer;
@@ -79,6 +86,16 @@
         display: grid;
         align-self: center;
     }
+    .view-cart{
+        display: grid;
+        justify-self: end;
+        width: 200px;
+        height: 40px;
+        margin: 20px;
+        background-color: #dbb34d;
+        align-items: center;
+        justify-items: center;
+    }
     
    
 
@@ -95,6 +112,7 @@
         .yellow-demarcator{
             display: none;
         }
+        
     }
 
     @media (max-width: 767px) {

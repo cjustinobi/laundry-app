@@ -9,11 +9,11 @@
 
         <div class="user-view">
             <div class="new-order" @click="$router.push('/dashboard/cart')">
-                <i class="fa fa-cart-plus"></i> <p>New order</p>
+                <i class="fa fa-cart-plus"><div class="order-count">0</div></i><p>New order</p>
             </div>
 
             <div class="bell">
-                <i class="fa fa-bell"></i> <div class="count">0</div>
+                <i class="fa fa-bell"></i> <div class="notification-count">0</div>
             </div>
             
             <div class="names">
@@ -23,7 +23,7 @@
 
             <div v-if="user !== undefined && user.user_type !== 3"
                 id="dropdown" :class="[{'dropdown': dropdown}]">
-                <a class="pull-down" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
+                <a class="pull-down" @mouseover="showPull" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
                 <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
                     <nuxt-link class="show my-profile" to="/profile">
                         <i class="fa fa-user"></i> My Profile
@@ -55,8 +55,11 @@ export default {
             } else {
                 this.dropdownContent = false
                 x.style.display = "none"
-                x.className.replace(" show", "")
+                x.className.replace("")
             }
+        },
+        showPull() {
+            // this.dropdownContent = !this.dropdownContent
         }
     },
     computed: {
@@ -117,24 +120,41 @@ export default {
         display: grid;
         grid-template-columns: 25px auto;
         cursor: pointer;
-    }
-    .bell{
-        cursor: pointer;
         position: relative;
     }
-    .count{
+    .fa-cart-plus{
+        cursor: pointer;
+        
+    }
+    .order-count{
         display: grid;
         justify-items: center;
-        /* align-items: center; */
         position: absolute;
-        top: 14px;
+        top: 6px;
         background-color: red;
         color: #fefefe;
         height: 12px;
         width: 12px;
         border-radius: 50%;
         font-size: 9px;
-        left: 5px;
+        left: 9px;
+    }
+    .bell{
+        cursor: pointer;
+        position: relative;
+    }
+    .notification-count{
+        display: grid;
+        justify-items: center;
+        position: absolute;
+        top: 6px;
+        background-color: red;
+        color: #fefefe;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        font-size: 9px;
+        left: 9px;
     }
     .fa-user{
         cursor: pointer;
@@ -174,7 +194,7 @@ export default {
         transition: 0.6s ease-in;
     }
     .dropdown:hover .dropdown-content{
-        display: block;
+        /* display: block; */
     }
     .dropdown-content a{
         text-decoration: none;
@@ -206,12 +226,23 @@ export default {
     }
     .new-order{
         display: grid;
-        grid-template-columns: 15px 60px;
+        grid-template-columns: 17px 60px;
+    }
+    .order-count{
+        top: 6px;
+        left: 7px;
+        width: 10px;
+        height: 10px;
+    }
+    .notification-count{
+        /* top: 6px;
+        left: 7px; */
+        width: 10px;
+        height: 10px;
     }
     .names{
         display: grid;
         grid-template-columns: 15px 90px;
-        /* font-size: 14px; */
     }
     .pull-down{
         align-items: center;

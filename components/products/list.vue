@@ -18,8 +18,8 @@
                 <h5>&#8358;{{ currency.format(product.price) }}</h5>
                 <div class="separator"></div>
                 <p>{{ product.category.name }}</p>
-                <button
-                        v-if="user.user_type !== 3"
+                <div class="btn-container" v-if="user.user_type !== 3">
+                    <button
                         class="laundry-list-btn">
                         <span @click="addToCart(product, i)">Add to cart</span>
                         <span @click="incrementItem(product, i)">+</span>
@@ -108,7 +108,7 @@
 <style lang="scss" scoped>
     .all-products{
         display: grid;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
         min-height: 100vh;
         position: relative;
         top: 0;
@@ -123,9 +123,8 @@
     }
     .laundry-list{
         display: grid;
-        grid-gap: 5px;
+        // grid-gap: 5px;
         background-color: #fefefe;
-        margin: 40px 0;
         color: #114e9e;
         min-height: 320px;
         padding: 10px;
@@ -134,13 +133,15 @@
     .img-square{
         width: 150px;
         height: 150px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
+        // display: grid;
+        // align-items: center;
+        // justify-items: center;
+        background-size: contain;
+        background-position: left;
     }
     img{
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
     }
     .p1{
         color: #8395b1;
@@ -151,9 +152,14 @@
         background-color: #8c929b;
         padding: 0;
     }
+    .btn-container{
+        display: grid;
+        grid-template-columns: 150px auto;
+        grid-gap: 5px;
+    }
     .laundry-list-btn{
-        width: 235px;
-        height: 35px;
+        // width: 235px;
+        height: 30px;
         background-color: #e7b83f;
         color: #fefefe;
         outline: none;
@@ -162,6 +168,18 @@
     }
     .laundry-list-btn:hover{
         background-color: #f58b13;
+    }
+    .fa-plus-square,
+    .fa-minus-square{
+        color: #dfdfdf;
+    }
+    .fa-plus-square:hover,
+    .fa-minus-square:hover{
+        color: #b8b8b8;
+        transition: 0.8s ease-in;
+    }
+    .cart-qty{
+        font-size: 23px;
     }
     .side-links{
         position: fixed;
@@ -174,6 +192,12 @@
     }
     .hide-side-links{
         display: none;
+    }
+    
+    @media (max-width: 767px) {
+        .laundry-list-wrapper{
+            grid-gap: 20px;
+        }
     }
 </style>
 

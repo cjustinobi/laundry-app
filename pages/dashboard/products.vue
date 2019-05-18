@@ -136,6 +136,8 @@
         .product-tabs{
             grid-template-columns: auto 20px auto 20px auto 20px auto;
             padding: 0 15px;
+            grid-gap: 5px;
+            font-size: 12px;
         }
         .demarcator{
             width: 20px;

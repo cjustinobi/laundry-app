@@ -12,7 +12,6 @@
         </div>
 
         <div    v-if="user && user.user_type === 1"
-
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>
@@ -51,7 +50,6 @@
         </div>
 
         <div    v-if="user && user.user_type === 3"
-
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>
@@ -200,7 +198,7 @@
     .count{
         display: grid;
         justify-items: center;
-        align-items: center;
+        /* align-items: center; */
         position: absolute;
         /* top: 20px; */
         left: 20px;
@@ -214,7 +212,7 @@
     .small-count{
         display: grid;
         justify-items: center;
-        align-items: center;
+        /* align-items: center; */
         position: absolute;
         /* top: 20px; */
         left: 40px;

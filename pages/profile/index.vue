@@ -11,7 +11,7 @@
         </div>
 
         <div><profileXXX v-if="profile"></profileXXX></div>
-        <div><editAddress v-if="address"></editAddress></div>
+        <div><AddressEditor v-if="address" /></div>
         <div><editPassword  v-if="password"></editPassword></div>
         <div><preferences  v-if="preferences"></preferences></div>
     </div>
@@ -19,14 +19,14 @@
 
 <script>
     import ProfileXXX from '~/components/guest/profileXXX'
-    import EditAddress from '~/components/guest/editAddress'
+    import AddressEditor from '~/components/shared/addressEditor'
     import EditPassword from '~/components/guest/editPassword'
     import Preferences from '~/components/guest/preferences'
 
     export default {
         
         layout: 'dashboard',
-        components: {ProfileXXX, EditAddress, EditPassword, Preferences},
+        components: {ProfileXXX, AddressEditor, EditPassword, Preferences},
 
         data() {
             return {

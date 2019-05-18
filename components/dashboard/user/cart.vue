@@ -47,12 +47,6 @@
                 baseUrl: process.env.baseUrl,
                 api: 'products/'
             }
-        },
-      
-        computed: {
-            items() {
-                return this.$store.getters['cart/items']
-            }
         }
 
     }

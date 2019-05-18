@@ -2,6 +2,10 @@
     <div class="edit-preferences" :style="myStyle">
         <div class="preferences-wrapper">
             <div class="preferences-list">
+                <h3>Pick Up Address</h3>
+                <AddressEditor/>
+            </div>
+            <div class="preferences-list">
                 <h3>Starch Preferences</h3>
                 <div class="preferences-head">
                     <p>Starch</p>
@@ -59,8 +63,15 @@
 </template>
 
 <script>
+
+import AddressEditor from '~/components/shared/addressEditor'
+
 export default {
+
     layout: 'dashboard',
+
+    components: { AddressEditor },
+
     data() {
         return {
             myStyle: {

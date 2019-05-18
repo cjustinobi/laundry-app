@@ -8,7 +8,7 @@
         <div class="intro-request">
             <nuxt-link to="/dashboard/products"><button class="request-btn">Request a Pick-up</button></nuxt-link>
         </div>
-        <div class="app-links"><app-links></app-links></div>
+        <div class="app-links"><AppLinks/></div>
         
 
         <a style="cursor: pointer" class='toggle-icon' @click.prevent="$emit('toggleSidebar')">

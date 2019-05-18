@@ -25,9 +25,9 @@
                         <span @click="incrementItem(product, i)">+</span>
                         <span :ref="`qty-${i}`">{{ getQty(product.id) }}</span>
                         <span @click="decrementItem(product.id, i)">-</span>
-                </button>
+                    </button>
+                </div>
             </div>
-        </div>
 
         <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
             v-if="user && user.user_type === 3"
@@ -39,6 +39,7 @@
         >
             <SideLinks />
         </div>
+    </div>
     </div>
 </template>
 
@@ -62,8 +63,7 @@
             return {
                 baseUrl: process.env.baseUrl,
                 api: 'products/',
-                sideLinks: true,
-                items: []
+                sideLinks: true
             }
         },
 
@@ -88,7 +88,7 @@
             },
             addToCart(product, i) {
                 // Check if this particluar item has been added.
-                const item  = this.items.find(item => item.id == product.id)
+                const item  = this.products.find(item => item.id == product.id)
                 // Syncs the store.
                 if (item) {
                     this.$store.dispatch('cart/addToCart', { item, elId: i })

@@ -1,4 +1,5 @@
 export default {
+
     methods: {
         incrementItem(product, i) {
             let el = this.$refs[`qty-${i}`]
@@ -7,20 +8,21 @@ export default {
                 const item  = this.items.find(item => item.id == product.id)
                 if (item) {
                     // Item exist already, so increase the quantity.
-                    
+                    item.qty++
                     el[0].innerText = item.qty
                     // Sync the store qty.
                     this.$store.dispatch('cart/updateItemQty', { itemId: product.id, qty: item.qty })
                 } else {
                     // This item has not been added yet.
-                    product.qty = ++el[0].innerText
-                    this.items.push(product) 
+                    product.qty++
+                    // this.items.push(product) 
+                    this.$store.dispatch('cart/addToCart', { item: product, elId: i })
                 }
                 
             } else {
                 // No item has been added yet.
-                product.qty = ++el[0].innerText
-                this.items.push(product)
+                product.qty++
+                this.$store.dispatch('cart/addToCart', { item: product, elId: i })
             }
         },
         decrementItem(itemId, i) {
@@ -43,9 +45,6 @@ export default {
                 if (item.length > 0) {
                     return item[0].qty
                 }
-                // return typeof(item[0].key !== 'undefined') ? item[0].key : 1
-                // console.log( 'jkljl ' + JSON.stringify(item))
-                // return item[0].qty
             }
             return 1
         }
@@ -58,6 +57,9 @@ export default {
     computed: {
         eleToUpdate() {
             return this.$store.getters['cart/eleToUpdate']
+        },
+        items() {
+            return this.$store.getters['cart/items']
         }
     },
 

@@ -8,11 +8,14 @@
                 <label for="landmark">Nearest Bus stop <br>
                     <input v-model="details.landmark" id="landmark" required>
                 </label>
+                <label for="state" >State <br>
+                    <select v-model="details.state" @change="getLgas" id="state" required>
+                        <option disabled>Select state</option>
+                        <option :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
+                    </select>
+                </label>
                 <label for="city">City <br>
                     <input v-model="details.city" id="city" required>
-                </label>
-                <label for="state" >State <br>
-                    <input v-model="details.state" id="state" required>
                 </label>
                 <div class="update-sect">
                     <!-- <nuxt-link to="/addaddress"> -->
@@ -22,7 +25,6 @@
                         </button>
                     <!-- </nuxt-link>    -->
                 </div>
-                {{states}}
             </div>
         </form>
     </div>
@@ -41,8 +43,8 @@
                 details: {
                     address: '',
                     landmark: '',
-                    city: '',
-                    state: ''
+                    city: 'Select city',
+                    state: 'Select state'
                 }
             }
         },
@@ -62,6 +64,10 @@
                     this.isLoading = false
                     console.log(e)
                 }
+            },
+
+            getLgas(e) {
+                console.log(e.target.value)
             }
         },
 

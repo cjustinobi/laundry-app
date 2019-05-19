@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
     import ProfileXXX from '~/components/guest/profileXXX'
     import AddressEditor from '~/components/guest/addressEditor'
     import EditPassword from '~/components/guest/editPassword'
@@ -26,6 +27,7 @@
     export default {
         
         layout: 'dashboard',
+
         components: {ProfileXXX, AddressEditor, EditPassword, Preferences},
 
         data() {

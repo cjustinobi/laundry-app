@@ -38,7 +38,7 @@ export default {
     */
     plugins: [
         { src: '~/plugins/axios' },
-        { src: '~/plugins/user', ssr: false },
+        { src: '~/plugins/user' },
         { src: '~/plugins/localStorage', ssr: false },
         { src: '~/plugins/notification', ssr: false },
     ],
@@ -76,6 +76,11 @@ export default {
             ]
         },
         extend(config, ctx) {
+        }
+    },
+    generate: {
+        minify: {
+            collapseWhitespace: false
         }
     }
 }

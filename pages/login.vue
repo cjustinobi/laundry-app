@@ -72,7 +72,7 @@ export default {
                 return this.$router.push('/dashboard')
             } catch (err) {
                 this.loading = false
-                console.log(err.response.data.error)
+                console.log(JSON.stringify(err))
                 this.$store.dispatch('notifications/setStatus',
                     { messages: ['incorrect details supplied'], state: 'error' }
                 )

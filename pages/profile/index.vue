@@ -6,21 +6,21 @@
                 <li class="edit-links" @click.prevent="toggleTab('profile')">Profile</li>
                 <li class="edit-links" @click.prevent="toggleTab('address')">Address</li>
                 <li class="edit-links" @click.prevent="toggleTab('password')">Change Password</li>
-                <li class="edit-links" @click.prevent="toggleTab('preferences')">Preferences</li>
+                <!-- <li class="edit-links" @click.prevent="toggleTab('preferences')">Preferences</li> -->
             </ul>
         </div>
 
         <div><profileXXX v-if="profile"></profileXXX></div>
         <div><AddressEditor v-if="address" /></div>
         <div><editPassword  v-if="password"></editPassword></div>
-        <div><preferences  v-if="preferences"></preferences></div>
+        <!-- <div><preferences  v-if="preferences"></preferences></div> -->
     </div>
 </template>
 
 <script>
 
     import ProfileXXX from '~/components/guest/profileXXX'
-    import AddressEditor from '~/components/shared/addressEditor'
+    import AddressEditor from '~/components/guest/addressEditor'
     import EditPassword from '~/components/guest/editPassword'
     import Preferences from '~/components/guest/preferences'
 
@@ -82,7 +82,8 @@
 <style scoped>
     .edit-profile{
         display: grid;
-        min-height: 100vh;
+        /* min-height: 100vh; */
+        height: 100%;
     }
     .title{
         display: grid;
@@ -115,7 +116,7 @@
         cursor: pointer;
         list-style: none;
         justify-items: center;
-        
+        grid-gap: 10px;
     }
     .edit-links{
         color: #114e9e;

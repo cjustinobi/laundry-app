@@ -1,11 +1,12 @@
 <template>
     <div class="edit-preferences" :style="myStyle">
-        <h4>Pick Up Address</h4>
+        <h4 class="pick-up-h4">Pick Up Address</h4>
         <AddressEditor/>
-        <h4>Starch Preferences</h4>
+        
+        <h4 class="preference-h4">Preferences</h4>
         <div class="preferences-wrapper">
             <div class="preferences-list">
-                <h3>Starch Preferences</h3>
+                <p class="preference-p">Starch Preferences</p>
                 <div class="preferences-head">
                     <p>Starch</p>
                     <span>
@@ -33,7 +34,7 @@
             </div>
 
             <div class="shirt-laundry-preferences">
-                <h3>Shirt Laundry Preferences</h3>
+                <p class="preference-p">Shirt Laundry Preferences</p>
                 <div class="preferences-head">
                     <p>Hung</p>
                     <span>
@@ -129,16 +130,23 @@ export default {
     a{
         text-decoration: none;
     }
+    .pick-up-h4{
+        margin: 40px 200px 20px 200px;
+    }
+    .preference-h4{
+        margin: 20px 200px -20px 200px;
+    }
     .preferences-wrapper{
         display: grid;
-        grid-template-rows: 110px 90px 90px;
+        grid-template-rows: 110px 90px 50px;
         background-color: #fefefe;
         margin: 40px 200px;
-        padding: 70px 70px 0 70px;
+        padding: 30px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 18px;
         /* height: 400px; */
         color: #114e9e;
+        font-size: 15px;
     }
     .preferences-list{
         display: grid;
@@ -150,6 +158,9 @@ export default {
         grid-template-columns: 1fr 90px;
         grid-gap: 50px;
     }
+    .preference-p{
+        font-weight: bold;
+    }
     .shirt-laundry-preferences{
         display: grid;
         grid-gap: 5px;
@@ -158,7 +169,7 @@ export default {
     .update-preferences{
         display: grid;
         justify-content: center;
-        margin: 15px 0;
+        /* margin: 15px 0; */
     }
     .preferences-button{
         height: 50px;
@@ -166,7 +177,7 @@ export default {
         padding: 10px;
         background-color: #01355f;
         color: #fefefe;
-        font-size: 18px;
+        font-size: 16px;
         outline: none;
         border: none;
         cursor: pointer;
@@ -178,19 +189,28 @@ export default {
 
     @media (max-width: 767px) {
         .edit-preferences{
-            padding-bottom: 20px;
+            padding-bottom: 50px;
         }
         .preferences-wrapper{
-            grid-template-rows: 130px 90px 70px;
-            padding: 30px 20px 0 20px;
+            grid-template-rows: 130px 90px 50px;
+            padding: 20px;
             font-size: 13px;
-            margin: 20px 30px 0 30px;
+            margin: 20px 20px 0 20px;
+        }
+        .pick-up-h4{
+            margin: 20px 20px 15px 20px;
+            height: 20px;
+        }
+        .preference-h4{
+            margin: 20px 20px -5px 20px;
+            height: 20px;
         }
         .preferences-list{
             grid-template-rows: 30px repeat(3, 30px);
         }
         .update-preferences{
             grid-gap: 20px;
+            margin: 0;
         }
         .preferences-button{
             width: 200px;

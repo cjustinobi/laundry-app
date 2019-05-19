@@ -76,7 +76,7 @@ export default {
         grid-gap: 10px;
         /* margin-top: 40px; */
         color: #114e9e;
-        
+        font-size: 15px;
     }
     .update-form input{
         width: 100%;
@@ -101,7 +101,7 @@ export default {
         padding: 10px;
         background-color: #01355f;
         color: #fefefe;
-        font-size: 18px;
+        font-size: 16px;
         outline: none;
         border: none;
         cursor: pointer;
@@ -114,7 +114,7 @@ export default {
     @media (max-width: 767px) {
         .edit-wrapper{
             /* height: 500px; */
-            padding: 30px 20px 20px 20px;
+            padding: 20px;
             margin: 0 20px 40px 20px;
             
         }

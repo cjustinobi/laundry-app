@@ -5,7 +5,7 @@
                 <label for="address">Street name <br>
                     <input v-model="details.address" id="address" required>
                 </label>
-                <label for="landmark" >Nearest Bus stop <br>
+                <label for="landmark">Nearest Bus stop <br>
                     <input v-model="details.landmark" id="landmark" required>
                 </label>
                 <label for="city">City <br>
@@ -22,6 +22,7 @@
                         </button>
                     <!-- </nuxt-link>    -->
                 </div>
+                {{states}}
             </div>
         </form>
     </div>
@@ -45,7 +46,9 @@
                 }
             }
         },
+
         methods: {
+
             async saveAddress() {
                 try {
                     this.details.userId = this.user.id
@@ -61,6 +64,14 @@
                 }
             }
         },
+
+        asyncComputed: {
+            async states() {
+                let res = await fetch('statesLgas.json')
+                return res.json()
+            }
+        },
+
         destroyed() {
             document.body.style.background = "none";
         }

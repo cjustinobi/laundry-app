@@ -20,7 +20,7 @@
 <script>
 
     import ProfileXXX from '~/components/guest/profileXXX'
-    import AddressEditor from '~/components/guest/addressEditor'
+    import AddressEditor from '~/components/shared/addressEditor'
     import EditPassword from '~/components/guest/editPassword'
     import Preferences from '~/components/guest/preferences'
 

@@ -39,8 +39,9 @@ export default {
     plugins: [
         { src: '~/plugins/axios' },
         { src: '~/plugins/user' },
-        { src: '~/plugins/localStorage', ssr: false },
-        { src: '~/plugins/notification', ssr: false },
+        { src: '~/plugins/localStorage' },
+        { src: '~/plugins/notification' },
+        { src: '~/plugins/asyncComputed' }
     ],
 
     /*

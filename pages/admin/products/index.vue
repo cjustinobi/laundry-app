@@ -14,7 +14,6 @@
             <all-products/>
         </div>
 
-        
     </div>
     
 </template>
@@ -52,12 +51,13 @@ export default {
         display: grid;
         position: relative;
         min-height: 100vh;
+        grid-template-rows: 80px 1fr;
     }
     .btn-created{
         display: grid;
     }
     .create-btn{
-        margin: 40px 0 40px 40px;
+        margin: 20px 40px;
         width: 150px;
         height: 40px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

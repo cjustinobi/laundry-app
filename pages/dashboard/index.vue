@@ -69,7 +69,7 @@ export default {
     .user-home{
         display: grid;
         grid-template-columns: 1fr;
-        background-color: rgb(233, 233, 233);
+        background-color: #f0faff;
         min-height: 100vh;
         justify-content: center;
     }

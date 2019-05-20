@@ -8,11 +8,11 @@
                 </a>
             </div>
             <li class="product-links">Subscriptions</li>
-            <div class="yellow-demarcator"></div>
+            <div class="blue-demarcator"></div>
             <li class="product-links">Washing &amp; Ironing</li>
-            <div class="yellow-demarcator"></div>
+            <div class="blue-demarcator"></div>
             <li class="product-links">Dry cleaning</li>
-            <div class="yellow-demarcator"></div>
+            <div class="blue-demarcator"></div>
             <li class="product-links">Laundry</li>
         </div>
         
@@ -57,16 +57,19 @@
         list-style: none;
         grid-gap: 10px;
         padding: 0 20px;
-        background-color: rgb(241, 241, 241);
+        background-color: #51b3e7;
         justify-items: center;
+        font-size: 14px;
+        color: #fefefe;
     }
     a{
         text-decoration: none;
-        color: #8a8989;
+        color: #fefefe;
     }
     .item-menu-bar{
         display: grid;
         align-items: center;
+        
     }
     .product-links{
         cursor: pointer;
@@ -74,18 +77,20 @@
     .all-category{
         display: grid;
         grid-template-columns: 1fr 50px;
-        grid-gap: 15px;
         position: relative;
+        grid-gap: 10px;
+        font-weight: bold;
     }
-    .yellow-demarcator{
+    .blue-demarcator{
         height: 12px;
-        background-color: #e7b83f;
+        background-color: #075179;
         width: 1px;
     }
     .fa-bars{
         cursor: pointer;
         display: grid;
         align-self: center;
+        font-weight: bold;
     }
    
 
@@ -93,13 +98,11 @@
         .product-list{
             grid-template-columns: repeat(5, auto); 
             grid-gap: 20px;
-            font-size: 15px;
         }
         .all-category{
             grid-template-columns: 1fr 20px;
-            grid-gap: 15px;
         }
-        .yellow-demarcator{
+        .blue-demarcator{
             display: none;
         }
         
@@ -120,7 +123,11 @@
     }
     @media (max-width: 450px) {
        .product-list{
-            font-size: 9px;
+            font-size: 10px;
+        }
+        .all-category{
+            grid-template-columns: 1fr 15px;
+            grid-gap: 5px;
         }
     }
 </style>

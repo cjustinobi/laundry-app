@@ -149,8 +149,8 @@
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(207, 207, 207);
-        height: 40px;
-        font-size: 25px;
+        height: 14px;
+        font-size: px;
         outline-style: none;
     }
     .elegant-image{
@@ -166,6 +166,7 @@
         border: none;
         border-bottom: 1px solid rgb(197, 197, 197);
         outline: none;
+        font-size: 14px;
     }
     .password-wrapper{
         display: grid;
@@ -239,7 +240,6 @@
         }
         input{
             width: 320px;
-            font-size: 20px;
         }
         .plan-select{
             width: 320px;
@@ -259,7 +259,7 @@
             margin-top: 10px;
         }
         .sign-up-button{
-            font-size: 17px;
+            font-size: 14px;
         }
     }
 </style>

@@ -25,7 +25,7 @@
         text-decoration: none;
         color: #fefefe;
         transition: .7s ease-out;
-        font-size: 15px;
+        font-size: 14px;
     }
     .nav-item a:hover,
     .nav-item a:active{
@@ -62,7 +62,7 @@
             margin-bottom: 16px;
         }
         .nav-item a {
-        font-size: 17px;
+        font-size: 14px;
     }
     }
     @media (min-width: 768px) {

@@ -4,7 +4,7 @@
             <h1 class="relief">Save Time and Energy </h1>
             <h1>Looking good and clean always</h1>
             <div class="intro-request">
-                <nuxt-link to="/dashboard/products"><button class="request-btn">Request a Pick-up</button></nuxt-link>
+                <nuxt-link to="/products"><button class="request-btn">Request a Pick-up</button></nuxt-link>
             </div>
         </div>
 

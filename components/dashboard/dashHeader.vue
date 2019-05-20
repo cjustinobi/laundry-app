@@ -115,14 +115,14 @@ export default {
     }
     .user-view{
         display: grid;
-        grid-template-columns: 70px 35px 150px 30px;
+        grid-template-columns: 70px 35px auto 30px;
         /* align-items: center; */
         grid-gap: 15px;
         justify-self: flex-end;
     }
     .new-order{
         display: grid;
-        grid-template-columns: 25px auto;
+        grid-template-columns: 30px auto;
         cursor: pointer;
         position: relative;
     }
@@ -144,6 +144,7 @@ export default {
         font-size: 9px;
         font-weight: 700;
         left: 9px;
+        border: 1px solid #01355f;
     }
     .bell{
         cursor: pointer;
@@ -152,15 +153,18 @@ export default {
     .notification-count{
         display: grid;
         justify-items: center;
+        align-items: center;
         position: absolute;
         top: 6px;
         background-color: red;
         color: #fefefe;
-        height: 12px;
-        width: 12px;
+        height: 18px;
+        width: 18px;
         border-radius: 50%;
         font-size: 9px;
         left: 9px;
+        border: 1px solid #01355f;
+        font-weight: 700;
     }
     .fa-user{
         cursor: pointer;
@@ -222,7 +226,7 @@ export default {
         grid-template-columns: 40px 40px;
     }
     .user-view{
-        grid-template-columns: 50px 30px 115px 25px;
+        grid-template-columns: 60px 30px auto 25px;
         grid-gap: 7px;
         align-items: center;
     }
@@ -232,23 +236,23 @@ export default {
     }
     .new-order{
         display: grid;
-        grid-template-columns: 19px 30px;
+        grid-template-columns: 25px 25px;
     }
     .order-count{
         top: 6px;
         left: 7px;
-        width: 10px;
-        height: 10px;
+        width: 15px;
+        height: 15px;
     }
     .notification-count{
         /* top: 6px;
         left: 7px; */
-        width: 10px;
-        height: 10px;
+        width: 15px;
+        height: 15px;
     }
     .names{
         display: grid;
-        grid-template-columns: 15px 90px;
+        grid-template-columns: 15px auto;
     }
     .pull-down{
         align-items: center;

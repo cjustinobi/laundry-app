@@ -118,6 +118,7 @@
         display: grid;
         min-height: 100vh;
         grid-template-rows: 300px;
+        font-size: 14px;
         /* grid-gap: 40px; */
     }
     .address-time-container{
@@ -171,6 +172,7 @@
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
         margin-right: 40px;
+        font-size: 14px;
     }
     .add-btn{
         background-color: #114e9e;
@@ -264,7 +266,7 @@
         .address-time-container{
             grid-template: 1fr / 1fr;
             grid-gap: 30px;
-            /* height: 330px; */
+            height: 100%;
         }
         .address-inner{
             margin: 0 20px;

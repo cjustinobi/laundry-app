@@ -30,9 +30,9 @@
         width: 300px;
         height: 100%;
         color: #fefefe;
-        background: #580231;
+        background: #01355f;
         z-index: 40000;
-        font-size: 22px;
+        font-size: 18px;
         transition: 0.6s ease-in;
     }
    

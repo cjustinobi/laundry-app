@@ -194,30 +194,32 @@
     .count{
         display: grid;
         justify-items: center;
-        /* align-items: center; */
+        align-items: center;
         position: absolute;
         /* top: 20px; */
         left: 20px;
         background-color: red;
         color: #fefefe;
-        height: 12px;
-        width: 12px;
+        height: 16px;
+        width: 16px;
         border-radius: 50%;
         font-size: 9px;
+        border: 1px solid #01355f;
     }
     .small-count{
         display: grid;
         justify-items: center;
-        /* align-items: center; */
+        align-items: center;
         position: absolute;
         /* top: 20px; */
         left: 40px;
         background-color: red;
         color: #fefefe;
-        height: 12px;
-        width: 12px;
+        height: 16px;
+        width: 16px;
         border-radius: 50%;
         font-size: 9px;
+        border: 1px solid #01355f;
     }
     .toggle-bar{
         cursor: pointer;

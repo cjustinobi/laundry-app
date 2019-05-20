@@ -1,6 +1,8 @@
 <template>
     <div class="product" :style="myStyle">
-        <div class="title"><h2>Choose items</h2></div>
+        <div class="title">
+            <h2>Choose items</h2>
+        </div>
         <div class="search-laundry">
             <input type="search" placeholder="Search for laundry items"><button class="search-btn">Search</button>
         </div>
@@ -33,7 +35,7 @@
 <style scoped>
     .product{
         display: grid;
-        grid-template-rows: 50px 70px;
+        grid-template-rows: 40px 50px;
     }
     .fa{
         cursor: pointer;
@@ -49,12 +51,12 @@
         justify-items: center;
         align-content: center;
         color: #114e9e;
-        background-color: #edf5f5;
+        background-color: #f0faff;
     }
     .search-laundry{
         display: grid;
         justify-content: center;
-        background-color: #fefefe;
+        background-color: #f0faff;
         grid-template-columns: 350px 130px;
         align-content: center;
     }

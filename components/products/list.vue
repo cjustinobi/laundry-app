@@ -2,7 +2,10 @@
     <div class="all-products">
         <div><Search/></div>
         <div><Items @toogleSideLinks="toogleSideLinks"/></div>
-        <button @click.prevent="$emit('nextTab', 'address')" v-if="items.length > 0">Continue</button>
+        <button @click.prevent="$emit('nextTab', 'address')" v-if="items.length > 0"
+                class="continue-btn">
+            Continue
+        </button>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                 <Actions
@@ -122,6 +125,24 @@
         min-height: 100vh;
         position: relative;
         top: 0;
+    }
+    .continue-btn{
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        top: 300px;
+        right: 0;
+        background-color: #b8b8b8;
+        opacity: 0.6;
+        z-index: 1;
+        color: #fefefe;
+        transition: 0.8s ease-in;
+    }
+    .continue-btn:hover{
+        background-color: #e7b83f;
     }
     .laundry-list-wrapper{
         display: grid;

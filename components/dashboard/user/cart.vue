@@ -26,7 +26,7 @@
         </div>
         <div class="btn-container">
             <button class="add-btn">
-                <nuxt-link to="/dashboard/products">
+                <nuxt-link to="/products">
                     <i class="fa fa-plus"></i> Add more items
                 </nuxt-link>
             </button>

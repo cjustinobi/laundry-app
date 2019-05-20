@@ -18,11 +18,11 @@
             </nuxt-link>
             <nuxt-link to='/dashboard/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
-                <span>Transaction History</span>
+                <span>Transactions</span>
             </nuxt-link>
             <nuxt-link to='/dashboard/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
-                <!-- <div :class="{'count': wideMenu}">0</div> -->
+                <!-- <div class="count">0</div> -->
                 <span >Notifications</span>
             </nuxt-link>
             <nuxt-link to='/support' class='logo'>
@@ -56,18 +56,18 @@
                 <i class="fa fa-user" title="Users"></i>
                 <span>Users</span>
             </nuxt-link>
+            <nuxt-link to='/admin/notifications' class='logo'>
+                <i class="fa fa-bell" title="Notifications"></i>
+                <!-- <div class="count">0</div> -->
+                <span>Notifications</span>
+            </nuxt-link>
             <nuxt-link to='/admin/subscriptions' class='logo'>
                 <i class="fa fa-hashtag" title="Subscription"></i>
                 <span>Subscriptions</span>
             </nuxt-link>
             <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
-                <span>Transaction History</span>
-            </nuxt-link>
-            <nuxt-link to='/admin/notifications' class='logo'>
-                <i class="fa fa-bell" title="Notifications"></i>
-                <!-- <div :class="{'count': wideMenu}">0</div> -->
-                <span>Notifications</span>
+                <span>Transactions</span>
             </nuxt-link>
             <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
@@ -95,7 +95,7 @@
         data() {
             return {
                 sidebarNav: true,
-                wideMenu: true
+                // wideMenu: true
             }
         },
         methods: {
@@ -143,6 +143,7 @@
         margin-top: 20px;
         align-items: center;
         justify-content: center;
+        /* position: relative; */
     }
     .sidebar-nav a{
         text-decoration: none;
@@ -160,14 +161,16 @@
         justify-items: center;
         align-items: center;
         position: absolute;
-        left: 218px;
+        top: 335px;
+        left: 90px;
         background-color: red;
         color: #fefefe;
-        height: 12px;
-        width: 12px;
+        height: 15px;
+        width: 15px;
         border-radius: 50%;
         font-size: 9px;
         bottom: 380px;
+        border: 1px solid #54a3e4;
     }
 
 </style>

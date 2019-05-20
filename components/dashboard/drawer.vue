@@ -8,7 +8,7 @@
                 <i class="fa fa-dashcube" title="My Orders"></i>
                 <span>My Orders</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/products' class='logo'>
+            <nuxt-link to='/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>
                 <span>Items</span>
             </nuxt-link>

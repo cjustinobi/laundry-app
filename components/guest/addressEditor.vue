@@ -73,7 +73,7 @@ export default {
     }
     .update-form{
         display: grid;
-        grid-template-rows: repeat(4, 20px), 70px;
+        grid-template-rows: repeat(4, 20px) 70px;
         grid-gap: 10px;
         /* margin-top: 40px; */
         color: #114e9e;
@@ -120,7 +120,7 @@ export default {
             
         }
         .update-form{
-            grid-template-rows: repeat(3, 20px), 40px;
+            grid-template-rows: repeat(3, 20px) 40px;
             grid-gap: 10px;
             
         }

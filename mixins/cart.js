@@ -60,7 +60,11 @@ export default {
         },
         items() {
             return this.$store.getters['cart/items']
-        }
+        },
+        itemsInCart(){
+            let cart = this.$store.getters['cart/items']
+            return cart.reduce((accum, item) => accum + item.qty, 0)
+        },
     },
 
     watch: {

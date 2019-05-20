@@ -1,15 +1,15 @@
 <template>
     <div class="main-head">
         <div class="user-h3">
-            <nuxt-link to='/'  class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
+            <nuxt-link to='/' class="user-home-btn"><i class="fa fa-home" title="Home"></i></nuxt-link>
              <a class='toggle-bar' @click.prevent="$emit('showDrawer')" title="Expand">
                 <i class='fa fa-bars'></i>
             </a>
         </div>
 
         <div class="user-view">
-            <div class="new-order" @click="$router.push('/dashboard/cart')">
-                <i class="fa fa-cart-plus"><div class="order-count">0</div></i><p>Cart</p>
+            <div class="new-order" @click="$router.push('/cart')">
+                <i class="fa fa-cart-plus"><div class="order-count">{{ itemsInCart }}</div></i><p>Cart</p>
             </div>
 
             <div class="bell">
@@ -18,7 +18,7 @@
             
             <div class="names">
                 <i class="fa fa-user"></i> 
-                <p>Glory Agatevure</p>
+                <p v-if="user">{{ user.fullname }}</p>
             </div>
 
             <div v-if="user !== undefined && user.user_type !== 3"
@@ -63,10 +63,14 @@ export default {
         }
     },
     computed: {
-        user() {
+       /* user() {
             if (this.$store.state.auth.user) {
                 return this.$store.state.auth.user
             }
+        },*/
+        itemsInCart(){
+            let cart = this.$store.getters['cart/items']
+            return cart.reduce((accum, item) => accum + item.qty, 0)
         }
 
     },
@@ -129,14 +133,16 @@ export default {
     .order-count{
         display: grid;
         justify-items: center;
+        align-items: center;
         position: absolute;
         top: 6px;
         background-color: red;
         color: #fefefe;
-        height: 12px;
-        width: 12px;
+        height: 18px;
+        width: 18px;
         border-radius: 50%;
         font-size: 9px;
+        font-weight: 700;
         left: 9px;
     }
     .bell{

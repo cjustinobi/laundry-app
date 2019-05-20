@@ -1,5 +1,6 @@
 <template>
     <div class="edit-address">
+        <UserAddresses/>
         <form class="edit-wrapper">
             <div class="update-form">
                 <label for="address">Street name <br>
@@ -15,15 +16,16 @@
                     </select>
                 </label>
                 <label for="city">City <br>
-                    <input v-model="details.city" id="city" required>
+                    <select v-model="details.city" id="city" required>
+                        <option disabled>Select city</option>
+                        <option :value="lga.name" v-for="(lga, i) in lgas">{{ lga.name }}</option>
+                    </select>
                 </label>
                 <div class="update-sect">
-                    <!-- <nuxt-link to="/addaddress"> -->
-                        <button @click.prevent="saveAddress" class="update-button">
-                            <span v-if="!isLoading">Save Address</span>
-                            <img class="loading" v-else src="~/assets/images/loading.gif" alt="elegant image">
-                        </button>
-                    <!-- </nuxt-link>    -->
+                    <button @click.prevent="saveAddress" class="update-button">
+                        <span v-if="!isLoading">Save Address</span>
+                        <img class="loading" v-else src="~/assets/images/loading.gif" alt="elegant image">
+                    </button>
                 </div>
             </div>
         </form>
@@ -33,9 +35,10 @@
 <script>
 
     import ClearFields from '~/mixins/formElements'
+    import UserAddresses from "./userAddresses";
 
     export default {
-
+        components: {UserAddresses},
         mixins: [ClearFields],
 
         data() {
@@ -45,13 +48,23 @@
                     landmark: '',
                     city: 'Select city',
                     state: 'Select state'
-                }
+                },
+                lgas: []
             }
         },
 
         methods: {
 
             async saveAddress() {
+                if(
+                    this.details.address === '' ||
+                    this.details.state === 'Select state' ||
+                    this.details.city === 'Select state'
+                ) {
+                    return this.$store.dispatch('notifications/setStatus',
+                        { messages: ['all fields are required'], state: 'error'
+                    })
+                }
                 try {
                     this.details.userId = this.user.id
                     await this.$axios.$post('addresses', this.details)
@@ -67,7 +80,8 @@
             },
 
             getLgas(e) {
-                console.log(e.target.value)
+                this.details.city = 'Select city'
+                this.lgas = this.states.filter(state => state.state.name === e.target.value)[0].state.locals
             }
         },
 

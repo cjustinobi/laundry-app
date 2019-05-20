@@ -22,15 +22,15 @@
                 <i class="fa fa-cart-plus" title="Items"></i>
                 <span v-if="wideMenu">Items</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/subscriptions' class='logo'>
+            <nuxt-link to='/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
                 <span v-if="wideMenu">My subscription</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/transactions' class='logo'>
+            <nuxt-link to='/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span v-if="wideMenu">Transactions</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/notifications' class='logo'>
+            <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
@@ -39,11 +39,11 @@
                 <i class="fa fa-user" title="Contact/Support"></i>
                 <span v-if="wideMenu">Contact support</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/referral' class='logo'>
+            <nuxt-link to='/referral' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span v-if="wideMenu">Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
+            <nuxt-link to='/settings' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span v-if="wideMenu">Settings</span>
             </nuxt-link>

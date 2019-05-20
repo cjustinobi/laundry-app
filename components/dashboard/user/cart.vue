@@ -19,15 +19,17 @@
                 <span :ref="`qty-${i}`">{{ item.qty }}</span>
                 <i @click="incrementItem(item, i)" class="fa fa-plus-square"></i>
             </p>
-            <p>{{ item.price * item.qty }}</p>
+            <p>&#8358;{{ currency.format(item.price * item.qty) }}</p>
             <span>
                 <i @click.prevent="$store.dispatch('cart/deleteItem', item.id)" class="fa fa-trash"></i>
             </span>
         </div>
         <div class="btn-container">
-            <button class="add-btn"><nuxt-link to="/dashboard/products">
-                <i class="fa fa-plus"></i> Add more items
-            </nuxt-link></button>
+            <button class="add-btn">
+                <nuxt-link to="/dashboard/products">
+                    <i class="fa fa-plus"></i> Add more items
+                </nuxt-link>
+            </button>
         </div>
     </div>
     <div v-else class="no-items">

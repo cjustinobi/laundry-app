@@ -134,12 +134,13 @@
         border: none;
         outline: none;
         top: 300px;
-        right: 0;
+        right: 2px;
         background-color: #b8b8b8;
         opacity: 0.6;
         z-index: 1;
         color: #fefefe;
         transition: 0.8s ease-in;
+        font-size: 14px;
     }
     .continue-btn:hover{
         background-color: #e7b83f;
@@ -234,6 +235,11 @@
     }
     
     @media (max-width: 767px) {
+        .continue-btn{
+            width: 60px;
+            height: 60px;
+            font-size: 12px;
+        }
         .laundry-list-wrapper{
             grid-gap: 20px;
         }

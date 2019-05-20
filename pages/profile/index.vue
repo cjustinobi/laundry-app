@@ -1,19 +1,16 @@
 <template>
     <div class="edit-profile" :style="myStyle">
-        <!-- <div class="title"><h2>My Account</h2></div> -->
         <div class="edit-wrapper">
             <ul class="edit-list">
                 <li class="edit-links" @click.prevent="toggleTab('profile')">Profile</li>
                 <li class="edit-links" @click.prevent="toggleTab('address')">Address</li>
                 <li class="edit-links" @click.prevent="toggleTab('password')">Change Password</li>
-                <!-- <li class="edit-links" @click.prevent="toggleTab('preferences')">Preferences</li> -->
             </ul>
         </div>
 
         <div><profileXXX v-if="profile"></profileXXX></div>
         <div><AddressEditor v-if="address" /></div>
         <div><editPassword  v-if="password"></editPassword></div>
-        <!-- <div><preferences  v-if="preferences"></preferences></div> -->
     </div>
 </template>
 

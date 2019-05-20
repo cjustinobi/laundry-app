@@ -1,5 +1,6 @@
 <template>
     <div class="edit-address">
+        <UserAddresses/>
         <form class="edit-wrapper">
             <div class="update-form">
                 <label for="address">Street name <br>
@@ -8,21 +9,24 @@
                 <label for="landmark">Nearest Bus stop <br>
                     <input v-model="details.landmark" id="landmark" required>
                 </label>
-                <label for="city">City <br>
-                    <input v-model="details.city" id="city" required>
-                </label>
                 <label for="state" >State <br>
-                    <input v-model="details.state" id="state" required>
+                    <select v-model="details.state" @change="getLgas" id="state" required>
+                        <option disabled>Select state</option>
+                        <option :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
+                    </select>
+                </label>
+                <label for="city">City <br>
+                    <select v-model="details.city" id="city" required>
+                        <option disabled>Select city</option>
+                        <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
+                    </select>
                 </label>
                 <div class="update-sect">
-                    <!-- <nuxt-link to="/addaddress"> -->
-                        <button @click.prevent="saveAddress" class="update-button">
-                            <span v-if="!isLoading">Save Address</span>
-                            <img class="loading" v-else src="~/assets/images/loading.gif" alt="elegant image">
-                        </button>
-                    <!-- </nuxt-link>    -->
+                    <button @click.prevent="saveAddress" class="update-button">
+                        <span v-if="!isLoading">Save Address</span>
+                        <img class="loading" v-else src="~/assets/images/loading.gif" alt="elegant image">
+                    </button>
                 </div>
-                <!-- {{states}} -->
             </div>
         </form>
     </div>
@@ -31,9 +35,10 @@
 <script>
 
     import ClearFields from '~/mixins/formElements'
+    import UserAddresses from "./userAddresses";
 
     export default {
-
+        components: {UserAddresses},
         mixins: [ClearFields],
 
         data() {
@@ -41,15 +46,25 @@
                 details: {
                     address: '',
                     landmark: '',
-                    city: '',
-                    state: ''
-                }
+                    city: 'Select city',
+                    state: 'Select state'
+                },
+                lgas: []
             }
         },
 
         methods: {
 
             async saveAddress() {
+                if(
+                    this.details.address === '' ||
+                    this.details.state === 'Select state' ||
+                    this.details.city === 'Select state'
+                ) {
+                    return this.$store.dispatch('notifications/setStatus',
+                        { messages: ['all fields are required'], state: 'error'
+                    })
+                }
                 try {
                     this.details.userId = this.user.id
                     await this.$axios.$post('addresses', this.details)
@@ -62,6 +77,11 @@
                     this.isLoading = false
                     console.log(e)
                 }
+            },
+
+            getLgas(e) {
+                this.details.city = 'Select city'
+                this.lgas = this.states.filter(state => state.state.name === e.target.value)[0].state.locals
             }
         },
 

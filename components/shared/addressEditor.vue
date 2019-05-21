@@ -1,7 +1,7 @@
 <template>
     <div class="edit-address">
-        <UserAddresses/>
-        <form class="edit-wrapper">
+        <!-- <UserAddresses/> -->
+        <form class="edit-address-wrapper">
             <div class="update-form">
                 <label for="address">Street name <br>
                     <input v-model="details.address" id="address" required>
@@ -35,10 +35,10 @@
 <script>
 
     import ClearFields from '~/mixins/formElements'
-    import UserAddresses from "./userAddresses";
+    // import UserAddresses from "./userAddresses";
 
     export default {
-        components: {UserAddresses},
+        // components: {UserAddresses},
         mixins: [ClearFields],
 
         data() {
@@ -46,8 +46,8 @@
                 details: {
                     address: '',
                     landmark: '',
-                    city: 'Select city',
-                    state: 'Select state'
+                    state: 'Select state',
+                    city: 'Select city'
                 },
                 lgas: []
             }
@@ -102,6 +102,7 @@
     .edit-address{
         display: grid;
         /* min-height: 100vh; */
+        /* height: 100%; */
     }
     .title{
         display: grid;
@@ -115,7 +116,7 @@
     a{
         text-decoration: none;
     }
-    .edit-wrapper{
+    .edit-address-wrapper{
         display: grid;
         background-color: #fefefe;
         margin: 0 200px 40px 200px;
@@ -164,7 +165,7 @@
     }
 
     @media (max-width: 767px) {
-        .edit-wrapper{
+        .edit-address-wrapper{
             /* height: 500px; */
             padding: 20px;
             margin: 0 20px 40px 20px;

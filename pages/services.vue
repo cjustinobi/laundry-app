@@ -24,10 +24,10 @@
         </div>
         <div class="hr-demarcator"/>
         
-        <div><DryCleaning v-if="dryCleaning"/></div>
-        <div><WashFold v-if="washFold"/></div>
-        <div><HandleCare v-if="handleCare"/></div>
-        <div><Recycle v-if="recycle"/></div>
+        <div v-if="dryCleaning"><DryCleaning/></div>
+        <div v-if="washFold"><WashFold/></div>
+        <div v-if="handleCare"><HandleCare/></div>
+        <div v-if="recycle"><Recycle/></div>
 
     </div>
 </template>

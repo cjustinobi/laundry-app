@@ -84,6 +84,9 @@
         display: grid;
         grid-template-rows: auto auto;
     }
+    .nuxt-rend{
+        background-color: #f0faff;
+    }
     .dashboard{
         display: grid;
         grid-template-columns: 200px 1fr;

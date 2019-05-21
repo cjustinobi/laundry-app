@@ -1,21 +1,21 @@
 <template>
     <div class="edit-address">
-        <!-- <UserAddresses/> -->
+        <UserAddresses/>
         <form class="edit-address-wrapper">
             <div class="update-form">
-                <label for="address">Street name <br>
+                <label for="address">Street name
                     <input v-model="details.address" id="address" required>
                 </label>
-                <label for="landmark">Nearest Bus stop <br>
+                <label for="landmark">Nearest Bus stop 
                     <input v-model="details.landmark" id="landmark" required>
                 </label>
-                <label for="state" >State <br>
+                <label for="state" >State 
                     <select v-model="details.state" @change="getLgas" id="state" required>
                         <option disabled>Select state</option>
                         <option :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
                     </select>
                 </label>
-                <label for="city">City <br>
+                <label for="city">City 
                     <select v-model="details.city" id="city" required>
                         <option disabled>Select city</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
@@ -35,10 +35,10 @@
 <script>
 
     import ClearFields from '~/mixins/formElements'
-    // import UserAddresses from "./userAddresses";
+    import UserAddresses from "./userAddresses";
 
     export default {
-        // components: {UserAddresses},
+        components: {UserAddresses},
         mixins: [ClearFields],
 
         data() {

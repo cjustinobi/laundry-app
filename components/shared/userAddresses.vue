@@ -5,7 +5,7 @@
             <p>{{ ad.city }}</p>
             <p>{{ ad.state }}</p>
         </div> -->
-        <div class="add-wrapper">
+        <div class="add-wrapper" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">
             <div class="add-addresss-inner">
                 <h4 class="address-head">Address (1)</h4>
                 <div class="add-form">
@@ -13,26 +13,27 @@
                         <i class="fa fa-trash"></i>
                         <i class="fa fa-edit"></i>
                     </div>
-                    <!-- <p>{{ ad.address }}</p>
+                    <p>{{ ad.address }}</p>
                     <p>{{ ad.landmark  }}</p>
                     <p>{{ ad.state  }}</p>
-                    <p>{{ ad.city }}</p> -->
+                    <p>{{ ad.city }}</p>
 
-                    <p>{{ address }}</p>
+                    <!-- <p>{{ address }}</p>
                     <p>{{ landmark  }}</p>
                     <p>{{ state  }}</p>
-                    <p>{{ city }}</p>
+                    <p>{{ city }}</p> -->
                 </div>
             </div>
         </div>
-         <div class="add-sect">
+         <div v-else>
+            <AddressEditor/>
+        </div>
+         <!-- <div class="add-sect">
             <button @click.prevent="signUp" class="add-button">
                 Add Address
             </button>
-        </div>
-        <div>
-            <AddressEditor/>
-        </div>
+        </div> -->
+       
         
     </div>
 </template>
@@ -43,10 +44,10 @@
             components: {AddressEditor},
             data() {
                 return {
-                    address: '30 Afaha Uqua, Road',
-                    landmark: 'Mobil Mart',
-                    state: 'Akwa Ibom State',
-                    city: 'Eket'
+                    // address: '30 Afaha Uqua, Road',
+                    // landmark: 'Mobil Mart',
+                    // state: 'Akwa Ibom State',
+                    // city: 'Eket'
                 }
             },
 

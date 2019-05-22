@@ -24,7 +24,7 @@
         </div>
 
         <div v-if="products"><AllProducts @nextTab="toggleTab" /></div>
-        <div v-if="address"><AddressEditor class="insert-margin"/></div>
+        <div v-if="address"><UserAddresses class="insert-margin"/></div>
         <div v-if="password"><EditPassword class="insert-margin"/></div>
         <div v-if="paymentpage"><PaymentPage class="insert-margin"/></div>
         
@@ -34,7 +34,7 @@
 
 <script>
     import AllProducts from '~/components/products/list'
-    import AddressEditor from '~/components/shared/addressEditor'
+    import UserAddresses from '~/components/shared/userAddresses'
     import EditPassword from '~/components/guest/editPassword'
     import PaymentPage from '~/components/guest/paymentpage'
 
@@ -44,7 +44,7 @@
 
         components: {
             AllProducts,
-            AddressEditor, 
+            UserAddresses, 
             EditPassword,
             PaymentPage
         },

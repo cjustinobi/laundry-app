@@ -9,7 +9,7 @@
         </div>
 
         <div v-if="profile"><userProfile></userProfile></div>
-        <div v-if="address"><AddressEditor/></div>
+        <div v-if="address"><UserAddresses/></div>
         <div v-if="password"><editPassword></editPassword></div>
     </div>
 </template>
@@ -17,14 +17,14 @@
 <script>
 
     import UserProfile from '~/components/guest/userProfile'
-    import AddressEditor from '~/components/shared/addressEditor'
+    import UserAddresses from '~/components/shared/userAddresses'
     import EditPassword from '~/components/guest/editPassword'
 
     export default {
         
         layout: 'dashboard',
 
-        components: {UserProfile, AddressEditor, EditPassword},
+        components: {UserProfile, UserAddresses, EditPassword},
 
         data() {
             return {

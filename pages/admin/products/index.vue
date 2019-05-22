@@ -1,7 +1,9 @@
 <template>
     <div class="create-benefit" :style="myStyle">
         <div class="btn-created">
-            <button class="create-btn" v-if="!showProductForm" @click.prevent="showProductForm = true">CREATE PRODUCT</button>
+            <button class="create-btn" v-if="!showProductForm" @click.prevent="showProductForm = true">
+                CREATE PRODUCT
+            </button>
         </div>
 
         <div :class="{'backdrop': showProductForm}">

@@ -1,21 +1,21 @@
 <template>
     <div class="edit-address">
-        <UserAddresses/>
-        <form class="edit-address-wrapper">
-            <div class="update-form">
+        <!-- <UserAddresses/> -->
+        <div class="edit-address-wrapper">
+            <form class="update-form">
                 <label for="address">Street name
                     <input v-model="details.address" id="address" required>
                 </label>
                 <label for="landmark">Nearest Bus stop 
                     <input v-model="details.landmark" id="landmark" required>
                 </label>
-                <label for="state" >State 
+                <label for="state" >State <br>
                     <select v-model="details.state" @change="getLgas" id="state" required>
                         <option disabled>Select state</option>
                         <option v-if="states" :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
                     </select>
                 </label>
-                <label for="city">City 
+                <label for="city">City <br>
                     <select v-model="details.city" id="city" required>
                         <option disabled>Select city</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
@@ -27,18 +27,18 @@
                         <img class="loading" v-else src="~/assets/images/loading.gif" alt="elegant image">
                     </button>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </template>
 
 <script>
 
     import ClearFields from '~/mixins/formElements'
-    import UserAddresses from "./userAddresses";
+    // import UserAddresses from "./userAddresses";
 
     export default {
-        components: {UserAddresses},
+        // components: {UserAddresses},
         mixins: [ClearFields],
 
         data() {
@@ -118,17 +118,20 @@
     }
     .edit-address-wrapper{
         display: grid;
-        background-color: #fefefe;
-        margin: 0 200px 40px 200px;
-        padding: 30px;
-        box-shadow: 5px 5px 15px grey;
-        grid-gap: 10px;
+        justify-content: center;
+        align-items: center;
     }
     .update-form{
         display: grid;
-        grid-template-rows: repeat(4, 20px) 70px;
-        grid-gap: 10px;
-        /* margin-top: 40px; */
+        grid-template-rows: repeat(4, 50px) 50px;
+        grid-gap: 12px;
+        padding: 10px 20px 20px 20px;
+        /* margin-top: 80px; */
+        background-color: #e9e9e9;
+        border-radius: 5px;
+        border: 1px solid grey;
+        width: 400px;
+        height: 330px;
         color: #114e9e;
     }
     .update-form input{

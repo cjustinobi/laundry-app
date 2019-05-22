@@ -84,6 +84,9 @@ export default {
         font-size: 25px;
         outline-style: none;
     }
+    .pw-input{
+        height: 50px;
+    }
     .pw-icon{
         position: absolute;
         right: 8px;
@@ -95,7 +98,7 @@ export default {
         grid-template-rows: 50px;
         align-items: center;
         /* margin: 20px 0; */
-        height: 90px;
+        /* height: 90px; */
     }
     .update-button{
         height: 50px;

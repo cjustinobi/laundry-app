@@ -116,7 +116,7 @@
         grid-template-rows: repeat(7, 30px);
         grid-gap: 12px;
         padding: 10px 20px 20px 20px;
-        margin-top: 80px;
+        /* margin-top: 80px; */
         background-color: #e9e9e9;
         border-radius: 5px;
         border: 1px solid grey;

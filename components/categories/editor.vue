@@ -41,7 +41,7 @@
         methods: {
             async submitCategories() {
                 this.isLoading = true
-                this.items.filter(item => item.name !== '')
+                this.items = this.items.filter(item => item.name !== '')
                 try {
                     let res = await this.$store.dispatch('categories/store', this.items)
                     this.isLoading = false

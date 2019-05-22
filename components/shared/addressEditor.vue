@@ -12,7 +12,7 @@
                 <label for="state" >State <br>
                     <select v-model="details.state" @change="getLgas" id="state" required>
                         <option disabled>Select state</option>
-                        <option :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
+                        <option v-if="states" :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
                     </select>
                 </label>
                 <label for="city">City <br>
@@ -67,7 +67,7 @@
                 }
                 try {
                     this.details.userId = this.user.id
-                    await this.$axios.$post('addresses', this.details)
+                    await this.$store.dispatch('users/storeAddress', this.details)
                     this.isLoading = false
                     this.clearFields(this.details)
                     this.$store.dispatch('notifications/setStatus', {

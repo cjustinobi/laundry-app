@@ -11,6 +11,10 @@ export const mutations = {
 
     USER_ADDRESSES (state, addresses) {
         state.userAddresses = addresses
+    },
+
+    ADD_ADDRESS ( state, address) {
+        state.userAddresses.push(address)
     }
 }
 
@@ -22,6 +26,15 @@ export const actions = {
         }
         catch (err) {
             return err
+        }
+    },
+
+    async storeAddress({ commit }, payload) {
+        try {
+            const address = await this.$axios.$post('addresses', payload)
+            commit('ADD_ADDRESS', address)
+        } catch (e) {
+            return e
         }
     },
 

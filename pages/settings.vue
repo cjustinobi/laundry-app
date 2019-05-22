@@ -1,5 +1,5 @@
 <template>
-    <div class="edit-preferences" :style="myStyle">
+    <div class="edit-preferences">
         <h4 class="pick-up-h4">Pick Up Address</h4>
         <AddressEditor/>
         
@@ -74,9 +74,6 @@ export default {
 
     data() {
         return {
-            myStyle: {
-                backgroundColor: "#f0faff"
-            },
             starch: true,
             lightStarch: false,
             noStarch: false,

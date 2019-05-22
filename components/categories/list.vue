@@ -6,7 +6,7 @@
                     <li class="item-title">{{ item.name }}</li>
 
                     <div class="edit-button">
-                        <button class="edit-package" @click.prevent="editBenefit(i)">Edit</button>
+                        <button class="edit-package" @click.prevent="editCategory(item.id)">Edit</button>
                         <button class="delete-package" @click.prevent="deleteForm(i)">Delete</button>
                     </div>
                 </div>
@@ -38,9 +38,9 @@
         },
 
         methods: {
-            editCategory(i) {
+            editCategory(itemId) {
                 this.showForm = true;
-                this.editDetail = this.categories.find((item, index) => index == i)
+                this.editDetail = this.categories.filter(item => item.id == itemId)
             },
             deleteForm(i){
 

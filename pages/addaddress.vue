@@ -30,7 +30,7 @@ export default {
 
     data() {
         return {
-            myStyle: {
+            myStyle: {  
                 backgroundColor: "#f0faff"
             },
             address: '30 Afaha Uqua, Road',
@@ -64,36 +64,6 @@ export default {
     }
     a{
         text-decoration: none;
-    }
-    .edit-wrapper{
-        display: grid;
-        grid-template-columns: 1fr;
-        background-color: #fefefe;
-        margin: 40px 160px 0 160px;
-        box-shadow: 5px 5px 15px grey;
-        grid-gap: 20px;
-        align-items: center;
-    }
-    .edit-list{
-        display: grid;
-        grid-template: 80px / repeat(4, 180px); 
-        align-items: center; 
-        padding: 0px;
-        font-size: 18px;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        list-style: none;
-        justify-items: center;
-        
-    }
-    .edit-links{
-        color: #114e9e;
-        transition: 0.6s ease-in;
-    }
-    .edit-links:hover,
-    .edit-links:active{
-        color: #a0a0a0; 
     }
     .add-wrapper{
         display: grid;

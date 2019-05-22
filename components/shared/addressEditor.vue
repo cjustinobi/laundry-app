@@ -1,21 +1,21 @@
 <template>
     <div class="edit-address">
         <UserAddresses/>
-        <form class="edit-wrapper">
+        <form class="edit-address-wrapper">
             <div class="update-form">
-                <label for="address">Street name <br>
+                <label for="address">Street name
                     <input v-model="details.address" id="address" required>
                 </label>
-                <label for="landmark">Nearest Bus stop <br>
+                <label for="landmark">Nearest Bus stop 
                     <input v-model="details.landmark" id="landmark" required>
                 </label>
-                <label for="state" >State <br>
+                <label for="state" >State 
                     <select v-model="details.state" @change="getLgas" id="state" required>
                         <option disabled>Select state</option>
                         <option v-if="states" :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
                     </select>
                 </label>
-                <label for="city">City <br>
+                <label for="city">City 
                     <select v-model="details.city" id="city" required>
                         <option disabled>Select city</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
@@ -46,8 +46,8 @@
                 details: {
                     address: '',
                     landmark: '',
-                    city: 'Select city',
-                    state: 'Select state'
+                    state: 'Select state',
+                    city: 'Select city'
                 },
                 lgas: []
             }
@@ -102,6 +102,7 @@
     .edit-address{
         display: grid;
         /* min-height: 100vh; */
+        /* height: 100%; */
     }
     .title{
         display: grid;
@@ -115,7 +116,7 @@
     a{
         text-decoration: none;
     }
-    .edit-wrapper{
+    .edit-address-wrapper{
         display: grid;
         background-color: #fefefe;
         margin: 0 200px 40px 200px;
@@ -164,7 +165,7 @@
     }
 
     @media (max-width: 767px) {
-        .edit-wrapper{
+        .edit-address-wrapper{
             /* height: 500px; */
             padding: 20px;
             margin: 0 20px 40px 20px;

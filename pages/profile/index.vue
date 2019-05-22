@@ -1,6 +1,6 @@
 <template>
-    <div class="edit-profile" :style="myStyle">
-        <div class="edit-wrapper">
+    <div class="profile-pg">
+        <div class="edit-profile-wrapper">
             <ul class="edit-list">
                 <li class="edit-links" @click.prevent="toggleTab('profile')">Profile</li>
                 <li class="edit-links" @click.prevent="toggleTab('address')">Address</li>
@@ -8,34 +8,32 @@
             </ul>
         </div>
 
-        <div><profileXXX v-if="profile"></profileXXX></div>
-        <div><AddressEditor v-if="address" /></div>
-        <div><editPassword  v-if="password"></editPassword></div>
+        <div v-if="profile"><userProfile></userProfile></div>
+        <div v-if="address"><AddressEditor/></div>
+        <div v-if="password"><editPassword></editPassword></div>
     </div>
 </template>
 
 <script>
 
-    import ProfileXXX from '~/components/guest/profileXXX'
+    import UserProfile from '~/components/guest/userProfile'
     import AddressEditor from '~/components/shared/addressEditor'
     import EditPassword from '~/components/guest/editPassword'
-    import Preferences from '~/components/guest/preferences'
 
     export default {
         
         layout: 'dashboard',
 
-        components: {ProfileXXX, AddressEditor, EditPassword, Preferences},
+        components: {UserProfile, AddressEditor, EditPassword},
 
         data() {
             return {
                 myStyle: {
-                    backgroundColor: "#f0faff"
+                    // backgroundColor: "#f0faff"
                 },
                 profile: true,
                 address: false,
-                password: false,
-                preferences: false
+                password: false
             }
         },
         methods: {
@@ -43,26 +41,17 @@
                 if(val == 'profile') {
                     this.address =false
                     this.password = false
-                    this.preferences = false
                     return this.profile = true
                 }
                 if(val == 'address') {
                     this.password =false
-                    this.preferences =false
                     this.profile = false
                     return this.address = true
                 }
                 if(val == 'password') {
-                    this.preferences =false
                     this.profile =false
                     this.address = false
                     return this.password = true
-                }
-                if(val == 'preferences') {
-                    this.profile =false
-                    this.address = false
-                    this.password = false
-                    return this.preferences = true
                 }
             },
         
@@ -77,43 +66,31 @@
 </script>
 
 <style scoped>
-    .edit-profile{
+    .profile-pg{
         display: grid;
+        /* height: 100%; */
         /* min-height: 100vh; */
-        height: 100%;
-    }
-    .title{
+        grid-template-rows: 1fr;
+    }   
+    .edit-profile-wrapper{
         display: grid;
-        justify-items: center;
-        align-content: center;
-        height: 80px;
-        color: #114e9e;
-        background-color: #f0faff;
-    }
-    a{
-        text-decoration: none;
-    }
-    .edit-wrapper{
-        display: grid;
-        grid-template-columns: 1fr;
-        background-color: #fefefe;
-        margin: 40px 160px 0 160px;
-        box-shadow: 5px 5px 15px grey;
-        grid-gap: 20px;
+        /* grid-template-columns: 1fr; */
+        margin: 40px 200px 0 200px;
         align-items: center;
+        height: 60px;
     }
     .edit-list{
         display: grid;
-        grid-template: 80px / repeat(4, auto); 
+        grid-template: 60px / repeat(3, auto); 
         align-items: center; 
         padding: 0px;
-        font-size: 18px;
+        font-size: 16px;
         outline: none;
         border: none;
         cursor: pointer;
         list-style: none;
         justify-items: center;
-        grid-gap: 10px;
+        background-color: rgb(241, 241, 241);
     }
     .edit-links{
         color: #114e9e;
@@ -126,14 +103,14 @@
    
 
     @media (max-width: 767px) {
-        .edit-wrapper{
+        .edit-profile-wrapper{
             margin: 40px 20px 0 20px;
         }
         .title{
             margin-top: 30px;
         }
         .edit-list{
-            grid-template: 60px / repeat(4, auto); 
+            grid-template: 60px / repeat(3, auto); 
             font-size: 12px;
             grid-gap: 2px;
         }

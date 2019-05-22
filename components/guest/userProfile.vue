@@ -1,5 +1,5 @@
 <template>
-    <div class="edit-profile" :style="myStyle">
+    <div class="edit-user-profile">
         <div class="edit-wrapper">
             <div class="profile-img"><img src="~assets/images/profile_pic.jpg" alt="Profile Avatar"></div>
             <div class="update-form">
@@ -41,22 +41,19 @@ export default {
 </script>
 
 <style scoped>
-    .edit-profile{
+    .edit-user-profile{
         display: grid;
-        min-height: 100vh;
-    }
-    a{
-        text-decoration: none;
+        /* min-height: 100vh; */
     }
     .edit-wrapper{
         display: grid;
-        grid-template-rows: 80px 270px;
+        grid-template-rows: auto;
         background-color: #fefefe;
-        margin: 0 160px 80px 160px;
-        padding: 80px 70px 0 70px;
+        margin: 0 200px 80px 200px;
+        padding: 40px 70px 20px 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
-        height: 470px;
+        /* height: 470px; */
     }
     img{
         width: 80px;
@@ -70,15 +67,16 @@ export default {
     }
     .update-form{
         display: grid;
-        grid-template-rows: repeat(4, 20px), 40px;
+        grid-template-rows: repeat(4, 20px), 50px;
         grid-gap: 10px;
-        margin-top: 40px;
+        /* margin-top: 40px; */
         color: #114e9e;
     }
     .update-sect{
         display: grid;
         justify-content: center;
-        margin: 20px 0;
+        grid-template-rows: 50px;
+        /* margin: 20px 0; */
     }
     .update-button{
         height: 50px;
@@ -86,35 +84,40 @@ export default {
         padding: 10px;
         background-color: #01355f;
         color: #fefefe;
-        font-size: 18px;
+        font-size: 16px;
         outline: none;
         border: none;
         cursor: pointer;
         transition: 0.6s ease-in;
     }
     .update-button:hover{
-        background-color: #00122b;
+        background-color: #012a63;
     }
 
     @media (max-width: 767px) {
         .edit-wrapper{
-            grid-template-rows: 70px 250px;
-            height: 430px;
-            padding: 30px 20px 0 20px;
+            grid-template-rows: auto;
+            /* height: 430px; */
+            padding: 20px 20px 15px 20px;
             margin: 0 20px 40px 20px;
         }
         .edit-list{
             font-size: 15px;
         }
-        .update-form{
-            grid-gap: 20px;
+        img{
+            width: 70px;
+            height: 70px;
         }
-        .update-form input{
-            font-size: 20px;
+        .update-form{
+            grid-gap: 5px;
+        }
+        .update-sect{
+            grid-template-rows: 40px;
         }
         .update-button{
             width: 200px;
             font-size: 14px;
+            height: 40px;
         }
     }
 </style>

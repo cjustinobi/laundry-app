@@ -1,11 +1,11 @@
 <template>
-    <div class="edit-password" :style="myStyle">
+    <div class="edit-password" >
         <div class="edit-wrapper">
             <div class="password-wrapper">
-                <label for="" class="pw-input">Old Password <br>
+                <label for="" class="pw-input">Old Password
                     <input type="password">
                 </label>
-                <label for="" class="pw-input">New Password <br>
+                <label for="" class="pw-input">New Password 
                     <input type="password" id="password">
                     <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash()"></i>
                     <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash()"></i>
@@ -25,9 +25,6 @@ export default {
 
     data() {
         return {
-            myStyle: {
-                backgroundColor: "#f0faff"
-            },
             eyeSlash: false
         }
     },
@@ -56,26 +53,26 @@ export default {
 <style scoped>
     .edit-password{
         display: grid;
-        min-height: 100vh;
+        /* min-height: 100vh; */
     }
     a{
         text-decoration: none;
     }
     .edit-wrapper{
         display: grid;
-        grid-template-rows: 200px 80px;
+        grid-template-rows: auto 50px;
         background-color: #fefefe;
         align-items: center;
-        margin: 0 160px 40px 160px;
-        padding: 80px 70px 0 70px;
+        margin: 0 200px 40px 200px;
+        padding: 40px 70px 20px 70px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
-        height: 400px;
+        /* height: 400px;    */
     }
     .password-wrapper{
         display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
+        grid-template-rows: 60px 60px;
+        grid-gap: 8px;
         position: relative;
         color: #114e9e;
     }
@@ -95,6 +92,7 @@ export default {
     }
     .update-sect{
         display: grid;
+        grid-template-rows: 50px;
         align-items: center;
         /* margin: 20px 0; */
         height: 90px;
@@ -102,7 +100,7 @@ export default {
     .update-button{
         height: 50px;
         width: 250px;
-        padding: 10px;
+        /* padding: 10px;    */
         background-color: #01355f;
         color: #fefefe;
         font-size: 18px;
@@ -117,12 +115,12 @@ export default {
 
     @media (max-width: 767px) {
         .edit-wrapper{
-            height: 300px;
-            padding: 0 20px;
+            /* height: 300px; */
+            padding: 20px;
             margin: 0 20px;
         }
         .edit-list{
-            font-size: 15px;
+            font-size: 14px;
         }
         .pw-icon{
             right: 8px;

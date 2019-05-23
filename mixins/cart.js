@@ -15,10 +15,10 @@ export default {
                 } else {
                     // This item has not been added yet.
                     product.qty++
-                    // this.items.push(product) 
+                    // this.items.push(product)
                     this.$store.dispatch('cart/addToCart', { item: product, elId: i })
                 }
-                
+
             } else {
                 // No item has been added yet.
                 product.qty++
@@ -64,6 +64,10 @@ export default {
         itemsInCart(){
             let cart = this.$store.getters['cart/items']
             return cart.reduce((accum, item) => accum + item.qty, 0)
+        },
+        subTotal(){
+            let subTotal = this.$store.getters['cart/items']
+            return subTotal.reduce((accum, item) => accum + item.subTotal, 0)
         },
     },
 

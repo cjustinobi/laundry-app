@@ -1,27 +1,30 @@
 <template>
     <div class="edit-address">
-        <!-- <UserAddresses/> -->
         <div class="edit-address-wrapper">
             <form class="update-form">
-                <label for="address">Street name
-                    <input v-model="details.address" id="address" required>
+                <div class="close-package">
+                    <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
+                </div>
+                <label for="address">
+                    <input v-model="details.address" id="address" placeholder="Street Name" required>
                 </label>
-                <label for="landmark">Nearest Bus stop 
-                    <input v-model="details.landmark" id="landmark" required>
+                <label for="landmark"> 
+                    <input v-model="details.landmark" id="landmark" placeholder="Nearest Bus Stop" required>
                 </label>
-                <label for="state" >State <br>
-                    <select v-model="details.state" @change="getLgas" id="state" required>
+                <label for="state" >
+                    <select class="state-select" v-model="details.state" @change="getLgas" id="state" required>
                         <option disabled>Select state</option>
                         <option v-if="states" :value="state.state.name" v-for="(state, i) in states" :key="i">{{ state.state.name }}</option>
                     </select>
                 </label>
-                <label for="city">City <br>
-                    <select v-model="details.city" id="city" required>
+                <label for="city">
+                    <select class="state-select" v-model="details.city" id="city" required>
                         <option disabled>Select city</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
                     </select>
                 </label>
                 <div class="update-sect">
+                    <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
                     <button @click.prevent="saveAddress" class="update-button">
                         <span v-if="!isLoading">Save Address</span>
                         <img class="loading" v-else src="~/assets/images/loading.gif" alt="elegant image">
@@ -35,10 +38,9 @@
 <script>
 
     import ClearFields from '~/mixins/formElements'
-    // import UserAddresses from "./userAddresses";
 
     export default {
-        // components: {UserAddresses},
+        components: {},
         mixins: [ClearFields],
 
         data() {
@@ -73,6 +75,7 @@
                     this.$store.dispatch('notifications/setStatus', {
                         messages: ['address created'], state: 'success'
                     })
+                    this.$emit('cancelForm')
                 } catch (e) {
                     this.isLoading = false
                     console.log(e)
@@ -104,15 +107,6 @@
         /* min-height: 100vh; */
         /* height: 100%; */
     }
-    .title{
-        display: grid;
-        justify-items: center;
-        align-content: center;
-        height: 80px;
-        color: #114e9e;
-        background-color: #f0faff;
-        border-bottom: 1px solid rgb(207, 207, 207);
-    }
     a{
         text-decoration: none;
     }
@@ -123,39 +117,73 @@
     }
     .update-form{
         display: grid;
-        grid-template-rows: repeat(4, 50px) 50px;
+        grid-template-rows: 20px repeat(5, 40px);
         grid-gap: 12px;
-        padding: 10px 20px 20px 20px;
-        /* margin-top: 80px; */
+        padding: 20px;
         background-color: #e9e9e9;
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
-        height: 330px;
+        height: 320px;
         color: #114e9e;
+    }
+    .close-package{
+        display: grid;
+        justify-items: flex-end;
+        align-content: center;
+    }.close-package a{
+        color: rgb(245, 100, 100);
+    }
+    .close-package a:hover{
+        color: rgb(240, 59, 59);
+        transition: 0.3s ease-in;
     }
     .update-form input{
         width: 100%;
-        padding: 5px;
+        padding: 10px;
         border: none;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        font-size: 16px;
+        border: 1px solid rgb(207, 207, 207);
+        font-size: 14px;
         outline-style: none;
-        height: 20px;
+        height: 30px;
+        /* color: #adadad; */
     }
     .form-label{
         height: 50px;
     }
+    .state-select{
+        height: 30px;
+        width: 100%;
+        border: 1px solid rgb(207, 207, 207);
+        font-size: 14px;
+        outline: none;
+        /* color: #969696; */
+    }
     .update-sect{
         display: grid;
         align-items: center;
-        /* margin: 20px 0 40px 0; */
+        grid-template-columns: repeat(2, auto);
+        grid-gap: 20px;
+    }
+    .btn-cancel{
+        height: 40px;
+        width: 140Px;
+        color: #000;
+        font-size: 16px;
+        transition: 0.3s ease-in;
+        background-color: #d8d8d8;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-cancel:hover{
+        background-color: #b8b8b8;
     }
     .update-button{
-        height: 50px;
-        width: 250px;
+        height: 40px;
+        width: 192px;
         padding: 10px;
-        background-color: #01355f;
+        background-color: #e7b83f;
         color: #fefefe;
         font-size: 16px;
         outline: none;
@@ -164,23 +192,23 @@
         transition: 0.6s ease-in;
     }
     .update-button:hover{
-        background-color: #06316d;
+        background-color: #f58b13;
     }
 
     @media (max-width: 767px) {
         .edit-address-wrapper{
-            /* height: 500px; */
             padding: 20px;
             margin: 0 20px 40px 20px;
-
         }
         .update-form{
-            grid-template-rows: repeat(3, 20px) 40px;
-            grid-gap: 10px;
-
+            width: 300px;
+            /* height: 300px;  */
         }
         .update-form input{
-            font-size: 14px;
+            font-size: 12px;
+        }
+        .state-select{
+            font-size: 12px;
         }
         .update-sect{
             display: grid;
@@ -190,8 +218,11 @@
         .form-label{
             height: 50px;
         }
+        .btn-cancel{
+            width: 100px;
+        }
         .update-button{
-            width: 200px;
+            width: 132px;
             font-size: 14px;
         }
     }

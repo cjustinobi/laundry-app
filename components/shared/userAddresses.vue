@@ -3,14 +3,26 @@
         <div class="address-container">
             <h4 class="address-head">Address</h4>
             <div class="add-sect">
-                <button class="add-button">Add Address</button>
+                <button class="add-button" @click.prevent="showAddressForm = true">Add Address</button>
             </div>
             <div class="add-wrapper" >
-                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">
+                <div class="add-addresss-layout"
+
+                     v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i"
+                >
+                    <h4 class="address-head">Address (1)</h4>
                     <div class="add-form">
                         <div class="font-folder">
-                            <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
-                            <i class="fa fa-edit"></i>
+                            <span>
+                                <i :class="{'add-green': checkCircle}" class="fa fa-check-circle"
+                                   @click.prevent="checkCircle = true"
+                                >
+                                </i>
+                            </span>
+                            <span class="edit-trash">
+                                <i class="fa fa-edit"></i>
+                                <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
+                            </span>
                         </div>
                         <p>{{ ad.address }}</p>
                         <p>{{ ad.landmark  }}</p>
@@ -24,8 +36,10 @@
             </div>
         </div>
 
-        <div :class="{'show-address': showAddress}">
-            <AddressEditor />
+        <div :class="{'backdrop': showAddressForm}">
+            <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
+                <AddressEditor @cancelForm="showAddressForm = false" />
+            </div>
         </div>
 
     </div>
@@ -41,11 +55,12 @@
 
         data() {
             return {
-                showAddress: true,
+                showAddressForm: false,
+                checkCircle: false
             }
         },
 
-        methods: {
+        methods:{
             async delAddress(id) {
                 try {
                     await this.$store.dispatch('users/deleteAddress', id)
@@ -116,15 +131,31 @@
         width: 250px;
         font-size: 14px;
     }
+    .add-green{
+        color: #2ca02c;
+    }
+    .fa-check-circle{
+        cursor: pointer;
+    }
     .font-folder{
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(2, auto);
+        border-bottom: 1px solid rgb(207, 207, 207);
+    }
+    .fa-trash{
+        color: indianred;
+        cursor: pointer;
+    }
+    .fa-edit{
+        color: darkblue;
+        cursor: pointer;
+    }
+    .edit-trash{
         display: grid;
         justify-content: flex-end;
         grid-template-columns: 30px 30px;
-        border-bottom: 1px solid rgb(207, 207, 207);
         cursor: pointer;
-    }
-    .show-address{
-        display: none;
     }
     .add-sect{
         display: grid;

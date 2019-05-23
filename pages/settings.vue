@@ -1,7 +1,7 @@
 <template>
     <div class="edit-preferences">
         <h4 class="pick-up-h4">Pick Up Address</h4>
-        <AddressEditor/>
+        <UserAddresses/>
         
         <h4 class="preference-h4">Preferences</h4>
         <div class="preferences-wrapper">
@@ -64,13 +64,13 @@
 
 <script>
 
-import AddressEditor from '~/components/shared/addressEditor'
+import UserAddresses from '~/components/shared/userAddresses'
 
 export default {
 
     layout: 'dashboard',
 
-    components: { AddressEditor },
+    components: { UserAddresses },
 
     data() {
         return {

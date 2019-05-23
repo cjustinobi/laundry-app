@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export const state = () => ({
     items: [],
     eleToUpdate: null
@@ -11,15 +13,18 @@ export const mutations = {
             if (itm) {
                 // Item exist already, so increase the quantity.
                 itm.qty++
+                itm.subTotal = itm.price * itm.qty
                 state.eleToUpdate = { qty: itm.qty, elId }
             } else {
                 // This item has not been added yet.
                 item.qty = 1
+                item.subTotal = item.price * 1
                 state.items.push(item)
             }
         } else {
             // First item to be added to cart.
             item.qty = 1
+            item.subTotal = item.price * 1
             state.items.push(item)
         }
     },
@@ -30,6 +35,7 @@ export const mutations = {
         const item = state.items.find(item => item.id == itemId)
         if (item) {
             item.qty = qty
+            item.subTotal = item.price * item.qty
         }
     },
     DELETE_ITEM (state, itemId) {

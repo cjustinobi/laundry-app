@@ -5,8 +5,8 @@
                 <div class="close-package">
                     <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
                 </div>
-                <input class="package-input" type="text" placeholder="name" v-model="details.name">
-                <input class="package-input" type="text" placeholder="price" v-model="details.price">
+                <input class="package-input" type="text" placeholder="Name" v-model="details.name">
+                <input class="package-input" type="text" placeholder="Price" v-model="details.price">
 
                 <multiselect v-if="benefits"
                              class="add-product-cat"
@@ -173,9 +173,7 @@
         border-radius: 3px;
         border: 1px solid rgb(202, 202, 202);
         padding: 10px;
-    }
-    input.multiselect_input{
-        // width: 130px;
+        font-size: 14px;
     }
     .btn-package{
         display: grid;

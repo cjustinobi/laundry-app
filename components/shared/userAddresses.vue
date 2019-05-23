@@ -1,17 +1,15 @@
 <template>
     <div class="add-address">
         <div class="address-container">
+            <h4 class="address-head">Address</h4>
             <div class="add-sect">
                 <button class="add-button">Add Address</button>
             </div>
             <div class="add-wrapper" >
-                <div class="add-addresss-layout" 
-                    v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i"
-                >
-                    <h4 class="address-head">Address (1)</h4>
+                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">
                     <div class="add-form">
                         <div class="font-folder">
-                            <i class="fa fa-trash"></i>
+                            <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
                             <i class="fa fa-edit"></i>
                         </div>
                         <p>{{ ad.address }}</p>
@@ -20,25 +18,45 @@
                         <p>{{ ad.city }}</p>
                     </div>
                 </div>
+                <div v-else>
+                    <h4>You have not created address</h4>
+                </div>
             </div>
         </div>
 
         <div :class="{'show-address': showAddress}">
             <AddressEditor />
         </div>
-       
+
     </div>
 </template>
 
 <script>
+
     import AddressEditor from '~/components/shared/addressEditor'
+
     export default {
-            components: {AddressEditor},
-            data() {
-                return {
-                    showAddress: true,
+
+        components: {AddressEditor},
+
+        data() {
+            return {
+                showAddress: true,
+            }
+        },
+
+        methods: {
+            async delAddress(id) {
+                try {
+                    await this.$store.dispatch('users/deleteAddress', id)
+                    this.$store.dispatch('notifications/setStatus', {
+                        messages: ['address deleted'], state: 'success'
+                    })
+                } catch (e) {
+                    console.log(e)
                 }
-            },
+            }
+        },
 
         computed: {
             addresses() {
@@ -67,7 +85,7 @@
         display: grid;
         grid-template-rows: 50px 1fr;
         background-color: #fefefe;
-        margin: 0 200px 40px 200px; 
+        margin: 0 200px 40px 200px;
         padding: 20px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;

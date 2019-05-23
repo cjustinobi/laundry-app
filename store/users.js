@@ -15,6 +15,10 @@ export const mutations = {
 
     ADD_ADDRESS ( state, address) {
         state.userAddresses.push(address)
+    },
+
+    REMOVE_ADDRESS (state, addressId) {
+        state.userAddresses = state.userAddresses.filter(address => address.id !== addressId)
     }
 }
 
@@ -44,6 +48,15 @@ export const actions = {
         }
         const res = await this.$axios.$get('addresses')
         commit('USER_ADDRESSES', res)
+    },
+
+    async deleteAddress({ commit }, addressId) {
+        try {
+            await this.$axios.$delete(`addresses/${addressId}`)
+            commit('REMOVE_ADDRESS', addressId)
+        } catch (e) {
+            return e
+        }
     }
 
 }

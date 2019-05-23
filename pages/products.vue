@@ -104,7 +104,7 @@
     .product-page{
         display: grid;
         grid-template-rows: 50px;
-        min-height: 100vh;
+        /* min-height: 100vh; */
         /* grid-gap: 20px; */
     }
     .product-tabs{

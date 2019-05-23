@@ -1,14 +1,18 @@
 <template>
-    <div class="main-div">
+    <div>
         <div class="benefits">
             <div class="benefit" v-for="(item, i) in categories" :key="i">
                 <div class="benefit-container">
                     <li class="item-title">{{ item.name }}</li>
-
-                    <div class="edit-button">
-                        <button class="edit-package" @click.prevent="editCategory(item.id)">Edit</button>
-                        <button class="delete-package" @click.prevent="deleteForm(i)">Delete</button>
+                    <div class="fa-container">
+                        <i class="fa fa-ellipsis-v fa-2x"></i>
+                        <i class="fa fa-times-circle"></i>
+                        <div class="edit-button">
+                            <i class="fa fa-edit" @click.prevent="editCategory(item.id)"></i>
+                            <i class="fa fa-trash" @click.prevent="deleteForm(i)"></i>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -61,62 +65,70 @@
 </script>
 
 <style scoped>
-    .main-div{
+    .benefits{
+        display: grid;
+        grid-template-columns: 40% 40%; 
+        grid-gap: 20px;
+        padding: 15px 0 20px 0;
+        margin: 0 auto;
+        justify-content: center;
+        color: #114e9e;
+        position: relative;
+    }
+    .benefit{
         background-color: #fefefe;
+        display: grid;
+        border: 1px solid #f3efef;
+        border-radius: 4px;
+        font-size: 16px;
     }
     .benefit li{
         list-style-type: none;
-        
     }
      .benefit-container{
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
-        padding: 15px;
-    }
-    .benefits{
+        padding: 10px;
+     }
+     .fa-container{
         display: grid;
-        grid-template-columns: 40% 40%; 
-        grid-gap: 20px;
-        padding: 15px 0 15px 0;
-        margin: 0 auto;
-        justify-content: center;
-    }
-    .benefit{
-        background-color: #f3efef;
-        display: grid;
-        border: 1px solid #f3efef;
-        border-radius: 4px;
-        font-size: 18px;
-    }
-    .edit-button{
-        display: grid;
-        grid-template-columns: 50px 50px;
-        grid-gap: 5px;
+        /* grid-template-columns: 50px 50px;
+        grid-gap: 5px; */
         justify-content: flex-end;
-        
+     }
+     .fa-ellipsis-v{
+         cursor: pointer;
+         position: relative;
+     }
+     .fa-times-circle{
+         cursor: pointer;
+         position: absolute;
+     }
+    .edit-button{
+        /* display: grid;
+        grid-template-columns: 30px 30px; */
+        position: relative;
     }
-    .delete-package{
-        background-color: rgb(235, 69, 69);
-        border: 1px solid #aaaaaa;
-        border-radius: 4px;
-        color: #e9e1e1;
-        padding: 5px;
-        outline: none;
+    .fa-edit{
+        position: absolute;
+        bottom: 15px;
+        right: 18px;
+        color: darkblue;
+        cursor: pointer;
     }
-    .edit-package{
-        background-color: rgb(87, 87, 231);
-        border: 1px solid #aaaaaa;
-        border-radius: 4px;
-        color: #ddcdcd;
-        outline: none;
+    .fa-trash{
+        position: absolute;
+        bottom: 15px;
+        right: 48px;
+        color: indianred;
+        cursor: pointer;
     }
     
     @media (max-width: 767px) {
         .benefits{
             grid-template-columns: 1fr;
             padding-bottom: 20px;
-            /* margin: 20px; */
         }
         .benefit{
             font-size: 17px;

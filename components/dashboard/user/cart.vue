@@ -126,6 +126,7 @@
     .btn-container{
         display: grid;
         cursor: pointer;
+        align-items: flex-end;
     }
     img{
         width: 50px;

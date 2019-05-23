@@ -186,8 +186,8 @@
     }
     .btn-container{
         display: grid;
-        grid-template-columns:   auto;
-        grid-gap: 5px;
+        grid-template-columns: 150px auto;
+        grid-gap: 10px;
     }
     .laundry-list-btn{
         // width: 235px;

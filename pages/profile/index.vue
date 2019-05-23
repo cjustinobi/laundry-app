@@ -8,9 +8,9 @@
             </ul>
         </div>
 
-        <div v-if="profile"><userProfile></userProfile></div>
-        <div v-if="address"><UserAddresses/></div>
-        <div v-if="password"><editPassword></editPassword></div>
+        <userProfile v-if="profile"></userProfile>
+        <UserAddresses v-if="address"/>
+        <editPassword v-if="password"></editPassword>
     </div>
 </template>
 

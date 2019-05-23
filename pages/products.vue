@@ -23,10 +23,10 @@
             </div>
         </div>
 
-        <div v-if="products"><AllProducts @nextTab="toggleTab" /></div>
-        <div v-if="address"><UserAddresses class="insert-margin"/></div>
-        <div v-if="password"><EditPassword class="insert-margin"/></div>
-        <div v-if="paymentpage"><PaymentPage class="insert-margin"/></div>
+        <AllProducts v-if="products" @nextTab="toggleTab" />
+        <UserAddresses v-if="address" class="insert-margin"/>
+        <EditPassword v-if="password" class="insert-margin"/>
+        <PaymentPage v-if="paymentpage" class="insert-margin"/>
         
         
     </div>

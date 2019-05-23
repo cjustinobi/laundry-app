@@ -70,8 +70,6 @@
 </template>
 
 <script>
-    
-
     export default {
 
         data() {
@@ -110,7 +108,6 @@
             document.body.style.background = "none";
         }
     }
-
 </script>
 
 <style scoped>
@@ -157,36 +154,6 @@
         background-color: rgb(194, 194, 194);
         height: 1px;
     }
-    .cart{
-        display: grid;
-        align-items: center;
-        background-color: rgb(241, 241, 241);
-        padding-left: 15px;
-    }
-    .cart-summary{
-        display: grid;
-        grid-template-rows: 40px 1fr;
-        height: 300px;
-        color: #114e9e;
-        background-color: #fefefe;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        box-shadow: 5px 5px 15px grey;
-        margin-right: 40px;
-        font-size: 14px;
-    }
-    .add-btn{
-        background-color: #114e9e;
-        height: 50px;
-        width: 200px;
-        color: #fefefe;
-        outline: none;
-        border: none;
-        transition: 0.8s ease-in;
-        box-shadow: 5px 5px 15px grey;
-    }
-    .add-btn:hover{
-        background-color: #053472;
-    }
     .payment-method{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -211,6 +178,23 @@
     }
     .change-color{
         color: #e7b83f;
+    }
+    .cart-summary{
+        display: grid;
+        grid-template-rows: 40px 1fr;
+        height: 300px;
+        color: #114e9e;
+        background-color: #fefefe;
+        border-bottom: 1px solid rgb(207, 207, 207);
+        box-shadow: 5px 5px 15px grey;
+        margin-right: 40px;
+        font-size: 14px;
+    }
+    .cart{
+        display: grid;
+        align-items: center;
+        background-color: rgb(241, 241, 241);
+        padding-left: 15px;
     }
     .cart-inner{
         padding: 15px;
@@ -244,16 +228,6 @@
     }
     .pay-now:hover{
         background-color: #f58b13;
-    }
-    .fa-plus-square,
-    .fa-minus-square{
-        color: #e7b83f;
-        cursor: pointer;
-    }
-    .fa-plus-square:hover,
-    .fa-minus-square:hover{
-        color: #f58b13;
-        transition: 0.7s ease-in;
     }
 
 

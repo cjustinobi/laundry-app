@@ -103,7 +103,8 @@
      }
      .fa-times-circle{
          cursor: pointer;
-         position: absolute;
+         /* position: absolute; */
+         right: 10px;
      }
     .edit-button{
         /* display: grid;

@@ -41,14 +41,13 @@
     }
     .order-summary{
         display: grid;
-        /* grid-template-rows: 40px 1fr; */
         height: 330px;
         color: #114e9e;
         background-color: #fefefe;
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
         font-size: 14px;
-        padding: 0 15px;
+        padding: 5px 15px;
         align-items: center;
     }
     .order{
@@ -62,14 +61,11 @@
         height: 1px;
         background-color: rgb(212, 212, 212);
         display: grid;
-        /* align-content: center; */
     }
     .order-inner{
-        /* padding: 15px;
-        display: grid; */
-        /* grid-template-rows: 90px 30px 30px 50px; */
-        /* align-items: center;
-        grid-gap: 8px; */
+        display: grid;
+        align-items: stretch;
+        grid-gap: 20px;
     }
     .p-total{
         font-weight: 700;
@@ -77,18 +73,15 @@
     .delivery-ad{
         font-size: 10px;
     }
-    .order-inner{
-
-    }
     .exclude{
         display: grid;
-        justify-self: flex-end;
+        justify-content: flex-end;
         font-size: 10px;
+        color: indianred;
     }
     .pay-now{
         height: 40px;
         width: 100%;
-        /* padding: 10px; */
         background-color: #e7b83f;
         color: #fefefe;
         font-size: 15px;

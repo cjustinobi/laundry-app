@@ -146,7 +146,7 @@
         font-size: 14px;
         outline-style: none;
         height: 30px;
-        color: #adadad;
+        /* color: #adadad; */
     }
     .form-label{
         height: 50px;
@@ -157,7 +157,7 @@
         border: 1px solid rgb(207, 207, 207);
         font-size: 14px;
         outline: none;
-        color: #969696;
+        /* color: #969696; */
     }
     .update-sect{
         display: grid;
@@ -202,7 +202,7 @@
         }
         .update-form{
             width: 300px;
-            height: 300px; 
+            /* height: 300px;  */
         }
         .update-form input{
             font-size: 12px;

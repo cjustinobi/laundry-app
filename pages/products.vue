@@ -25,7 +25,7 @@
 
         <AllProducts v-if="products" @nextTab="toggleTab" />
         <UserAddresses v-if="address" class="insert-margin"/>
-        <EditPassword v-if="password" class="insert-margin"/>
+        <editPassword v-if="password" class="insert-margin"/>
         <PaymentPage v-if="paymentpage" class="insert-margin"/>
         
         

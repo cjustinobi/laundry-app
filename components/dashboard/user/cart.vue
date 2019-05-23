@@ -156,13 +156,15 @@
         color: rgb(150, 150, 150);
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1110px) {
         .cart-container{
             display: grid;
-            grid-template-columns: 1fr 240px;
+            grid-template-columns: 1fr;
             grid-gap: 30px;
             padding: 20px;
         }
+    }
+    @media (max-width: 767px) {
         .cart{
             font-size: 12px;    
         }

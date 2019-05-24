@@ -1,26 +1,24 @@
 <template>
     <div class="add-address">
         <div class="address-container">
+            <h4 class="address-head">Address</h4>
             <div class="add-sect">
                 <button class="add-button" @click.prevent="showAddressForm = true">Add Address</button>
             </div>
             <div class="add-wrapper" >
-                <div class="add-addresss-layout"
-                    
-                    v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i"
-                >
+                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">
                     <h4 class="address-head">Address (1)</h4>
                     <div class="add-form">
                         <div class="font-folder">
                             <span>
                                 <i :class="{'add-green': checkCircle}" class="fa fa-check-circle"
-                                    @click.prevent="checkCircle = true"
+                                   @click.prevent="checkCircle = true"
                                 >
                                 </i>
                             </span>
                             <span class="edit-trash">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash"></i>
+                                <i @click.prevent="editAddress(ad)" class="fa fa-edit"></i>
+                                <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
                             </span>
                         </div>
                         <p>{{ ad.address }}</p>
@@ -29,28 +27,56 @@
                         <p>{{ ad.city }}</p>
                     </div>
                 </div>
+                <div v-else>
+                    <h4>You have not created address</h4>
+                </div>
             </div>
         </div>
 
         <div :class="{'backdrop': showAddressForm}">
             <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
-                <AddressEditor @cancelForm="showAddressForm = false" />
+                <AddressEditor :address="address" :editMode="editMode" @cancelForm="showAddressForm = false" />
             </div>
         </div>
-       
+
     </div>
 </template>
 
 <script>
+
     import AddressEditor from '~/components/shared/addressEditor'
+
     export default {
-            components: {AddressEditor},
-            data() {
-                return {
-                    showAddressForm: false,
-                    checkCircle: false
-                }
+
+        components: { AddressEditor },
+
+        data() {
+            return {
+                editMode: false,
+                showAddressForm: false,
+                checkCircle: false,
+                address: ''
+            }
+        },
+
+        methods: {
+
+            editAddress(address) {
+                this.editMode = true
+                this.showAddressForm = true
+                this.address = address
             },
+            async delAddress(id) {
+                try {
+                    await this.$store.dispatch('users/deleteAddress', id)
+                    this.$store.dispatch('notifications/setStatus', {
+                        messages: ['address deleted'], state: 'success'
+                    })
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+        },
 
         computed: {
             addresses() {
@@ -79,7 +105,7 @@
         display: grid;
         grid-template-rows: 50px 1fr;
         background-color: #fefefe;
-        margin: 0 200px 40px 200px; 
+        margin: 0 200px 40px 200px;
         padding: 20px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;

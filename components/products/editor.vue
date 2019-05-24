@@ -61,6 +61,7 @@
                     await this.$store.dispatch('products/store', this.details)
                     this.isLoading = false
                     this.clearFields(this.details)
+                    this.filePreview = ''
                     this.$store.dispatch('notifications/setStatus',
                         { messages: ['product successfully saved'], state: 'success' }
                     )

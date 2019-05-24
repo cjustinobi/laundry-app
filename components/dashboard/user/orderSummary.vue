@@ -3,22 +3,22 @@
         <div class="order-summary">
             <div class="order">
                 <h4>Order Summary</h4>
-                <h4>4 Items</h4>
+                <h4>{{ itemsInCart }} Items</h4>
             </div>
             <div class="hl"></div>
             <div class="order">
                 <p>Subtotal:</p>
-                <p class="p-total">N177,450</p>
+                <p class="price">&#8358;{{ currency.format(subTotal) }}</p>
             </div>
             <div class="hl"></div>
             <div class="order">
                 <p>Delivery charges:</p>
-                <p class="delivery-ad">Add your Delivery address at checkout to see delivery charges</p>
+                <p class="price">Free delivery!</p>
             </div>
             <div class="hl"></div>
             <div class="order">
                 <p>Total</p>
-                <p class="p-total">N177,450</p>
+                <p class="price">&#8358;{{ currency.format(subTotal) }}</p>
             </div>
             <div class="hl"></div>
             <div class="order-inner">
@@ -30,8 +30,14 @@
 </template>
 
 <script>
+
+    import Cart from '~/mixins/cart'
+    import CurrencyFormatter from '~/mixins/currencyFormatter'
+
     export default {
-        
+
+        mixins: [CurrencyFormatter, Cart]
+
     }
 </script>
 
@@ -67,7 +73,7 @@
         align-items: stretch;
         grid-gap: 20px;
     }
-    .p-total{
+    .price{
         font-weight: 700;
     }
     .delivery-ad{

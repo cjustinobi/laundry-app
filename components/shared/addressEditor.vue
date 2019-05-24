@@ -20,6 +20,7 @@
                 <label for="city">
                     <select class="state-select" v-model="details.city" id="city" required>
                         <option disabled>Select city</option>
+                        <option v-if="editMode" :value="details.city">{{ details.city }}</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
                     </select>
                 </label>
@@ -40,7 +41,9 @@
     import ClearFields from '~/mixins/formElements'
 
     export default {
-        components: {},
+
+        props: ['editMode', 'address'],
+
         mixins: [ClearFields],
 
         data() {
@@ -69,7 +72,7 @@
                 }
                 try {
                     this.details.userId = this.user.id
-                    await this.$store.dispatch('users/storeAddress', this.details)
+                    await this.$store.dispatch('users/storeAddress', { editMode: this.editMode, data: this.details })
                     this.isLoading = false
                     this.clearFields(this.details)
                     this.$store.dispatch('notifications/setStatus', {
@@ -92,6 +95,15 @@
             async states() {
                 let res = await fetch('statesLgas.json')
                 return res.json()
+            }
+        },
+
+        watch: {
+            editMode(e) {
+                if (e) {
+                    this.details = this.address
+                    this.details.city = this.address.city
+                }
             }
         },
 

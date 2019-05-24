@@ -12,15 +12,15 @@
                 <i class="fa fa-cart-plus" title="Items"></i>
                 <span>Items</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/subscriptions' class='logo'>
+            <nuxt-link to='/subscriptions' class='logo'>
                 <i class="fa fa-suitcase" title="Subscription"></i>
                 <span>My subscription</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/transactions' class='logo'>
+            <nuxt-link to='/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span>Transactions</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/notifications' class='logo'>
+            <nuxt-link to='/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <!-- <div class="count">0</div> -->
                 <span >Notifications</span>
@@ -29,11 +29,11 @@
                 <i class="fa fa-user" title="Contact/Support"></i>
                 <span>Contact support</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/referral' class='logo'>
+            <nuxt-link to='/referral' class='logo'>
                 <i class="fa fa-user-plus" title="Refer a Friend"></i>
                 <span>Refer a Friend</span>
             </nuxt-link>
-            <nuxt-link to='/dashboard/settings' class='logo setting-icon'>
+            <nuxt-link to='/settings' class='logo setting-icon'>
                 <i class="fa fa-cog" title="Settings"></i>
                 <span>Settings</span>
             </nuxt-link>
@@ -56,11 +56,6 @@
                 <i class="fa fa-user" title="Users"></i>
                 <span>Users</span>
             </nuxt-link>
-            <nuxt-link to='/admin/notifications' class='logo'>
-                <i class="fa fa-bell" title="Notifications"></i>
-                <!-- <div class="count">0</div> -->
-                <span>Notifications</span>
-            </nuxt-link>
             <nuxt-link to='/admin/subscriptions' class='logo'>
                 <i class="fa fa-hashtag" title="Subscription"></i>
                 <span>Subscriptions</span>
@@ -68,6 +63,11 @@
             <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span>Transactions</span>
+                <nuxt-link to='/admin/notifications' class='logo'>
+                    <i class="fa fa-bell" title="Notifications"></i>
+                    <!-- <div class="count">0</div> -->
+                    <span>Notifications</span>
+                </nuxt-link>
             </nuxt-link>
             <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>

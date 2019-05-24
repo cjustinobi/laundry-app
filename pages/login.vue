@@ -199,6 +199,7 @@ export default {
             grid-gap: 25px;
             width: 320px;
             grid-template-columns: 270px;
+            margin-bottom: 30px;
         }
         .login-button{
             font-size: 16px;

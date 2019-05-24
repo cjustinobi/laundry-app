@@ -116,7 +116,7 @@
         outline: none;
         border: none;
         transition: 0.8s ease-in;
-        font-size: 19px;
+        font-size: 16px;
     }
     .send-msg-btn:hover{
         background-color: #083774;
@@ -125,14 +125,15 @@
     @media (max-width: 767px) {
         .contact-container{
             grid-gap: 40px;
+            font-size: 14px;
         }
         .quick-response{
-            padding: 10px 20px;
+            padding: 10px 15px;
         }
         .message-area{
             grid-template-columns: 1fr;
             grid-gap: 50px;
-            margin: 0 40px 30px 40px;
+            margin: 0 10px 30px 10px;
         }
         input{
             width: 70%;

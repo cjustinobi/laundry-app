@@ -1,5 +1,5 @@
 <template>
-    <div class="subscription-container" :style="myStyle">
+    <div class="subscription-container" >
         <div class="title"><h2>Subscriptions</h2></div>
         <div class="edit-wrapper">
             <div class="sub-heading">
@@ -61,9 +61,7 @@
 
         data() {
             return {
-                myStyle: {
-                    backgroundColor: "#f0faff"
-                }
+               
             }
         },
         mounted() {
@@ -105,8 +103,7 @@
     }
     .sub-heading{
         display: grid;
-        /* grid-template-columns: 60px repeat(4, auto); */
-        grid-template-columns: repeat(5, auto);
+        grid-template-columns: 40px repeat(4, 1fr);
         height: 40px;
         align-items: center;
         justify-items: center;
@@ -115,8 +112,7 @@
     }
     .table-data{
         display: grid;
-        /* grid-template-columns: 60px repeat(4, auto); */
-        grid-template-columns: repeat(5, auto);
+        grid-template-columns: 40px repeat(4, 1fr);
         align-items: center;
         justify-items: center;
         color: #114e9e;
@@ -208,9 +204,6 @@
         .subscription-container{
             grid-template-rows: 80px 700px;
         }
-        .edit-list{
-            font-size: 15px;
-        }
         .update-button{
             width: 200px;
             font-size: 14px;
@@ -220,6 +213,8 @@
         }
         .edit-wrapper{
             height: 650px;
+            margin: 20px 15px 40px 15px;
+            font-size: 12px;
         }
         .payment-total{
             grid-template-rows: 130px 1fr;
@@ -235,6 +230,14 @@
             grid-template-rows: repeat(2, 40px) 160px 6 0px ;
             padding: 10px;
             margin-top: 30px;
+        }
+        .sub-heading{
+            grid-template-columns: 25px repeat(4, 1fr);
+            font-size: 12px;
+        }
+        .table-data{
+            grid-template-columns: 25px repeat(4, 1fr);
+            font-size: 12px;
         }
         .apply{
             grid-template-columns: 180px 80px;

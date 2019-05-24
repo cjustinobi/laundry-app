@@ -4,7 +4,7 @@
             <div class="create-close">
                 <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
             </div>
-            <div v-for="(item, i) in items" :key="i">
+            <div v-for="(item, i) in items" :key="i" class="item-input">
                 <input class="input-benefit" @focus="addItem" v-model="item.name" placeholder="benefit">
                 <i class="fa fa-remove" @click="removeItem(i)"></i>
             </div>
@@ -99,11 +99,16 @@
     .create-close a:hover{
         color: rgb(240, 59, 59);
     }
+    .item-input{
+        display: grid;
+        grid-template-columns: 1fr 10px;
+        grid-gap: 10px;
+        align-items: center;
+    }
     .input-benefit{
         height: 40px;
-        border: 3px solid rgb(36, 136, 36);
-        border-radius: 5px;
-        padding: 20px;
+        border: 1px solid rgb(202, 202, 202);
+        padding: 15px;
     }
     img{
         width: 40px;

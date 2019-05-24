@@ -175,7 +175,7 @@
     .pw-icon{
         position: absolute;
         right: 10px;
-        bottom: 17px;
+        bottom: 7px;
         cursor: pointer;
     }
     .login-reg{
@@ -228,12 +228,9 @@
             text-align: center;
         }
         .sign-up{
-            width: 380px;
+            width: 350px;
             grid-gap: 10px;
-            padding: 15px;
-        }
-        .names{
-            /* grid-template-columns: 370px; */
+            padding: 10px;
         }
         .names input{
             width: 320px;
@@ -246,7 +243,7 @@
         }
         .pw-icon{
             right: 6px;
-            bottom: 17px;   
+            /* bottom: 10px;    */
         }
         .terms{
             width: 320px

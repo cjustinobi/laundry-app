@@ -1,13 +1,22 @@
 <template>
-    <div class="main-div">
+    <div>
         <div class="benefits">
             <div class="benefit" v-for="(item, i) in benefits" :key="i">
                 <div class="benefit-container">
                     <li class="item-title">{{ item.name }}</li>
-
-                    <div class="edit-button">
-                        <button class="edit-package" @click.prevent="editBenefit(i)">Edit</button>
-                        <button class="delete-package" @click.prevent="deleteForm(i)">Delete</button>
+                    <div class="fa-container">
+                        <span>
+                            <i class="fa fa-times-circle" 
+                                
+                            ></i>
+                            <i  
+                                class="fa fa-ellipsis-v fa-2x"
+                            ></i>
+                        </span>
+                        <span >
+                            <i class="fa fa-edit" @click.prevent="editBenefit(i)"></i>
+                            <i class="fa fa-trash" @click.prevent="deleteForm(i)"></i>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -61,62 +70,67 @@
 </script>
 
 <style scoped>
-    .main-div{
-        background-color: #fefefe;
-    }
-    .benefit li{
-        list-style-type: none;
-        
-    }
-     .benefit-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        padding: 15px;
-    }
     .benefits{
         display: grid;
         grid-template-columns: 40% 40%; 
         grid-gap: 20px;
-        padding: 15px 0 15px 0;
+        padding: 15px 0 20px 0;
         margin: 0 auto;
         justify-content: center;
+        color: #114e9e;
+        position: relative;
     }
     .benefit{
-        background-color: #f3efef;
+        background-color: #fefefe;
         display: grid;
         border: 1px solid #f3efef;
         border-radius: 4px;
-        font-size: 18px;
+        font-size: 16px;
     }
-    .edit-button{
+    .benefit li{
+        list-style-type: none;
+    }
+     .benefit-container{
         display: grid;
-        grid-template-columns: 50px 50px;
-        grid-gap: 5px;
-        justify-content: flex-end;
-        
+        grid-template-columns: 1fr;
+        align-items: center;
+        padding: 15px;
     }
-    .delete-package{
-        background-color: rgb(235, 69, 69);
-        border: 1px solid #aaaaaa;
-        border-radius: 4px;
-        color: #e9e1e1;
-        padding: 5px;
-        outline: none;
+    .fa-container{
+        position: relative;
+     }
+     .fa-ellipsis-v{
+         cursor: pointer;
+         position: absolute;
+         right: 5px;
+         top: -24px;
+     }
+     .fa-times-circle{
+         cursor: pointer;
+         position: absolute;
+         right: 2px;
+         top: -18px;
+     }
+    .fa-edit{
+        position: absolute;
+        bottom: 15px;
+        right: 29px;
+        color: darkblue;
+        cursor: pointer;
     }
-    .edit-package{
-        background-color: rgb(87, 87, 231);
-        border: 1px solid #aaaaaa;
-        border-radius: 4px;
-        color: #ddcdcd;
-        outline: none;
+    .fa-trash{
+        position: absolute;
+        bottom: 15px;
+        right: 65px;
+        color: indianred;
+        cursor: pointer;
     }
+    
     
     @media (max-width: 767px) {
         .benefits{
             grid-template-columns: 1fr;
             padding-bottom: 20px;
-            /* margin: 20px; */
         }
         .benefit{
             font-size: 17px;

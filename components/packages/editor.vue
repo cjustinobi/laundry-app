@@ -105,10 +105,14 @@
     @import '~/node_modules/vue-multiselect/dist/vue-multiselect.min.css';
     .plan-editor{
         position: relative;
+        display: grid;
+        justify-content: center;
+        align-items: center;
     .editor{
         display: grid;
         justify-content: center;
         align-items: center;
+        width: 400px;
     }
     .form{
         display: grid;
@@ -167,9 +171,10 @@
         border-radius: 3px;
         border: 1px solid rgb(202, 202, 202);
         padding: 10px;
+        // width: 100%;
     }
     .add-product-cat{
-        width: 334px;
+        width: 340px;
         border-radius: 3px;
         border: 1px solid rgb(202, 202, 202);
         padding: 10px;
@@ -177,7 +182,7 @@
     }
     .btn-package{
         display: grid;
-        grid-template-columns: 150px 150px;
+        grid-template-columns: 148px 148px;
         grid-gap: 10px;
         justify-content: space-between;
     }
@@ -187,23 +192,21 @@
     @media (max-width: 767px) {
         .form{
             grid-gap: 10px;
-            width: 380px;
+            width: 320px;
             height: 280px;
             padding: 12px;
         }
-        .package-mobile{
+        .package-input{
+            width: 293px;
+        }
+        .add-product-cat{
+            width: 270px;
+        }
+        .btn-package{
             display: grid;
-            grid-template: 1fr 1fr / 1fr;
-            align-items: center;
+            grid-template-columns: 120px 120px;
             grid-gap: 10px;
-        }
-        .package-desktop{
-            display: none;
-        }
-        .btn-btn{
-            width: 100%;
-            height: 30px;
-            font-size: 14px;
+            justify-content: space-between;
         }
     }
 

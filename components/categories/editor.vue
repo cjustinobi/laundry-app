@@ -4,7 +4,7 @@
             <div class="create-close">
                 <a href="#" @click.prevent="$emit('cancelForm')"><i class="fa fa-window-close"></i></a>
             </div>
-            <div v-for="(item, i) in items" :key="i">
+            <div v-for="(item, i) in items" :key="i" class="category-item-input">
                 <input class="input-benefit" @focus="addItem" v-model="item.name" placeholder="category">
                 <i class="fa fa-remove" @click="removeItem(i)"></i>
             </div>
@@ -100,6 +100,12 @@
     .create-close a:hover{
         color: rgb(240, 59, 59);
     }
+    .category-item-input{
+        display: grid;
+        grid-template-columns: 1fr 10px;
+        grid-gap: 10px;
+        align-items: center;
+    }
     .add-fields{
         height: 40px;
         color: #3f3f3f;
@@ -116,9 +122,8 @@
     }
     .input-benefit{
         height: 40px;
-        border: 3px solid rgb(36, 136, 36);
-        border-radius: 5px;
-        padding: 20px;
+        border: 1px solid rgb(202, 202, 202);
+        padding: 15px;
     }
     img{
         width: 40px;
@@ -162,12 +167,8 @@
     @media (max-width: 767px) {
         .form{
             padding: 15px;
-            /* width: 300px; */
         }
         .btn-benefits{
-            /* grid-template-columns: 120px 120px; */
-            /* justify-content: end;
-            align-items: end; */
             grid-gap: 16px;
             font-size: 14px;
         }
@@ -180,7 +181,6 @@
             font-size: 14px;
         }
         .create-close{
-            /* grid-template-columns: 200px 50px; */
             grid-gap: 15px;
         }
         .input-benefit{

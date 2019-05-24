@@ -1,14 +1,68 @@
 <template>
-    <Cart/>
+    <div class="cart-order-summary">
+        <Cart/>
+        <OrderSummary/>
+        <nuxt-link to="/products" class="continue-btn">
+            Continue
+        </nuxt-link>
+    </div>
 </template>
 
 <script>
-
 import Cart from '~/components/dashboard/user/cart'
+import OrderSummary from '~/components/dashboard/user/orderSummary'
 export default {
     layout: 'dashboard',
 
-    components: { Cart }
+    components: { Cart, OrderSummary }
 }
 </script>
+
+<style scoped>
+    .cart-order-summary{
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        grid-gap: 30px;
+        padding: 40px;
+    }
+    a{
+        text-decoration: none;
+    }
+    .continue-btn{
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        bottom: 100px;
+        right: 2px;
+        background-color: #b8b8b8;
+        opacity: 0.6;
+        z-index: 1;
+        color: #fefefe;
+        transition: 0.8s ease-in;
+        font-size: 14px;
+        /* text-align: center; */
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+    .continue-btn:hover{
+        background-color: #e7b83f;
+    }
+
+     @media (max-width: 1110px) {
+        .cart-order-summary{
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+        .continue-btn{
+            width: 60px;
+            height: 60px;
+            font-size: 12px;
+        }
+    }
+</style>
+
 

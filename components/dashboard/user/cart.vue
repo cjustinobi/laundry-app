@@ -1,5 +1,5 @@
 <template>
-    <div class="cart-container">
+    <div>
         <div v-if="items.length > 0" class="cart">
             <div class="cart-items"><h4>Cart Items</h4></div>
             <div class="sub-heading">
@@ -36,19 +36,16 @@
         <div v-else class="no-items">
             <h2>You don't have items in cart</h2>
         </div>
-        <OrderSummary/>
     </div>
 </template>
 
 <script>
-
     import Cart from '~/mixins/cart'
     import CurrencyFormatter from '~/mixins/currencyFormatter'
-    import OrderSummary from '~/components/dashboard/user/orderSummary'
 
     export default {
         mixins: [CurrencyFormatter, Cart],
-        components: {OrderSummary},
+        components: {},
         data() { 
             return {
                 baseUrl: process.env.baseUrl,
@@ -60,12 +57,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .cart-container{
-        display: grid;
-        grid-template-columns: 1fr 280px;
-        grid-gap: 30px;
-        padding: 40px;
-    }
     .cart{
         display: grid;
         color: #114e9e;
@@ -157,14 +148,7 @@
         color: rgb(150, 150, 150);
     }
 
-    @media (max-width: 1110px) {
-        .cart-container{
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 30px;
-            padding: 20px;
-        }
-    }
+   
     @media (max-width: 767px) {
         .cart{
             font-size: 12px;    

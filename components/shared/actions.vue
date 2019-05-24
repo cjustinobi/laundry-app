@@ -95,6 +95,10 @@
         color: indianred;
         cursor: pointer;
     }
+    .fa-ellipsis-v{
+        color: darkblue;
+        cursor: pointer;
+    }
     .ellipsis-product{
         position: absolute;
         right: -3px;

@@ -43,7 +43,7 @@ export default {
     .user{
         display: grid;
         grid-template-columns: 50px 1fr 20px;
-        background-color: #dae6cc;
+        background-color: #fefefe;
         padding: 10px;
     }
     .user-img{
@@ -55,6 +55,7 @@ export default {
         display: grid;
         align-items: center;
         padding-left: 20px;
+        color: #114e9e;
     }
 
     @media (max-width: 767px) {

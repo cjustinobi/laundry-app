@@ -232,11 +232,11 @@
             margin-top: 30px;
         }
         .sub-heading{
-            grid-template-columns: 25px repeat(4, 1fr);
+            grid-template-columns: 25px repeat(3, 1fr) 60px;
             font-size: 12px;
         }
         .table-data{
-            grid-template-columns: 25px repeat(4, 1fr);
+            grid-template-columns: 25px repeat(3, 1fr) 60px;
             font-size: 12px;
         }
         .apply{

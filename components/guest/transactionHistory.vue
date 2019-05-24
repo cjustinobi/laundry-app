@@ -1,37 +1,36 @@
     <template>
-    <div class="transaction-history" :style="myStyle">
+    <div class="transaction-history" >
         <div class="transaction-wrapper">
             <div class="sub-heading"><h4>Transactions</h4></div>
             <p class="p1">Show <input type="number" class="number-input"> Entries</p>
-            <table>
-                <tr>
-                    <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
-                    <th>Card Number <i class="fa fa-sort"></i></th>
-                    <th>Payment For <i class="fa fa-sort"></i></th>
-                    <th>Payment Type <i class="fa fa-sort"></i></th>
-                    <th>Amount <i class="fa fa-sort"></i></th>
-                    <th>Trans Date <i class="fa fa-sort"></i></th>
-                    <th>Status <i class="fa fa-sort-amount-desc"></i></th>
-                </tr>
-                <tr>
-                    <td>TR0RT565565656</td>
-                    <td>476965656565765</td>
-                    <td>Order</td>
-                    <td>Card</td>
-                    <td>N4,000</td>
-                    <td>19th, Mar, 2019, 10:00AM</td>
-                    <td class="pending">Pending <br> <button class="requery-btn">Requery</button></td>
-                </tr>
-                <tr>
-                    <td>TR0RT565565656</td>
-                    <td>476965656565765</td>
-                    <td>Order</td>
-                    <td>Card</td>
-                    <td>N4,000</td>
-                    <td>19th, Mar, 2019, 10:00AM</td>
-                    <td class="successful">Successful</td>
-                </tr>
-            </table>
+            <div class="table-wrap">
+                <table>
+                    <tr>
+                        <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
+                        <th>Payment For <i class="fa fa-sort"></i></th>
+                        <th>Payment Type <i class="fa fa-sort"></i></th>
+                        <th>Amount <i class="fa fa-sort"></i></th>
+                        <th>Trans Date <i class="fa fa-sort"></i></th>
+                        <th>Status <i class="fa fa-sort-amount-desc"></i></th>
+                    </tr>
+                    <tr>
+                        <td>TR0RT565565656</td>
+                        <td>Order</td>
+                        <td>Card</td>
+                        <td>N4,000</td>
+                        <td>19th, Mar, 2019, 10:00AM</td>
+                        <td class="pending">Pending <br> <button class="requery-btn">Requery</button></td>
+                    </tr>
+                    <tr>
+                        <td>TR0RT565565656</td>
+                        <td>Order</td>
+                        <td>Card</td>
+                        <td>N4,000</td>
+                        <td>19th, Mar, 2019, 10:00AM</td>
+                        <td class="successful">Successful</td>
+                    </tr>
+                </table>
+            </div>
             <div class="entries">
                 <div class="entry-head"><p class="p2">Showing 2 to 2 of Entries</p></div>
                 <div class="previous-next">
@@ -51,9 +50,7 @@
 
         data() {
             return {
-                myStyle: {
-                    backgroundColor: "#f0faff"
-                }
+               
             }
         },
         mounted() {
@@ -76,7 +73,7 @@
     }
     .transaction-wrapper{
         display: grid;
-        grid-template-rows: 50px 50px 150px 30px;
+        grid-template-rows: 50px 40px 150px 30px;
         background-color: #fefefe;
         margin: 60px 40px 40px 40px;
         color: #114e9e;
@@ -96,6 +93,10 @@
     }
     .number-input{
         width: 35px;
+    }
+    .table-wrap{
+        display: grid;
+        /* justify-content: center; */
     }
     table {
         border-collapse: collapse;
@@ -160,18 +161,27 @@
 
     @media (max-width: 767px) {
         .transaction-wrapper{
-            grid-template-rows: 40px 50px 250px 30px;
-            margin: 60px 20px 40px 20px;
+            grid-template-rows: 60px 40px 250px 30px;
+            margin: 60px 10px 40px 10px;
             padding-bottom: 20px;
         }
+        .sub-heading{
+            padding-left: 10px;
+        }
+        .p1{
+            padding-left: 10px;
+        }
         table {
-            width: 60%;
-            margin: 0 20px;
+            width: 40%;
+            margin: 0 10px;
             font-size: 12px;
         }
         td, th {
             text-align: center;
             padding: 8px;
+        }
+        .entries{
+            margin: 0 10px;
         }
     }  
 </style>

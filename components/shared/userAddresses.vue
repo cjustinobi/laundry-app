@@ -6,10 +6,7 @@
                 <button class="add-button" @click.prevent="showAddressForm = true">Add Address</button>
             </div>
             <div class="add-wrapper" >
-                <div class="add-addresss-layout"
-
-                     v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i"
-                >
+                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">
                     <h4 class="address-head">Address (1)</h4>
                     <div class="add-form">
                         <div class="font-folder">
@@ -20,7 +17,7 @@
                                 </i>
                             </span>
                             <span class="edit-trash">
-                                <i class="fa fa-edit"></i>
+                                <i @click.prevent="editAddress(ad)" class="fa fa-edit"></i>
                                 <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
                             </span>
                         </div>
@@ -38,7 +35,7 @@
 
         <div :class="{'backdrop': showAddressForm}">
             <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
-                <AddressEditor @cancelForm="showAddressForm = false" />
+                <AddressEditor :address="address" :editMode="editMode" @cancelForm="showAddressForm = false" />
             </div>
         </div>
 
@@ -51,16 +48,24 @@
 
     export default {
 
-        components: {AddressEditor},
+        components: { AddressEditor },
 
         data() {
             return {
+                editMode: false,
                 showAddressForm: false,
-                checkCircle: false
+                checkCircle: false,
+                address: ''
             }
         },
 
-        methods:{
+        methods: {
+
+            editAddress(address) {
+                this.editMode = true
+                this.showAddressForm = true
+                this.address = address
+            },
             async delAddress(id) {
                 try {
                     await this.$store.dispatch('users/deleteAddress', id)

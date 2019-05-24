@@ -13,7 +13,11 @@ export const mutations = {
         state.userAddresses = addresses
     },
 
-    ADD_ADDRESS ( state, address) {
+    ADD_UPDATE_ADDRESS ( state, { editMode, address }) {
+        if (editMode) {
+            const addressIndex = state.userAddresses.findIndex(item => item.id === address.id)
+            return state.userAddresses[addressIndex] = address
+        }
         state.userAddresses.push(address)
     },
 
@@ -33,10 +37,15 @@ export const actions = {
         }
     },
 
-    async storeAddress({ commit }, payload) {
+    async storeAddress({ commit }, { editMode, data}) {
         try {
-            const address = await this.$axios.$post('addresses', payload)
-            commit('ADD_ADDRESS', address)
+            let address
+            if (editMode) {
+                address = await this.$axios.$put(`addresses/${data.id}`, data)
+            } else {
+                address = await this.$axios.$post('addresses', data)
+            }
+            commit('ADD_UPDATE_ADDRESS', { editMode, address })
         } catch (e) {
             return e
         }

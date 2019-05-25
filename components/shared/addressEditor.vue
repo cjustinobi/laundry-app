@@ -19,11 +19,12 @@
                 </label>
                 <label for="city">
                     <select class="state-select" v-model="details.city" id="city" required>
-                        <option disabled>Select city</option>
                         <option v-if="editMode" :value="details.city">{{ details.city }}</option>
+                        <option v-else disabled>Select city</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
                     </select>
                 </label>
+                <button v-if="!details.defaultAddress">Make default address</button>
                 <div class="update-sect">
                     <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
                     <button @click.prevent="saveAddress" class="update-button">
@@ -42,7 +43,7 @@
 
     export default {
 
-        props: ['editMode', 'address'],
+        props: ['editMode', 'address', 'defaultAddress'],
 
         mixins: [ClearFields],
 
@@ -52,7 +53,8 @@
                     address: '',
                     landmark: '',
                     state: 'Select state',
-                    city: 'Select city'
+                    city: 'Select city',
+                    defaultAddress: this.defaultAddress
                 },
                 lgas: []
             }
@@ -136,7 +138,6 @@
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
-        height: 320px;
         color: #114e9e;
     }
     .close-package{

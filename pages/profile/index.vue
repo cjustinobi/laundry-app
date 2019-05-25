@@ -7,30 +7,26 @@
                 <li class="edit-links" @click.prevent="toggleTab('password')">Change Password</li>
             </ul>
         </div>
-
-        <userProfile v-if="profile"></userProfile>
-        <UserAddresses v-if="address"/>
-        <editPassword v-if="password"></editPassword>
+        <UserProfile v-if="profile"/>
+        <UserAddress :defaultAddress="defaultAddress" v-if="address"/>
+        <EditPassword v-if="password"/>
     </div>
 </template>
 
 <script>
 
     import UserProfile from '~/components/guest/userProfile'
-    import UserAddresses from '~/components/shared/userAddresses'
+    import UserAddress from '~/components/shared/userAddresses'
     import EditPassword from '~/components/guest/editPassword'
 
     export default {
         
         layout: 'dashboard',
 
-        components: {UserProfile, UserAddresses, EditPassword},
+        components: { UserProfile, UserAddress, EditPassword },
 
         data() {
             return {
-                myStyle: {
-                    // backgroundColor: "#f0faff"
-                },
                 profile: true,
                 address: false,
                 password: false

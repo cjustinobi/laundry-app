@@ -12,8 +12,7 @@
                         <div class="font-folder">
                             <span>
                                 <i :class="{'add-green': checkCircle}" class="fa fa-check-circle"
-                                   @click.prevent="checkCircle = true"
-                                >
+                                   @click.prevent="checkCircle = true">
                                 </i>
                             </span>
                             <span class="edit-trash">
@@ -35,7 +34,12 @@
 
         <div :class="{'backdrop': showAddressForm}">
             <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
-                <AddressEditor :address="address" :editMode="editMode" @cancelForm="showAddressForm = false" />
+                <AddressEditor
+                        :defaultAddress="defaultAddress"
+                        :address="address"
+                        :editMode="editMode"
+                        @cancelForm="showAddressForm = false"
+                />
             </div>
         </div>
 
@@ -48,6 +52,8 @@
 
     export default {
 
+        props: ['defaultAddress'],
+
         components: { AddressEditor },
 
         data() {
@@ -55,7 +61,8 @@
                 editMode: false,
                 showAddressForm: false,
                 checkCircle: false,
-                address: ''
+                address: '',
+                defaultAddress: this.$route.path.includes('profile')
             }
         },
 

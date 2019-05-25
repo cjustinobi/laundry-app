@@ -1,5 +1,5 @@
 <template>
-    <div class="transaction-container" :style="myStyle">
+    <div class="transaction-container" >
        <div class="awaiting">
            <div class="awaiting-inner"><i class="fa fa-check-circle"></i> <h4>Awaiting Pick-up</h4></div>
            <h4 class="mens-wear">Dry Cleaning/Men's Wear</h4>
@@ -77,9 +77,6 @@ import TransactionHistory from '~/components/guest/transactionHistory'
 
         data() {
             return {
-                myStyle: {
-                    backgroundColor: "#f0faff"
-                },
                 paymode: 'Mode of Payment'
             }
         }
@@ -252,7 +249,7 @@ import TransactionHistory from '~/components/guest/transactionHistory'
         }
         .items{
             grid-template-columns: 1fr 40px 110px;
-            margin: 0 20px;
+            margin: 0 10px;
             width: 90%;
             align-content: center;
         }
@@ -261,23 +258,32 @@ import TransactionHistory from '~/components/guest/transactionHistory'
             grid-gap: 10px;
             padding: 5px;
         }
+        .second-item{
+            grid-template-columns: 1fr 200px;
+        }
         .third-section{
             grid-template-rows: 30px 110px;
-            margin: 0 20px;
+            margin: 0 10px;
+        }
+        .item-total{
+            grid-template-columns: 1fr 200px;
         }
         .pick-up-delivery{
             grid-template-rows: 30px 110px;
-            margin: 0 20px;
+            margin: 0 10px;
         }
         .pick-up-day{
-            margin: 0 20px;
+            margin: 0 10px;
         }
         .mode-of-payment{
-            margin: 0 20px;
+            margin: 0 10px;
+        }
+        .mode-select{
+            width: 240px;
         }
         .back{
             font-size: 14px;
-            margin: 0 20px;
+            margin: 0 10px;
         }
     }
 </style>

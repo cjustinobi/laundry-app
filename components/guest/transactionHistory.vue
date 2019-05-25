@@ -3,7 +3,7 @@
         <div class="transaction-wrapper">
             <div class="sub-heading"><h4>Transactions</h4></div>
             <p class="p1">Show <input type="number" class="number-input"> Entries</p>
-            <div class="table-wrap">
+            <div class="table-wrap1">
                 <table>
                     <tr>
                         <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
@@ -31,6 +31,40 @@
                     </tr>
                 </table>
             </div>
+            <!-- <div class="table-wrap2">
+                <table>
+                    <tr>
+                        <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
+                        <td>TR0RT565565656</td>
+                        <td>TR0RT565565656</td>
+                    </tr>
+                    <tr>
+                        <th>Payment For <i class="fa fa-sort"></i></th>
+                        <td>Order</td>
+                        <td>Order</td>
+                    </tr>
+                    <tr>
+                        <th>Payment Type <i class="fa fa-sort"></i></th>
+                        <td>Card</td>
+                        <td>Card</td>
+                    </tr>
+                    <tr>
+                        <th>Amount <i class="fa fa-sort"></i></th>
+                        <td>N4,000</td>
+                        <td>N4,000</td>
+                    </tr>
+                    <tr>
+                        <th>Trans Date <i class="fa fa-sort"></i></th>
+                        <td>19th, Mar, 2019, 10:00AM</td>
+                        <td>19th, Mar, 2019, 10:00AM</td>
+                    </tr>
+                    <tr>
+                        <th>Status <i class="fa fa-sort-amount-desc"></i></th>
+                        <td class="pending">Pending <br> <button class="requery-btn">Requery</button></td>
+                        <td class="successful">Successful</td>
+                    </tr>
+                </table>
+            </div> -->
             <div class="entries">
                 <div class="entry-head"><p class="p2">Showing 2 to 2 of Entries</p></div>
                 <div class="previous-next">
@@ -94,9 +128,8 @@
     .number-input{
         width: 35px;
     }
-    .table-wrap{
-        display: grid;
-        /* justify-content: center; */
+    .table-wrap2{
+        /* display: none; */
     }
     table {
         border-collapse: collapse;
@@ -174,11 +207,14 @@
         table {
             width: 40%;
             margin: 0 10px;
-            font-size: 12px;
+            font-size: 9px;
         }
         td, th {
             text-align: center;
             padding: 8px;
+        }
+        .table-wrap1{
+            /* display: none; */
         }
         .entries{
             margin: 0 10px;

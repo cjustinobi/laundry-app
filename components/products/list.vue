@@ -23,10 +23,7 @@
                 <div class="separator"></div>
                 <p>{{ product.category.name }}</p>
                 <div class="btn-container" v-if="user && user.user_type === 1">
-                    <button
-                        class="laundry-list-btn">
-                        <span @click="addToCart(product, i)">Add to cart</span>
-                    </button>
+                    <button @click="addToCart(product, i)" class="laundry-list-btn">Add to cart</button>
                     <div>
                         <span @click="decrementItem(product.id, i)"><i class="fa fa-minus-square"></i></span>
                         <span class="cart-qty" :ref="`qty-${i}`">{{ getQty(product.id) }}</span>

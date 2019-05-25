@@ -8,7 +8,7 @@
             </ul>
         </div>
         <UserProfile v-if="profile"/>
-        <UserAddress :defaultAddress="defaultAddress" v-if="address"/>
+        <UserAddress v-if="address"/>
         <EditPassword v-if="password"/>
     </div>
 </template>

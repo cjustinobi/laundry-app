@@ -24,7 +24,6 @@
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
                     </select>
                 </label>
-                <button v-if="!details.defaultAddress">Make default address</button>
                 <div class="update-sect">
                     <button class="btn-cancel" @click.prevent="$emit('cancelForm')">Cancel</button>
                     <button @click.prevent="saveAddress" class="update-button">
@@ -43,7 +42,7 @@
 
     export default {
 
-        props: ['editMode', 'address', 'defaultAddress'],
+        props: ['editMode', 'address', 'defAddress'],
 
         mixins: [ClearFields],
 
@@ -54,7 +53,7 @@
                     landmark: '',
                     state: 'Select state',
                     city: 'Select city',
-                    defaultAddress: this.defaultAddress
+                    defaultAddress: this.defAddress
                 },
                 lgas: []
             }

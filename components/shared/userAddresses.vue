@@ -35,7 +35,7 @@
         <div :class="{'backdrop': showAddressForm}">
             <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
                 <AddressEditor
-                        :defaultAddress="defaultAddress"
+                        :defAddress="defaultAddress"
                         :address="address"
                         :editMode="editMode"
                         @cancelForm="showAddressForm = false"
@@ -52,8 +52,6 @@
 
     export default {
 
-        props: ['defaultAddress'],
-
         components: { AddressEditor },
 
         data() {
@@ -62,7 +60,7 @@
                 showAddressForm: false,
                 checkCircle: false,
                 address: '',
-                defaultAddress: this.$route.path.includes('profile')
+                defaultAddress: this.$route.path.includes('profile') // User personal address is his default address.
             }
         },
 

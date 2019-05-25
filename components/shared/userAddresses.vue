@@ -1,24 +1,32 @@
 <template>
     <div class="add-address">
         <div class="address-container">
-            <h4 class="address-head">Address</h4>
-            <div class="add-sect">
-                <button class="add-button" @click.prevent="showAddressForm = true">Add Address</button>
+            <div class="address-heading">
+                <h4 class="address-head">Address</h4>
+                <div class="add-sect">
+                    <button 
+                        v-if="$route.path == '/profile' && addresses.length == 0" 
+                        class="add-button" 
+                        @click.prevent="showAddressForm = true"
+                    > Add Address
+                    </button>
+                    <button v-if="$route.path !== '/profile'" class="other-address"
+                            @click.prevent="useDefaultAddress = !useDefaultAddress"
+                    >
+                        <span v-if="useDefaultAddress">See other addresses</span>
+                        <span v-if="!useDefaultAddress">See default</span>
+                    </button>
+                </div>
             </div>
-            <div class="add-wrapper" >
-                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">
-                    <h4 class="address-head">Address (1)</h4>
-                    <div class="add-form">
+            <div class="add-wrapper" >  
+                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">   
+                    <div class="add-form">             
                         <div class="font-folder">
-                            <span>
-                                <i :class="{'add-green': checkCircle}" class="fa fa-check-circle"
-                                   @click.prevent="checkCircle = true">
-                                </i>
-                            </span>
-                            <span class="edit-trash">
+                            <h4 v-if="ad.defaultAddress" class="address-head">Default address</h4>              
+                            <div class="edit-trash">
                                 <i @click.prevent="editAddress(ad)" class="fa fa-edit"></i>
                                 <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
-                            </span>
+                            </div>
                         </div>
                         <p>{{ ad.address }}</p>
                         <p>{{ ad.landmark  }}</p>
@@ -60,6 +68,7 @@
                 showAddressForm: false,
                 checkCircle: false,
                 address: '',
+                useDefaultAddress: true,
                 defaultAddress: this.$route.path.includes('profile') // User personal address is his default address.
             }
         },
@@ -78,14 +87,17 @@
                         messages: ['address deleted'], state: 'success'
                     })
                 } catch (e) {
-                    console.log(e)
+                    console.log('hghe')
                 }
             }
         },
 
         computed: {
             addresses() {
-                return this.$store.getters['users/userAddresses']
+                const addresses = this.$store.getters['users/userAddresses']
+                return this.$route.path.includes('profile') || this.useDefaultAddress ? 
+                addresses.filter(ad => ad.defaultAddress) : addresses
+                 
             }
         },
 
@@ -108,23 +120,28 @@
     }
     .address-container{
         display: grid;
-        grid-template-rows: 50px 1fr;
+        grid-template-rows: 40px 1fr;
         background-color: #fefefe;
         margin: 0 200px 40px 200px;
         padding: 20px;
         box-shadow: 5px 5px 15px grey;
         grid-gap: 10px;
     }
+    .address-heading{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
     .add-wrapper{
         display: grid;
-        grid-template: 200px / repeat(auto-fit, minmax(250px, 300px));
+        grid-template: 155px / repeat(auto-fit, minmax(250px, 300px));
         grid-gap: 15px;
         justify-items: center;
         justify-content: center;
     }
     .add-addresss-layout{
         display: grid;
-        grid-template-rows: 30px 155px;
+        grid-template-rows: 30px 110px;
+        border: 1px solid rgb(207, 207, 207);
     }
     .address-head{
         color: #114e9e;
@@ -137,21 +154,14 @@
         grid-gap: 8px;
         color: #114e9e;
         padding: 10px;
-        border: 1px solid rgb(207, 207, 207);
+        
         width: 250px;
         font-size: 14px;
-    }
-    .add-green{
-        color: #2ca02c;
-    }
-    .fa-check-circle{
-        cursor: pointer;
-    }
+    } 
     .font-folder{
         display: grid;
         justify-content: space-between;
-        grid-template-columns: repeat(2, auto);
-        border-bottom: 1px solid rgb(207, 207, 207);
+        grid-template-columns: 170px 60px;
     }
     .fa-trash{
         color: indianred;
@@ -183,7 +193,18 @@
         cursor: pointer;
         transition: 0.6s ease-in;
     }
-    .add-button:hover{
+    .other-address{
+        height: 40px;
+        width: 150px;
+        background-color: #054579;
+        color: #fefefe;
+        font-size: 13px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+    }
+    .other-address{
         background-color: #011f49;
     }
 

@@ -73,6 +73,7 @@
                 }
                 try {
                     this.details.userId = this.user.id
+                    alert('inside componentd' + this.details.defaultAddress)
                     await this.$store.dispatch('users/storeAddress', { editMode: this.editMode, data: this.details })
                     this.isLoading = false
                     this.clearFields(this.details)

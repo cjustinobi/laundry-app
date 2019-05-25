@@ -19,8 +19,8 @@
                 </label>
                 <label for="city">
                     <select class="state-select" v-model="details.city" id="city" required>
-                        <option disabled>Select city</option>
                         <option v-if="editMode" :value="details.city">{{ details.city }}</option>
+                        <option v-else disabled>Select city</option>
                         <option :value="lga.name" v-for="(lga, i) in lgas" :key="i">{{ lga.name }}</option>
                     </select>
                 </label>
@@ -42,7 +42,7 @@
 
     export default {
 
-        props: ['editMode', 'address'],
+        props: ['editMode', 'address', 'defAddress'],
 
         mixins: [ClearFields],
 
@@ -52,7 +52,8 @@
                     address: '',
                     landmark: '',
                     state: 'Select state',
-                    city: 'Select city'
+                    city: 'Select city',
+                    defaultAddress: this.defAddress
                 },
                 lgas: []
             }
@@ -136,7 +137,6 @@
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
-        height: 320px;
         color: #114e9e;
     }
     .close-package{

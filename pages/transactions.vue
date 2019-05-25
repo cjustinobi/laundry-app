@@ -102,10 +102,11 @@ import TransactionHistory from '~/components/guest/transactionHistory'
         align-items: center;
         justify-items: center;
         align-content: center;
+        text-align: center;
     }
     .awaiting-inner{
         display: grid;
-        grid-template-columns: 20px 170px;
+        grid-template-columns: 20px 150px;
         color: #4caf50;
     }
     .items{
@@ -241,6 +242,14 @@ import TransactionHistory from '~/components/guest/transactionHistory'
     }
 
     @media (max-width: 767px) {
+        .transaction-container{
+            font-size: 12px;
+        }
+        .awaiting-inner{
+            display: grid;
+            grid-template-columns: 20px 100px;
+            color: #4caf50;
+        }
         .items{
             grid-template-columns: 1fr 40px 110px;
             margin: 0 20px;

@@ -58,7 +58,8 @@
                 />
             </div>
         </div>
-
+        <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'products')">Previous</button>
+        <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'time')">Next</button>
     </div>
 </template>
 
@@ -96,7 +97,7 @@
                         messages: ['address deleted'], state: 'success'
                     })
                 } catch (e) {
-                    console.log('hghe')
+                    console.log(e)
                 }
             },
 
@@ -105,8 +106,8 @@
                 if (clickedEl[0].style.backgroundColor === 'rgb(92, 85, 220)') {
                     // Add background to the clicked element.
                     clickedEl[0].style.backgroundColor = '#fefefe'
-                    // Store the pickup address.
-                    this.$store.dispatch('cart/pickUpAddress', address)
+                    // None is selected.
+                    this.$store.dispatch('cart/pickUpAddress', null)
                 } else {
                     // Remove background from elements.
                     const parentEl = document.querySelector('.add-wrapper')
@@ -129,7 +130,9 @@
                 const addresses = this.$store.getters['users/userAddresses']
                 return this.$route.path.includes('profile') || this.useDefaultAddress ? 
                 addresses.filter(ad => ad.defaultAddress) : addresses
-                 
+            },
+            pickUpAddress() {
+                return this.$store.getters['cart/pickUpAddress']
             }
         },
 
@@ -146,7 +149,7 @@
         watch: {
             addresses() {
                 // Selects and stores default address by default.
-                if(this.addresses.length > 0 && this.useDefaultAddress) {
+                if(!this.pickUpAddress && this.addresses.length > 0 && this.useDefaultAddress) {
                     const addresses = this.addresses
                     if (addresses[0].defaultAddress) {
                         this.$nextTick(() => {

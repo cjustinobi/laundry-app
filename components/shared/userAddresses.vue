@@ -10,16 +10,24 @@
                         @click.prevent="showAddressForm = true"
                     > Add Address
                     </button>
+                    <button v-else class="add-button" @click.prevent="showAddressForm = true"> Add Address</button>
                     <button v-if="$route.path !== '/profile'" class="other-address"
                             @click.prevent="useDefaultAddress = !useDefaultAddress"
                     >
                         <span v-if="useDefaultAddress">See other addresses</span>
-                        <span v-if="!useDefaultAddress">See default</span>
+                        <span v-if="!useDefaultAddress">Use default address</span>
                     </button>
                 </div>
             </div>
-            <div class="add-wrapper" >  
-                <div class="add-addresss-layout" v-if="addresses && addresses.length > 0" v-for="(ad, i) in addresses" :key="i">   
+            <div class="add-wrapper" ref="add-wrapper">
+                <div
+                        class="add-addresss-layout"
+                        v-if="addresses && addresses.length > 0"
+                        v-for="(ad, i) in addresses"
+                        :ref="`address-layout-${ad.id}`"
+                        @click="setPickUpAddress(ad)"
+                        :key="i"
+                >
                     <div class="add-form">             
                         <div class="font-folder">
                             <h4 v-if="ad.defaultAddress" class="address-head">Default address</h4>              
@@ -80,6 +88,7 @@
                 this.showAddressForm = true
                 this.address = address
             },
+
             async delAddress(id) {
                 try {
                     await this.$store.dispatch('users/deleteAddress', id)
@@ -88,6 +97,29 @@
                     })
                 } catch (e) {
                     console.log('hghe')
+                }
+            },
+
+            setPickUpAddress(address) {
+                const clickedEl = this.$refs[`address-layout-${address.id}`]
+                if (clickedEl[0].style.backgroundColor === 'rgb(92, 85, 220)') {
+                    // Add background to the clicked element.
+                    clickedEl[0].style.backgroundColor = '#fefefe'
+                    // Store the pickup address.
+                    this.$store.dispatch('cart/pickUpAddress', address)
+                } else {
+                    // Remove background from elements.
+                    const parentEl = document.querySelector('.add-wrapper')
+                    // const parentEl = this.$refs['add-wrapper']
+                    for (let i = 0; i < parentEl.children.length; i++) {
+                        if (parentEl.children[i].style.backgroundColor === 'rgb(92, 85, 220)') {
+                            parentEl.children[i].style.backgroundColor = '#fefefe'
+                        }
+                    }
+                    // Add background to the clicked element.
+                    clickedEl[0].style.backgroundColor = 'rgb(92, 85, 220)'
+                    // Store the pickup address.
+                    this.$store.dispatch('cart/pickUpAddress', address)
                 }
             }
         },
@@ -103,6 +135,28 @@
 
         beforeMount() {
             this.$store.dispatch('users/getUserAddresses')
+        },
+
+        mounted() {
+            if (this.useDefaultAddress) {
+                console.log('mounted ' + this.addresses)
+            }
+        },
+
+        watch: {
+            addresses() {
+                // Selects and stores default address by default.
+                if(this.addresses.length > 0 && this.useDefaultAddress) {
+                    const addresses = this.addresses
+                    if (addresses[0].defaultAddress) {
+                        this.$nextTick(() => {
+                            const defaultAd = this.$refs[`address-layout-${addresses[0].id}`]
+                            defaultAd[0].style.backgroundColor = 'rgb(92, 85, 220)'
+                            this.$store.dispatch('cart/pickUpAddress', addresses[0])
+                        })
+                    }
+                }
+            }
         }
 
     }
@@ -115,8 +169,6 @@
     }
     .add-address{
         display: grid;
-        /* height: 100%; */
-        /* min-height: 100vh; */
     }
     .address-container{
         display: grid;
@@ -142,6 +194,7 @@
         display: grid;
         grid-template-rows: 30px 110px;
         border: 1px solid rgb(207, 207, 207);
+        cursor: pointer;
     }
     .address-head{
         color: #114e9e;

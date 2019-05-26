@@ -1,17 +1,18 @@
 <template>
     <div class="product-page">
-        <productNavbar/>
+        <ProductNavbar/>
     </div>
 </template>
 
 <script>
-    import productNavbar from '~/components/dashboard/user/productNavbar'
+    import ProductNavbar from '~/components/dashboard/user/productNavbar'
 
     export default {
 
         layout: 'dashboard',
 
-        components: {productNavbar},
+        components: { ProductNavbar },
+
         data() {
             return {
                 

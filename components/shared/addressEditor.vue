@@ -55,6 +55,7 @@
                     city: 'Select city',
                     defaultAddress: this.defAddress
                 },
+                states: [],
                 lgas: []
             }
         },
@@ -73,7 +74,6 @@
                 }
                 try {
                     this.details.userId = this.user.id
-                    alert('inside componentd' + this.details.defaultAddress)
                     await this.$store.dispatch('users/storeAddress', { editMode: this.editMode, data: this.details })
                     this.isLoading = false
                     this.clearFields(this.details)
@@ -90,13 +90,11 @@
             getLgas(e) {
                 this.details.city = 'Select city'
                 this.lgas = this.states.filter(state => state.state.name === e.target.value)[0].state.locals
-            }
-        },
+            },
 
-        asyncComputed: {
-            async states() {
+            async getStates() {
                 let res = await fetch('statesLgas.json')
-                return res.json()
+                this.states = await res.json()
             }
         },
 
@@ -107,6 +105,10 @@
                     this.details.city = this.address.city
                 }
             }
+        },
+
+        beforeMount() {
+            this.getStates()
         },
 
         destroyed() {

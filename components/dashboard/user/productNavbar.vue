@@ -24,7 +24,7 @@
         </div>
 
         <AllProducts v-if="products" @nextTab="toggleTab" />
-        <UserAddresses v-if="address" class="insert-margin"/>
+        <UserAddresses v-if="address" @nextTab="toggleTab" class="insert-margin"/>
         <editPassword v-if="password" class="insert-margin"/>
         <PaymentPage v-if="paymentpage" class="insert-margin"/>
         
@@ -67,7 +67,7 @@
                     this.products = false
                     return this.address = true
                 }
-                if(val == 'password') {
+                if(val == 'time') {
                     this.paymentpage =false
                     this.products =false
                     this.address = false

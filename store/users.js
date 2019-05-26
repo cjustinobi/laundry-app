@@ -43,7 +43,6 @@ export const actions = {
             if (editMode) {
                 address = await this.$axios.$put(`addresses/${data.id}`, data)
             } else {
-                console.log('inside store ' + data.defaultAddress)
                 address = await this.$axios.$post('addresses', data)
             }
             commit('ADD_UPDATE_ADDRESS', { editMode, address })

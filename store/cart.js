@@ -2,7 +2,9 @@ import Vue from 'vue'
 
 export const state = () => ({
     items: [],
-    eleToUpdate: null
+    eleToUpdate: null,
+    pickUpAddress: '',
+    pickUpTime: ''
 })
 
 export const mutations = {
@@ -40,6 +42,9 @@ export const mutations = {
     },
     DELETE_ITEM (state, itemId) {
         state.items = state.items.filter(item => item.id != itemId)
+    },
+    PICK_UP_ADDRESS (state, address) {
+        state.pickUpAddress = address
     }
 }
 
@@ -55,10 +60,14 @@ export const actions = {
     },
     deleteItem({ commit }, itemId) { 
         commit('DELETE_ITEM', itemId)
+    },
+    pickUpAddress({ commit }, payload) {
+        commit('PICK_UP_ADDRESS', payload)
     }
 }
 
 export const getters = {
     items: state => state.items,
-    eleToUpdate: state => state.eleToUpdate
+    eleToUpdate: state => state.eleToUpdate,
+    pickUpAddress: state => state.pickUpAddress
 }

@@ -160,8 +160,10 @@
     } 
     .font-folder{
         display: grid;
-        justify-content: space-between;
-        grid-template-columns: 170px 60px;
+        /* justify-content: space-between; */
+        grid-template-columns: 1fr;
+        position: relative;
+        
     }
     .fa-trash{
         color: indianred;
@@ -173,9 +175,11 @@
     }
     .edit-trash{
         display: grid;
-        justify-content: flex-end;
+        /* justify-content: flex-end; */
         grid-template-columns: 30px 30px;
         cursor: pointer;
+        position: absolute;
+        right: 0;
     }
     .add-sect{
         display: grid;

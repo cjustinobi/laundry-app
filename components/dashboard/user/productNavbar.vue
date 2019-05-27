@@ -12,21 +12,21 @@
                 <i class="fa fa-check-circle"></i> Address
             </div>
             <div class="demarcator"></div>
-            <div class="fa" @click.prevent="toggleTab('password')"
-                :class="{'addColor': password}">
+            <div class="fa" @click.prevent="toggleTab('time')"
+                :class="{'addColor': time}">
                 <i class="fa fa-check-circle"></i> Time
             </div>
             <div class="demarcator"></div>
-            <div class="fa" @click.prevent="toggleTab('paymentpage')"
-                :class="{'addColor': paymentpage}">
+            <div class="fa" @click.prevent="toggleTab('paymentPage')"
+                :class="{'addColor': paymentPage}">
                 <i class="fa fa-check-circle"></i> Payment
             </div>
         </div>
 
         <AllProducts v-if="products" @nextTab="toggleTab" />
         <UserAddresses v-if="address" @nextTab="toggleTab" class="insert-margin"/>
-        <editPassword v-if="password" class="insert-margin"/>
-        <PaymentPage v-if="paymentpage" class="insert-margin"/>
+        <editPassword v-if="time" @nextTab="toggleTab" class="insert-margin"/>
+        <PaymentPage v-if="paymentPage" class="insert-margin"/>
         
     </div>
 </template>
@@ -35,7 +35,7 @@
     import AllProducts from '~/components/products/list'
     import UserAddresses from '~/components/shared/userAddresses'
     import EditPassword from '~/components/guest/editPassword'
-    import PaymentPage from '~/components/guest/paymentpage'
+    import PaymentPage from '~/components/guest/paymentPage'
 
     export default {
 
@@ -49,35 +49,35 @@
             return {
                 products: true,
                 address: false,
-                password: false,
-                paymentpage: false
+                time: false,
+                paymentPage: false
             }
         },
         methods: {
             toggleTab(val) {
                 if(val == 'products') {
                     this.address =false
-                    this.password = false
-                    this.paymentpage = false
+                    this.time = false
+                    this.paymentPage = false
                     return this.products = true
                 }
                 if(val == 'address') {
-                    this.password =false
-                    this.paymentpage =false
+                    this.time =false
+                    this.paymentPage =false
                     this.products = false
                     return this.address = true
                 }
                 if(val == 'time') {
-                    this.paymentpage =false
+                    this.paymentPage =false
                     this.products =false
                     this.address = false
-                    return this.password = true
+                    return this.time = true
                 }
-                if(val == 'paymentpage') {
+                if(val == 'paymentPage') {
                     this.products =false
                     this.address = false
-                    this.password = false
-                    return this.paymentpage = true
+                    this.time = false
+                    return this.paymentPage = true
                 }
             },
         },

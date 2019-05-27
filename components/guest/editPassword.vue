@@ -17,6 +17,18 @@
                 </button>
             </div>
         </div>
+        <div class="pre-next-btn">
+            <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'address')"
+                    class="previous-btn"
+            >
+                <i class="fa fa-angle-double-left"></i> &nbsp; Previous 
+            </button>
+            <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'paymentPage')"
+                    class="next-btn"
+            >
+                <span>Next</span> &nbsp; <i class="fa fa-angle-double-right"></i>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -115,6 +127,35 @@ export default {
     .update-button:hover{
         background-color: #00122b;
     }
+    .pre-next-btn{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+    }
+    .previous-btn{
+        height: 40px;
+        width: 120px;
+        background-color: #01355f;
+        color: #fefefe;
+        font-size: 12px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+        justify-self: flex-end;
+    }
+    .next-btn{
+        justify-self: flex-start;
+        height: 40px;
+        width: 120px;
+        background-color: #e7b83f;
+        color: #fefefe;
+        font-size: 12px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+    }
 
     @media (max-width: 767px) {
         .edit-wrapper{
@@ -135,6 +176,14 @@ export default {
         .update-button{
             width: 200px;
             font-size: 14px;
+        }
+        .previous-btn{
+            height: 35px;
+            width: 100px;
+        }
+        .next-btn{
+            height: 35px;
+            width: 100px;
         }
     }
 </style>

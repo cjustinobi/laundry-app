@@ -213,7 +213,7 @@
         }
         .edit-wrapper{
             height: 650px;
-            margin: 20px 15px 40px 15px;
+            margin: 20px 5px 40px 5px;
             font-size: 12px;
         }
         .payment-total{

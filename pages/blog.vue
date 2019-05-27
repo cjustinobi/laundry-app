@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <p class="next">1 2 3 4 5...<nuxt-link to="/">Next <i class="fa fa-angle-double-right"></i></nuxt-link></p>
+        <p class="next">1 2 3 4 5...<nuxt-link to="/detailedBlog">Next <i class="fa fa-angle-double-right"></i></nuxt-link></p>
         
     </div>
 </template>
@@ -78,14 +78,14 @@
     .blog-container{
         display: grid;
         min-height: 100vh;
-        grid-template-rows: 450px 1fr;
+        grid-template-rows: 500px 1fr;
         color: #114e9e;
     }
     .show-img{
-        background-image: url('~assets/images/wash-machine.jpg');
+        background-image: url('~assets/images/blog.jpg');
         background-size: cover;
         background-position: center top;
-        height: 450px;
+        height: 500px;
         width: 100%;
         margin-top: -12px;
         display: grid;
@@ -155,12 +155,18 @@
 
     
     @media (max-width: 767px) {
+        .blog-container{
+            grid-template-rows: 450px 1fr;
+        }
+        .show-img{
+            height: 450px;
+        }
         .about-item{
             padding: 10px 24px;
         }
         .blog-search{
             width: 70%;
-            height: 40px;
+            height: 35px;
             padding: 10px;
         }
         .blog-wrapper{

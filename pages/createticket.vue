@@ -29,7 +29,7 @@
                         <textarea name="" id="" cols="60" rows="10"  class="textarea"></textarea>
                     </label>
                     <nuxt-link class="send-link" to="/">
-                        <button class="t-btn send-ticket">Send</button>
+                        <button class="send-ticket">Send</button>
                     </nuxt-link>
                 </div>
             </div>
@@ -100,7 +100,7 @@
         grid-template-columns: 200px 1fr;
         background-color: #fefefe;
         height: 500px;
-        margin: 70px 40px 40px 40px;
+        margin: 70px 80px 40px 80px;
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
         padding: 15px;
@@ -108,8 +108,7 @@
     }
     .t-btn{
         height: 35px;
-        width: 160px;  
-        padding: 10px;
+        width: 160px;
         background-color: #eeeeee;
         color: #114e9e;
         font-size: 17px;
@@ -124,9 +123,6 @@
         background-color: rgb(172, 172, 172);
         color: #f0f0f0;
     }
-    .create-link{
-        grid-column-start: 5;
-    }
     .create-ticket{
         background-color: #114e9e;
         color: #fefefe;
@@ -137,7 +133,15 @@
     .send-ticket{
         background-color: #e7b83f;
         color: #fefefe;
-        margin-left: 297px;
+        height: 35px;
+        width: 160px;
+        font-size: 17px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+        text-align: center;
+        box-shadow: 1px 2px 3px grey;
     }
     .send-ticket:hover{
         background-color: #f3ae00;
@@ -158,17 +162,17 @@
     .ticket-list{
         display: grid;
         grid-gap: 15px;
-        grid-template: auto / 500px;
+        grid-template: auto / 1fr;
     }
     .select{
-        width: 440px;
+        width: 50%;
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(197, 197, 197);
         outline: none;
     }
     .input-subject{
-        width: 440px;
+        width: 50%;
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(197, 197, 197);
@@ -177,30 +181,45 @@
     .textarea{
         padding: 10px;
         border: 1px solid rgb(224, 224, 224);
+        width: 50%;
     }
 
     @media (max-width: 767px) {
         .ticket-btn{
-            display: grid;
-            grid-template-columns: repeat(4, 180px);
-            grid-gap: 30px;
-            align-items: center;
-            margin: 10px 40px;
+            grid-template-columns: repeat(3, 110px);
+            grid-gap: 10px;
+            margin: 0 10px;
             color: #114e9e;
+            /* width: 80%; */
+            justify-content: center;
         }
         .ticket-wrapper{
             grid-template-columns: 1fr;
             height: 700px;
             padding: 15px;
             grid-gap: 20px;
+            margin: 10px;
         }
         .t-btn{
-            height: 30px;
-            width: 150px;
-            font-size: 14px;
+            height: 25px;
+            width: 110px;
+            font-size: 13px;
         }
-        .create-link{
-            grid-column-start: 4;
+        .ticket-list{
+            display: grid;
+            grid-gap: 15px;
+        }
+        .select{
+            width: 100%;
+        }
+        .input-subject{
+            width: 100%;
+        }
+        .textarea{
+            width: 100%;
+        }
+        .send-ticket{
+            font-size: 14px;
         }
     }
 </style>

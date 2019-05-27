@@ -1,5 +1,5 @@
 <template>
-    <div class="notifications" :style="myStyle">
+    <div class="notifications">
         <div class="title"><h2>Notifications</h2></div>
         <div class="notifications-wrapper">
             <img src="~assets/images/EL_laundry.png" alt="">
@@ -8,21 +8,79 @@
                 <p>Washing and Ironing of 4 Suits, and 5 Trousers</p>
                 <div class="pickup-delivery">
                     <div class="pickup">
-                        <div>
+                        <div class="pick-up-inner">
                             <h5 style="color: #e7b83f">Pick-up Address</h5>
                             <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
                         </div>
-                        <div>
+                        <div class="delivery-inner">
                             <h5>Delivery Address</h5>
                             <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
                         </div>
                     </div>
                     <div class="delivery">
-                        <div>
+                        <div class="due-delivery">
                             <h5 style="color: #e7b83f">Due For Delivery</h5>
                             <p>Fri 29 Mar, 2019</p>
                         </div>
-                        <div>
+                        <div class="delivery-status">
+                            <h5>Delivery Status</h5>
+                            <p style="color: #e7b83f">pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notifications-wrapper">
+            <img src="~assets/images/EL_laundry.png" alt="">
+            <div class="order-list">
+                <h2>4 Shirts, 5 Trousers</h2>
+                <p>Washing and Ironing of 4 Suits, and 5 Trousers</p>
+                <div class="pickup-delivery">
+                    <div class="pickup">
+                        <div class="pick-up-inner">
+                            <h5 style="color: #e7b83f">Pick-up Address</h5>
+                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
+                        </div>
+                        <div class="delivery-inner">
+                            <h5>Delivery Address</h5>
+                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
+                        </div>
+                    </div>
+                    <div class="delivery">
+                        <div class="due-delivery">
+                            <h5 style="color: #e7b83f">Due For Delivery</h5>
+                            <p>Fri 29 Mar, 2019</p>
+                        </div>
+                        <div class="delivery-status">
+                            <h5>Delivery Status</h5>
+                            <p style="color: #e7b83f">pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="notifications-wrapper">
+            <img src="~assets/images/EL_laundry.png" alt="">
+            <div class="order-list">
+                <h2>4 Shirts, 5 Trousers</h2>
+                <p>Washing and Ironing of 4 Suits, and 5 Trousers</p>
+                <div class="pickup-delivery">
+                    <div class="pickup">
+                        <div class="pick-up-inner">
+                            <h5 style="color: #e7b83f">Pick-up Address</h5>
+                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
+                        </div>
+                        <div class="delivery-inner">
+                            <h5>Delivery Address</h5>
+                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
+                        </div>
+                    </div>
+                    <div class="delivery">
+                        <div class="due-delivery">
+                            <h5 style="color: #e7b83f">Due For Delivery</h5>
+                            <p>Fri 29 Mar, 2019</p>
+                        </div>
+                        <div class="delivery-status">
                             <h5>Delivery Status</h5>
                             <p style="color: #e7b83f">pending</p>
                         </div>
@@ -31,65 +89,7 @@
             </div>
         </div>
 
-        <div class="notifications-wrapper">
-            <img src="~assets/images/EL_laundry.png" alt="">
-            <div class="order-list">
-                <h2>4 Shirts, 5 Trousers</h2>
-                <p>Washing and Ironing of 4 Suits, and 5 Trousers</p>
-                <div class="pickup-delivery">
-                    <div class="pickup">
-                        <div>
-                            <h5 style="color: #e7b83f">Pick-up Address</h5>
-                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
-                        </div>
-                        <div>
-                            <h5>Delivery Address</h5>
-                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
-                        </div>
-                    </div>
-                    <div class="delivery">
-                        <div>
-                            <h5 style="color: #e7b83f">Due For Delivery</h5>
-                            <p>Fri 29 Mar, 2019</p>
-                        </div>
-                        <div>
-                            <h5>Delivery Status</h5>
-                            <p style="color: #e7b83f">pending</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="notifications-wrapper">
-            <img src="~assets/images/EL_laundry.png" alt="">
-            <div class="order-list">
-                <h2>4 Shirts, 5 Trousers</h2>
-                <p>Washing and Ironing of 4 Suits, and 5 Trousers</p>
-                <div class="pickup-delivery">
-                    <div class="pickup">
-                        <div>
-                            <h5 style="color: #e7b83f">Pick-up Address</h5>
-                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
-                        </div>
-                        <div>
-                            <h5>Delivery Address</h5>
-                            <p>30, Afaha Uqua road, <br> Eket, Akwa Ibom State</p>
-                        </div>
-                    </div>
-                    <div class="delivery">
-                        <div>
-                            <h5 style="color: #e7b83f">Due For Delivery</h5>
-                            <p>Fri 29 Mar, 2019</p>
-                        </div>
-                        <div>
-                            <h5>Delivery Status</h5>
-                            <p style="color: #e7b83f">pending</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
 
     </div>
 </template>
@@ -103,9 +103,7 @@
 
         data() {
             return {
-                myStyle: {
-                    backgroundColor: "#f0faff"
-                }
+               
             }
         },
         mounted() {
@@ -120,8 +118,8 @@
 <style scoped>
     .notifications{
         display: grid;
-        grid-template-rows: 90px repeat(3, 350px);
-        min-height: 100vh;
+        grid-template-rows: 90px repeat(3, 300px);
+        /* min-height: 100vh; */
         grid-gap: 20px;
     }
     .title{
@@ -141,17 +139,18 @@
         grid-template-columns: 90px 1fr;
         grid-gap: 20px;
         background-color: #fefefe;
-        margin: 40px;
+        margin: 40px 60px;
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
         padding: 15px;
+        height: 250px;
     }
     .notifications-wrapper img{
         width: 80px;
     }
     .order-list{
         display: grid;
-        grid-template-rows: 30px 30px 175px;
+        grid-template-rows: 30px 30px 150px;
         grid-gap: 10px;
     }
     .pickup{
@@ -162,34 +161,70 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+    .pick-up-inner{
+        display: grid;
+        grid-gap: 5px;
+        grid-template-rows: 20px 1fr;
+        height: 100px;
+    }
+    .delivery-inner{
+        display: grid;
+        grid-gap: 5px;
+        grid-template-rows: 20px 1fr;
+        height: 100px;
+    }
+    .due-delivery{
+        display: grid;
+        grid-gap: 5px;
+        grid-template-rows: 20px 1fr;
+        height: 100px;
+    }
+    .delivery-status{
+        display: grid;
+        grid-gap: 5px;
+        grid-template-rows: 20px 1fr;
+        height: 100px;
+    }
 
-    /* @media (min-width: 1038px) { 
-        .order-list{
-            grid-template-rows: 30px 30px 175px;
-            grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
-        }
-    } */
+    
     @media (max-width: 767px) {
         .notifications{
-            grid-template-rows: 90px repeat(3, 400px);
-            grid-gap: 20px;
+            grid-template-rows: 90px repeat(3, 350px);
+            grid-gap: 10px;
+        }
+        .notifications-wrapper{
+            font-size: 12px;
+            margin: 20px;
+            padding: 10px;
+            grid-gap: 10px;
+            height: 300px;
         }
         .order-list{
-            display: grid;
             grid-template-rows: 30px 40px 175px;
-            grid-gap: 15px;
+            grid-gap: 10px;
         }
         .pickup-delivery{
-            display: grid;
             grid-template-rows: 1fr 1fr;
-            grid-gap: 20px;
+            grid-gap: 10px;
+        }
+        .pickup{
+            grid-gap: 10px;
+        }
+        .delivery{
+            grid-gap: 10px;
+        }
+    }
+    @media (max-width: 767px) {
+        .order-list{
+            grid-template-rows: 40px 40px 175px;
         }
     }
     @media (min-width: 768px) {
         .pickup-delivery{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-gap: 50px;
+            grid-gap: 40px;
+            height: 150px;
         }
     }
 </style>

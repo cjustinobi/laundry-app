@@ -205,7 +205,7 @@
             padding-left: 10px;
         }
         table {
-            width: 40%;
+            width: 35%;
             margin: 0 10px;
             font-size: 9px;
         }

@@ -14,8 +14,8 @@
                     <button v-if="$route.path !== '/profile'" class="other-address"
                             @click.prevent="useDefaultAddress = !useDefaultAddress"
                     >
-                        <span v-if="useDefaultAddress">See other addresses</span>
-                        <span v-if="!useDefaultAddress">Use default address</span>
+                        <span v-if="useDefaultAddress">See Other Addresses</span>
+                        <span v-if="!useDefaultAddress">Use Default Address</span>
                     </button>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 >
                     <div class="add-form">             
                         <div class="font-folder">
-                            <h4 v-if="ad.defaultAddress" class="address-head">Default address</h4>              
+                            <h4 v-if="ad.defaultAddress" class="address-head">Default Address</h4>              
                             <div class="edit-trash">
                                 <i @click.prevent="editAddress(ad)" class="fa fa-edit"></i>
                                 <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
@@ -47,6 +47,18 @@
                 </div>
             </div>
         </div>
+        <div class="pre-next-btn">
+            <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'products')"
+                    class="previous-btn"
+            >
+                <i class="fa fa-angle-double-left"></i> &nbsp; Previous 
+            </button>
+            <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'time')"
+                    class="next-btn"
+            >
+                <span>Next</span> &nbsp; <i class="fa fa-angle-double-right"></i>
+            </button>
+        </div>
 
         <div :class="{'backdrop': showAddressForm}">
             <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
@@ -58,8 +70,7 @@
                 />
             </div>
         </div>
-        <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'products')">Previous</button>
-        <button v-if="$route.path === '/products'" @click.prevent="$emit('nextTab', 'time')">Next</button>
+        
     </div>
 </template>
 
@@ -103,7 +114,7 @@
 
             setPickUpAddress(address) {
                 const clickedEl = this.$refs[`address-layout-${address.id}`]
-                if (clickedEl[0].style.backgroundColor === 'rgb(92, 85, 220)') {
+                if (clickedEl[0].style.backgroundColor === 'rgb(172, 228, 172)') {
                     // Add background to the clicked element.
                     clickedEl[0].style.backgroundColor = '#fefefe'
                     // None is selected.
@@ -113,12 +124,12 @@
                     const parentEl = document.querySelector('.add-wrapper')
                     // const parentEl = this.$refs['add-wrapper']
                     for (let i = 0; i < parentEl.children.length; i++) {
-                        if (parentEl.children[i].style.backgroundColor === 'rgb(92, 85, 220)') {
+                        if (parentEl.children[i].style.backgroundColor === 'rgb(172, 228, 172)') {
                             parentEl.children[i].style.backgroundColor = '#fefefe'
                         }
                     }
                     // Add background to the clicked element.
-                    clickedEl[0].style.backgroundColor = 'rgb(92, 85, 220)'
+                    clickedEl[0].style.backgroundColor = 'rgb(172, 228, 172)'
                     // Store the pickup address.
                     this.$store.dispatch('cart/pickUpAddress', address)
                 }
@@ -154,7 +165,7 @@
                     if (addresses[0].defaultAddress) {
                         this.$nextTick(() => {
                             const defaultAd = this.$refs[`address-layout-${addresses[0].id}`]
-                            defaultAd[0].style.backgroundColor = 'rgb(92, 85, 220)'
+                            defaultAd[0].style.backgroundColor = 'rgb(172, 228, 172)'
                             this.$store.dispatch('cart/pickUpAddress', addresses[0])
                         })
                     }
@@ -192,10 +203,11 @@
         grid-gap: 15px;
         justify-items: center;
         justify-content: center;
+        padding: 10px 0;
     }
     .add-addresss-layout{
         display: grid;
-        grid-template-rows: 30px 110px;
+        grid-template-rows: 30px 120px;
         border: 1px solid rgb(207, 207, 207);
         cursor: pointer;
     }
@@ -210,7 +222,6 @@
         grid-gap: 8px;
         color: #114e9e;
         padding: 10px;
-        
         width: 250px;
         font-size: 14px;
     } 
@@ -241,9 +252,11 @@
         display: grid;
         align-items: center;
         justify-self: flex-end;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
     }
     .add-button{
-        height: 45px;
+        height: 40px;
         width: 150px;
         background-color: #01355f;
         color: #fefefe;
@@ -253,10 +266,13 @@
         cursor: pointer;
         transition: 0.6s ease-in;
     }
+    .add-button:hover{
+        background-color: #011f49;
+    }
     .other-address{
         height: 40px;
         width: 150px;
-        background-color: #054579;
+        background-color: #01355f;
         color: #fefefe;
         font-size: 13px;
         outline: none;
@@ -264,8 +280,37 @@
         cursor: pointer;
         transition: 0.6s ease-in;
     }
-    .other-address{
+    .other-address:hover{
         background-color: #011f49;
+    }
+    .pre-next-btn{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+    }
+    .previous-btn{
+        height: 40px;
+        width: 120px;
+        background-color: #01355f;
+        color: #fefefe;
+        font-size: 12px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
+        justify-self: flex-end;
+    }
+    .next-btn{
+        justify-self: flex-start;
+        height: 40px;
+        width: 120px;
+        background-color: #e7b83f;
+        color: #fefefe;
+        font-size: 12px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.6s ease-in;
     }
 
     @media (max-width: 767px) {
@@ -274,10 +319,26 @@
             margin: 0 20px 40px 20px;
             padding: 10px;
         }
+         .add-wrapper{
+            grid-template: 157px / repeat(auto-fit, minmax(250px, 300px));
+         }
         .add-button{
             width: 100px;
             height: 40px;
-            font-size: 13px;
+            font-size: 12px;
+        }
+        .other-address{
+            height: 40px;
+            width: 120px;
+            font-size: 12px;
+        }
+        .previous-btn{
+            height: 35px;
+            width: 100px;
+        }
+        .next-btn{
+            height: 35px;
+            width: 100px;
         }
     }
 </style>

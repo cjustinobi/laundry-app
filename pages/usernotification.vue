@@ -143,7 +143,8 @@
         color: #114e9e;
         box-shadow: 5px 5px 15px grey;
         padding: 15px;
-        height: 250px;
+        height: 220px;
+        font-size: 14px;
     }
     .notifications-wrapper img{
         width: 80px;
@@ -156,10 +157,16 @@
     .pickup{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
     }
     .delivery{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+    .pickup-delivery{
+        grid-gap: 10px;
+        
     }
     .pick-up-inner{
         display: grid;
@@ -186,7 +193,24 @@
         height: 100px;
     }
 
-    
+    @media (max-width: 1022px) {
+        .pick-up-inner{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+        .delivery-inner{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+        .due-delivery{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+        .delivery-status{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+    }
     @media (max-width: 767px) {
         .notifications{
             grid-template-rows: 90px repeat(3, 350px);
@@ -200,7 +224,7 @@
             height: 300px;
         }
         .order-list{
-            grid-template-rows: 30px 40px 175px;
+            grid-template-rows: 40px 40px 175px;
             grid-gap: 10px;
         }
         .pickup-delivery{
@@ -213,10 +237,26 @@
         .delivery{
             grid-gap: 10px;
         }
+        .pick-up-inner{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+        .delivery-inner{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+        .due-delivery{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
+        .delivery-status{
+            grid-gap: 2px;
+            grid-template-rows: 30px 1fr;
+        }
     }
-    @media (max-width: 767px) {
+    @media (max-width: 330px) {
         .order-list{
-            grid-template-rows: 40px 40px 175px;
+            grid-template-rows: 45px 40px 175px;
         }
     }
     @media (min-width: 768px) {

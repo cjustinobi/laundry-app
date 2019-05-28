@@ -196,6 +196,7 @@
     .address-heading{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
     }
     .add-wrapper{
         display: grid;
@@ -319,18 +320,21 @@
             margin: 0 20px 40px 20px;
             padding: 10px;
         }
+        .address-heading{
+            grid-gap: 10px;
+        }
          .add-wrapper{
             grid-template: 157px / repeat(auto-fit, minmax(250px, 300px));
          }
         .add-button{
             width: 100px;
             height: 40px;
-            font-size: 12px;
+            font-size: 11px;
         }
         .other-address{
             height: 40px;
             width: 120px;
-            font-size: 12px;
+            font-size: 11px;
         }
         .previous-btn{
             height: 35px;
@@ -339,6 +343,26 @@
         .next-btn{
             height: 35px;
             width: 100px;
+        }
+    }
+    @media (max-width: 400px) {
+        .address-container{
+            grid-template-rows: 40px 1fr;
+            margin: 0 20px 40px 20px;
+            padding: 10px;
+        }
+        .address-heading{
+            grid-gap: 10px;
+        }
+        .add-button{
+            width: 100px;
+            height: 40px;
+            font-size: 10px;
+        }
+        .other-address{
+            height: 40px;
+            width: 120px;
+            font-size: 10px;
         }
     }
 </style>

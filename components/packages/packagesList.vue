@@ -17,9 +17,11 @@
                 <div  class="price">
                     <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
                 </div>
-                <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
-                       <i class="fa fa-check"></i>
-                       <li>{{ benefit.name }}</li>
+                <div class="wash-container">
+                    <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
+                        <i class="fa fa-check"></i>
+                        <li>{{ benefit.name }}</li>
+                    </div>
                 </div>
                 <form v-if="user !== undefined && user.user_type !== 3" method="get" id="sub-btn">
                     <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
@@ -89,7 +91,6 @@
     }
     .packages{
         position: relative;
-        top: 0;
         display: grid;
         grid-template: auto / repeat(auto-fit, minmax(250px, 350px));
         justify-content: center;
@@ -97,19 +98,18 @@
         grid-gap: 40px;
         background-color: #f9f9f9;
         margin-bottom: 40px;
+        padding: 20px 0;
     }
     .pack-item{
         position: relative;
         border: 1px solid #b2d2e4;
         border-radius: 10px;
         display: grid;
-        margin-top: 30px;
-        min-height: 500px;
+        min-height: 450px;
         background-color: #fefefe;
         transition: 0.7s ease-in;
         grid-gap: 10px;
-        padding-bottom: 15px;
-        grid-template-rows: 130px 60px 1fr 70px;
+        grid-template-rows: 130px 60px 187px 40px;
     }
     .packages .pack-item:nth-child(1){
         border-top: 7px solid rgb(247, 174, 241);
@@ -129,10 +129,31 @@
     .packages .pack-item:nth-child(3):hover{
         border-top: 7px solid rgb(17, 145, 23);
     }
+    .packages .pack-item:nth-child(4){
+        border-top: 7px solid rgb(232, 233, 176);
+    }
+    .packages .pack-item:nth-child(4):hover{
+        border-top: 7px solid rgb(216, 202, 73);
+    }
+    .packages .pack-item:nth-child(5){
+        border-top: 7px solid rgb(163, 160, 179);
+    }
+    .packages .pack-item:nth-child(5):hover{
+        border-top: 7px solid rgb(5, 65, 230);
+    }
+    .packages .pack-item:nth-child(6){
+        border-top: 7px solid rgb(255, 160, 160);
+    }
+    .packages .pack-item:nth-child(6):hover{
+        border-top: 7px solid rgb(247, 89, 89);
+    }
+    .wash-container{
+        display: grid;
+        grid-template-rows: repeat(auto-fit, 40px);
+    }
     .wash-menu{
         display: grid;
-        grid-template-columns: 20px 1fr;
-        grid-auto-rows: 30px;
+        grid-template-columns: 30px 1fr;
         color: #728691;
         font-size: 16px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -176,15 +197,20 @@
         justify-self: center;
     }
     .subscribe{
-        width: 300px;
-        height: 60px;
+        width: 290px;
+        height: 40px;
         border: 1px solid #fff;
         background-color: #e7b83f;
         color: #fff;
         outline: none;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 16px;
         cursor: pointer;
+        border-radius: 10px;
+        display: grid;
+        align-self: flex-end;
+        align-content: flex-end;
+        align-items: flex-end;
     }
     .subscribe:hover,
     .subscribe:active{
@@ -193,27 +219,10 @@
         background-color: #f58b13;
         transition: .7s ease-out;
     }
-    .edit-button:hover{
-        background-color: rgb(248, 144, 118);
-        color: #fff;
-    }
-    .edit-button{
-        width: 50px;
-        height: 30px;
-        border-radius: 5px;
-        border: 1px solid #f9f9f9;
-        justify-self: flex-end;
-        margin: 10px;
-        background-color: rgb(250, 182, 165);
-        color: #fff;
-    }
-    .hide-edit-button{
-        display: none;
-    }
 
     @media (max-width: 767px) {
         .packages{
-            grid-template: auto / 1fr;
+            grid-template: auto / repeat(auto-fit, minmax(250px, 300px));
             grid-gap: 30px;
         }
         .wash-menu{
@@ -233,8 +242,7 @@
         }
         .subscribe{
             width: 270px;
-            height: 40px;
-            font-size: 16px;
+            font-size: 14px;
         }
     }
 

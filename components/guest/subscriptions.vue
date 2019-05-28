@@ -187,7 +187,7 @@
         padding: 10px;
         background-color: #e7b83f;
         color: #fefefe;
-        font-size: 20px;
+        font-size: 18px;
         outline: none;
         border: none;
         cursor: pointer;

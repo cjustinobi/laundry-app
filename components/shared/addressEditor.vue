@@ -130,6 +130,7 @@
         display: grid;
         justify-content: center;
         align-items: center;
+        align-content: center;
     }
     .update-form{
         display: grid;

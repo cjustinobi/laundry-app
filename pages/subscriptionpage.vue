@@ -65,7 +65,7 @@
             grid-template-rows: 800px 80px 1fr;
         }
         .other-subscription{
-            margin: 0 20px;
+            margin: 0 10px;
             padding-left: 20PX;
         }
     }

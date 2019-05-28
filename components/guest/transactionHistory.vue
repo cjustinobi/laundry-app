@@ -107,7 +107,7 @@
     }
     .transaction-wrapper{
         display: grid;
-        grid-template-rows: 50px 40px 150px 30px;
+        grid-template-rows: 50px 40px 190px 30px;
         background-color: #fefefe;
         margin: 60px 40px 40px 40px;
         color: #114e9e;
@@ -192,6 +192,11 @@
         cursor: pointer;
     }
 
+     @media (max-width: 1022px) {
+        .transaction-wrapper{
+            grid-template-rows: 60px 40px 220px 30px;
+        }
+    }
     @media (max-width: 767px) {
         .transaction-wrapper{
             grid-template-rows: 60px 40px 250px 30px;

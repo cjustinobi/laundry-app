@@ -1,7 +1,7 @@
 <template>
     <div class="blog-container">
         <div class="show-img">
-            <h2>Welcome to our blog</h2>
+            <h1>Welcome to our blog</h1>
             <p>Catch up on Elaundry news, checkout our fashion and style tips and <br>
                 discover exclusive promotions and limited time deals
             </p>
@@ -84,7 +84,7 @@
     .show-img{
         background-image: url('~assets/images/blog.jpg');
         background-size: cover;
-        background-position: center top;
+        background-position: center;
         height: 500px;
         width: 100%;
         margin-top: -12px;

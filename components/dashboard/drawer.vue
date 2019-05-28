@@ -63,11 +63,11 @@
             <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span>Transactions</span>
-                <nuxt-link to='/admin/notifications' class='logo'>
+            </nuxt-link>
+            <nuxt-link to='/admin/notifications' class='logo'>
                     <i class="fa fa-bell" title="Notifications"></i>
                     <!-- <div class="count">0</div> -->
                     <span>Notifications</span>
-                </nuxt-link>
             </nuxt-link>
             <nuxt-link to='/admin/packages/add' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>

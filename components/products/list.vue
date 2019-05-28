@@ -138,9 +138,45 @@
         color: #fefefe;
         transition: 0.8s ease-in;
         font-size: 14px;
+        animation: bounce 0.95s infinite;
+        -webkit-animation: bounce 0.95s infinite;
     }
     .continue-btn:hover{
         background-color: #e7b83f;
+    }
+    @keyframes bounce {
+        0% {
+            // transform: scale(1,1) translate(0px, 0px);
+        }
+        
+        30%{
+            transform: scale(1,0.8) translate(0px, 10px); 
+        }
+
+        75%{
+            // transform: scale(1,1.1) translate(0px, -25px); 
+        }
+        
+        100% {
+            // transform: scale(1,1) translate(0px, 0px);
+        }
+    }
+    @-webkit-keyframes bounce {
+        0% {
+            // transform: scale(1,1) translate(0px, 0px);
+        }
+        
+        30%{
+            transform: scale(1,0.8) translate(0px, 10px); 
+        }
+
+        75%{
+            // transform: scale(1,1.1) translate(0px, -25px); 
+        }
+        
+        100% {
+            // transform: scale(1,1) translate(0px, 0px);
+        }
     }
     .laundry-list-wrapper{
         display: grid;
@@ -152,7 +188,6 @@
     }
     .laundry-list{
         display: grid;
-        // grid-gap: 5px;
         background-color: #fefefe;
         color: #114e9e;
         min-height: 320px;
@@ -162,9 +197,6 @@
     .img-square{
         width: 150px;
         height: 150px;
-        // display: grid;
-        // align-items: center;
-        // justify-items: center;
         background-size: contain;
         background-position: left;
     }

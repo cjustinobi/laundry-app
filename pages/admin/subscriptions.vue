@@ -1,5 +1,5 @@
 <template>
-    <div class="admin-sub-container" :style="myStyle">
+    <div class="admin-sub-container" >
         <div class="no-items">
             <h2>No Subsbcription yet</h2>
         </div>
@@ -13,9 +13,7 @@
         layout: 'dashboard',
         data() { 
             return {
-               myStyle: {
-                   backgroundColor: "#f0faff"
-               }
+              
             }
         },
 
@@ -26,7 +24,7 @@
     .admin-sub-container{
         display: grid;
         color: #114e9e;
-        min-height: 100vh;
+        // min-height: 100vh;
     }
     a{
         text-decoration: none;
@@ -46,10 +44,7 @@
     }
 
     @media (max-width: 767px) {
-        .cart{
-            margin: 30px 15px;
-            font-size: 12px;    
-        }
+        
     }
 </style>
 

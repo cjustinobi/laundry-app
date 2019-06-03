@@ -62,14 +62,17 @@
         background-image: url('~assets/images/wash-machine.jpg');
         background-size: cover;
         background-position: center top;
-        height: 600px;
+        height: 700px;
         width: 100%;
         margin-top: -47px;
+        margin-top: -117px;
         display: grid;
         align-content: center;
         color: #fefefe;
         font-weight: 700;
         text-align: center;
+        /* position: absolute;
+        top: 0; */
     }
     .intro-request{
         display: grid;

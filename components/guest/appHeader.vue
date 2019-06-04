@@ -1,6 +1,5 @@
 <template>
     <header>
-
         <nuxt-link to='/' class="brand-name">
             <img src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture">
         </nuxt-link>
@@ -10,27 +9,20 @@
         </div>
         <div class="app-links"><AppLinks/></div>
         
-
         <a style="cursor: pointer" class='toggle-icon' @click.prevent="$emit('toggleSidebar')">
             <i class='fa fa-bars'></i>
         </a>
-        
-
     </header>
 </template>
 
 <script>
-
     import AppLinks from '~/components/guest/appLinks'
 
     export default {
-
         components: {
             AppLinks
         }
-
     }
-
 </script>
 
 <style scoped>

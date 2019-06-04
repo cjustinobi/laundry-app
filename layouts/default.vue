@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-
         <AppHeader id="nav" class="nav" :class="{ 'hidden-navb': !showNavb }" @toggleSidebar="toggleSidebar"/>
 
         <div class="nuxt-render">
@@ -51,6 +50,7 @@
                 }
             },
             onScroll () {
+                let topNav = document.getElementById('top-nav')
                 const OFFSET = 68
                 if (window.pageYOffset < 0) {
                     return
@@ -63,9 +63,11 @@
                 if(window.pageYOffset > 70){
                     nav.style.background = '#01355f'
                     nav.style.boxShadow = '0 4px 12px 0 rgba(0,0,0,0.4)'
+                    topNav.style.display = "none"
                 } else {
                     nav.style.background = 'transparent'
                     nav.style.boxShadow = 'none'
+                    topNav.style.display = "block"
                 }
             }
         },
@@ -86,6 +88,12 @@
             //     }
             // }
         },
+        beforeMount() {
+            // if(window.pageYOffset = 0){
+                // document.getElementById('top-nav').style.display = "block"
+            // }
+            // window.onload( document.getElementById('top-nav').style.display = "block")
+        },
         mounted () {
             this.lastScrollPosition = window.pageYOffset
             window.addEventListener('scroll', this.onScroll)
@@ -93,10 +101,16 @@
             viewportMeta.name = 'viewport'
             viewportMeta.content = 'width=device-width, initial-scale=1'
             document.head.appendChild(viewportMeta)
+            // if(window.pageYOffset = 1){
+            //     topNav.style.display = "block"
+            // }
         },
 
         beforeDestroy () {
             window.removeEventListener('scroll', this.onScroll)
+            // if(window.pageYOffset = 0){
+            //     topNav.style.display = "block"
+            // }
         },
 
     }
@@ -123,7 +137,7 @@
 
     .nav{
         transform: translate3d(0, 0, 0);
-        transition: 0.1s all ease-out;
+        transition: 0.6s all ease-out;
     }
     .hidden-navb {
         box-shadow: none;

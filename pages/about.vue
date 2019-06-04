@@ -1,5 +1,6 @@
 <template>
     <div class="about-container">
+        <div id="top-nav"></div>
         <div class="faq-head"><h2>About Us</h2></div>
         <img class="show-image" src="~assets/images/wash-machine.jpg" alt="FAQS Image">
         <div class="about">
@@ -21,7 +22,7 @@
 <style scoped>
     .about-container{
         display: grid;
-        min-height: 100vh;
+        /* min-height: 100vh; */
         grid-template-rows: 60px 400px 1fr;
         color: #114e9e;
     }
@@ -30,6 +31,7 @@
         align-items: center;
         text-align: center;
         background-color: #fefefe;
+        grid-template-rows: 60px;
     }
     .show-image{
         background-size: cover;

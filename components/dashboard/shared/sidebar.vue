@@ -132,7 +132,9 @@
         /* min-height: 100vh; */
         grid-template-rows: 60px auto;
         transition: .8s ease-out;
-        /* position: relative; */
+    }
+    a{
+        text-decoration: none;
     }
     .sidebar-nav {
         display: grid;

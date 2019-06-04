@@ -54,34 +54,28 @@ export default {
     }
     @keyframes bounce {
         0% {
-            /* // transform: scale(1,1) translate(0px, 0px); */
+             /* transform: scale(1,1) translate(0px, 0px); */
         }
-        
         30%{
             transform: scale(1,0.8) translate(0px, 10px); 
         }
-
         75%{
-            /* // transform: scale(1,1.1) translate(0px, -25px);  */
+             /* transform: scale(1,1.1) translate(0px, -25px);  */
         }
-        
         100% {
-            /* // transform: scale(1,1) translate(0px, 0px); */
+             /* transform: scale(1,1) translate(0px, 0px); */
         }
     }
     @-webkit-keyframes bounce {
         0% {
             /* // transform: scale(1,1) translate(0px, 0px); */
         }
-        
         30%{
             transform: scale(1,0.8) translate(0px, 10px); 
         }
-
         75%{
             /* // transform: scale(1,1.1) translate(0px, -25px);  */
         }
-        
         100% {
             /* // transform: scale(1,1) translate(0px, 0px); */
         }

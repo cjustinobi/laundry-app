@@ -84,7 +84,7 @@
         grid-template-rows: auto;
         grid-gap: 20px;
         padding: 10px 20px 20px 20px;
-        background-color: #e9e9e9;
+        background-color: #d4d4d4;
         border-radius: 5px;
         border: 1px solid grey;
     }
@@ -110,6 +110,9 @@
         border: 1px solid rgb(202, 202, 202);
         padding: 15px;
     }
+    .fa-remove{
+        cursor: pointer;
+    }
     img{
         width: 40px;
     }
@@ -126,7 +129,7 @@
         height: 40px;
         color: #000;
         transition: 0.6s ease-in;
-        background-color: #d8d8d8;
+        background-color: #c2c2c2;
         outline: none;
         cursor: pointer;
     }

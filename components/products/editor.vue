@@ -118,7 +118,7 @@
         grid-gap: 12px;
         padding: 10px 20px 20px 20px;
         /* margin-top: 80px; */
-        background-color: #e9e9e9;
+        background-color: #d4d4d4;
         border-radius: 5px;
         border: 1px solid grey;
         width: 400px;
@@ -136,7 +136,7 @@
         color: #000;
         font-size: 16px;
         transition: 0.3s ease-in;
-        background-color: #d8d8d8;
+        background-color: #c2c2c2;
         outline: none;
         border: none;
         cursor: pointer;

@@ -37,7 +37,6 @@
         text-align: center;
         justify-items: center;
         align-items: center;
-        margin: 30px;
         color: rgb(150, 150, 150);
         box-shadow: 5px 5px 15px grey;
         margin: 40px;

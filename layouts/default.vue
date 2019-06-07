@@ -105,7 +105,6 @@
             //     topNav.style.display = "block"
             // }
         },
-
         beforeDestroy () {
             window.removeEventListener('scroll', this.onScroll)
             // if(window.pageYOffset = 0){

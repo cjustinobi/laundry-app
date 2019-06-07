@@ -21,6 +21,7 @@
     "js-cookie": "^2.2.0",
     "nuxt": "^2.6.3",
     "vue-async-computed": "^3.6.1",
+    "vue-month-picker": "^1.2.2",
     "vue-multiselect": "^2.1.4",
     "vuex-persistedstate": "^2.5.4"
   },

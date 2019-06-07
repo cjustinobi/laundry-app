@@ -89,8 +89,7 @@ export default {
 }
 </script>
 
-
-<style lang="scss" scoped>  
+<style lang="scss" scoped> 
     .login{
         position: relative;
         display: grid;
@@ -128,13 +127,13 @@ export default {
         cursor: pointer;
     }
     input{
-        width: 400px;
+        width: 100%;
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(207, 207, 207);
         height: 50px;
         font-size: 25px;
-        outline-style: none;  
+        outline-style: none;
     }
     label{
         color: #114e9e;

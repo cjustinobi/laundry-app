@@ -2,9 +2,6 @@
     <div class="cart-order-summary">
         <Cart/>
         <OrderSummary/>
-        <nuxt-link to="/products" class="continue-btn">
-            Continue
-        </nuxt-link>
     </div>
 </template>
 
@@ -27,30 +24,6 @@ export default {
     }
     a{
         text-decoration: none;
-    }
-    .continue-btn{
-        position: fixed;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-        bottom: 100px;
-        right: 2px;
-        background-color: #b8b8b8;
-        opacity: 0.6;
-        z-index: 1;
-        color: #fefefe;
-        transition: 0.8s ease-in;
-        font-size: 14px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        animation: bounce 0.95s infinite;
-        -webkit-animation: bounce 0.95s infinite;
-    }
-    .continue-btn:hover{
-        background-color: #e7b83f;
     }
     @keyframes bounce {
         0% {
@@ -85,11 +58,6 @@ export default {
         .cart-order-summary{
             grid-template-columns: 1fr;
             padding: 20px;
-        }
-        .continue-btn{
-            width: 60px;
-            height: 60px;
-            font-size: 12px;
         }
     }
 </style>

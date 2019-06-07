@@ -1,7 +1,7 @@
 <template>
     <div class="notify shadow">
         <transition name="slide-fade">
-            <div v-if="messages && messages.length > 0" :class="[{'error': error},{success: success}]">
+            <div v-if="messages && messages.length > 0" :class="[{'error': error},{'success': success}]">
                 <span v-for="(message, i) in messages">{{ message }}</span>
             </div>
         </transition>

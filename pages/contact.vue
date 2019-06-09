@@ -33,10 +33,11 @@
                 myStyle: {
                     backgroundColor: "#f0faff"
                 },
+              
             }
         },
         methods: {
-            
+           
         },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
         mounted() {
             // document.body.style.background = "#e1f5fe";

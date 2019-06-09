@@ -29,12 +29,16 @@
                 <span>Next</span> &nbsp; <i class="fa fa-angle-double-right"></i>
             </button>
         </div>
+
+        <!-- <MonthPickerInput :no-default="true" ></MonthPickerInput> -->
     </div>
 </template>
 
 <script>
+    // import MonthPicker from 'vue-month-picker'
+    // import MonthPickerInput from 'vue-month-picker'
 export default {
-
+    // components: {MonthPickerInput},
     data() {
         return {
             eyeSlash: false

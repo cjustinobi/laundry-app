@@ -1,5 +1,6 @@
 <template>
-    <div class="pricing-container" :style="myStyle">
+    <div class="pricing-container" :style="pageStyle">
+        <div id="top-nav"></div>
         <div class="price-head"><h2>Our Prices</h2></div>
         <div class="quick-response">
             <h2>No hidden fees. No confusing or tired pricing <br>  
@@ -66,7 +67,7 @@
         
         data() {
             return {
-                myStyle: {
+                pageStyle: {
                     backgroundColor: "#f0faff"
                 },
             }
@@ -82,7 +83,7 @@
 <style scoped>
     .pricing-container{
         display: grid;
-        min-height: 100vh;
+        /* min-height: 100vh; */
         grid-template-rows: 60px 100px 1fr 50px 60px;
         grid-gap: 30px;
         color: #114e9e;

@@ -286,28 +286,23 @@
 <style scoped>
     .payment-container{
         display: grid;
-        min-height: 100vh;
-        grid-template-rows: 300px;
         font-size: 14px;
-        /* grid-gap: 40px; */
     }
     .address-time-container{
         display: grid;
         grid-template-columns: 1fr auto;
         grid-gap: 50px;
-        height: 300px;
     }
     a{
         text-decoration: none;
     }
     .address-inner{
         display: grid;
-        /* height: 300px; */
         color: #114e9e;
         background-color: #fefefe;
         border-bottom: 1px solid rgb(207, 207, 207);
         box-shadow: 5px 5px 15px grey;
-        margin-left: 40px;
+        margin: 0 0 40px 40px;
         padding: 15px;
         grid-gap: 10px;
     }
@@ -449,7 +444,6 @@
     } 
     .font-folder{
         display: grid;
-        /* justify-content: space-between; */
         grid-template-columns: 1fr;
         position: relative;
         
@@ -509,8 +503,6 @@
     @media (max-width: 1124px) {
         .payment-container{
             grid-template-rows: 1fr;
-            /* grid-gap: 30px; */
-            /* padding-bottom: 20px; */
         }
         .address-time-container{
             grid-template: 1fr / 1fr;
@@ -520,7 +512,6 @@
         .address-inner{
             margin: 0 20px;
             font-size: 12px;
-            /* height: 350px; */
         }
         .pick-address{
             grid-gap: 10px;

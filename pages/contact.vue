@@ -23,6 +23,11 @@
                 </div>
             </div>
         </div>
+        <div class="input" :style="{backgroundColor: color}"></div>
+        <div class="input" :style="myStyl"></div>
+        <div class="input" v-bind:style="[myStyl, {height: width + 'px'}]"></div>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
     </div>
 </template>
 <script>
@@ -33,12 +38,21 @@
                 myStyle: {
                     backgroundColor: "#f0faff"
                 },
-              
+                color: 'blue',
+                width: '100'
             }
         },
         methods: {
            
-        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        },       
+        computed: {
+            myStyl(){
+                return{
+                    backgroundColor: this.color,
+                    width: this.width + 'px'
+                }                                                                                                                                                                                                                  
+            }
+        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
         mounted() {
             // document.body.style.background = "#e1f5fe";
         },                                                                                                                                                                                                                                                                          
@@ -48,6 +62,13 @@
     }
 </script>
 <style scoped>
+.input{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    display: inline-block;
+    margin: 10px;
+}
     .contact-container{
         display: grid;
         min-height: 100vh;

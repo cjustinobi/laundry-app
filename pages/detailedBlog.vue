@@ -30,58 +30,55 @@
         <h3 class="people-read">People also read...</h3>
         <div class="hr-grey"></div>
 
-        <div class="other-blogs">
-            <nuxt-link to="/">
-                <div class="blog-stories">
-                    <div class="story-img-container"><img class="story-img" src="~assets/images/EL_laundry.png" alt="EL img"></div>
-                    <h5>Combating Coffee Stains</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia 
-                        doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis
-                        sunt cumque necessitatibus. Nobis, harum.
-                    </p>
-                </div>
-            </nuxt-link>
-            <nuxt-link to="/">
-                <div class="blog-stories">
-                    <div class="story-img-container"><img class="story-img" src="~assets/images/EL_laundry.png" alt="EL img"></div>
-                    <h5>Combating Coffee Stains</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia 
-                        doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis
-                        sunt cumque necessitatibus. Nobis, harum.
-                    </p>
-                </div>
-            </nuxt-link>
-            <nuxt-link to="/">
-                <div class="blog-stories">
-                    <div class="story-img-container"><img class="story-img" src="~assets/images/EL_laundry.png" alt="EL img"></div>
-                    <h5>Combating Coffee Stains</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia 
-                        doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis
-                        sunt cumque necessitatibus. Nobis, harum.
-                    </p>
-                </div>
-            </nuxt-link>
-            <nuxt-link to="/">
-                <div class="blog-stories">
-                    <div class="story-img-container"><img class="story-img" src="~assets/images/EL_laundry.png" alt="EL img"></div>
-                    <h5>Combating Coffee Stains</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia 
-                        doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis
-                        sunt cumque necessitatibus. Nobis, harum.
-                    </p>
-                </div>
-            </nuxt-link>
+        <div class="blog-stack">
+            <div class="other-blogs" v-for="(blog, i) in blogs" :key="i">
+                <nuxt-link to="/">
+                    <div class="blog-stories">
+                        <div class="story-img-container"><img class="story-img" :src="blog.image" alt="EL img"/></div>
+                        <h5>{{ blog.title }}</h5>
+                        <p>{{ blog.content }}</p>
+                    </div>
+                </nuxt-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    
+    data() {
+        return {
+           blogs: [{
+                    image: require('~/assets/images/EL_laundry.png'),
+                    title: 'Combating Coffee Stain',
+                    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia\
+                            doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis\
+                            sunt cumque necessitatibus. Nobis, harum.'
+                    },{
+                    image: require('~/assets/images/EL_laundry.png'),
+                    title: 'Combating Coffee Stain',
+                    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia\
+                            doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis\
+                            sunt cumque necessitatibus. Nobis, harum.'
+                    
+                    },{
+                    image: require('~/assets/images/EL_laundry.png'),
+                    title: 'Combating Coffee Stain',
+                    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia\
+                            doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis\
+                            sunt cumque necessitatibus. Nobis, harum.'
+                    
+                    },{
+                    image: require('~/assets/images/EL_laundry.png'),
+                    title: 'Combating Coffee Stain',
+                    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Est praesentium nobis quis quia\
+                            doloremque explicabo quo rem expedita dolorem, ex culpa. Voluptate alias asperiores blanditiis\
+                            sunt cumque necessitatibus. Nobis, harum.'
+                    
+                    }
+                ]    
+        }
+    }
 }
 </script>
 
@@ -145,7 +142,23 @@ export default {
          background-color: rgb(163, 163, 163);
          height: 1px;
      }
-     .blog-stories{
+     .blog-stack{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+        margin: 0 30px 20px 30px;
+    }
+    .other-blogs{
+        display: grid;
+    }
+    .other-blogs:hover{
+        border: 1px solid #114e9e;
+        background-color: #e3eaf3;
+        opacity: 0.7;
+        transition: all 0.8s ease-in-out;
+    }
+    .blog-stories{
         display: grid;
         grid-gap: 10px;
         border: 1px solid rgb(218, 218, 218);
@@ -159,13 +172,7 @@ export default {
         width: 120px;
         height: 120px;
     }
-     .other-blogs{
-         display: grid;
-         grid-template-columns: repeat(4, 1fr);
-         grid-gap: 20px;
-         padding: 20px;
-         margin: 0 30px 20px 30px;
-     }
+    
 
     @media (max-width: 767px) {
         .detailed-blog{
@@ -174,7 +181,7 @@ export default {
         .detailed-blog-wrapper{
             grid-gap: 30px;
             padding: 10px;
-            margin: 15px;
+            margin: 15px 10px;
         }
        .blog-img{
             height: 400px;
@@ -187,16 +194,16 @@ export default {
             margin-left: 15px;
         }
         .hr-grey{
-            margin: 15px;
+            margin: 15px 10px;
         }
         .blog-stories{
             grid-gap: 10px;
         }
-        .other-blogs{
+        .blog-stack{
             grid-template-columns: 1fr;
             grid-gap: 20px;
-            padding: 20px;
-            margin: 20px 15px;
+            padding: 10px;
+            margin: 20px 10px;
         }
     }
 </style>

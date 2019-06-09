@@ -47,6 +47,9 @@ export default {
                 }
             }
             return 1
+        },
+        async checkout() {
+            await this.$axios.$post('order')
         }
     },
 

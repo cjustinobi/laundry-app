@@ -59,7 +59,7 @@ export default {
     axios: {
 
         baseURL: 'http://127.0.0.1:9000/api/'
-        //  baseURL: 'http://209.97.190.169/api/'
+        // baseURL: 'http://209.97.190.169/api/'
 
     },
 

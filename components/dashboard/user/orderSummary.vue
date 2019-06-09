@@ -23,7 +23,7 @@
             <div class="hl"></div>
             <div class="order-inner">
                 <p class="exclude">Excluding delivery charges</p>
-                <button class="pay-now">Continue to Checkout</button>
+                <button @click.prevent="checkout" class="pay-now">Continue to Checkout</button>
             </div>
         </div>
     </div>

@@ -21,13 +21,11 @@
                 <p v-if="user">{{ user.fullname }}</p>
             </div>
 
-            <div v-if="user !== undefined && user.user_type !== 3"
-                id="dropdown" :class="[{'dropdown': dropdown}]">
-                <a class="pull-down" @mouseover="showPull" @click.prevent="pullDown"><i class=" fa fa-angle-down"></i></a>
-                <div id="dropdown-content" :class="[{'dropdown-content': dropdownContent}]">
-                    <nuxt-link class="show my-profile" to="/profile">
-                        <i class="fa fa-user"></i> My Profile
-                    </nuxt-link>
+            <div v-if="user !== undefined && user.user_type !== 3"  class="dropdown">
+                <i @click.prevent="pullDown" v-if="!dropdownContent" class=" fa fa-angle-right"></i>
+                <i @click.prevent="pullDown" v-else class=" fa fa-angle-down"></i>
+                <div class="dropdown-content" v-if="dropdownContent">
+                    <nuxt-link class="show my-profile" to="/profile"><i class="fa fa-user"></i> My Profile</nuxt-link>
                     <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
                 </div>
             </div>
@@ -41,26 +39,26 @@ export default {
 
     data() {
         return {
-            dropdownContent: true,
-            dropdown: true
+            dropdownContent: false
         }
     },
     methods: {
         pullDown() {
-            let x = document.getElementById("dropdown-content")
-            if(x.className.indexOf("show") == -1) {
-                this.dropdownContent = true
-                x.className += " show"
-                x.style.display = "grid"
-            } else {
-                this.dropdownContent = false
-                x.style.display = "none"
-                x.className.replace("")
-            }
+            // let x = document.getElementById("dropdown-content")
+            // if(x.className.indexOf("show") == -1) {
+            //     this.dropdownContent = true
+            //     x.className += " show"
+            //     x.style.display = "grid"
+            // } else {
+            //     this.dropdownContent = false
+            //     x.style.display = "none"
+            //     x.className.replace("")
+            // }
+            this.dropdownContent = !this.dropdownContent
         },
-        showPull() {
-            // this.dropdownContent = !this.dropdownContent
-        }
+        clickedItem(){
+            this.pullDown();
+        },
     },
     computed: {
        /* user() {
@@ -76,13 +74,13 @@ export default {
     },
     watch: {
         'route': function(e) {
-            if(e && window.innerWidth > 767){
-                this.pullDown = true
-                this.dropdownContent = true
-            }else{
-                this.pullDown = false
-                this.dropdownContent = false
-            }
+            // if(e && window.innerWidth > 767){
+            //     this.pullDown = true
+            //     this.dropdownContent = true
+            // }else{
+            //     this.pullDown = false
+            //     this.dropdownContent = false
+            // }
         }
     }
 }
@@ -93,7 +91,6 @@ export default {
         display: grid;
         grid-template-columns: 1fr;
         position: relative;
-        /* align-items: center; */
         background-color: #01355f;
         height: 60px;
         color: #fefefe;
@@ -116,7 +113,6 @@ export default {
     .user-view{
         display: grid;
         grid-template-columns: 70px 35px auto 30px;
-        /* align-items: center; */
         grid-gap: 15px;
         justify-self: flex-end;
     }
@@ -172,11 +168,8 @@ export default {
     .names{
         display: grid;
         grid-template-columns: 20px auto;
-        
     }
-    .pull-down{
-        display: grid;
-        /* align-items: center; */
+    .fa-angle-down, .fa-angle-right{
         cursor: pointer;
     }
     .dropdown a{
@@ -193,7 +186,7 @@ export default {
         position: absolute;
         top: 40px;
         right: 20px;
-        display: none;
+        display: grid;
         z-index: 1;
         min-width: 140px;
         height: 70px;
@@ -203,16 +196,9 @@ export default {
         background-color: #c7c7c7;
         transition: 0.6s ease-in;
     }
-    .dropdown:hover .dropdown-content{
-        /* display: block; */
-    }
     .dropdown-content a{
         text-decoration: none;
     }
-
-@media (max-width: 480px) {
-    
-}
     
 
 @media (max-width: 767px) {
@@ -245,8 +231,6 @@ export default {
         height: 15px;
     }
     .notification-count{
-        /* top: 6px;
-        left: 7px; */
         width: 15px;
         height: 15px;
     }

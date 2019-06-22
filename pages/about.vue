@@ -5,7 +5,8 @@
         <img class="show-image" src="~assets/images/wash-machine.jpg" alt="FAQS Image">
         <div class="about">
             <div class="about-item">
-                <p class="about-item-p1">Elegant Laundry is the ultimate solution to get your laundry done. Done right and done 
+                <p class="about-item-p1">
+                    Elegant Laundry is the ultimate solution to get your laundry done. Done right and done 
                     affordably - whether you are too busy or just in a pinch, we'll pick you up, clean, fold
                     and return your laundry, nice and neat - so you don't have to worry about it!
                 </p>

@@ -1,4 +1,4 @@
-<template>
+    <template>
     <div class="how-it-works">
         <div class="description">
             <img src="~assets/images/EL_order.jpg" alt="Order-using-phone">
@@ -69,6 +69,7 @@ export default {
         .how-it-works{
             grid-template: auto / 1fr;
             grid-gap: 20px;
+            padding: 0 10px;
         }
     }
 

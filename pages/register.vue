@@ -34,7 +34,7 @@
         <div class="sign-up-sect">
             <button @click.prevent="signUp" class="sign-up-button">
                 <span v-if="!loading" ><i class="fa fa-user"></i> Register</span>
-                <img v-else="" class="loading" src="~/assets/images/loading.gif" alt="">
+                <img v-else class="loading" src="~/assets/images/loading.gif" alt="">
             </button>
             <small class="account">
                 <nuxt-link to="/login">Already have an account?</nuxt-link>
@@ -45,7 +45,6 @@
 </template>
 
 <script>
-
     export default {
 
         name: 'signUp',
@@ -63,9 +62,7 @@
                 loading: false,
             }
         },
-
         methods: {
-
             async signUp() {
                 this.loading = true
                 try {
@@ -82,7 +79,6 @@
 
                 }
             },
-
             toggleEyeSlash() {
                 let el = document.getElementById('password')
                 if(el.type === 'password'){
@@ -93,18 +89,15 @@
                 return this.eyeSlash = false
             }
         },
-
         computed: {
             plans() {
                 return this.$store.getters['plans/allPlans']
             }
         },
-
         mounted() {
             document.body.style.background = "#fefefe";
             this.$store.dispatch('plans/getPlans')
         },
-
         destroyed() {
             document.body.style.background = "none";
         }

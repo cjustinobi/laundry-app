@@ -53,7 +53,7 @@
     }
     .faq-list{
         display: grid;
-        grid-template-rows: 150px 20px 110px;
+        grid-template-rows: 150px auto auto;
         grid-gap: 15px;
         color: #114e9e;
     }
@@ -72,6 +72,7 @@
         justify-items: center;
         color: #114e9e;
         height: 30px;
+        padding: 10px 15px 0 15px;
     }
     a{
         text-decoration: none;
@@ -82,7 +83,7 @@
         .faq-container{
             grid-gap: 40px;
             grid-template-columns: 1fr;
-            padding: 0 60px 20px 60px;
+            padding: 0 15px 20px 15px;
         }
     } 
 </style>

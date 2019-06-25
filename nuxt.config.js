@@ -18,7 +18,8 @@ export default {
         ]
     },
     env: {
-        baseUrl: 'http://127.0.0.1:9000/'
+        // baseUrl: 'http://127.0.0.1:9000/'
+        baseUrl: 'http://134.209.45.60:81/'
     },
     /*
     ** Customize the progress-bar color

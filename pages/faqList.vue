@@ -126,6 +126,9 @@
         .faq-headlines{
             grid-template-columns: 1fr 30px;
         }
+        .faq-detailed{
+            padding-bottom: 10px;
+        }
     }
     @media (max-width: 290px) {
         .faq-inner{

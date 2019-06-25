@@ -14,8 +14,8 @@
                     <img class="elegant-image" src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
                     <h1>{{ plan.name }}</h1>
                 </div>
-                <div  class="price">
-                    <h1><sup>#</sup>{{ plan.price }}<span class="month">per month</span> </h1>
+                <div class="price">
+                    <h1><sup>#</sup>{{ plan.price }}<span class="month"> per month</span> </h1>
                 </div>
                 <div class="wash-container">
                     <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
@@ -92,7 +92,7 @@
     .packages{
         position: relative;
         display: grid;
-        grid-template: auto / repeat(auto-fit, minmax(250px, 350px));
+        grid-template: auto / repeat(auto-fit, minmax(150px, 350px));
         justify-content: center;
         justify-items: center;
         grid-gap: 40px;
@@ -175,6 +175,7 @@
         font-size: 18px;
         color: #728691;
         grid-gap: 5px;
+        padding: 5px;
     }
     .price{
         margin-bottom: 0px;
@@ -218,7 +219,7 @@
 
     @media (max-width: 767px) {
         .packages{
-            grid-template: auto / repeat(auto-fit, minmax(250px, 300px));
+            grid-template: auto / repeat(auto-fit, minmax(150px, 300px));
             grid-gap: 30px;
         }
         .wash-menu{
@@ -231,13 +232,15 @@
             width: 30px;
         }
         .name{
-            font-size: 16px;
+            grid-template-columns: 60px 190px;
+            font-size: 14px;
+            /* max-width: 310px; */
         }
-        .price{
+        .price h1{
             font-size: 16px;
         }
         .subscribe{
-            width: 270px;
+            width: 250px;
             font-size: 14px;
         }
     }

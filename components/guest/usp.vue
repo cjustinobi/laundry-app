@@ -42,7 +42,7 @@
     }
     .services{
         display: grid;
-        grid-template-rows: 150px 20px 110px;
+        grid-template-rows: 150px auto auto;
         grid-gap: 15px;
         color: #114e9e;
     }
@@ -62,7 +62,7 @@
         .usp{
             grid-gap: 40px;
             grid-template-columns: 1fr;
-            padding: 0 60px 20px 60px;
+            padding: 0 15px 20px 15px;
         }
     }
 

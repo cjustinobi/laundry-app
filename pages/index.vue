@@ -172,6 +172,18 @@
         .intro-request{
             display: none;
         }
+        .the-how,
+        .pricing,
+        .why-us,
+        .faq{
+            font-size: 30px;
+        }   
+        .the-how-mark,
+        .price-highlight,
+        .why-us-highlight,
+        .faq-highlight{
+            width: 150px;
+        }
     }
 
     @media(max-width: 480px) {

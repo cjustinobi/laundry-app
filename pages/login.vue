@@ -19,7 +19,7 @@
             <button @click="signIn" class="login-button ">
                 <i class="fa fa-sign-in"></i> 
                 <span v-if="!loading">Login</span>
-                <img v-else="" src="~/assets/images/loading.gif" class="loading" alt="Loading gif">
+                <img v-else src="~/assets/images/loading.gif" class="loading" alt="Loading gif">
             </button>
             <span class="pw">Forgot your password?</span>
         </div>

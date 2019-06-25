@@ -22,10 +22,11 @@
             </div>
 
             <div v-if="user !== undefined && user.user_type !== 3"  class="dropdown">
-                <i @click.prevent="pullDown" v-if="!dropdownContent" class=" fa fa-angle-right"></i>
-                <i @click.prevent="pullDown" v-else class=" fa fa-angle-down"></i>
+                <i @click.prevent="pullDown" v-if="!dropdownContent" class="fa fa-angle-right"></i>
+                <i @click.prevent="pullDown" v-else class="fa fa-angle-down"></i>
                 <div class="dropdown-content" v-if="dropdownContent">
-                    <nuxt-link class="show my-profile" to="/profile"><i class="fa fa-user"></i> My Profile</nuxt-link>
+                    <nuxt-link class="show my-profile" to="/profile" @click="closeMenu">
+                    <i class="fa fa-user"></i> My Profile</nuxt-link>
                     <nuxt-link class="show" to="/logout"><i class="fa fa-power-off"></i> Exit</nuxt-link>
                 </div>
             </div>
@@ -55,6 +56,9 @@ export default {
             //     x.className.replace("")
             // }
             this.dropdownContent = !this.dropdownContent
+        },
+        closeMenu(){
+            this.dropdownContent = false
         },
         clickedItem(){
             this.pullDown();

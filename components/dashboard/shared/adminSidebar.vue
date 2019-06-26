@@ -14,38 +14,46 @@
         <div
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
-            <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="My Orders"></i>
-                <span v-if="wideMenu">My Orders</span>
+            <nuxt-link to='/admin/dashboard' class='logo'>
+                <i class="fa fa-dashcube" title="Dashboard"></i>
+                <span v-if="wideMenu">All Orders</span>
             </nuxt-link>
-            <nuxt-link to='/products' class='logo'>
+            <nuxt-link to='/admin/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>
                 <span v-if="wideMenu">Items</span>
             </nuxt-link>
-            <nuxt-link to='/subscriptions' class='logo'>
-                <i class="fa fa-suitcase" title="Subscription"></i>
-                <span v-if="wideMenu">My subscription</span>
+            <nuxt-link to='/admin/categories' class='logo'>
+                <i class="fa fa-list" title="Categories"></i>
+                <span v-if="wideMenu">Categories</span>
             </nuxt-link>
-            <nuxt-link to='/transactions' class='logo'>
+            <nuxt-link to='/admin/users' class='logo'>
+                <i class="fa fa-user" title="Users"></i>
+                <span v-if="wideMenu">Users</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/subscriptions' class='logo'>
+                <i class="fa fa-hashtag" title="Subscription"></i>
+                <span v-if="wideMenu">Subscriptions</span>
+            </nuxt-link>
+            <nuxt-link to='/admin/transactions' class='logo'>
                 <i class="fa fa-history" title="Transaction History"></i>
                 <span v-if="wideMenu">Transactions</span>
             </nuxt-link>
-            <nuxt-link to='/notifications' class='logo'>
+            <nuxt-link to='/admin/notifications' class='logo'>
                 <i class="fa fa-bell" title="Notifications"></i>
                 <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/support' class='logo'>
-                <i class="fa fa-user" title="Contact/Support"></i>
-                <span v-if="wideMenu">Contact support</span>
+            <nuxt-link to='/admin/packages/add' class='logo'>
+                <i class="fa fa-plus-circle" title="Add Package"></i>
+                <span v-if="wideMenu">Add Package</span>
             </nuxt-link>
-            <nuxt-link to='/referral' class='logo'>
-                <i class="fa fa-user-plus" title="Refer a Friend"></i>
-                <span v-if="wideMenu">Refer a Friend</span>
+            <nuxt-link to='/admin/benefits/add' class='logo'>
+                <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
+                <span v-if="wideMenu">Create Benefits</span>
             </nuxt-link>
-            <nuxt-link to='/settings' class='logo setting-icon'>
-                <i class="fa fa-cog" title="Settings"></i>
-                <span v-if="wideMenu">Settings</span>
+            <nuxt-link to='/logout' class='logo'>
+                <i class="fa fa-power-off" title="Logout"></i>
+                <span v-if="wideMenu">Logout</span>
             </nuxt-link>
         </div>
 

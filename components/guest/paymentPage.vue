@@ -2,38 +2,18 @@
     <div class="payment-container">
         <div class="address-time-container">
             <div class="address-inner">
-                <!-- <div class="pick-address">
-                    <div>
-                        <div class="edit-address"><h4>Pick-up Address</h4> <i class="fa fa-edit"></i></div>
-                        <p>30, Afaha Uqua road</p>
-                        <p>Eket, Akwa Ibom State</p>
-                    </div>
-                    <div>
-                        <div class="edit-address"><h4>Delivery Address</h4> <i class="fa fa-edit"></i></div>
-                        <p>30, Afaha Uqua road</p>
-                        <p>Eket, Akwa Ibom State</p>
-                    </div>
-                </div> -->
-
                 <div class="pick-address">
                     <div>
                         <div class="address-heading">
-                        <h4 class="address-head">Pick-up Address</h4>
-                        <div class="add-sect">
-                            <!-- <button 
-                                v-if="$route.path == '/profile' && addresses.length == 0" 
-                                class="add-button" 
-                                @click.prevent="showAddressForm = true"
-                            > Add Address
-                            </button>
-                            <button v-else class="add-button" @click.prevent="showAddressForm = true"> Add Address</button> -->
-                            <button v-if="$route.path !== '/profile'" class="other-address"
-                                    @click.prevent="useDefaultAddress = !useDefaultAddress"
-                            >
-                                <span v-if="useDefaultAddress">See Other Addresses</span>
-                                <span v-if="!useDefaultAddress">Use Default Address</span>
-                            </button>
-                        </div>
+                            <h4 class="address-head">Pick-up Address</h4>
+                            <div class="add-sect">
+                                <button v-if="$route.path !== '/profile'" class="other-address"
+                                        @click.prevent="useDefaultAddress = !useDefaultAddress"
+                                >
+                                    <span v-if="useDefaultAddress">See Other Addresses</span>
+                                    <span v-if="!useDefaultAddress">Use Default Address</span>
+                                </button>
+                            </div>
                         </div>
                         <div class="add-wrapper" ref="add-wrapper">
                             <div
@@ -44,9 +24,9 @@
                                     @click="setPickUpAddress(ad)"
                                     :key="i"
                             >
-                                <div class="add-form">             
+                                <div class="add-form">
                                     <div class="font-folder">
-                                        <h4 v-if="ad.defaultAddress" class="address-head-default">Default Address</h4>              
+                                        <h4 v-if="ad.defaultAddress" class="address-head-default">Default Address</h4>
                                         <div class="edit-trash">
                                             <i @click.prevent="editAddress(ad)" class="fa fa-edit"></i>
                                             <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
@@ -65,22 +45,22 @@
                     </div>
                     <div>
                         <div class="address-heading">
-                        <h4 class="address-head"> Delivery Address</h4>
-                        <div class="add-sect">
-                            <!-- <button 
-                                v-if="$route.path == '/profile' && addresses.length == 0" 
-                                class="add-button" 
-                                @click.prevent="showAddressForm = true"
-                            > Add Address
-                            </button>
-                            <button v-else class="add-button" @click.prevent="showAddressForm = true"> Add Address</button> -->
-                            <button v-if="$route.path !== '/profile'" class="other-address"
-                                    @click.prevent="useDefaultAddress = !useDefaultAddress"
-                            >
-                                <span v-if="useDefaultAddress">See Other Addresses</span>
-                                <span v-if="!useDefaultAddress">Use Default Address</span>
-                            </button>
-                        </div>
+                            <h4 class="address-head"> Delivery Address</h4>
+                            <div class="add-sect">
+                                <!-- <button
+                                    v-if="$route.path == '/profile' && addresses.length == 0"
+                                    class="add-button"
+                                    @click.prevent="showAddressForm = true"
+                                > Add Address
+                                </button>
+                                <button v-else class="add-button" @click.prevent="showAddressForm = true"> Add Address</button> -->
+                                <button v-if="$route.path !== '/profile'" class="other-address"
+                                        @click.prevent="useDefaultAddress = !useDefaultAddress"
+                                >
+                                    <span v-if="useDefaultAddress">See Other Addresses</span>
+                                    <span v-if="!useDefaultAddress">Use Default Address</span>
+                                </button>
+                            </div>
                         </div>
                         <div class="add-wrapper" ref="add-wrapper">
                             <div
@@ -91,9 +71,9 @@
                                     @click="setPickUpAddress(ad)"
                                     :key="i"
                             >
-                                <div class="add-form">             
+                                <div class="add-form">
                                     <div class="font-folder">
-                                        <h4 v-if="ad.defaultAddress" class="address-head-default">Default Address</h4>              
+                                        <h4 v-if="ad.defaultAddress" class="address-head-default">Default Address</h4>
                                         <div class="edit-trash">
                                             <i @click.prevent="editAddress(ad)" class="fa fa-edit"></i>
                                             <i @click="delAddress(ad.id)" class="fa fa-trash"></i>
@@ -113,7 +93,7 @@
                 </div>
 
                 <div class="line-demarcator"></div>
-                 <div class="pick-address">
+                <div class="pick-address">
                     <div>
                         <div class="edit-address"><h4>Estimated collection time</h4> <i class="fa fa-edit"></i></div>
                         <p>02:00PM - 04:00PM on 19th Mar, 2019</p>
@@ -122,53 +102,43 @@
                         <div class="edit-address"><h4>Estimated delivery time</h4> <i class="fa fa-edit"></i></div>
                         <p>02:00PM - 04:00PM on 19th Mar, 2019</p>
                     </div>
-                </div>    
+                </div>
                 <div class="payment-method">
-                   <div class="payment-inner">
+                    <div class="payment-inner">
                         <h4>Payment Method</h4>
                         <div class="select-payment">
-                            <div class="card-payment" :class="{'change-color': cardPayment}" 
-                                @click.prevent="togglePayment('cardPayment')">
+                            <div class="card-payment" :class="{'change-color': cardPayment}"
+                                 @click.prevent="togglePayment('cardPayment')">
                                 <i class="fa fa-check-circle"></i> Card Payment
                             </div>
-                            <div class="bank-transfer" :class="{'change-color': bankTransfer}" 
-                                @click.prevent="togglePayment('bankTransfer')">
+                            <div class="bank-transfer" :class="{'change-color': bankTransfer}"
+                                 @click.prevent="togglePayment('bankTransfer')">
                                 <i class="fa fa-check-circle"></i> Bank Transfer
                             </div>
-                            <div class="pod" :class="{'change-color': payOnDelivery}" 
-                                @click.prevent="togglePayment('payOnDelivery')">
+                            <div class="pod" :class="{'change-color': payOnDelivery}"
+                                 @click.prevent="togglePayment('payOnDelivery')">
                                 <i class="fa fa-check-circle"></i> Pay on delivery
                             </div>
                         </div>
-                   </div>
-                </div>
-            </div> 
-            <div class="cart-summary">
-                <div class="cart"><h4>Cart Summary</h4></div>
-                <div class="cart-inner">
-                    <div class="total">
-                        <p>Total</p>
-                        <p>N3000</p>
-                        <p>Delivery charge</p>
-                        <p>N1000</p>
-                        <p>Grand Total</p>
-                        <p>N4000</p>
                     </div>
-                    <div class="gift"><input type="checkbox" id=""> I have a coupon/Gift card</div>
-                    <div>
-                        <img src="~assets/images/mastercard.png" alt="Master Card">
-                        <img src="~assets/images/visa.png" alt="Visa Card">
-                        <img src="~assets/images/verve.jpg" alt="Verve Card">
-                    </div>
-                    <button class="pay-now">Pay Now</button>
                 </div>
             </div>
+            <div class="cart-summary">
+                <OrderSummary/>
+            </div>
         </div>
+        <Cart/>
     </div>
 </template>
 
 <script>
+
+    import Cart from '~/components/dashboard/user/cart'
+    import OrderSummary from '~/components/dashboard/user/orderSummary'
+
     export default {
+
+        components: { Cart, OrderSummary },
 
         data() {
             return {
@@ -180,7 +150,7 @@
                 payOnDelivery: false
             }
         },
-         methods: {
+        methods: {
 
             editAddress(address) {
                 this.editMode = true
@@ -243,8 +213,8 @@
         computed: {
             addresses() {
                 const addresses = this.$store.getters['users/userAddresses']
-                return this.$route.path.includes('profile') || this.useDefaultAddress ? 
-                addresses.filter(ad => ad.defaultAddress) : addresses
+                return this.$route.path.includes('profile') || this.useDefaultAddress ?
+                    addresses.filter(ad => ad.defaultAddress) : addresses
             },
             pickUpAddress() {
                 return this.$store.getters['cart/pickUpAddress']
@@ -441,12 +411,12 @@
         padding: 10px;
         width: 250px;
         font-size: 14px;
-    } 
+    }
     .font-folder{
         display: grid;
         grid-template-columns: 1fr;
         position: relative;
-        
+
     }
     .fa-trash{
         color: indianred;
@@ -536,9 +506,9 @@
         .address-heading{
             grid-gap: 10px;
         }
-         .add-wrapper{
+        .add-wrapper{
             grid-template: 157px / repeat(auto-fit, minmax(250px, 300px));
-         }
+        }
         .add-button{
             width: 100px;
             height: 40px;

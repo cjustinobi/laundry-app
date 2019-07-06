@@ -2,10 +2,10 @@
     <div class="all-products">
         <div><Search/></div>
         <div><Items @toogleSideLinks="toogleSideLinks"/></div>
-        <button @click.prevent="$emit('nextTab', 'address')" v-if="items.length > 0"
+        <!--<button @click.prevent="$emit('nextTab', 'address')" v-if="items.length > 0"
                 class="continue-btn">
             Continue
-        </button>
+        </button>-->
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                 <Actions

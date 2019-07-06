@@ -31,13 +31,26 @@
 
 <script>
 
+    import PayStack from '~/mixins/paystack'
     import Cart from '~/mixins/cart'
     import CurrencyFormatter from '~/mixins/currencyFormatter'
 
     export default {
 
-        mixins: [CurrencyFormatter, Cart]
+        mixins: [CurrencyFormatter, Cart, PayStack],
 
+        head () {
+            return {
+                script: [{ src: 'https://js.paystack.co/v1/inline.js' }]
+            }
+        },
+
+        methods: {
+            checkout() {
+                const ORDER  = this.$store.state.cart.order
+                this.payWithPaystack({ cartId: ORDER.cart_id, orderId: ORDER.id, totalAmount: this.subTotal })
+            }
+        }
     }
 </script>
 

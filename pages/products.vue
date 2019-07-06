@@ -25,25 +25,28 @@
 
         <AllProducts v-if="products" @nextTab="toggleTab" />
         <UserAddresses v-if="address" @nextTab="toggleTab" class="insert-margin"/>
-        <editPassword v-if="time" @nextTab="toggleTab" class="insert-margin"/>
+        <div v-if="time" @nextTab="toggleTab" class="insert-margin">
+            <datetime v-model="pickupDate" title="Pickup date" class="pickup-date" placeholder="Enter pickup date" type="datetime" id="pickupDate"/>
+        </div>
         <PaymentPage v-if="paymentPage" class="insert-margin"/>
     </div>
 </template>
 
 <script>
+
     import AllProducts from '~/components/products/list'
     import UserAddresses from '~/components/shared/userAddresses'
-    import EditPassword from '~/components/guest/editPassword'
     import PaymentPage from '~/components/guest/paymentPage'
 
     export default {
 
         layout: 'dashboard',
 
-        components: { AllProducts, UserAddresses, EditPassword, PaymentPage },
+        components: { AllProducts, UserAddresses, PaymentPage },
 
         data() {
             return {
+                pickupDate: '',
                 products: true,
                 address: false,
                 time: false,
@@ -71,6 +74,11 @@
                     return this.time = true
                 }
                 if(val == 'paymentPage') {
+                    if (this.pickupDate == '') {
+                        return this.$store.dispatch('notifications/setStatus', {
+                            messages: ['pickup date has not been entered'], state: 'error'
+                        })
+                    }
                     this.products =false
                     this.address = false
                     this.time = false
@@ -78,13 +86,13 @@
                 }
             },
         },
-        computed: {
-           users(){
-                // return this.$store.getter['users/users']
+
+        watch: {
+            pickupDate(e) {
+                if (e && this.$store.state.cart.order === '') {
+                    this.$store.dispatch('cart/createLead', e)
+                }
             }
-        },
-        mounted() {
-            // this.$store.dispatch('users/getUsers')
         }
     }
 </script>
@@ -117,6 +125,7 @@
     .insert-margin{
         margin-top: 60px;
     }
+
   
 
     @media (max-width: 767px) {

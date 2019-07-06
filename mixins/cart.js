@@ -78,7 +78,9 @@ export default {
         eleToUpdate(e) {
             if (e != null) {
                 let el = this.$refs[`qty-${e.elId}`]
-                el[0].innerText = e.qty
+                if (el) {
+                    el[0].innerText = e.qty
+                }
             }
         }
     }

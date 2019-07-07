@@ -60,8 +60,6 @@
             </button>
         </div>
 
-        <DeliveryAddress />
-
         <div :class="{'backdrop': showAddressForm}">
             <div :class="[{'show-form': showAddressForm, 'hide-form': !showAddressForm}]">
                 <AddressEditor
@@ -78,12 +76,11 @@
 
 <script>
 
-    import DeliveryAddress from '~/components/shared/deliveryAddress'
     import AddressEditor from '~/components/shared/addressEditor'
 
     export default {
 
-        components: { AddressEditor, DeliveryAddress },
+        components: { AddressEditor },
 
         data() {
             return {

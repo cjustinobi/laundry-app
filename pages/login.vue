@@ -1,5 +1,5 @@
 <template>
-    <div class="login">
+    <form class="login">
         <div class="elegant-image">
             <img src="~/assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="login-sect">
-            <button @click="signIn" class="login-button ">
+            <button type="submit" @click.prevent="signIn" class="login-button ">
                 <i class="fa fa-sign-in"></i> 
                 <span v-if="!loading">Login</span>
                 <img v-else src="~/assets/images/loading.gif" class="loading" alt="Loading gif">
@@ -30,7 +30,7 @@
                 <nuxt-link to="/register">Create account</nuxt-link>
             </small>
         </div> 
-    </div>
+    </form>
 
 </template>
 

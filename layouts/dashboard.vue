@@ -2,8 +2,8 @@
     <div class="dashboard-container">
         <div :class="[{'dashboard': !minimized},{'minimized': minimized}]">
             <aside :class="[{'sidebar': sidebar}, {'hide-sidebar': !sidebar}]" >
-                <Sidebar @toggleMenu="adjustMenu"/>
-                <!--<admin-sidebar v-if="user !== undefined && user.user_type === 3" @toggleMenu="adjustMenu"></admin-sidebar>-->
+                <AdminSidebar v-if="(user !== undefined || null) && user.user_type === 3" @toggleMenu="adjustMenu"/>
+                <Sidebar v-else @toggleMenu="adjustMenu"/>
             </aside>
             <div class="content">
                 <DashHeader @showDrawer="hideDrawer = false"/>
@@ -27,13 +27,14 @@
 
 <script>
     import Sidebar from '~/components/dashboard/shared/sidebar'
+    import AdminSidebar from '~/components/dashboard/shared/adminSidebar'
     import DashHeader from '~/components/dashboard/dashHeader'
     import QuickLinks from '~/components/guest/quickLinks'
     import AppFooter from '~/components/guest/appFooter'
     import Drawer from '~/components/dashboard/drawer'
     
     export default {
-        components: { Sidebar, DashHeader,QuickLinks, AppFooter, Drawer },
+        components: { Sidebar, AdminSidebar, DashHeader,QuickLinks, AppFooter, Drawer },
         middleware: ['check-auth'],
         data() {
             return {

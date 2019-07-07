@@ -1,10 +1,10 @@
-import Vue from 'vue'
 
 export const state = () => ({
     items: [],
     eleToUpdate: null,
     pickUpAddress: '',
-    pickUpTime: ''
+    pickUpTime: '',
+    order: ''
 })
 
 export const mutations = {
@@ -45,6 +45,18 @@ export const mutations = {
     },
     PICK_UP_ADDRESS (state, address) {
         state.pickUpAddress = address
+    },
+    PICK_UP_TIME (state, time) {
+        state.pickUpTime = time
+    },
+    SET_ORDER (state, order) {
+        state.order = order
+    },
+    CLEAR_CART (state) {
+        state.items = []
+        state.pickUpAddress = ''
+        state.pickUpTime = ''
+        state.order = ''
     }
 }
 
@@ -63,6 +75,25 @@ export const actions = {
     },
     pickUpAddress({ commit }, payload) {
         commit('PICK_UP_ADDRESS', payload)
+    },
+    async createLead({ commit, rootState }, payload) {
+        commit('PICK_UP_TIME', payload)
+        const cartItems = rootState.cart.items.map(item => { return {
+            product_id: item.id,
+            qty: item.qty,
+            price: item.price,
+        }
+        })
+
+        const res = await this.$axios.$post('orders', {
+            cartItems,
+            pickup_time: rootState.cart.pickUpTime,
+            pickup_address_id: rootState.cart.pickUpAddress.id
+        })
+        return commit('SET_ORDER', res)
+    },
+    clearCart({ commit }) {
+        commit('CLEAR_CART')
     }
 }
 

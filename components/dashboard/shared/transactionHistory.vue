@@ -6,65 +6,26 @@
             <div class="table-wrap1">
                 <table>
                     <tr>
+                        <th># <i class="fa fa-sort-down"></i></th>
                         <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
-                        <th>Payment For <i class="fa fa-sort"></i></th>
                         <th>Payment Type <i class="fa fa-sort"></i></th>
                         <th>Amount <i class="fa fa-sort"></i></th>
                         <th>Trans Date <i class="fa fa-sort"></i></th>
                         <th>Status <i class="fa fa-sort-amount-desc"></i></th>
                     </tr>
-                    <tr>
-                        <td>TR0RT565565656</td>
-                        <td>Order</td>
-                        <td>Card</td>
-                        <td>N4,000</td>
-                        <td>19th, Mar, 2019, 10:00AM</td>
-                        <td class="pending">Pending <br> <button class="requery-btn">Requery</button></td>
-                    </tr>
-                    <tr>
-                        <td>TR0RT565565656</td>
-                        <td>Order</td>
-                        <td>Card</td>
-                        <td>N4,000</td>
-                        <td>19th, Mar, 2019, 10:00AM</td>
-                        <td class="successful">Successful</td>
+                    <tr v-if="transactions && transactions.length" v-for="(tran, i) in transactions" :key="i">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ tran.reference }}</td>
+                        <td>{{ tran.payment_method }}</td>
+                        <td>&#8358;{{ currency.format(tran.amount) }}</td>
+                        <td>{{ tran.updatedAt }}</td>
+                        <td :class="[{'success': tran.status},{'pending': !tran.status}]">{{ tran.message }} <br>
+                            <button v-if="!tran.status" class="requery-btn">Requery</button>
+                        </td>
                     </tr>
                 </table>
             </div>
-            <!-- <div class="table-wrap2">
-                <table>
-                    <tr>
-                        <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
-                        <td>TR0RT565565656</td>
-                        <td>TR0RT565565656</td>
-                    </tr>
-                    <tr>
-                        <th>Payment For <i class="fa fa-sort"></i></th>
-                        <td>Order</td>
-                        <td>Order</td>
-                    </tr>
-                    <tr>
-                        <th>Payment Type <i class="fa fa-sort"></i></th>
-                        <td>Card</td>
-                        <td>Card</td>
-                    </tr>
-                    <tr>
-                        <th>Amount <i class="fa fa-sort"></i></th>
-                        <td>N4,000</td>
-                        <td>N4,000</td>
-                    </tr>
-                    <tr>
-                        <th>Trans Date <i class="fa fa-sort"></i></th>
-                        <td>19th, Mar, 2019, 10:00AM</td>
-                        <td>19th, Mar, 2019, 10:00AM</td>
-                    </tr>
-                    <tr>
-                        <th>Status <i class="fa fa-sort-amount-desc"></i></th>
-                        <td class="pending">Pending <br> <button class="requery-btn">Requery</button></td>
-                        <td class="successful">Successful</td>
-                    </tr>
-                </table>
-            </div> -->
+
             <div class="entries">
                 <div class="entry-head"><p class="p2">Showing 2 to 2 of Entries</p></div>
                 <div class="previous-next">
@@ -80,16 +41,28 @@
 
 <script>
 
+    import CurrencyFormatter from '~/mixins/currencyFormatter'
+
     export default {
+
+        mixins: [CurrencyFormatter],
 
         data() {
             return {
                
             }
         },
-        mounted() {
-            // document.body.style.background = "#e1f5fe";
+
+        computed: {
+            transactions() {
+                return this.$store.getters['transactions/allTransactions']
+            }
         },
+
+        beforeMount() {
+            this.$store.dispatch('transactions/getTransactions')
+        },
+
         destroyed() {
             document.body.style.background = "none";
         }
@@ -128,9 +101,6 @@
     .number-input{
         width: 35px;
     }
-    .table-wrap2{
-        /* display: none; */
-    }
     table {
         border-collapse: collapse;
         width: 92%;
@@ -155,7 +125,7 @@
         border: none;
         cursor: pointer;
     }
-    .successful{
+    .success{
         color: rgb(31, 168, 31);
     }
     .entries{

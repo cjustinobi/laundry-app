@@ -26,7 +26,7 @@ export const actions = {
         const config = { header: { 'content-type': 'multipart/form-data' }}
         try {
             let res = await this.$axios.$post('products', fd, config)
-            console.log(res)
+            console.log('kilode ' + res)
         }
         catch(e) {
             return e

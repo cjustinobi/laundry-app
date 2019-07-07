@@ -18,7 +18,9 @@ export default {
         ]
     },
     env: {
+        paystackKey: 'pk_test_55abb891b57cb770606d3efdd6994fe1b9ffdc30',
         baseUrl: 'http://127.0.0.1:9000/'
+        // baseUrl: 'http://134.209.45.60:81/'
     },
     /*
     ** Customize the progress-bar color
@@ -39,6 +41,7 @@ export default {
     plugins: [
         { src: '~/plugins/axios' },
         { src: '~/plugins/user' },
+        { src: '~/plugins/datetime', ssr: false },
         { src: '~/plugins/localStorage', ssr: false },
         { src: '~/plugins/notification' },
         { src: '~/plugins/asyncComputed', ssr: false }

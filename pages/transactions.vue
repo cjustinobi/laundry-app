@@ -1,6 +1,6 @@
 <template>
     <div class="transaction-container" >
-       <div class="awaiting">
+       <!--<div class="awaiting">
            <div class="awaiting-inner"><i class="fa fa-check-circle"></i> <h4>Awaiting Pick-up</h4></div>
            <h4 class="mens-wear">Dry Cleaning/Men's Wear</h4>
        </div>
@@ -61,7 +61,7 @@
             </label>
         </div>
 
-        <div class="btn-back"><button class="back"><i class="fa fa-angle-left"></i> &nbsp; Back</button></div>
+        <div class="btn-back"><button class="back"><i class="fa fa-angle-left"></i> &nbsp; Back</button></div>-->
 
         <div><transaction-history/></div>
       
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import TransactionHistory from '~/components/guest/transactionHistory'
+import TransactionHistory from '~/components/dashboard/shared/transactionHistory'
     export default {
 
         layout: 'dashboard',

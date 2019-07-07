@@ -11,7 +11,7 @@ export default {
                 metadata: {
                     custom_fields: [
                         {
-                            display_name: "IRIS",
+                            display_name: "Laundry",
                             variable_name: "mobile_number",
                             value: "+2348012345678"
                         }
@@ -24,11 +24,11 @@ export default {
                                     amount: totalAmount,
                                     reference,
                                     message,
-                                    transaction,
+                                    transaction_number: transaction,
                                     cartId
                                 })
                                 .then(res => {
-
+                                self.pickupDate = ''
                                 self.$store.dispatch('cart/clearCart')
                                 self.$store.dispatch('notifications/setStatus',
                                     { messages: ['payment is successful'], state: 'success' })

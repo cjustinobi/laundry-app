@@ -85,7 +85,7 @@ export default {
         display: grid;
         align-items: center;
         border-bottom: 1px solid rgb(230, 224, 224);
-        padding-left: 40px;
+        padding-left: 20px;
         color: #114e9e;
     }
     .balance{

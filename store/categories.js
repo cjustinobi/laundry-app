@@ -8,16 +8,25 @@ export const mutations = {
     },
     ADD_CATEGORIES (state, payload) {
         state.allCategories.push(payload)
+    },
+    UPDATE_CATEGORY (state, payload) {
+        const categoryIndex = state.allCategories.findIndex(category => category.id === payload.id)
+        state.allCategories[categoryIndex] = payload
     }
 
 }
 
 export const actions = {
-    async store({ commit }, payload) {
+    async store({ commit }, { payload, editMode = false}) {
         try {
-            let res = await this.$axios.$post('categories', { categories: payload })
-            console.log('this is res from categories ' + res)
-            commit('ADD_CATEGORIES', res)
+            let res = ''
+            if (editMode) {
+                res = await this.$axios.$put(`categories/${payload.id}`, { category: payload.name })
+                commit('UPDATE_CATEGORY', res)
+            } else {
+                res = await this.$axios.$post('categories', { categories: payload })
+                commit('ADD_CATEGORIES', res)
+            }
             return 'success'
         }
         catch(e) {

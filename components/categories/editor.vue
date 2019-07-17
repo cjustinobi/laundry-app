@@ -25,48 +25,58 @@
     import  FormElements  from '~/mixins/formElements'
     export default {
 
-        props: [
-            'showBenefitsForm',
-            'editDetail'
-        ],
+        props: ['showBenefitsForm', 'editDetail'],
 
         mixins: [FormElements],
 
         data() {
             return {
-                items: [{ name: '' }]
+                items: [{ name: '' }],
+                isLoading: false
             }
         },
 
         methods: {
             async submitCategories() {
-                this.isLoading = true
-                this.items = this.items.filter(item => item.name !== '')
-                try {
-                    let res = await this.$store.dispatch('categories/store', this.items)
-                    this.isLoading = false
-                    this.items = [{ name: '' }] // Clears the form.
-                    this.$emit('cancelForm')
-                } catch (err) {
-                    console.log(err)
-                    this.isLoading = false
+                if (this.items.length) {
+                    let res = ''
+                    this.isLoading = true
+                    this.items = this.items.filter(item => item.name !== '')
+                    try {
+                        if (this.editDetail) {
+                            let payload = this.items[0]
+                            res = await this.$store.dispatch('categories/store', { payload, editMode: true })
+                        } else {
+                            res = await this.$store.dispatch('categories/store', { payload: this.items })
+                        }
+                        this.isLoading = false
+                        this.items = [{ name: '' }] // Clears the form.
+                        this.$emit('cancelForm')
+                        (res)
+                    } catch (err) {
+                        console.log(err)
+                        this.isLoading = false
+                    }
                 }
             },
             addItem() {
-                this.items.push({ name: ''})
+                // Allow for multiple form only on create mode.
+                if (!this.editDetail) {
+                    this.items.push({ name: ''})
+                }
             },
             removeItem(i) {
                 this.items.splice(i, 1)
-            },
-            async submitForm() {
-
-            },
+                if(!this.items.length) {
+                    this.$emit('cancelForm')
+                }
+            }
 
         },
 
         watch: {
             editDetail: function(e){
-                e ? this.details = e : ''
+                e ? this.items = e : ''
             }
         }
 

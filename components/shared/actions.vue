@@ -1,12 +1,11 @@
 <template>
     <div class="action-container">
-        <div :class="[{'trash-edit-product': productList}, {'trash-edit-package': !productList}]" 
-            v-if="selectedId && selectedId == itemId">
-            <i class="fa fa-eye"></i>
+        <div v-if="selectedId && selectedId == itemId">
+            <i v-if="!hideViewButton" class="fa fa-eye"></i>
             <i @click="$emit('editItem', itemId)" class="fa fa-edit"></i>
-            <i @click="delItem(itemId)" class="fa fa-trash"></i>
+            <i v-if="!hideDeleteButton" @click="delItem(itemId)" class="fa fa-trash"></i>
         </div>
-        <span :class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]">
+        <span class="ellipsis-item" :style="actionStyle">
             <i v-if="selectedId && selectedId == itemId"
                @click.stop="unsetSelected"
                class="fa fa-times-circle">
@@ -20,13 +19,8 @@
 
     export default {
 
-        props: ['itemId', 'api'],
+        props: ['itemId', 'api', 'actionStyle', 'hideDeleteButton', 'hideViewButton'],
 
-        data() {
-            return {
-                productList: true
-            }
-        },
         methods: {
             unsetSelected() {
                 this.$store.dispatch('shared/selectedIndex', null)
@@ -60,37 +54,28 @@
 
 </script>
 
-<style scoped>
+<style>
     .action-container{
         position: relative;
     }
-    .trash-edit-product{
-        position: absolute;
-        top: 24px;
-        right: -24px;
-    }
-    .trash-edit-package{
-        position: absolute;
-        top: 24px;
-        right: -24px;
-    }
+
     .fa-eye{
         position: absolute;
-        top: -31px;
+        top: 12px !important;
         right: 90px;
         color: #2ca02c;
         cursor: pointer;
     }
     .fa-edit{
         position: absolute;
-        top: -31px;
+        top: 12px !important;
         right: 60px;
         color: darkblue;
         cursor: pointer;
     }
     .fa-trash{
         position: absolute;
-        top: -31px;
+        top: 12px !important;
         right: 36px;
         color: indianred;
         cursor: pointer;
@@ -99,7 +84,7 @@
         color: darkblue;
         cursor: pointer;
     }
-    .ellipsis-product{
+    .ellipsis-item{
         position: absolute;
         right: -3px;
         top: 10px;

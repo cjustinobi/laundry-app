@@ -4,17 +4,13 @@
             <button class="create-btn" v-if="!showCategoryForm" @click.prevent="showCategoryForm = true">CREATE CATEGORY</button>
         </div>
 
-        <div>
-            <all-categories/>
-        </div>
+        <AllCategories/>
 
         <div :class="{'backdrop': showCategoryForm}">
             <div :class="[{'show-form': showCategoryForm, 'hide-form': !showCategoryForm}]">
-                <editor @cancelForm="showCategoryForm = false" />
+                <Editor @cancelForm="showCategoryForm = false" />
             </div>
         </div>
-
-        
     </div>
     
 </template>
@@ -22,7 +18,6 @@
 <script>
     import AllCategories from '~/components/categories/list'
     import Editor from '~/components/categories/editor'
-
 
     export default {
 

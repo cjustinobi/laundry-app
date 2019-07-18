@@ -16,7 +16,7 @@
         >
             <nuxt-link to='/admin/dashboard' class='logo'>
                 <i class="fa fa-dashcube" title="Dashboard"></i>
-                <span v-if="wideMenu">All Orders</span>
+                <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
             <nuxt-link to='/admin/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>

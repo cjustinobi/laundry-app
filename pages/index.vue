@@ -8,21 +8,15 @@
             </div>
         </div>
 
-        <div class="the-how">
-            <p>How it works</p>
-            <div class="the-how-mark"></div>
-        </div>
-        <div>
-            <HowItWorks/>
-        </div>
+        <HowItWorks/>
 
         <div class="pricing">
             <p>Our Packages</p>
             <div class="price-highlight"></div>
         </div>
-        <div>
+      
             <PackagesList/>
-        </div>
+   
         <div class="divider"></div>
 
         <div class="why-us">

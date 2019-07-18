@@ -25,8 +25,10 @@
 
         <AllProducts v-if="products" @nextTab="toggleTab" />
         <UserAddresses v-if="address" @nextTab="toggleTab" class="insert-margin"/>
-        <div v-if="time" @nextTab="toggleTab" class="insert-margin">
-            <datetime v-model="pickupDate" title="Pickup date" class="pickup-date" placeholder="Enter pickup date" type="datetime" id="pickupDate"/>
+        <div v-if="time" @nextTab="toggleTab" class="insert-margin date-time-wrapper">
+            <datetime v-model="pickupDate" title="Pickup date" class="pickup-date" placeholder="Enter pickup date"
+                    type="datetime" id="pickupDate"
+            />
         </div>
         <PaymentPage v-if="paymentPage" class="insert-margin"/>
     </div>
@@ -124,6 +126,17 @@
     }
     .insert-margin{
         margin-top: 60px;
+    }
+    .date-time-wrapper{
+        display: grid;
+        width: 100%;
+        justify-items: center;
+    }
+    pickup-date{
+        /* display: grid; */
+        /* justify-items: center; */
+        width: 400px;
+        padding: 10px;
     }
 
   

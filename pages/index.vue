@@ -9,13 +9,8 @@
         </div>
 
         <HowItWorks/>
-
-        <div class="pricing">
-            <p>Our Packages</p>
-            <div class="price-highlight"></div>
-        </div>
       
-            <PackagesList/>
+        <PackagesList/>
    
         <div class="divider"></div>
 
@@ -23,7 +18,7 @@
             <p>Why Us</p>
             <div class="why-us-highlight"></div>
         </div>
-        <div><Usp/></div>
+        <Usp/>
 
         <div class="faq">
             <p>Top 3 FAQ</p>
@@ -41,7 +36,7 @@
     import TopFaq from '~/components/guest/topFaq'
 
     export default {
-        components: { HowItWorks, PackagesList, Usp, TopFaq}
+        components: { HowItWorks, PackagesList, Usp, TopFaq }
     }
 </script>
 
@@ -89,38 +84,7 @@
         transition: .7s ease-out;
         color: #fefefe;
     }
-    .the-how{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .the-how-mark{
-        width: 200px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
-    .pricing {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .price-highlight{
-        width: 180px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
+
     .divider{
         background-color: #f9a825;
         height: 2px;
@@ -166,22 +130,6 @@
         .intro-request{
             display: none;
         }
-        .the-how,
-        .pricing,
-        .why-us,
-        .faq{
-            font-size: 30px;
-        }   
-        .the-how-mark,
-        .price-highlight,
-        .why-us-highlight,
-        .faq-highlight{
-            width: 150px;
-        }
     }
 
-    @media(max-width: 480px) {
-        
-
-    }
 </style>

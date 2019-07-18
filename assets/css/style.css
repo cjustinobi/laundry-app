@@ -23,8 +23,8 @@ html,body {
     min-height: 100vh;
     margin-top: 80px;
 }
-.primary-bck{
-    background: #FB2247;
+.gray-txt{
+    color: #728691;
 }
 .show-form{
     position: absolute;

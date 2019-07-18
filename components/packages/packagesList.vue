@@ -1,5 +1,6 @@
 <template>
     <div class="packages-contain">
+        <h1 class=" pkg-txt gray-txt">Our packages</h1>
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
                 <actions
@@ -15,7 +16,7 @@
                     <h1>{{ plan.name }}</h1>
                 </div>
                 <div class="price">
-                    <h1><sup>#</sup>{{ plan.price }}<span class="month"> per month</span> </h1>
+                    <h1>&#8358;{{ currency.format(plan.price) }}/<span class="gray-txt">month</span></h1>
                 </div>
                 <div class="wash-container">
                     <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
@@ -37,13 +38,17 @@
 </template>
 
 <script>
-    import Actions from '~/components/shared/actions'
+
     import Editor from '~/components/packages/editor'
+    import Actions from '~/components/shared/actions'
+    import CurrencyFormatter from '~/mixins/currencyFormatter'
 
     export default {
-        components:{
-            Editor, Actions
-        },
+
+        mixins: [CurrencyFormatter],
+
+        components: { Editor, Actions },
+
         data() {
             return {
                 showForm: false,
@@ -89,6 +94,20 @@
     .packages-contain{
         display: grid;
     }
+    .pkg-txt{
+        text-align: center;
+        margin-top: 48px;
+    }
+    .pkg-txt::after
+    {
+        position: absolute;
+        left: calc(50% - 35px);
+        display: block;
+        width: 70px;
+        border-bottom: 3px solid #f9a825;
+        padding-top: 20px;
+        content: '';
+    }
     .packages{
         position: relative;
         display: grid;
@@ -96,8 +115,7 @@
         justify-content: center;
         justify-items: center;
         grid-gap: 40px;
-        background-color: #f9f9f9;
-        margin-bottom: 40px;
+        margin: 40px 0;
         padding: 20px 0;
     }
     .pack-item{

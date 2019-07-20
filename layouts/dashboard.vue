@@ -140,19 +140,7 @@
             opacity: 1;
         }
     }
-    /* @keyframes hide {
-        0% {
-            height: 100%;
-            opacity: 1;
-        }
-        50%{
-            opacity: 0.5;
-        }
-        100% {
-            height: 0%;
-            opacity: 0;
-        }
-    } */
+  
     .hide-sidebar{
         display: none;
     }

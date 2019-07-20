@@ -25,10 +25,18 @@
 <style scoped>
     .items{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; 
+        background: #ddd;
+        color: rgb(88, 87, 87);
+        padding: 12px 30px;
     }
-    .category{
-
+    .category:after{
+        padding-right: calc(50% - 35px);
+        display: block;
+        /* width: 70px; */
+        border-right: 2px solid #f9a825;
+        padding-top: 20px;
+        content: '';
     }
     a{
         text-decoration: none;

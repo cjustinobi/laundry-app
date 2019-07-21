@@ -3,29 +3,16 @@
         <div id="intro" class="intro">
             <h1 class="relief">Save Time and Energy </h1>
             <h1>Looking good and clean always</h1>
-            <div class="intro-request">
-                <nuxt-link to="/products"><button class="request-btn">Request a Pick-up</button></nuxt-link>
-            </div>
+            <button @click="$router.push('/products')" class="request-btn">Request a Pick-up</button>
         </div>
 
         <HowItWorks/>
       
         <PackagesList/>
-   
-        <div class="divider"></div>
 
-        <div class="why-us">
-            <p>Why Us</p>
-            <div class="why-us-highlight"></div>
-        </div>
         <Usp/>
 
-        <div class="faq">
-            <p>Top 3 FAQ</p>
-            <div class="faq-highlight"></div>
-        </div>
-        <div><TopFaq/></div>
-
+        <TopFaq/>
     </div>
 </template>
 
@@ -59,14 +46,6 @@
         font-weight: 700;
         text-align: center;
     }
-    .intro-request{
-        display: grid;
-        height: 50px;
-        align-content: center;
-        color: #fefefe;
-        font-weight: 700;
-        margin-top: 140px;
-    }
     .request-btn{
         width: 220px;
         height: 60px;
@@ -85,51 +64,11 @@
         color: #fefefe;
     }
 
-    .divider{
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 30px;
-    }
-    .why-us {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .why-us-highlight{
-        width: 100px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
-    .faq{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .faq-highlight{
-        width: 140px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
-
     @media (max-width: 767px) {
         .intro{
             height: 400px;
         }
-        .intro-request{
-            display: none;
-        }
+
     }
 
 </style>

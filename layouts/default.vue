@@ -7,14 +7,13 @@
             <nuxt/>
         </div>
 
-        <div><QuickLinks/></div>
+        <QuickLinks/>
 
-        <div id="footer"><AppFooter/></div>
+        <AppFooter/>
 
         <div :class="{backdrop}">
             <div id="sidebar-link" class="sidebar"><Sidebar/></div>
         </div>
-
     </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
-    <div class="top-faq">
+    <div>
+        <h1 class="faq-txt gray-txt">Top 3 FAQs</h1>
         <div class="faq-container">
             <div class="faq-list">
                 <div class="faq-images"><img src="~assets/images/EL_iron.jpg" alt=""></div>
@@ -25,20 +26,26 @@
                     dry cleaning. Don't worry about dark and light fabrics, we will sort this out for you.
                 </p>
             </div>
-        </div>
-
-        <div class="full-list">
-            <p>For the full list of FAQ visit the page <nuxt-link to="/faqList">here</nuxt-link></p>
+            <p class="full-list">For the full list of FAQ visit the page <nuxt-link to="/faqList">here</nuxt-link></p>
         </div>
     </div>
 </template>
 
 
 <style scoped>
-    .top-faq{
-        display: grid;
-        grid-template-rows: auto 30px;
-        margin-bottom: 40px;
+
+    .faq-txt{
+        text-align: center;
+        margin: 48px;
+    }
+    .faq-txt::after{
+        position: absolute;
+        left: calc(50% - 35px);
+        display: block;
+        width: 70px;
+        border-bottom: 3px solid #f9a825;
+        padding-top: 20px;
+        content: '';
     }
     .faq-container{
         display: grid;
@@ -47,7 +54,7 @@
         align-content: center;
         justify-content: center;
         min-height: 350px;
-        margin: 25px 0 0 0; 
+        margin: 25px 0 50px;
         padding: 0 20px 20px 20px;   
         font-size: 16px;
     }
@@ -68,11 +75,9 @@
         justify-items: center;
     }
     .full-list{
-        display: grid;
-        justify-items: center;
+        text-align: center;
+        grid-column: 1 / -1;
         color: #114e9e;
-        height: 30px;
-        padding: 10px 15px 0 15px;
     }
     a{
         text-decoration: none;

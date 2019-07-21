@@ -1,7 +1,7 @@
 <template>
     <div class="all-products">
-        <div><Search/></div>
-        <div><Categories/></div>
+        <Search/>
+        <Categories/>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                 <Actions

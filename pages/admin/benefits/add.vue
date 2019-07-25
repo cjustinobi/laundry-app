@@ -1,16 +1,12 @@
 <template>
-    <div class="create-benefit" :style="myStyle">
-        <div class="btn-created">
-            <button class="create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">CREATE BENEFITS</button>
-        </div>
+    <div class="create-benefit">
+        <button class="btn create-btn" v-if="!showBenefitForm" @click.prevent="showBenefitForm = true">Add benefit</button>
 
-        <div>
-            <all-benefits/>
-        </div>
+        <AllBenefits/>
 
         <div :class="{'backdrop': showBenefitForm}">
             <div :class="[{'show-form': showBenefitForm, 'hide-form': !showBenefitForm}]">
-                <benefit-editor @cancelForm="showBenefitForm = false" />
+                <Editor @cancelForm="showBenefitForm = false" />
             </div>
         </div>
 
@@ -20,7 +16,7 @@
 
 <script>
     import AllBenefits from '~/components/benefits/list'
-    import BenefitEditor from '~/components/benefits/editor'
+    import Editor from '~/components/benefits/editor'
 
     export default {
 
@@ -28,14 +24,12 @@
 
         components: {
             AllBenefits,
-            BenefitEditor
+            Editor
         },
 
         data() {
             return {
-                myStyle: { backgroundColor: "#f0faff" },
                 showBenefitForm: false,
-                
             }
         },
         
@@ -45,22 +39,16 @@
 
 <style scoped>
     .create-benefit{
-        display: grid;
+        margin: 45px;
         position: relative;
-        /* min-height: 100vh; */
     }
-    .btn-created{
-        display: grid;
-    }
+
     .create-btn{
-        margin: 40px 0 40px 40px;
         width: 150px;
         height: 40px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         background-color: #114e9e;
         color: #fefefe;
         outline: none;
-        box-shadow: 0 0 20px 0 rgb(117, 126, 126);
         transition: 0.6s ease-in;
         border: none;
         cursor: pointer;

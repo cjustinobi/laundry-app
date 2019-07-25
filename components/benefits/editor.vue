@@ -34,7 +34,8 @@
 
         data() {
             return {
-                items: [{ name: '' }]
+                items: [{ name: '' }],
+                isLoading: false
             }
         },
 
@@ -42,7 +43,9 @@
             async submitBenefit() {
                 this.isLoading = true
                 try {
-                    let res = await this.$store.dispatch('benefits/store', this.items)
+                    let editMode
+                    this.editDetail ? editMode = true : editMode = false
+                    let res = await this.$store.dispatch('benefits/store', { payload: this.items, editMode})
                     this.isLoading = false
                     this.items = [{ name: '' }] // Clears the form.
                     this.$emit('cancelForm')
@@ -52,20 +55,21 @@
                 }
             },
             addItem() {
-                this.items.push({ name: ''})
+                if (!this.editDetail) {
+                    this.items.push({ name: ''})
+                }
             },
             removeItem(i) {
                 this.items.splice(i, 1)
-            },
-            async submitForm() {
-
-            },
+            }
 
         },
 
         watch: {
-            editDetail: function(e){
-                e ? this.details = e : ''
+            editDetail(e){
+                if (e) {
+                    this.items = [e]
+                }
             }
         }
 

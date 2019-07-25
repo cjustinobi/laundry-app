@@ -13,10 +13,15 @@ export const mutations = {
 }
 
 export const actions = {
-    async store({ commit }, payload) {
+    async store({ commit }, { payload, editMode }) {
         try {
-            let res = await this.$axios.$post('benefits', { benefits: payload })
-            commit('ADD_BENEFITS', res)
+            if (editMode) {
+                let res = await this.$axios.$put(`benefits/${payload[0].id}`, { benefit: payload[0].name })
+                alert(JSON.stringify(res))
+            } else {
+                let res = await this.$axios.$post('benefits', { benefits: payload })
+                commit('ADD_BENEFITS', res)
+            }
             return 'success'
         }
         catch(e) {

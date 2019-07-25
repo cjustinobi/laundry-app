@@ -1,9 +1,9 @@
 <template>
     <div class="page">
-        <div id="intro" class="intro">
-            <h1 class="relief">Save Time and Energy </h1>
+        <div class="intro">
+            <h1>Save Time and Energy </h1>
             <h1>Looking good and clean always</h1>
-            <button @click="$router.push('/products')" class="request-btn">Request a Pick-up</button>
+            <button @click="$router.push('/register')">Sign up</button>
         </div>
 
         <HowItWorks/>
@@ -27,7 +27,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
     .page{
         margin-top: 35px;
@@ -40,29 +40,32 @@
         height: 700px;
         width: 100%;
         margin-top: -117px;
+        padding-left: 60px;
         display: grid;
         align-content: center;
         color: #fefefe;
-        font-weight: 700;
-        text-align: center;
+        h1{
+            font-weight: 300 !important;
+        }
+        button{
+            width: 140px;
+            height: 35px;
+            margin-top: 60px;
+            border: none;
+            background-color: #f8f7f7;
+            color: #0622be;
+            font-weight: bold;
+            outline: none;
+            transition: .7s ease-out;
+            cursor: pointer;
+        }
+        button:hover,
+        button:active{
+            background-color: #f58b13;
+            color: #fefefe;
+        }
     }
-    .request-btn{
-        width: 220px;
-        height: 60px;
-        border: 1px solid #fefefe;
-        border-radius: 5px;
-        background-color: #f8f7f7;
-        font-size: 20px;
-        color: #0622be;
-        font-weight: bold;
-        outline: none;
-    }
-    .request-btn:hover,
-    .request-btn:active{
-        background-color: #f58b13;
-        transition: .7s ease-out;
-        color: #fefefe;
-    }
+
 
     @media (max-width: 767px) {
         .intro{

@@ -4,7 +4,6 @@
             <nuxt-link to='/' class="brand-name">
                 <i v-if="!wideMenu" class="fa fa-home" title="Home"></i>
                 <img v-if="wideMenu" src="~assets/images/EL_logo_2.png" class="elegant-image" alt="Elegant_Laundry_Picture">
-                <!-- <h1 v-if="wideMenu" class='wr-logo'>GPAT</h1> -->
             </nuxt-link>
             <a class='toggle-bar' @click.prevent="toggleMenu" title="Menu">
                 <i class='fa fa-bars' style="color: #fefefe"></i>
@@ -43,11 +42,11 @@
                 <div :class="[{'count': wideMenu}, {'small-count': !wideMenu}]">0</div>
                 <span v-if="wideMenu">Notifications</span>
             </nuxt-link>
-            <nuxt-link to='/admin/packages/add' class='logo'>
+            <nuxt-link to='/admin/packages' class='logo'>
                 <i class="fa fa-plus-circle" title="Add Package"></i>
                 <span v-if="wideMenu">Add Package</span>
             </nuxt-link>
-            <nuxt-link to='/admin/benefits/add' class='logo'>
+            <nuxt-link to='/admin/benefits' class='logo'>
                 <i class="fa fa-ellipsis-v" title="Create Benefit"></i>
                 <span v-if="wideMenu">Create Benefits</span>
             </nuxt-link>
@@ -91,7 +90,6 @@
 <style scoped>
     .sidebar-container{
         display: grid;
-        /* min-height: 100vh; */
         grid-template-rows: 60px auto;
         transition: .8s ease-out;
     }
@@ -175,7 +173,6 @@
         justify-items: center;
         align-items: center;
         position: absolute;
-        /* top: 20px; */
         left: 40px;
         background-color: red;
         color: #fefefe;
@@ -195,11 +192,7 @@
     @media (max-width: 767px){
         .sidebar-head{
             grid-template-columns: 145px 40px;
-            /* display: none; */
         }
 
-    }
-
-    @media (min-width: 768px) {
     }
 </style>

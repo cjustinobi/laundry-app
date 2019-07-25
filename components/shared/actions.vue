@@ -34,14 +34,13 @@
                 try {
                     await this.$store.dispatch('shared/deleteItem', {i, api: this.api})
                     this.$store.dispatch('notifications/setStatus',
-                        { messages: ['item removed'], status: 'success' })
+                        { messages: ['item removed'], state: 'success' })
                     this.$emit('removeItem', i)
                 } catch (e) {
                     this.$store.dispatch('notifications/setStatus',
-                        { messages: [e.response.data.error], status: 'error' })
-                    this.error = true
+                        { messages: [e.response.data.error], state: 'error' })
                 }
-            },
+            }
         },
 
         computed: {
@@ -89,14 +88,5 @@
         right: -3px;
         top: 10px;
         cursor: pointer;
-    }
-    .ellipsis-package{
-        position: absolute;
-        right: 12px;
-        top: 10px;
-        cursor: pointer;
-    }
-    .cc{
-        color: red;
     }
 </style>

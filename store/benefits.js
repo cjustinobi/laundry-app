@@ -4,10 +4,10 @@ export const state = () => ({
 
 export const mutations = {
     ALL_BENEFITS (state, payload) {
-        state.benefits =payload
+        state.benefits = payload
     },
     ADD_BENEFITS (state, payload) {
-        state.benefits.push(payload)
+        payload.forEach(item => state.benefits.push(item))
     }
 
 }
@@ -16,8 +16,8 @@ export const actions = {
     async store({ commit }, { payload, editMode }) {
         try {
             if (editMode) {
-                let res = await this.$axios.$put(`benefits/${payload[0].id}`, { benefit: payload[0].name })
-                alert(JSON.stringify(res))
+                await this.$axios.$put(`benefits/${payload[0].id}`, { benefit: payload[0].name })
+
             } else {
                 let res = await this.$axios.$post('benefits', { benefits: payload })
                 commit('ADD_BENEFITS', res)

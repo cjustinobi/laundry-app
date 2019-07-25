@@ -45,10 +45,14 @@
                 try {
                     let editMode
                     this.editDetail ? editMode = true : editMode = false
-                    let res = await this.$store.dispatch('benefits/store', { payload: this.items, editMode})
+                    const payload = this.items.filter(item => item.name !== '')
+                    await this.$store.dispatch('benefits/store', { payload, editMode})
                     this.isLoading = false
                     this.items = [{ name: '' }] // Clears the form.
                     this.$emit('cancelForm')
+                    this.$store.dispatch('notifications/setStatus', {
+                        messages: ['edited successfully'], state: 'success'
+                    })
                 } catch (err) {
                     console.log(err)
                     this.isLoading = false

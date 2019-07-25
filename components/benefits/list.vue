@@ -42,9 +42,6 @@
             editItem(i) {
                 this.showForm = true;
                 this.editDetail = this.benefits.find(item => item.id == i)
-            },
-            deleteForm(i){
-
             }
         },
 
@@ -64,11 +61,9 @@
 <style scoped>
     .benefits{
         display: grid;
-        grid-template-columns: 40% 40%; 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: 20px;
-        padding: 15px 0 20px 0;
-        margin: 0 auto;
-        justify-content: center;
+        padding: 15px 0;
         color: #114e9e;
         position: relative;
     }

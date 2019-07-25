@@ -30,12 +30,14 @@
         color: rgb(88, 87, 87);
         padding: 12px 30px;
     }
+    .category{
+        cursor: pointer;
+    }
     .category:after{
-        padding-right: calc(50% - 35px);
         display: block;
-        /* width: 70px; */
-        border-right: 2px solid #f9a825;
-        padding-top: 20px;
+        width: 20px;
+        border-bottom: 3px solid #f9a825;
+        margin: 2px auto;
         content: '';
     }
     a{

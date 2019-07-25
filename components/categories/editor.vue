@@ -52,7 +52,9 @@
                         this.isLoading = false
                         this.items = [{ name: '' }] // Clears the form.
                         this.$emit('cancelForm')
-                        (res)
+                        this.$store.dispatch('notifications/setStatus', {
+                            messages: ['saved successfully'], state: 'success'
+                        })
                     } catch (err) {
                         console.log(err)
                         this.isLoading = false

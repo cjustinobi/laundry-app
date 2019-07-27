@@ -4,24 +4,24 @@
             <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
         <div class="names">
-            <label for="">First name <br>
-                <input v-model="details.fullname" required>
+            <label for="fullname">First name <br>
+                <input v-model="details.fullname" id="fullname" required>
             </label>
         </div>
-        <label for="">Email <br>
-            <input v-model="details.email" type="email" required>
+        <label for="email">Email <br>
+            <input v-model="details.email" id="email" type="email" required>
         </label>
-        <label for="">Mobile <br>
-            <input v-model="details.phone" required>
+        <label for="phone">Mobile <br>
+            <input v-model="details.phone" id="phone" required>
         </label>
-        <label for="">Plan ID <br>
-            <select v-model="details.plan_id" required class="plan-select">
+        <label for="package">Plan ID <br>
+            <select v-model="details.plan_id" id="package" required class="plan-select">
                 <option disabled>Select package</option>
                 <option v-for="(plan, i) in plans" :key="i" :value="plan.id">{{ plan.name }}</option>
             </select>
         </label>
         <div class="password-wrapper">
-            <label for="">Password <br>
+            <label for="password">Password <br>
                 <input type="password" v-model="details.password" id="password">
                 <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash(false)"></i>
                 <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash(true)"></i>

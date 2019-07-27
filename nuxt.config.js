@@ -41,6 +41,7 @@ export default {
     plugins: [
         { src: '~/plugins/axios' },
         { src: '~/plugins/user' },
+        { src: '~/plugins/capitalize' },
         { src: '~/plugins/datetime', ssr: false },
         { src: '~/plugins/localStorage', ssr: false },
         { src: '~/plugins/notification' },

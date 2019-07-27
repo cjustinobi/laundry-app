@@ -7,14 +7,13 @@
             <nuxt/>
         </div>
 
-        <div><QuickLinks/></div>
+        <QuickLinks/>
 
-        <div id="footer"><AppFooter/></div>
+        <AppFooter/>
 
         <div :class="{backdrop}">
             <div id="sidebar-link" class="sidebar"><Sidebar/></div>
         </div>
-
     </div>
 </template>
 
@@ -79,21 +78,9 @@
                     document.getElementById("sidebar").style.display = "none"
                 }
             },
-            // 'window.onScroll': function(){
-            //     let nav = document.getElementById('nav')
-            //     if(window.pageYOffset > 100){
-            //         nav.style.background = 'red'
-            //     } else {
-            //         nav.style.background = 'transparent'
-            //     }
-            // }
+
         },
-        beforeMount() {
-            // if(window.pageYOffset = 0){
-                // document.getElementById('top-nav').style.display = "block"
-            // }
-            // window.onload( document.getElementById('top-nav').style.display = "block")
-        },
+
         mounted () {
             this.lastScrollPosition = window.pageYOffset
             window.addEventListener('scroll', this.onScroll)
@@ -101,15 +88,11 @@
             viewportMeta.name = 'viewport'
             viewportMeta.content = 'width=device-width, initial-scale=1'
             document.head.appendChild(viewportMeta)
-            // if(window.pageYOffset = 1){
-            //     topNav.style.display = "block"
-            // }
+
         },
         beforeDestroy () {
             window.removeEventListener('scroll', this.onScroll)
-            // if(window.pageYOffset = 0){
-            //     topNav.style.display = "block"
-            // }
+
         },
 
     }

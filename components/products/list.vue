@@ -1,11 +1,7 @@
 <template>
     <div class="all-products">
-        <div><Search/></div>
-        <div><Items @toogleSideLinks="toogleSideLinks"/></div>
-        <!--<button @click.prevent="$emit('nextTab', 'address')" v-if="items.length > 0"
-                class="continue-btn">
-            Continue
-        </button>-->
+        <Search/>
+        <Categories/>
         <div class="laundry-list-wrapper" >
             <div class="laundry-list" v-for="(product, i) in products" :key="i">
                 <Actions
@@ -50,17 +46,16 @@
 
     import User from '~/mixins/user'
     import Cart from '~/mixins/cart'
-    import Items from '~/components/guest/items'
+    import Categories from '~/components/categories/categories'
     import Actions from '~/components/shared/actions'
     import Search from '~/components/guest/search'
-    import SideLinks from '~/components/guest/sideLinks'
     import CurrencyFormatter from '~/mixins/currencyFormatter'
 
     export default {
 
         mixins: [User, CurrencyFormatter, Cart],
 
-        components: { Search, Items, Actions, SideLinks },
+        components: { Search, Categories, Actions },
 
         data() {
             return {
@@ -77,17 +72,6 @@
             },
             removeItem(i) {
                 this.$store.dispatch('products/removeItem', i)
-            },
-            toogleSideLinks() {
-                let x = document.getElementById('side-links')
-                if(x.style.display === 'block') {
-                    x.style.display = 'none'
-                } else {
-                    x.style.display = 'block'
-                }
-            },
-            cancelLinks() {
-                // this.sideLinks = false
             },
             addToCart(product, i) {
                 // Check if this particluar item has been added.
@@ -189,15 +173,15 @@
         position: relative;
     }
     .img-square{
-        width: 150px;
-        height: 150px;
+        height: 120px;
         background-size: contain;
         background-position: left;
+        img{
+            width: 100%;
+            max-height: 120px;
+        }
     }
-    img{
-        width: 100%;
-        height: 100%;
-    }
+
     .p1{
         color: #8395b1;
         font-size: 14px;

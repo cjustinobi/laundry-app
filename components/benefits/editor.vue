@@ -34,7 +34,8 @@
 
         data() {
             return {
-                items: [{ name: '' }]
+                items: [{ name: '' }],
+                isLoading: false
             }
         },
 
@@ -42,30 +43,37 @@
             async submitBenefit() {
                 this.isLoading = true
                 try {
-                    let res = await this.$store.dispatch('benefits/store', this.items)
+                    let editMode
+                    this.editDetail ? editMode = true : editMode = false
+                    const payload = this.items.filter(item => item.name !== '')
+                    await this.$store.dispatch('benefits/store', { payload, editMode})
                     this.isLoading = false
                     this.items = [{ name: '' }] // Clears the form.
                     this.$emit('cancelForm')
+                    this.$store.dispatch('notifications/setStatus', {
+                        messages: ['edited successfully'], state: 'success'
+                    })
                 } catch (err) {
                     console.log(err)
                     this.isLoading = false
                 }
             },
             addItem() {
-                this.items.push({ name: ''})
+                if (!this.editDetail) {
+                    this.items.push({ name: ''})
+                }
             },
             removeItem(i) {
                 this.items.splice(i, 1)
-            },
-            async submitForm() {
-
-            },
+            }
 
         },
 
         watch: {
-            editDetail: function(e){
-                e ? this.details = e : ''
+            editDetail(e){
+                if (e) {
+                    this.items = [e]
+                }
             }
         }
 

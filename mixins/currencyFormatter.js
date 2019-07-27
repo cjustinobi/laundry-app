@@ -3,7 +3,7 @@ export default {
         currency() {
             return new Intl.NumberFormat('en-US', {
                 currency: 'NGN',
-                minimumFractionDigits: 2
+                minimumFractionDigits: 0
             })
         }
     }

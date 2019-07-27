@@ -1,12 +1,12 @@
 <template>
     <ul class='nav-list'>
-        <li class="nav-item"><nuxt-link to='/about' class='logo'>About</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/contact' class='logo'>How It Works</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/pricing' class='logo'>Pricing</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/services' class='logo'>Services</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/contact' class='logo'>Contact</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to='/blog' class='logo'>Blog</nuxt-link></li>
-        <li class="nav-item login-list"><nuxt-link to='/login' class='logo'>Login</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/about'>About</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/contact'>How It Works</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/pricing'>Pricing</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/services'>Services</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/contact'>Contact</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to='/blog'>Blog</nuxt-link></li>
+        <li class="nav-item login"><nuxt-link to='/login'>Login</nuxt-link></li>
     </ul>
 </template>
 
@@ -31,24 +31,23 @@
     .nav-item a:active{
         color: #b4b4b4;
     }
-    .login-list{
+    .login{
         display: grid; 
         align-items: center;
         justify-content: center;
-        border: 1px solid rgb(196, 191, 191);
+        border: none;
         width: 100px;
         height: 30px;
-        border-radius: 5px;
-        /* text-align: center; */
         background-color: #e7b83f;
         font-weight: bold;
+        cursor: pointer;
     }
-    .login-list:hover{
+    .login:hover{
         background-color: #f58b13;
         transition: .7s ease-out;
     }
-    .login-list a:hover,
-    .login-list a:active{
+    .login a:hover,
+    .login a:active{
         color: #fff;
     }
     @media (max-width: 767px) {

@@ -15,8 +15,8 @@
                 class='sidebar-nav' :class="{'center-nav': !wideMenu}"
         >
             <nuxt-link to='/dashboard' class='logo'>
-                <i class="fa fa-dashcube" title="My Orders"></i>
-                <span v-if="wideMenu">My Orders</span>
+                <i class="fa fa-dashcube" title="Dashboard"></i>
+                <span v-if="wideMenu">Dashboard</span>
             </nuxt-link>
             <nuxt-link to='/products' class='logo'>
                 <i class="fa fa-cart-plus" title="Items"></i>

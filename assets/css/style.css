@@ -19,12 +19,15 @@ html,body {
     box-sizing: border-box;
     margin: 0;
 }
+h1,h2,h3,h4,h5,h6{
+    font-weight: 500;
+}
 .nuxt-render{
     min-height: 100vh;
     margin-top: 80px;
 }
-.primary-bck{
-    background: #FB2247;
+.gray-txt{
+    color: #728691;
 }
 .show-form{
     position: absolute;
@@ -56,7 +59,6 @@ html,body {
 #top-nav{
     height: 68px;
     background: #01355f;
-    /* margin-top: -67px; */
     display: none;
     position: fixed;
     top: 0;
@@ -72,9 +74,7 @@ header{
     margin: 0;   
     display: grid;
     grid-template-columns: 80px auto;
-    /* background: #01355f; */
     background: transparent;
-    /* box-shadow: 0 4px 12px 0 rgba(0,0,0,0.4); */
     transition: 0.3s;
     padding: 3px 60px;
     z-index: 30000;
@@ -90,21 +90,16 @@ header{
 .btn{
     padding: 8px 12px;
     border: none;
-    border-radius: 5px;
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
+    font-weight: 500;
     word-spacing: 1px;
     cursor: pointer;
+    outline: none;
     transition: .6s ease-in;
 }
-.donate{
-    justify-self: end;
-}
-.donate:hover{
-    background: yellowgreen;
-    color: #e6e6e6;
-}
+
 .app-links{
     justify-self: end;
 }

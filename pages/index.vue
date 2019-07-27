@@ -1,42 +1,25 @@
 <template>
     <div class="page">
-        <div id="intro" class="intro">
-            <h1 class="relief">Save Time and Energy </h1>
+        <div class="intro">
+            <h1>Save Time and Energy </h1>
             <h1>Looking good and clean always</h1>
-            <div class="intro-request">
-                <nuxt-link to="/products"><button class="request-btn">Request a Pick-up</button></nuxt-link>
-            </div>
+            <button @click="$router.push('/register')">Sign up</button>
         </div>
 
-        <div class="the-how">
-            <p>How it works</p>
-            <div class="the-how-mark"></div>
-        </div>
-        <div>
-            <HowItWorks/>
-        </div>
+        <!--<svg width="268" height="141" viewBox="0 0 68 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M46.5 57.4531H16.9219V81.6406H51.2812V89H7.92188V20.75H50.8125V28.1562H16.9219V50.0938H46.5V57.4531Z" fill="#E7C411"/>
+            <path d="M49.2384 58.3004L16.9066 57.4208L17.1068 50.0642L58.4821 51.1898L56.6261 119.415L47.5826 119.169L49.2384 58.3004Z" fill="#1133E7"/>
+        </svg>-->
 
-        <div class="pricing">
-            <p>Our Packages</p>
-            <div class="price-highlight"></div>
-        </div>
-        <div>
-            <PackagesList/>
-        </div>
-        <div class="divider"></div>
 
-        <div class="why-us">
-            <p>Why Us</p>
-            <div class="why-us-highlight"></div>
-        </div>
-        <div><Usp/></div>
 
-        <div class="faq">
-            <p>Top 3 FAQ</p>
-            <div class="faq-highlight"></div>
-        </div>
-        <div><TopFaq/></div>
+        <HowItWorks/>
+      
+        <PackagesList/>
 
+        <Usp/>
+
+        <TopFaq/>
     </div>
 </template>
 
@@ -45,13 +28,26 @@
     import PackagesList from '~/components/packages/packagesList'
     import Usp from '~/components/guest/usp'
     import TopFaq from '~/components/guest/topFaq'
+    import { TimelineMax } from 'gsap'
 
     export default {
-        components: { HowItWorks, PackagesList, Usp, TopFaq}
+        components: { HowItWorks, PackagesList, Usp, TopFaq },
+
+            methods: {
+               animateTxt() {
+                   let tl = new TimelineMax({repeat:6, repeatDelay:1, yoyo:true});
+                   tl.staggerTo("h2", 0.2, {className:"+=superShadow", top:"-=10px", ease:Power1.easeIn}, "0.3", "start")
+               }
+            },
+            mounted() {
+                this.animateTxt()
+            }
+
+
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
     .page{
         margin-top: 35px;
@@ -64,130 +60,38 @@
         height: 700px;
         width: 100%;
         margin-top: -117px;
+        padding-left: 60px;
         display: grid;
         align-content: center;
         color: #fefefe;
-        font-weight: 700;
-        text-align: center;
+        h1{
+            font-weight: 300 !important;
+        }
+        button{
+            width: 140px;
+            height: 35px;
+            margin-top: 60px;
+            border: none;
+            background-color: #f8f7f7;
+            color: #0622be;
+            font-weight: bold;
+            outline: none;
+            transition: .7s ease-out;
+            cursor: pointer;
+        }
+        button:hover,
+        button:active{
+            background-color: #f58b13;
+            color: #fefefe;
+        }
     }
-    .intro-request{
-        display: grid;
-        height: 50px;
-        align-content: center;
-        color: #fefefe;
-        font-weight: 700;
-        margin-top: 140px;
-    }
-    .request-btn{
-        width: 220px;
-        height: 60px;
-        border: 1px solid #fefefe;
-        border-radius: 5px;
-        background-color: #f8f7f7;
-        font-size: 20px;
-        color: #0622be;
-        font-weight: bold;
-        outline: none;
-    }
-    .request-btn:hover,
-    .request-btn:active{
-        background-color: #f58b13;
-        transition: .7s ease-out;
-        color: #fefefe;
-    }
-    .the-how{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .the-how-mark{
-        width: 200px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
-    .pricing {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .price-highlight{
-        width: 180px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
-    .divider{
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 30px;
-    }
-    .why-us {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .why-us-highlight{
-        width: 100px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
-    .faq{
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        justify-items: center;
-        font-family: Courier;
-        font-size: 40px;
-        font-weight: bold;
-        margin: 70px 0 20px 0;
-        color: #728691;
-    }
-    .faq-highlight{
-        width: 140px;
-        background-color: #f9a825;
-        height: 2px;
-        margin-top: 20px;
-    }
+
 
     @media (max-width: 767px) {
         .intro{
             height: 400px;
         }
-        .intro-request{
-            display: none;
-        }
-        .the-how,
-        .pricing,
-        .why-us,
-        .faq{
-            font-size: 30px;
-        }   
-        .the-how-mark,
-        .price-highlight,
-        .why-us-highlight,
-        .faq-highlight{
-            width: 150px;
-        }
-    }
-
-    @media(max-width: 480px) {
-        
 
     }
+
 </style>

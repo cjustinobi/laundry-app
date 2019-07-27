@@ -1,49 +1,52 @@
 <template>
-    <div class="packages-contain">
+    <div class="packages-container">
+        <h1 class=" pkg-txt gray-txt">Our Packages</h1>
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
-                <actions
+                <Actions
                         v-if="user !== undefined && user.user_type == 3"
-                    	:class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]"
+                        :class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]"
                         @editItem="editItem"
                         @removeItem="removeItem"
                         :itemId="plan.id"
-                        :api="api">
-                </actions>
+                        :api="api"
+                />
+
                 <div class="name">
-                    <img class="elegant-image" src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
-                    <h1>{{ plan.name }}</h1>
+                    <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
+                    <h1 class="gray-txt">{{ plan.name | capitalize }}</h1>
                 </div>
                 <div class="price">
-                    <h1><sup>#</sup>{{ plan.price }}<span class="month"> per month</span> </h1>
+                    <h1>&#8358;{{ currency.format(plan.price) }}/<span class="gray-txt">month</span></h1>
                 </div>
                 <div class="wash-container">
                     <div class="wash-menu" v-for="(benefit, i) in plan.benefits" :key="i">
-                        <i class="fa fa-check"></i>
-                        <li>{{ benefit.name }}</li>
+                        <p>{{ benefit.name }}</p>
                     </div>
                 </div>
-                <form v-if="user !== undefined && user.user_type !== 3" method="get" id="sub-btn">
-                    <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
-                </form>
+                <button class="subscribe" @click.prevent="subscribe" type="submit">SUBSCRIBE</button>
             </div>
-    </div>
+        </div>
         <div :class="{'backdrop' : showForm}">
             <div :class="[{'show-form': showForm, 'hide-form': !showForm}]">
-                <editor :editDetail="editDetail" @cancelForm="showForm = false"></editor>
+                <Editor :editDetail="editDetail" @cancelForm="showForm = false"/>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Actions from '~/components/shared/actions'
+
     import Editor from '~/components/packages/editor'
+    import Actions from '~/components/shared/actions'
+    import CurrencyFormatter from '~/mixins/currencyFormatter'
 
     export default {
-        components:{
-            Editor, Actions
-        },
+
+        mixins: [CurrencyFormatter],
+
+        components: { Editor, Actions },
+
         data() {
             return {
                 showForm: false,
@@ -61,10 +64,10 @@
             removeItem(i) {
                 this.$store.dispatch('plans/removeItem', i)
             },
-             editItem(i) {
-                 this.showForm = true;
-                 this.editDetail = this.plans.find(plan => plan.id === i)
-             },
+            editItem(i) {
+                this.showForm = true;
+                this.editDetail = this.plans.find(plan => plan.id === i)
+            },
             subscribe() {
                 this.$root.$emit("package", 2000);
                 this.$router.push({ path: "/volunteer" });
@@ -85,120 +88,76 @@
     }
 </script>
 
-<style scoped>
-    .packages-contain{
+<style lang="scss" scoped>
+    .packages-container{
         display: grid;
+        background: #f6f6f6;
+        padding: 60px 0 80px 0;
+    }
+    .pkg-txt{
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .pkg-txt::after{
+        position: absolute;
+        left: calc(50% - 35px);
+        display: block;
+        width: 70px;
+        border-bottom: 3px solid #f9a825;
+        padding-top: 20px;
+        content: '';
     }
     .packages{
         position: relative;
         display: grid;
-        grid-template: auto / repeat(auto-fit, minmax(150px, 350px));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 350px));
         justify-content: center;
         justify-items: center;
         grid-gap: 40px;
-        background-color: #f9f9f9;
-        margin-bottom: 40px;
-        padding: 20px 0;
     }
     .pack-item{
-        position: relative;
-        border: 1px solid #b2d2e4;
-        border-radius: 10px;
         display: grid;
+        grid-template-rows: 70px 50px auto 70px;
+        position: relative;
+        border: 1px solid #dcdcdc;
         min-height: 450px;
         background-color: #fefefe;
         transition: 0.7s ease-in;
-        grid-gap: 10px;
-        grid-template-rows: 120px 60px 187px 40px;
     }
-    .packages .pack-item:nth-child(1){
-        border-top: 7px solid rgb(247, 174, 241);
-    }
-    .packages .pack-item:nth-child(1):hover{
-        border-top: 7px solid rgb(184, 76, 175);
-    }
-    .packages .pack-item:nth-child(2){
-        border-top: 7px solid rgb(195, 217, 247);
-    }
-    .packages .pack-item:nth-child(2):hover{
-        border-top: 7px solid rgb(147, 183, 229);
-    }
-    .packages .pack-item:nth-child(3){
-        border-top: 7px solid rgb(176, 233, 179);
-    }
-    .packages .pack-item:nth-child(3):hover{
-        border-top: 7px solid rgb(17, 145, 23);
-    }
-    .packages .pack-item:nth-child(4){
-        border-top: 7px solid rgb(232, 233, 176);
-    }
-    .packages .pack-item:nth-child(4):hover{
-        border-top: 7px solid rgb(216, 202, 73);
-    }
-    .packages .pack-item:nth-child(5){
-        border-top: 7px solid rgb(163, 160, 179);
-    }
-    .packages .pack-item:nth-child(5):hover{
-        border-top: 7px solid rgb(5, 65, 230);
-    }
-    .packages .pack-item:nth-child(6){
-        border-top: 7px solid rgb(255, 160, 160);
-    }
-    .packages .pack-item:nth-child(6):hover{
-        border-top: 7px solid rgb(247, 89, 89);
-    }
-    .wash-container{
-        display: grid;
-        grid-template-rows: repeat(auto-fit, 40px);
-    }
+
     .wash-menu{
         display: grid;
-        grid-template-columns: 30px 1fr;
-        color: #728691;
-        font-size: 16px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding: 0 15px;
-    }
-    .wash-menu li{
-        list-style-type: none;
-    }
-    .elegant-image{
-        width: 40px;
-        padding-top: 6px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        height: 60px;
+        font-weight: 500;
+        color: #a3a3a3;
     }
     .name{
         display: grid;
         grid-template-columns: 60px 250px;
-        align-items: center;
         justify-items: center;
-        font-family: Courier;
+        align-self: center;
         font-size: 18px;
-        color: #728691;
-        grid-gap: 5px;
         padding: 5px;
+        img{
+            width: 30px;
+        }
     }
     .price{
-        margin-bottom: 0px;
+        margin-bottom: 0;
         color: rgb(255, 255, 255);
         background-color: #2f5163;
-        height: 60px;
         width: 100%;
         display: grid;
         justify-content: center;
-        align-content: center;
-    }
-    .month{
-        font-size: 14px;
-        color: #b0b9c5;
-    }
-    #sub-btn{
-        display: grid;
-        align-items: center;
-        justify-self: center;
+        align-self: center;
+        padding: 8px 0;
     }
     .subscribe{
-        width: 290px;
-        height: 40px;
+        margin: 8px;
+        padding: 16px 0;
         border: 1px solid #fff;
         background-color: #e7b83f;
         color: #fff;
@@ -206,41 +165,24 @@
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        border-radius: 10px;
         display: grid;
+        transition: .7s ease-out;
     }
     .subscribe:hover,
     .subscribe:active{
         color: #fff;
         font-weight: bold;
         background-color: #f58b13;
-        transition: .7s ease-out;
     }
 
     @media (max-width: 767px) {
-        .packages{
-            grid-template: auto / repeat(auto-fit, minmax(150px, 300px));
-            grid-gap: 30px;
-        }
         .wash-menu{
             font-size: 14px;
-        }
-        .pack-item{
-            grid-template-rows: 110px 60px 187px 40px;
         }
         .elegant-image{
             width: 30px;
         }
-        .name{
-            grid-template-columns: 60px 190px;
-            font-size: 14px;
-            /* max-width: 310px; */
-        }
-        .price h1{
-            font-size: 16px;
-        }
-        .subscribe{
-            width: 250px;
+        .name, .price{
             font-size: 14px;
         }
     }

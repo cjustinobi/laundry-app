@@ -1,55 +1,54 @@
-    <template>
-    <div class="transaction-history" >
-        <div class="transaction-wrapper">
-            <div class="sub-heading"><h4>Transactions</h4></div>
-            <p class="p1">Show <input type="number" class="number-input"> Entries</p>
-            <div class="table-wrap1">
-                <table>
-                    <tr>
-                        <th># <i class="fa fa-sort-down"></i></th>
-                        <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
-                        <th>Payment Type <i class="fa fa-sort"></i></th>
-                        <th>Amount <i class="fa fa-sort"></i></th>
-                        <th>Trans Date <i class="fa fa-sort"></i></th>
-                        <th>Status <i class="fa fa-sort-amount-desc"></i></th>
-                    </tr>
-                    <tr v-if="transactions && transactions.length" v-for="(tran, i) in transactions" :key="i">
-                        <td>{{ i + 1 }}</td>
-                        <td>{{ tran.reference }}</td>
-                        <td>{{ tran.payment_method }}</td>
-                        <td>&#8358;{{ currency.format(tran.amount) }}</td>
-                        <td>{{ tran.updatedAt }}</td>
-                        <td :class="[{'success': tran.status},{'pending': !tran.status}]">{{ tran.message }} <br>
-                            <button v-if="!tran.status" class="requery-btn">Requery</button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="entries">
-                <div class="entry-head"><p class="p2">Showing 2 to 2 of Entries</p></div>
-                <div class="previous-next">
-                    <div class="p3"><p>Previous</p></div>
-                    <div class="p4"><p>1</p></div>
-                    <div class="p5"><p>Next</p></div>
-                </div>
-            </div>
+<template>
+    <div class="transaction-wrapper">
+        <h4 class="sub-heading">Transactions</h4>
+        <!--<p class="p1">Show <input type="number" class="number-input"> Entries</p>-->
+        <div class="table-wrap1">
+            <table>
+                <tr>
+                    <th># <i class="fa fa-sort-down"></i></th>
+                    <th>Transaction Ref <i class="fa fa-sort-down"></i></th>
+                    <th>Payment Type <i class="fa fa-sort"></i></th>
+                    <th>Amount <i class="fa fa-sort"></i></th>
+                    <th>Trans Date <i class="fa fa-sort"></i></th>
+                    <th>Status <i class="fa fa-sort-amount-desc"></i></th>
+                </tr>
+                <tr v-if="transactions && transactions.length" v-for="(tran, i) in transactions" :key="i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ tran.reference }}</td>
+                    <td>{{ tran.payment_method }}</td>
+                    <td>&#8358;{{ currency.format(tran.amount) }}</td>
+                    <td>{{ formatDate(tran.updatedAt) }}</td>
+                    <td :class="[{'success': tran.status},{'pending': !tran.status}]">{{ tran.message }} <br>
+                        <button v-if="!tran.status" class="requery-btn">Requery</button>
+                    </td>
+                </tr>
+            </table>
         </div>
 
+      <!--  <div class="entries">
+            <div class="entry-head"><p class="p2">Showing 2 to 2 of Entries</p></div>
+            <div class="previous-next">
+                <div class="p3"><p>Previous</p></div>
+                <div class="p4"><p>1</p></div>
+                <div class="p5"><p>Next</p></div>
+            </div>
+        </div>-->
     </div>
+
 </template>
 
 <script>
 
+    import FormatDate from '~/mixins/formatDates'
     import CurrencyFormatter from '~/mixins/currencyFormatter'
 
     export default {
 
-        mixins: [CurrencyFormatter],
+        mixins: [FormatDate, CurrencyFormatter],
 
         data() {
             return {
-               
+                dateFormat: 'Do MMM, YYYY'
             }
         },
 
@@ -63,24 +62,19 @@
             this.$store.dispatch('transactions/getTransactions')
         },
 
-        destroyed() {
+        /*destroyed() {
             document.body.style.background = "none";
-        }
+        }*/
     }
 
 </script>
 
 <style scoped>
-    .transaction-history{
-        display: grid;
-        /* min-height: 100vh; */
-    }
+
     a{
         text-decoration: none;
     }
     .transaction-wrapper{
-        display: grid;
-        grid-template-rows: 50px 40px 190px 30px;
         background-color: #fefefe;
         margin: 60px 40px 40px 40px;
         color: #114e9e;
@@ -88,10 +82,7 @@
         padding-bottom: 20px;
     }
     .sub-heading{
-        display: grid;
-        height: 40px;
-        align-items: center;
-        background-color: rgb(241, 241, 241);
+        background: rgb(241, 241, 241);
         padding-left: 40px;
         color: #114e9e;
     }
@@ -162,7 +153,7 @@
         cursor: pointer;
     }
 
-     @media (max-width: 1022px) {
+    @media (max-width: 1022px) {
         .transaction-wrapper{
             grid-template-rows: 60px 40px 220px 30px;
         }
@@ -188,11 +179,8 @@
             text-align: center;
             padding: 8px;
         }
-        .table-wrap1{
-            /* display: none; */
-        }
         .entries{
             margin: 0 10px;
         }
-    }  
+    }
 </style>

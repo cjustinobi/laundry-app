@@ -1,10 +1,9 @@
 <template>
-    <div class="product" :style="myStyle">
-        <div class="title">
-            <h2>Choose items</h2>
-        </div>
+    <div class="search">
+        <h2>Choose items</h2>
         <div class="search-laundry">
-            <input type="search" placeholder="Search for laundry items"><button class="search-btn">Search</button>
+            <input type="search" placeholder="Search for laundry items">
+            <button class="search-btn">Search</button>
         </div>
         
     </div>
@@ -17,59 +16,39 @@
 
         data() {
             return {
-                myStyle: {
-                    backgroundColor: "#f0faff"
-                },
-                faCheckCircle: true
+
             }
-        },
-        mounted() {
-            // document.body.style.background = "#e1f5fe";
-        },
-        destroyed() {
-            document.body.style.background = "none";
         }
     }
 </script>
 
-<style scoped>
-    .product{
-        display: grid;
-        grid-template-rows: 40px 50px;
-    }
-    .fa{
-        cursor: pointer;
-    }
-    .addColor{
-        color: #e7b83f;
-    }
-    .removeColor{
-        color: #114e9e;
-    }
-    .title{
-        display: grid;
-        justify-items: center;
-        align-content: center;
-        color: #114e9e;
-        background-color: #f0faff;
+<style lang="scss" scoped>
+    .search{
+        background: #fefefe;
+        h2{
+            text-align: center;
+            color: #114e9e;
+            padding: 16px 0;
+            background: #f0faff;
+        }
     }
     .search-laundry{
         display: grid;
         justify-content: center;
-        background-color: #f0faff;
         grid-template-columns: 350px 130px;
         align-content: center;
+        padding: 16px 0;
     }
     .search-laundry input{
         width: 100%;
         height: 30px;
         color: #898f97;
-        padding-left: 5px;
+        padding: 8px;
         border: 1px solid rgb(238, 238, 238);
     }
     .search-btn{
         height: 30px;
-        background-color: #114e9e;
+        background: #114e9e;
         color: #fefefe;
         border: none;
         outline: none;
@@ -77,7 +56,7 @@
         cursor: pointer
     }
     .search-btn:hover{
-        background-color: #052a5a;
+        background: #052a5a;
     }
 
     @media (max-width: 767px) {

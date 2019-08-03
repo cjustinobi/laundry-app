@@ -63,7 +63,7 @@
                     nav.style.background = '#01355f'
                     nav.style.boxShadow = '0 4px 12px 0 rgba(0,0,0,0.4)'
                     topNav.style.display = "none"
-                } else {
+                } else if (this.$route.path == '/'){
                     nav.style.background = 'transparent'
                     nav.style.boxShadow = 'none'
                     topNav.style.display = "block"

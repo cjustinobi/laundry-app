@@ -1,5 +1,5 @@
 <template>
-    <div class="all-products">
+    <div>
         <Search/>
         <Categories/>
         <div class="laundry-list-wrapper" >
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
+            <!--<div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
                 v-if="user && user.user_type === 3"
             >
                 <SideLinks />
@@ -37,7 +37,7 @@
                 v-if="user && user.user_type === 1"
             >
                 <SideLinks />
-            </div>
+            </div>-->
         </div>
     </div>
 </template>
@@ -100,69 +100,13 @@
 </script>
 
 <style lang="scss" scoped>
-    .all-products{
-        display: grid;
-        grid-template-rows: auto auto 1fr;
-        min-height: 100vh;
-        position: relative;
-        top: 0;
-    }
-    .continue-btn{
-        position: fixed;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        border: none;
-        outline: none;
-        top: 300px;
-        right: 2px;
-        background-color: #b8b8b8;
-        opacity: 0.6;
-        z-index: 1;
-        color: #fefefe;
-        transition: 0.8s ease-in;
-        font-size: 14px;
-        animation: bounce 0.95s infinite;
-        -webkit-animation: bounce 0.95s infinite;
-    }
-    .continue-btn:hover{
-        background-color: #e7b83f;
-    }
-    @keyframes bounce {
-        0% {
-            transform: scale(1,1) translate(0px, 0px);
-        }
-        30%{
-            transform: scale(1,0.8) translate(0px, 30px); 
-        }
-        75%{
-            transform: scale(1,1.1) translate(0px, -25px); 
-        }
-        100% {
-            transform: scale(1,1) translate(0px, 0px);
-        }
-    }
-    @-webkit-keyframes bounce {
-        0% {
-            // transform: scale(1,1) translate(0px, 0px);
-        }
-        30%{
-            transform: scale(1,0.8) translate(0px, 10px); 
-        }
-        75%{
-            // transform: scale(1,1.1) translate(0px, -25px); 
-        }
-        100% {
-            // transform: scale(1,1) translate(0px, 0px);
-        }
-    }
+
     .laundry-list-wrapper{
         display: grid;
         grid-template: 380px / repeat(auto-fit, minmax(240px, 255px));
         grid-gap: 30px;
         position: relative;
-        justify-content: center;
-        margin: 20px 0;
+        margin: 28px;
     }
     .laundry-list{
         display: grid;
@@ -197,7 +141,6 @@
         grid-gap: 10px;
     }
     .laundry-list-btn{
-        // width: 235px;
         height: 30px;
         background-color: #e7b83f;
         color: #fefefe;
@@ -222,14 +165,14 @@
     }
     .side-links{
         position: absolute;
-        left: 0px;
+        left: 0;
         top: 20px;
         z-index: 1000;
         transition: 0.8s ease-in;
     }
     .side-links1{
         position: absolute;
-        left: 0px;
+        left: 0;
         top: 138px;
         z-index: 1000;
         transition: 0.8s ease-in;
@@ -242,20 +185,15 @@
     }
     
     @media (max-width: 767px) {
-        .continue-btn{
-            width: 60px;
-            height: 60px;
-            font-size: 12px;
-        }
         .laundry-list-wrapper{
             grid-gap: 20px;
         }
         .side-links{
-            left: 0px;
+            left: 0;
             top: 25px;
         }
         .side-links1{
-            left: 0px;
+            left: 0;
             top: 143px;
         }
     }

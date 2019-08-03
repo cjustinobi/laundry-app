@@ -1,6 +1,6 @@
 <template>
-    <div class="product-page">
-        <div class="product-tabs">
+    <div>
+        <div class="steps">
             <div class="fa"
                 @click.prevent="toggleTab('products')" 
                 :class="{'addColor': products}">
@@ -100,11 +100,7 @@
 </script>
 
 <style scoped>
-    .product-page{
-        display: grid;
-        grid-template-rows: 50px;
-    }
-    .product-tabs{
+    .steps{
         display: grid;
         justify-content: center;
         color: #114e9e;
@@ -112,6 +108,7 @@
         grid-template-columns: auto 40px auto 40px auto 40px auto;
         align-items: center;
         grid-gap: 9px;
+        padding: 17px 0;
     }
     .demarcator{
         width: 40px;
@@ -133,16 +130,12 @@
         justify-items: center;
     }
     pickup-date{
-        /* display: grid; */
-        /* justify-items: center; */
         width: 400px;
         padding: 10px;
     }
 
-  
-
     @media (max-width: 767px) {
-       .product-tabs{
+       .steps{
             grid-template-columns: auto 20px auto 20px auto 20px auto;
             padding: 0 15px;
             grid-gap: 5px;

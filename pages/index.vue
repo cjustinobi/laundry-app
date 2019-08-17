@@ -1,15 +1,15 @@
 <template>
     <div class="page">
         <div class="intro">
-            <h1>Save Time and Energy </h1>
-            <h1>Looking good and clean always</h1>
+            <h1 class="animate-txt">Save Time and Energy </h1>
+            <h1 class="animate-txt">Looking good and clean always</h1>
             <button @click="$router.push('/register')">Sign up</button>
         </div>
 
-        <svg id="ee" width="268" height="141" viewBox="0 0 68 141" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path id="e" d="M46.5 57.4531H16.9219V81.6406H51.2812V89H7.92188V20.75H50.8125V28.1562H16.9219V50.0938H46.5V57.4531Z" fill="#E7C411"/>
-            <path id="f" d="M49.2384 58.3004L16.9066 57.4208L17.1068 50.0642L58.4821 51.1898L56.6261 119.415L47.5826 119.169L49.2384 58.3004Z" fill="#1133E7"/>
-        </svg>
+        <!--<svg width="268" height="141" viewBox="0 0 68 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M46.5 57.4531H16.9219V81.6406H51.2812V89H7.92188V20.75H50.8125V28.1562H16.9219V50.0938H46.5V57.4531Z" fill="#E7C411"/>
+            <path d="M49.2384 58.3004L16.9066 57.4208L17.1068 50.0642L58.4821 51.1898L56.6261 119.415L47.5826 119.169L49.2384 58.3004Z" fill="#1133E7"/>
+        </svg>-->
 
         <HowItWorks/>
       
@@ -51,14 +51,23 @@
             },
             mounted() {
                 this.animateTxt()
+
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 70) {
+                        let el = document.querySelector('animate-txt')
+                        console.log(el)
+                    }
+                })
             }
-
-
     }
 </script>
 
-<style lang="scss" scoped>
+<style>
+@import '~/assets/css/animateText.css'
+</style>
 
+<style lang="scss" scoped>
+    
     .page{
         margin-top: 35px;
         min-height: 100vh;

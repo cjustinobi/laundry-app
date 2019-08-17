@@ -29,6 +29,9 @@ h1,h2,h3,h4,h5,h6{
 .gray-txt{
     color: #728691;
 }
+.accent-txt-color{
+    color: #e7b83f;
+}
 .show-form{
     position: absolute;
     top: 50%;

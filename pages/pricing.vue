@@ -1,15 +1,12 @@
 <template>
-    <div class="pricing-container" :style="pageStyle">
-        <div id="top-nav"></div>
-        <div class="price-head"><h2>Our Prices</h2></div>
-        <div class="quick-response">
+    <div class="pricing-container">
             <h2>No hidden fees. No confusing or tired pricing <br>  
                 what you see is what you get
             </h2>
-        </div>
+    
         <div class="table-container">
             <table>
-                <caption style="font-size:18px">Men</caption>
+                <caption>Men</caption>
                 <tr>
                     <th>Items</th>
                     <th>Wash &amp; Iron (N)</th>
@@ -17,22 +14,22 @@
                 </tr>
                 <tr>
                     <td>Trouser</td>
-                    <td class="text-yellow">500</td>
-                    <td class="text-yellow">200</td>
+                    <td class="accent-txt-color">500</td>
+                    <td class="accent-txt-color">200</td>
                 </tr>
                 <tr>
                     <td>Shirt</td>
-                    <td class="text-yellow">400</td>
-                    <td class="text-yellow">200</td>
+                    <td class="accent-txt-color">400</td>
+                    <td class="accent-txt-color">200</td>
                 </tr>
                 <tr>
                     <td>Suit</td>
-                    <td class="text-yellow">2000</td>
-                    <td class="text-yellow">1000</td>
+                    <td class="accent-txt-color">2000</td>
+                    <td class="accent-txt-color">1000</td>
                 </tr>
             </table>
             <table>
-                <caption style="font-size:18px">Women</caption>
+                <caption>Women</caption>
                 <tr>
                     <th>Items</th>
                     <th>Wash &amp; Iron (N)</th>
@@ -40,61 +37,34 @@
                 </tr>
                 <tr>
                     <td>Trouser</td>
-                    <td class="text-yellow">500</td>
-                    <td class="text-yellow">200</td>
+                    <td class="accent-txt-color">500</td>
+                    <td class="accent-txt-color">200</td>
                 </tr>
                 <tr>
                     <td>Shirt</td>
-                    <td class="text-yellow">400</td>
-                    <td class="text-yellow">200</td>
+                    <td class="accent-txt-color">400</td>
+                    <td class="accent-txt-color">200</td>
                 </tr>
                 <tr>
                     <td>Suit</td>
-                    <td class="text-yellow">2000</td>
-                    <td class="text-yellow">1000</td>
+                    <td class="accent-txt-color">2000</td>
+                    <td class="accent-txt-color">1000</td>
                 </tr>
             </table>
         </div>
-        <div class="discount"><i class="fa fa-asterisk"></i> 
-                <h2>We also offer bulk laundry washes at awesome discounted prices</h2> 
-            <i class="fa fa-asterisk"></i>
-        </div>
-        <div class="get-started"><button class="get-started-btn">Get started</button></div>
+        <button class="get-started-btn">Get started</button>
     </div>
 </template>
-<script>
-    export default {
-        
-        data() {
-            return {
-                pageStyle: {
-                    backgroundColor: "#f0faff"
-                },
-            }
-        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-        mounted() {
-            // document.body.style.background = "#e1f5fe";
-        },                                                                                                                                                                                                                                                                          
-        destroyed() {
-            document.body.style.background = "none";
+
+<style lang="scss" scoped>
+    .pricing-container{
+        margin: 40px 74px;
+        color: #114e9e;
+        h2{
+            margin-bottom: 30px;
         }
     }
-</script>
-<style scoped>
-    .pricing-container{
-        display: grid;
-        /* min-height: 100vh; */
-        grid-template-rows: 60px 100px 1fr 50px 60px;
-        grid-gap: 30px;
-        color: #114e9e;
-        padding-bottom: 30px;
-    }
-    .price-head{
-        display: grid;
-        align-items: center;
-        text-align: center;
-        background-color: #fefefe;
-    }
+    
     .quick-response{
         display: grid;
         align-items: center;
@@ -102,14 +72,17 @@
     }
     .table-container{
         display: grid;
-        grid-gap: 90px;
-        margin: 0 70px;
+        grid-gap: 40px;
         overflow-x: auto;
     }
     table {
         border-collapse: collapse;
         width: 100%;
         font-size: 14px;
+        caption{
+            text-align: left;
+            margin: 20px 0;
+        }
     }
     td, th {
         border: 1px solid #dddddd;
@@ -118,9 +91,6 @@
         background-color: #fefefe;
         width: auto;
     }
-    .text-yellow{
-        color: #e7b83f;
-    }
     .discount{
         margin: 0 70px;
         display: grid;
@@ -128,13 +98,7 @@
         justify-content: center;
         justify-items: center;
     }
-    .fa-asterisk{
-        color: #e7b83f;
-    }
-    .get-started{
-        display: grid;
-        justify-content: center;
-    }
+    
     .get-started-btn{
         width: 250px;
         height: 55px;
@@ -144,6 +108,8 @@
         border: none;
         transition: 0.8s ease-in;
         font-size: 19px;
+        justify-self: center;
+        margin-top: 40px;
     }
     .get-started-btn:hover{
         background-color: #083774;
@@ -152,15 +118,9 @@
     
     @media (max-width: 767px) {
         .pricing-container{
-            grid-gap: 40px;
-            grid-template-rows: 60px 140px 1fr;
+            margin: 34px;
         }
-        .quick-response{
-            margin: 0 40px;
-        }
-        table {
-            /* width: 70%;
-            font-size: 14px; */
-        }
+      
+      
     }
 </style>

@@ -64,6 +64,11 @@
                     return this.products = true
                 }
                 if(val == 'address') {
+                    if (this.$store.state.cart.items.length === 0) {
+                        return this.$store.dispatch('notifications/setStatus', {
+                            messages: ['cart is empty'], state: 'error'
+                        })
+                    }
                     this.time =false
                     this.paymentPage =false
                     this.products = false

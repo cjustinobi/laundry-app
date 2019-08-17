@@ -14,12 +14,6 @@
         <label for="phone">Mobile <br>
             <input v-model="details.phone" id="phone" required>
         </label>
-        <label for="package">Plan ID <br>
-            <select v-model="details.plan_id" id="package" required class="plan-select">
-                <option disabled>Select package</option>
-                <option v-for="(plan, i) in plans" :key="i" :value="plan.id">{{ plan.name }}</option>
-            </select>
-        </label>
         <div class="password-wrapper">
             <label for="password">Password <br>
                 <input type="password" v-model="details.password" id="password">
@@ -46,17 +40,13 @@
 
 <script>
     export default {
-
-        name: 'signUp',
-
         data() {
             return {
                 details: {
                     fullname: '',
                     email: '',
                     phone: '',
-                    password: '',
-                    plan_id: 'Select package',
+                    password: ''
                 },
                 eyeSlash: false,
                 loading: false,
@@ -67,9 +57,7 @@
                 this.loading = true
                 try {
                     await this.$axios.$post('register', this.details)
-                    this.$store.dispatch('notifications/setStatus',
-                        { messages: ['successfully registered'], state: 'error' }
-                    )
+                    this.$store.dispatch('notifications/setStatus', { messages: ['successfully registered'], state: 'success' })
                     this.$router.push('/login')
                 } catch (e) {
                     this.loading = false
@@ -99,7 +87,7 @@
             this.$store.dispatch('plans/getPlans')
         },
         destroyed() {
-            document.body.style.background = "none";
+            // document.body.style.background = "none";
         }
     }
 </script>
@@ -132,7 +120,6 @@
     }
     .names{
         display: grid;
-        /* grid-template-columns: 530px; */
     }
     .names input{
         width: 530px;

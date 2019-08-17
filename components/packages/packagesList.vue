@@ -1,11 +1,10 @@
 <template>
-    <div class="packages-container">
+    <div>
         <h1 class=" pkg-txt gray-txt">Our Packages</h1>
         <div class="packages">
             <div class="pack-item" v-for="(plan, i) in plans" :key="i">
                 <Actions
                         v-if="user !== undefined && user.user_type == 3"
-                        :class="[{'ellipsis-product': productList}, {'ellipsis-package': !productList}]"
                         @editItem="editItem"
                         @removeItem="removeItem"
                         :itemId="plan.id"
@@ -70,7 +69,7 @@
             },
             subscribe() {
                 this.$root.$emit("package", 2000);
-                this.$router.push({ path: "/volunteer" });
+                // this.$router.push({ path: "/volunteer" });
             }
         },
 
@@ -89,11 +88,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .packages-container{
-        display: grid;
-        background: #f6f6f6;
-        padding: 60px 0 80px 0;
-    }
     .pkg-txt{
         text-align: center;
         margin-bottom: 60px;
@@ -116,8 +110,6 @@
         grid-gap: 40px;
     }
     .pack-item{
-        display: grid;
-        grid-template-rows: 70px 50px auto 70px;
         position: relative;
         border: 1px solid #dcdcdc;
         min-height: 450px;
@@ -156,16 +148,18 @@
         padding: 8px 0;
     }
     .subscribe{
-        margin: 8px;
         padding: 16px 0;
-        border: 1px solid #fff;
+        border: none;
         background-color: #e7b83f;
         color: #fff;
         outline: none;
         font-weight: bold;
         font-size: 16px;
         cursor: pointer;
-        display: grid;
+        position: absolute;
+        bottom: 10px;
+        left: 5%;
+        width: 90%;
         transition: .7s ease-out;
     }
     .subscribe:hover,

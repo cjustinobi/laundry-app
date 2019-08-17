@@ -83,7 +83,7 @@
     }
     .sub-heading{
         background: rgb(241, 241, 241);
-        padding-left: 40px;
+        padding: 10px 0 10px 40px;
         color: #114e9e;
     }
     .p1{

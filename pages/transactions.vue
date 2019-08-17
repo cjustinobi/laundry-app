@@ -10,17 +10,7 @@ import TransactionHistory from '~/components/dashboard/shared/transactionHistory
 
         layout: 'dashboard',
 
-        components: { TransactionHistory },
-
-        data() {
-            return {
-                paymode: 'Mode of Payment'
-            }
-        }
+        components: { TransactionHistory }
         
     }
 </script>
-
-<style scoped>
-
-</style>

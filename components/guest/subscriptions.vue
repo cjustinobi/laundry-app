@@ -1,6 +1,6 @@
 <template>
-    <div class="subscription-container" >
-        <div class="title"><h2>Subscriptions</h2></div>
+    <div>
+        <h2>Subscriptions</h2>
         <div class="edit-wrapper">
             <div class="sub-heading">
                 <p>#</p>
@@ -73,22 +73,19 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .subscription-container{
-        display: grid;
-        grid-template-rows: 80px 550px;
-        /* min-height: 100vh; */
-        grid-gap: 10px;
+        h2{
+            display: grid;
+            justify-items: center;
+            align-content: center;
+            height: 80px;
+            color: #114e9e;
+            background-color: #f0faff;
+            border-bottom: 1px solid rgb(207, 207, 207);
+        }
     }
-    .title{
-        display: grid;
-        justify-items: center;
-        align-content: center;
-        height: 80px;
-        color: #114e9e;
-        background-color: #f0faff;
-        border-bottom: 1px solid rgb(207, 207, 207);
-    }
+
     a{
         text-decoration: none;
     }

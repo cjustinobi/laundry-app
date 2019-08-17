@@ -85,7 +85,7 @@
     }
     .ellipsis-item{
         position: absolute;
-        right: -3px;
+        right: 11px;
         top: 10px;
         cursor: pointer;
     }

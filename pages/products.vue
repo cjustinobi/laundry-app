@@ -134,10 +134,6 @@
         width: 100%;
         justify-items: center;
     }
-    pickup-date{
-        width: 400px;
-        padding: 10px;
-    }
 
     @media (max-width: 767px) {
        .steps{

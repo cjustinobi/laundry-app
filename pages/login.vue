@@ -132,8 +132,10 @@ export default {
         border: none;
         border-bottom: 1px solid rgb(207, 207, 207);
         height: 50px;
-        font-size: 25px;
         outline-style: none;
+    }
+    input::selection{
+        background: #fefefe;
     }
     label{
         color: #114e9e;

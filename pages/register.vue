@@ -4,18 +4,18 @@
             <img src="~assets/images/EL_logo_3.png" alt="Elegant Laundry">
         </div>
         <div class="names">
-            <label for="fullname">First name <br>
+            <label for="fullname">First name
                 <input v-model="details.fullname" id="fullname" required>
             </label>
         </div>
-        <label for="email">Email <br>
+        <label for="email">Email
             <input v-model="details.email" id="email" type="email" required>
         </label>
-        <label for="phone">Mobile <br>
+        <label for="phone">Mobile
             <input v-model="details.phone" id="phone" required>
         </label>
         <div class="password-wrapper">
-            <label for="password">Password <br>
+            <label for="password">Password
                 <input type="password" v-model="details.password" id="password">
                 <i class="fa fa-eye-slash pw-icon" v-if="!eyeSlash" @click.prevent="toggleEyeSlash(false)"></i>
                 <i class="fa fa-eye pw-icon" v-if="eyeSlash" @click.prevent="toggleEyeSlash(true)"></i>
@@ -85,17 +85,11 @@
         mounted() {
             document.body.style.background = "#fefefe";
             this.$store.dispatch('plans/getPlans')
-        },
-        destroyed() {
-            // document.body.style.background = "none";
         }
     }
 </script>
 
 <style scoped>
-    body{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    }
     .sign-up{
         display: grid;
         position: relative;
@@ -118,20 +112,17 @@
     a:hover{
         color: #042552;
     }
-    .names{
-        display: grid;
-    }
-    .names input{
-        width: 530px;
-    }
     input{
         width: 530px;
         padding: 10px;
         border: none;
         border-bottom: 1px solid rgb(207, 207, 207);
-        height: 14px;
-        font-size: px;
+        height: 40px;
         outline-style: none;
+        background: #fefefe;
+    }
+    label{
+        color: #114e9e;
     }
     .elegant-image{
         display: grid;
@@ -140,14 +131,7 @@
     img{
         width: 50px;
     }
-    .plan-select{
-        width: 530px;
-        padding: 10px;
-        border: none;
-        border-bottom: 1px solid rgb(197, 197, 197);
-        outline: none;
-        font-size: 14px;
-    }
+
     .password-wrapper{
         display: grid;
         position: relative;
@@ -158,13 +142,8 @@
         bottom: 7px;
         cursor: pointer;
     }
-    .login-reg{
-        color: black;
-        text-decoration: underline;
-    }
-    .create{
-        font-size: 50px;
-        margin-bottom: 40px;
+    .loading{
+        width: 24px;
     }
     .terms{
         text-align: justify; 
@@ -204,9 +183,7 @@
     
 
     @media (max-width: 767px) {
-        .create{
-            text-align: center;
-        }
+
         .sign-up{
             width: 350px;
             grid-gap: 10px;
@@ -218,12 +195,8 @@
         input{
             width: 320px;
         }
-        .plan-select{
-            width: 320px;
-        }
         .pw-icon{
             right: 6px;
-            /* bottom: 10px;    */
         }
         .terms{
             width: 320px

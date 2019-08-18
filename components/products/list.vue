@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="products.length">
         <Search/>
         <Categories/>
         <div class="laundry-list-wrapper" >
@@ -39,6 +39,9 @@
                 <SideLinks />
             </div>-->
         </div>
+    </div>
+    <div class="no-item" v-else>
+        <h4 class="gray-txt">No item added yet</h4>
     </div>
 </template>
 
@@ -183,7 +186,10 @@
     .hide-side-links{
         display: none;
     }
-    
+    .no-item{
+        text-align: center;
+        margin-top: 50px;
+    }
     @media (max-width: 767px) {
         .laundry-list-wrapper{
             grid-gap: 20px;

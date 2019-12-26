@@ -11,7 +11,7 @@
                         :itemId="product.id" :api="api"/>
 
                 <div class="img-square">
-                    <img :src="`${baseUrl}${product.file_path}`" alt="EL image">
+                    <img :src="`${baseUrl}/${product.file_path}`" alt="EL image">
                 </div>
                 <h5>{{ product.name }}</h5>
                 <p class="p1">Washed, pressed and neatly folded</p>
@@ -27,17 +27,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--<div :class="[{'side-links': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
-                v-if="user && user.user_type === 3"
-            >
-                <SideLinks />
-            </div>
-            <div :class="[{'side-links1': sideLinks, 'hide-side-links': !sideLinks}]" id="side-links"
-                v-if="user && user.user_type === 1"
-            >
-                <SideLinks />
-            </div>-->
         </div>
     </div>
     <div class="no-item" v-else>
@@ -87,7 +76,7 @@
                     product.qty = 1
                     this.items.push(product)
                     this.$store.dispatch('cart/addToCart', { item: product, elId: i })
-                } 
+                }
             }
         },
         computed: {
